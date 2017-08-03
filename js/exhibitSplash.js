@@ -18,12 +18,17 @@ $(document).ready(function () {
 
             // push number to array
             scannedInput.push(String.fromCharCode(scanEvent.which));
+            //scannedInput.push(scanEvent.which);
+            //window.alert( scannedInput );
         }
 
         setTimeout(function () {
+            //window.alert( scannedInput.length ); //All lengths are 1 for some reason
 
             // if length is equivalent to proper length, add string to userID
-            if (scannedInput.length === 10) {
+            if (scannedInput.length === 8) {
+
+
 
                 // store array into string
                 var userID = scannedInput.join("");
@@ -37,8 +42,11 @@ $(document).ready(function () {
                     //save RFID input
                     window.localStorage.setItem('userID', userID);
 
+                    //winodw.alert( "Scanned input: " + window.localStorage.getItem( userID ));
+
                     //jump to exhibit_terminal page
-                    window.location.href = "../html/exhibit_terminal.html";
+                    //XXX Commented out other teams redirect
+                    //window.location.href = "../html/exhibit_terminal.html";
                 }
             }
 

@@ -16,11 +16,38 @@
 function pathway_redirect() {
 
   //Database reference
-  //var database = firebase.database();
+  var database = firebase.database();
+
+  var userPathA = "Path A";
+
+  //Temporary userIDs for project testing while no database connected
+  var cardID = "00819879";
+  var tagID = "10007974";
 
   //Get the userID scanned in
   var userID = document.getElementById('RFID_ID').value;
-  window.alert( "userID: " + userID );
+
+
+
+  //TODO delete this at the end once we add database
+  if( userID === cardID ){
+
+    //Reset text box to have no entry
+    document.getElementById('RFID_ID').value = '';
+
+    //window.alert( window.localStorage.getItem( "Path_A" ) );
+    //redirect user
+    window.location.href = "pathwayA.html";
+  }
+  else if( userID === tagID ){
+
+    //Reset text box to have no entry
+    document.getElementById('RFID_ID').value = '';
+
+    //redirect user
+    window.location.href = "pathwayB.html";
+  }
+
 
   //Search database for the userID
 
