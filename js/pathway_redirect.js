@@ -27,10 +27,8 @@ function pathway_redirect() {
   //Get the userID scanned in
   var userID = document.getElementById('RFID_ID').value;
 
-
-
   //TODO delete this at the end once we add database
-  if( userID === cardID ){
+  /*if( userID === cardID ){
 
     //Reset text box to have no entry
     document.getElementById('RFID_ID').value = '';
@@ -46,18 +44,33 @@ function pathway_redirect() {
 
     //redirect user
     window.location.href = "pathwayB.html";
-  }
+  }*/
 
 
-  //Search database for the userID
+  //Get the user's specified pathway from database
+  var pathRef = database.ref().child( 'RFID' ).child( userID ).child( 'Pathway');
+  pathRef.on('value', function( snapshot ){
+
+    console.log( 'value:' + JSON.stringify( snapshot.val() ));
+
+    var pathway = JSON.stringify( snapshot.val() );
+    var thing = pathway.charAt(1);
+
+    var path = "pathway" + thing + ".html";
+
+    window.location.href= path;
+    path = '';
+    userID = 0;
+
+  });
+
+
 
   //If userID not found (not in database), prompt user to register their tag
 
   //If userID found, parse for preferences
 
   //Based on preferences, redirect to correct Pathway
-
-  /*window.location.replace( pathway_link );*/
 
 
 }

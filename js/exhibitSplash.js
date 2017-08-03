@@ -35,7 +35,7 @@ $(document).ready(function () {
                 scanned = true;
                 $("#userId").val(userID);
                 console.log("user: " + userID);
-                alert(userID);
+                //alert(userID);
 
                 if (scanned) {
                     console.log("scanned");
