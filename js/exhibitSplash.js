@@ -2,14 +2,16 @@
 /*global $, jQuery*/
 
 
-
+/*
+* Description:
+*/
 $(document).ready(function () {
 
     "use strict";
     var scanned = false,
-        scannedInput = [];
+        scannedInput = [];    //Array to hold the ID number read by Scanner
 
-    $(window).keypress(function (scanEvent) {
+    $(window).keypress(function (scanEvent) {   //On scan
 
         // check to make sure input is a number 0 - 9 in ASCII
         if (scanEvent.which >= 48 && scanEvent.which <= 57) {
@@ -20,7 +22,7 @@ $(document).ready(function () {
 
         setTimeout(function () {
 
-            // if length is equivalent to proper length, add the string to userID variable
+            // if length is equivalent to proper length, add string to userID
             if (scannedInput.length === 10) {
 
                 // store array into string
@@ -28,7 +30,7 @@ $(document).ready(function () {
                 scanned = true;
                 $("#userId").val(userID);
                 console.log("user: " + userID);
-                alert(userID);    
+                alert(userID);
 
                 if (scanned) {
                     console.log("scanned");

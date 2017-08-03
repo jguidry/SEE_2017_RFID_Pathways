@@ -11,11 +11,18 @@
     <style>
     </style>
     <body>
-        <script src="js/exhibitSplash.js"></script>
+        <!-- Link javascript files -->
+        <script src="js/exhibitSplash.js"></script>      <!-- Scan cards -->
+        <script src="js/pathway_redirect.js"></script>   <!-- Redirect -->
+
+
         <p>Helllo World. Main Page</p>
-        <form action="/action_page.php">
-          First name: <input type="text" name="fname" id="RFID"><br>
-          <input type="submit" value="Submit">
-        </form>
+
+
+          <!-- Testing field for reading the RFID_Card number -->
+          ID Number: <input type="text" name="fname" id="RFID_ID" autofocus
+           onchange="pathway_redirect()"><br>
+
+
     </body>
 </html>
