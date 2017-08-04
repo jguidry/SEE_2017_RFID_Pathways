@@ -11,7 +11,8 @@
 * Description: Displays a popup for a specified amount of time that asks
 * the user to register their RFID tag.
 */
-var TIME_LENGTH = 3000; //Time before automatic close
+
+var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
 
 function invalidPopup(){
 
@@ -35,11 +36,14 @@ function invalidPopup(){
 
 function pathway_redirect() {
 
-  //Database reference
+  //Firebase reference
   var database = firebase.database();
 
   //Get the userID scanned in
   var userID = document.getElementById('RFID_ID').value;
+  //TODO TODO TODO sanatize for sql? --> security risks here to look into
+
+
 
   //Get a reference to the Pathway field of the user in the db
   var pathRef = database.ref().child( 'RFID' ).child( userID ).child( 'Pathway' );
@@ -47,7 +51,7 @@ function pathway_redirect() {
   //Overall gets the pathway and redirects user to correct page
   pathRef.on('value', function( snapshot ){
 
-    //Log the value retrieved
+    //Log the value retrieved to console
     console.log( 'value:' + JSON.stringify( snapshot.val() ));
 
     //Check that the user's tag has been registered and is in the database
@@ -59,17 +63,28 @@ function pathway_redirect() {
       //Reset entry field for clean read
       document.getElementById('RFID_ID').value = '';
     }
+
     else{ //user tag is valid
 
       //Get the pathway character
       var pathway = JSON.stringify( snapshot.val() );
-      var thing = pathway.charAt(1);
+      var thing = pathway.charAt(1);                        //TODO TODO TODO fix variable name to something useful
 
       //Build the pathway html link
       var path = "pathway" + thing + ".html";
 
+
+
+          //TODO TODO TODO
+          //Record user statistics (own function/file)
+          //TODO TODO TODO
+
+
+
+
+
       //Take user to correct pathway page
-      window.location.href= path;
+      window.location.href = path;
 
       //Reset the text field on index.html
       document.getElementById('RFID_ID').value = '';
