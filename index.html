@@ -35,13 +35,21 @@
         <script src="js/exhibitSplash.js"></script>      <!-- Scan cards -->
         <script src="js/pathway_redirect.js"></script>   <!-- Redirect -->
 
-
         <p>Helllo World. Main Page</p>
 
 
           <!-- Testing field for reading the RFID_Card number -->
           <input type="text" name="fname" id="RFID_ID" autofocus
            onchange="pathway_redirect()"><br>
+
+          <!-- Popup message for unregistered tags -->
+          <div id="myPopup" class="popup">
+            <!-- Popup content -->
+            <div class="popup-content">
+              <p>Please register your tag at a Registration Kiosk</p>
+            </div>
+          </div>
+
 
 
     </body>
