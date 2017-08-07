@@ -1,21 +1,38 @@
-var idleTime = 0;
-function idleReset() {
+/*
+* File Name: idleReset.js
+* Description: This file contains the source code for the idle timed reset. If
+* the user is determined to be idle for a specified amount of time, the system
+* will automatically redirect to the deafult page.
+* Date: 4 August 2017
+* Author: James Guidry
+*/
 
-    //Increment the idle time counter every minute.
-    var idleInterval = setInterval(timerIncrement, 6000); // 1 minute
+var session_timeout = 5000;   //45 seconds idle timeout
 
-    //Zero the idle timer on mouse movement.
-    mousemove(function (e) {
-        idleTime = 0;
-    });
-    keypress(function (e) {
-        idleTime = 0;
-    });
-}
+var reloadpage = "index.html";  //Page to reload / redirect to
+var timeout = null;
 
-function timerIncrement() {
-    idleTime = idleTime + 1;
-    if (idleTime > .6 ) { //6 seconds
-        window.location.replace( 'index.html');
-    }
+//Get the entire page to put as scope for idle reset
+var element = document.getElementById( "page" );
+
+//Events that will restart the idle timer
+element.addEventListener( "click", idleReset );
+element.addEventListener( "mousemove", idleReset );
+element.addEventListener( "keypress", idleReset );
+element.addEventListener( "scroll", idleReset );
+element.addEventListener( "drag", idleReset );
+element.addEventListener( "dragend", idleReset );
+element.addEventListener( "play", idleReset );
+
+
+/*
+* Function Name: idleReset
+* Description: Redirects page to the 'reloadpage' var if user is determined to
+* be idle.
+*/
+
+function idleReset(){
+  if (timeout)
+    clearTimeout(timeout);
+    timeout = setTimeout("location.replace('" + reloadpage + "');", session_timeout);
 }

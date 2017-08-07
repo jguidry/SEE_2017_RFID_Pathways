@@ -1,9 +1,13 @@
 /* Text field that the RFID_Scanner reads into */
 #RFID_ID{
 
-  margin-left: -10000px;
+  /*margin-left: -10000px; Put text entry way off of screen */
+  display: none; /* Hide the text entry */
 
 }
+
+
+
 
 /* The popup (background) */
 .popup {

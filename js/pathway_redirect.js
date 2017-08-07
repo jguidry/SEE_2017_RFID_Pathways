@@ -52,7 +52,7 @@ function pathway_redirect() {
   pathRef.on('value', function( snapshot ){
 
     //Log the value retrieved to console
-    console.log( 'value:' + JSON.stringify( snapshot.val() ));
+    //console.log( 'value:' + JSON.stringify( snapshot.val() ));
 
     //Check that the user's tag has been registered and is in the database
     if( snapshot.val() === null){

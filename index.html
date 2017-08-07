@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
         <!-- Link FireBase to the web page -->
+        <!-- TODO TODO hide this from appearing in our source code view in browser TODO TODO -->
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script>
           // Initialize Firebase
@@ -27,20 +28,33 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     </head>
-    <style>
-    </style>
+
     <body>
+
         <!-- Link javascript files -->
         <script src="js/exhibitSplash.js"></script>      <!-- Scan cards -->
         <script src="js/pathway_redirect.js"></script>   <!-- Redirect -->
+        <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
+
+
 
         <p>Helllo World. Main Page</p>
+
+
 
 
           <!-- Testing field for reading the RFID_Card number -->
           <input type="text" name="fname" id="RFID_ID" autofocus
            onchange="pathway_redirect()"><br>
+
+
+
+
+
+
+
 
           <!-- Popup message for unregistered tags -->
           <div id="myPopup" class="popup">
