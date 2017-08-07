@@ -1,11 +1,18 @@
 /* Text field that the RFID_Scanner reads into */
 #RFID_ID{
 
-  /*margin-left: -10000px; Put text entry way off of screen */
-  display: none; /* Hide the text entry */
+  margin-left: -10000px;
 
 }
 
+/* For presentation, probably get rid of later */
+#defaultText{
+
+  margin-left: 30%;
+  margin-top: 20%;
+  font-size: 100px;
+
+}
 
 
 
