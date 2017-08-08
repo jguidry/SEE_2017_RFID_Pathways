@@ -1,9 +1,14 @@
 #See_2017_RFID_Pathways
 
 TODOs:
--refocus on text entry for default page ( maybe not allow clicks or stuff )
+
 -Updating system
+  --> get file upload working for images, then continue
+  --> get audio / videos to work
+
 -offline redundancy / online revert
+
+-play audio / video clip from browser
 
 
 
