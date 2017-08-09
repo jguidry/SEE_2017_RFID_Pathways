@@ -13,7 +13,6 @@
 */
 
 var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
-
 function invalidPopup(){
 
   //Get the popup
@@ -44,19 +43,27 @@ function pathway_redirect() {
   //TODO TODO TODO sanatize for sql? --> security risks here to look into
 
 
-
   //Get a reference to the Pathway field of the user in the db
-  var pathRef = database.ref().child( 'RFID' ).child( userID ).child( 'Pathway' );
+  var pathwayRef = database.ref().child( "RFID/" + userID + "/Pathway" );
 
-  //Overall gets the pathway and redirects user to correct page
-  pathRef.on('value', function( snapshot ){
+  //Get a ref to language
+  var langRef = database.ref().child( "RFID/" + userID + "/Language");
+
+  //Get a ref to education level
+  var levelRef = database.ref().child( "RFID/" + userID + "/Level");
+
+
+  //TODO
+  //Turn this step into a function
+
+  //Add the pathway to the url to go to
+  pathwayRef.on('value', function( snapshot ){
 
     //Log the value retrieved to console
     //console.log( 'value:' + JSON.stringify( snapshot.val() ));
 
-    //Check that the user's tag has been registered and is in the database
+    //Check that the user's tag has been registered in database
     if( snapshot.val() === null){
-
       //Display popup error for invalid user
       invalidPopup();
 
@@ -68,21 +75,17 @@ function pathway_redirect() {
 
       //Get the pathway character
       var pathway = JSON.stringify( snapshot.val() );
-      var thing = pathway.charAt(1);                        //TODO TODO TODO fix variable name to something useful
+      var pathChar = pathway.charAt(1);                        //TODO TODO TODO fix variable name to something useful
 
       //Build the pathway html link
-      var path = "pathway" + thing + ".html";
-
-
+      var path = "pathway" + pathChar + ".html";
 
           //TODO TODO TODO
           //Record user statistics (own function/file)
           //TODO TODO TODO
 
 
-
-
-
+          //TODO put this at then end after everything is built
       //Take user to correct pathway page
       window.location.href = path;
 

@@ -1,8 +1,8 @@
 /* Text field that the RFID_Scanner reads into */
 #RFID_ID{
 
-  /*margin-left: -10000px;*/
-  visibility: hidden; /* Hide the text field */
+  /*margin-left: -10000px; */
+  /*visibility: hidden; Hide the text field */
 
 }
 
