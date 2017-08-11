@@ -32,6 +32,9 @@ function invalidPopup(){
 * upon the preferences associated with the unique userID in the database,
 * redirect to the correct "Professional Pathway" page.
 */
+var pathwayChar;
+var langChar;
+var levelChar;
 
 function pathway_redirect() {
 
@@ -41,6 +44,7 @@ function pathway_redirect() {
   //Get the userID scanned in
   var userID = document.getElementById('RFID_ID').value;
   //TODO TODO TODO sanatize for sql? --> security risks here to look into
+
 
 
   //Get a reference to the Pathway field of the user in the db
@@ -53,39 +57,41 @@ function pathway_redirect() {
   var levelRef = database.ref().child( "RFID/" + userID + "/Level");
 
 
-  //TODO
-  //Turn this step into a function
-
   //Add the pathway to the url to go to
   pathwayRef.on('value', function( snapshot ){
-
-    //Log the value retrieved to console
-    //console.log( 'value:' + JSON.stringify( snapshot.val() ));
 
     //Check that the user's tag has been registered in database
     if( snapshot.val() === null){
       //Display popup error for invalid user
       invalidPopup();
 
-      //Reset entry field for clean read
+      //Reset entry field for clean read and refocus
       document.getElementById('RFID_ID').value = '';
+      refocusInput();
     }
 
     else{ //user tag is valid
 
       //Get the pathway character
       var pathway = JSON.stringify( snapshot.val() );
-      var pathChar = pathway.charAt(1);                        //TODO TODO TODO fix variable name to something useful
+      var pathChar = pathway.charAt(1);
+      pathwayChar = pathChar;
+
+
+      //Updating user statistics  TODO TODO none of this sheet works
+    /*  var updates = {};
+      var newDataVal = updateData( database );
+      window.alert( newDataVal );
+      updates[ 'Total_Visitors' + newDataVal ];
+      database.ref().child( 'User_Data/' ).update( updates );
+
+      window.alert( "Setting to: " + newDataVal );
+      database.ref().child( 'User_Data/Total_Visitors' ).set( newDataVal );*/
 
       //Build the pathway html link
       var path = "pathway" + pathChar + ".html";
 
-          //TODO TODO TODO
-          //Record user statistics (own function/file)
-          //TODO TODO TODO
-
-
-          //TODO put this at then end after everything is built
+      //TODO put this at then end after everything is built
       //Take user to correct pathway page
       window.location.href = path;
 
@@ -93,5 +99,6 @@ function pathway_redirect() {
       document.getElementById('RFID_ID').value = '';
     }
   });
+
 
 }

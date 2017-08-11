@@ -4,40 +4,42 @@
 * the user is determined to be idle for a specified amount of time, the system
 * will automatically redirect to the deafult page.
 * Date: 4 August 2017
-* Author: James Guidry
+* Author(s): James Guidry
 */
 
-var session_timeout = 5000;   //XXX seconds idle timeout
+var session_timeout = 5000;   //Amount of for seconds idle timeout
 
 var reloadpage = "index.html";  //Page to reload / redirect to
 var timeout = null;
 
 
-
-
-//XXX figure out linking this to the different pathways, gets error right now
-//Get the entire page to put as scope for idle reset
-var element1 = document.getElementById('page1');
-//var element2 = document.getElementById('page2');
-
-//Events that will restart the idle timer
-element1.addEventListener( "click", idleReset );
-element1.addEventListener( "mousemove", idleReset );
-element1.addEventListener( "keypress", idleReset );
-element1.addEventListener( "scroll", idleReset );
-element1.addEventListener( "drag", idleReset );
-element1.addEventListener( "dragend", idleReset );
-element1.addEventListener( "play", idleReset );
-
 /*
-element2.addEventListener( "click", idleReset );
-element2.addEventListener( "mousemove", idleReset );
-element2.addEventListener( "keypress", idleReset );
-element2.addEventListener( "scroll", idleReset );
-element2.addEventListener( "drag", idleReset );
-element2.addEventListener( "dragend", idleReset );
-element2.addEventListener( "play", idleReset );
+* Function Name: attachListeners
+* Description: Attaches listeners dynamically to page loaded by the system
+* after it redirects user to Pathway page. It then calls idleReset() to begin
+* the idle timer.
+* Parameters:
+*   page: The page that the system was redirected to and needs the listeners
 */
+
+function attachListeners( page ){
+
+  //The page the system was redirected to
+  var element = document.getElementById( page );
+
+  //Events that will restart the idle timer
+  element.addEventListener( "click", idleReset );
+  element.addEventListener( "mousemove", idleReset );
+  element.addEventListener( "keypress", idleReset );
+  element.addEventListener( "scroll", idleReset );
+  element.addEventListener( "drag", idleReset );
+  element.addEventListener( "dragend", idleReset );
+  element.addEventListener( "play", idleReset );
+
+  //Begin the idle reset
+  idleReset();
+
+}
 
 /*
 * Function Name: idleReset
