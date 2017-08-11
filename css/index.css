@@ -1,3 +1,10 @@
+/*
+* File Name: index.css
+* Author(s): James Guidry
+* Description: Style for index.html
+* Date: 1 August 2017
+*/
+
 /* Text field that the RFID_Scanner reads into */
 #RFID_ID{
 
@@ -36,6 +43,6 @@
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
+    border: 3px solid #888;
+    width: 22%; /* Could be more or less, depending on screen size */
 }

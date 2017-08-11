@@ -7,7 +7,7 @@
 * Author(s): James Guidry
 */
 
-var session_timeout = 5000;   //Amount of for seconds idle timeout
+var session_timeout = 45000;   //Amount of for seconds idle timeout
 
 var reloadpage = "index.html";  //Page to reload / redirect to
 var timeout = null;

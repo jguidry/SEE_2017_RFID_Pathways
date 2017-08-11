@@ -12,6 +12,7 @@
 * upon the preferences associated with the unique userID in the database,
 * redirect to the correct "Professional Pathway" page.
 */
+
 var pathwayChar;
 var langChar;
 var levelChar;
@@ -20,65 +21,74 @@ function pathway_redirect() {
 
   //Firebase reference
   var database = firebase.database();
+  var ID_LENGTH = 8;
 
   //Get the userID scanned in
   var userID = document.getElementById('RFID_ID').value;
-  //TODO TODO TODO sanatize for sql? --> security risks here to look into
+
+  //User validation
+  if( userID.length != ID_LENGTH ){
+    refocusInput();
+  }
+  else if( isNaN( userID ) ){
+    refocusInput();
+  }
+  //TODO possibly get more checks
+  else{
 
 
+    //Get a reference to the Pathway field of the user in the db
+    var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );
 
-  //Get a reference to the Pathway field of the user in the db
-  var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );
+    //Get a ref to language
+    var langRef = database.ref().child( "RFID/" + userID + "/Language");
 
-  //Get a ref to language
-  var langRef = database.ref().child( "RFID/" + userID + "/Language");
-
-  //Get a ref to education level
-  var levelRef = database.ref().child( "RFID/" + userID + "/Level");
-
-
-  //Add the pathway to the url to go to
-  pathwayRef.on('value', function( snapshot ){
-
-    //Check that the user's tag has been registered in database
-    if( snapshot.val() === null){
-      //Display popup error for invalid user
-      invalidPopup();
-
-      //Reset entry field for clean read and refocus
-      document.getElementById('RFID_ID').value = '';
-      refocusInput();
-    }
-
-    else{ //user tag is valid
-
-      //Get the pathway character
-      var pathway = JSON.stringify( snapshot.val() );
-      var pathChar = pathway.charAt(1);
-      pathwayChar = pathChar;
+    //Get a ref to education level
+    var levelRef = database.ref().child( "RFID/" + userID + "/Level");
 
 
-      //Updating user statistics  TODO TODO none of this sheet works
-    /*  var updates = {};
-      var newDataVal = updateData( database );
-      window.alert( newDataVal );
-      updates[ 'Total_Visitors' + newDataVal ];
-      database.ref().child( 'User_Data/' ).update( updates );
+    //Add the pathway to the url to go to
+    pathwayRef.on('value', function( snapshot ){
 
-      window.alert( "Setting to: " + newDataVal );
-      database.ref().child( 'User_Data/Total_Visitors' ).set( newDataVal );*/
+      //Check that the user's tag has been registered in database
+      if( snapshot.val() === null){
+        //Display popup error for invalid user
+        invalidPopup();
 
-      //Build the pathway html link
-      var path = "pathway" + pathChar + ".html";
+        //Reset entry field for clean read and refocus
+        refocusInput();
+      }
 
-      //TODO put this at then end after everything is built
-      //Take user to correct pathway page
-      window.location.href = path;
+      else{ //user tag is valid
 
-      //Reset the text field on index.html
-      document.getElementById('RFID_ID').value = '';
-    }
-  });
+        //Get the pathway character
+        var pathway = JSON.stringify( snapshot.val() );
+        var pathChar = pathway.charAt(1);
+        pathwayChar = pathChar;
+
+
+        //Updating user statistics  TODO TODO none of this sheet works
+      /*  var updates = {};
+        var newDataVal = updateData( database );
+        window.alert( newDataVal );
+        updates[ 'Total_Visitors' + newDataVal ];
+        database.ref().child( 'User_Data/' ).update( updates );
+
+        window.alert( "Setting to: " + newDataVal );
+        database.ref().child( 'User_Data/Total_Visitors' ).set( newDataVal );*/
+
+        //Build the pathway html link
+        var path = "pathway" + pathChar + ".html";
+
+        //TODO put this at then end after everything is built
+        //Take user to correct pathway page
+        window.location.href = path;
+
+        //Reset the text field on index.html
+        document.getElementById('RFID_ID').value = '';
+      }
+    });
+  }
 }
 
 

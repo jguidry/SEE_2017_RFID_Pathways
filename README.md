@@ -6,6 +6,15 @@ TODOs::
 #Goal for next Friday: get video working and audio with total scan system working
 
 
+-More pages for second exhibit
+-Own default pages
+-Languages
+-MVC File structure
+  -->folder for each exhibit
+-offline redundancy
+-Get everything onto the pi and make it work XXXXXXXXXXXXXXXXXXXXX
+
+
 
 -Think of ways to "extend the visit / stay in contact"
 
@@ -37,15 +46,6 @@ TODOs::
     -->Create js file that contains the code to load correct image from file system
     when we get to PathwayXXX.html --> onload vs onpageshow
 
--"deeper Dive" perspective change (Maybe)
-    -->redirect buttons on every page --> their info has to allow space for it
-        or we need to find discreet button --> dropdown menu? only a single thing
-
-
-
--Change/Add fields to registration (UPDATE OTHER TEAM'S WORK)
--Integration testing with Kiosk
-
 
 
 -Update code base for easy maintenance and updatability and overall robustness
@@ -74,4 +74,3 @@ STAY CONSISTANT WITH REQUIREMENTS DOC
 
 Security::
 -parse user inputs
--LAN connecting to database

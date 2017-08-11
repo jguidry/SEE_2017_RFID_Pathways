@@ -1,3 +1,12 @@
+/*
+* File Name: proffesionalPathway.css
+* Author(s): Bryle Castro
+* Description: Style for the proffessional pathway html pages
+* Date: 1 August 2017
+*/
+
+
+
 h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; }
 
 
@@ -26,7 +35,7 @@ a:hover { color: #ffcc66 }
 .footerDiv {
     position: fixed;
     bottom: 0;
-    width: 100%;  
+    width: 100%;
 }
 
 

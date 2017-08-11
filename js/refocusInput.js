@@ -14,5 +14,6 @@
 */
 
 function refocusInput(){
+  document.getElementById("RFID_ID").value = '';
   document.getElementById("RFID_ID").focus();
 }
