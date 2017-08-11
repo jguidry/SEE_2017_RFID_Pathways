@@ -7,26 +7,6 @@
 */
 
 /*
-* Function Name: invalidPopup
-* Description: Displays a popup for a specified amount of time that asks
-* the user to register their RFID tag.
-*/
-
-var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
-function invalidPopup(){
-
-  //Get the popup
-  var popup = document.getElementById( 'myPopup' );
-
-  //Make popup visable
-  popup.style.display = "block";
-
-  //Automatically close
-  setTimeout( function(){ popup.style.display = "none"; }, TIME_LENGTH );
-
-}
-
-/*
 * Function Name: pathway_redirect
 * Description: Obtains the user's userID value that was scanned, and based
 * upon the preferences associated with the unique userID in the database,
@@ -48,7 +28,7 @@ function pathway_redirect() {
 
 
   //Get a reference to the Pathway field of the user in the db
-  var pathwayRef = database.ref().child( "RFID/" + userID + "/Pathway" );
+  var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );
 
   //Get a ref to language
   var langRef = database.ref().child( "RFID/" + userID + "/Language");
@@ -99,6 +79,25 @@ function pathway_redirect() {
       document.getElementById('RFID_ID').value = '';
     }
   });
+}
 
+
+/*
+* Function Name: invalidPopup
+* Description: Displays a popup for a specified amount of time that asks
+* the user to register their RFID tag.
+*/
+
+var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
+function invalidPopup(){
+
+  //Get the popup
+  var popup = document.getElementById( 'myPopup' );
+
+  //Make popup visable
+  popup.style.display = "block";
+
+  //Automatically close
+  setTimeout( function(){ popup.style.display = "none"; }, TIME_LENGTH );
 
 }
