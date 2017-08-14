@@ -3,15 +3,12 @@
 TODOs::
 
 
-#Goal for next Friday: get video working and audio with total scan system working
-
 
 -More pages for second exhibit
 -Own default pages
 -Languages
 -MVC File structure
   -->folder for each exhibit
--offline redundancy
 -Get everything onto the pi and make it work XXXXXXXXXXXXXXXXXXXXX
 
 
@@ -33,11 +30,8 @@ TODOs::
 
 
 
-
-
-
 -offline redundancy / online revert
-
+    --Implemented, just need to test on Pi with connectivity and stuff
 
 
 
@@ -49,16 +43,8 @@ TODOs::
 
 
 -Update code base for easy maintenance and updatability and overall robustness
-
-
-
-
 -PLACE ALL FILES INTO CORRECT DIRECTORIES (MVC approach?)
-
-
-
-
-STAY CONSISTANT WITH REQUIREMENTS DOC
+-STAY CONSISTANT WITH REQUIREMENTS DOC
 
 
 

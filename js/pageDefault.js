@@ -19,7 +19,7 @@ function offlineDefault(){
   console.log( "System OFFLINE at: " + Date() );
 
   //TODO change to default offline page when it is created
-  window.location.replace( "uploadTest.html" );
+  window.location.replace( "offlineDefault.html" );
 
 
 }
@@ -33,7 +33,6 @@ function offlineDefault(){
 function onlineDefault(){
   //Log reconnetion
   console.log( "System ONLINE at: " + Date() );
-
 
   window.location.replace( 'index.html' );
 
