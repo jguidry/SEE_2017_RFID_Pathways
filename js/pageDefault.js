@@ -15,8 +15,12 @@
 */
 
 function offlineDefault(){
+  //Log disconnection from internet
+  console.log( "System OFFLINE at: " + Date() );
 
-  //TODO
+  //TODO change to default offline page when it is created
+  window.location.replace( "uploadTest.html" );
+
 
 }
 
@@ -26,8 +30,11 @@ function offlineDefault(){
 * and determines what the website will then do. TODO finish this when functional
 */
 
-function onDefault(){
+function onlineDefault(){
+  //Log reconnetion
+  console.log( "System ONLINE at: " + Date() );
 
-  //TODO
+
+  window.location.replace( 'index.html' );
 
 }
