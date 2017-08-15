@@ -2,6 +2,7 @@
 
 TODOs::
 
+-Turn everything into PHP and MySQL - maybe
 
 
 -More pages for second exhibit
@@ -12,6 +13,12 @@ TODOs::
 -Get everything onto the pi and make it work XXXXXXXXXXXXXXXXXXXXX
 
 
+-Record user data
+    --> add setPathway() to existing work (exhibitsplash.js I think)
+
+-offline redundancy / online revert
+    --Implemented, just need to test on Pi with connectivity and stuff
+
 
 -Think of ways to "extend the visit / stay in contact"
 
@@ -21,17 +28,12 @@ TODOs::
 -Research Facebook / social media sharing option
     --> Look into "login with Facebook"??
 
--Record user data
-    --> create space in database for stats??
 
 -Determine what kind of data we can/will store in database
   (Following ucsd guidelines or something)
 
 
 
-
--offline redundancy / online revert
-    --Implemented, just need to test on Pi with connectivity and stuff
 
 
 
