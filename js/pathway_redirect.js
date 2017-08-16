@@ -13,15 +13,18 @@
 * redirect to the correct "Professional Pathway" page.
 */
 
+
 var pathwayChar;
-var langChar;
+var langChar;   //TODO Get rid of if not needed
 var levelChar;
 
 function pathway_redirect() {
 
-  //Firebase reference
-  var database = firebase.database();
-  var ID_LENGTH = 8;
+  var database = firebase.database();  //Firebase reference
+
+  var ID_LENGTH = 8;  //Length of proper ID
+
+  var registered = false;  //Scanned id was registered boolean
 
   //Get the userID scanned in
   var userID = document.getElementById('RFID_ID').value;
@@ -52,30 +55,22 @@ function pathway_redirect() {
 
       //Check that the user's tag has been registered in database
       if( snapshot.val() === null){
-        //Display popup error for invalid user
-        invalidPopup();
+        registered = false; //Not a registered tag
+        console.log( "Reg: " + registered );
+        invalidPopup();   //Display popup error for invalid user
 
-        //Reset entry field for clean read and refocus
-        refocusInput();
+        refocusInput();   //Reset entry field for clean read and refocus
       }
 
       else{ //user tag is valid
+
+        registered = true;
+        console.log( "Reg: " + registered );
 
         //Get the pathway character
         var pathway = JSON.stringify( snapshot.val() );
         var pathChar = pathway.charAt(1);
         pathwayChar = pathChar;
-
-
-        //Updating user statistics  TODO TODO none of this sheet works
-      /*  var updates = {};
-        var newDataVal = updateData( database );
-        window.alert( newDataVal );
-        updates[ 'Total_Visitors' + newDataVal ];
-        database.ref().child( 'User_Data/' ).update( updates );
-
-        window.alert( "Setting to: " + newDataVal );
-        database.ref().child( 'User_Data/Total_Visitors' ).set( newDataVal );*/
 
         //Build the pathway html link
         var path = "pathway" + pathChar + ".html";
@@ -87,8 +82,19 @@ function pathway_redirect() {
         //Reset the text field on index.html
         document.getElementById('RFID_ID').value = '';
       }
+
+      //Updating user statistics (total visitors)
+      if( registered == true ){
+        setVisitors( database );
+      }
+
+
     });
+
+
+
   }
+
 }
 
 

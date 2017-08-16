@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html id="page3">
   <head>
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/dropDownButton.css">
-    <script src="js/dropDownPathway.js"></script>
+
   </head>
-  <body>
+  <body onload="attachListeners('page3')">
+
+  <h1> Climatologist Pathway </h1>
 
     <div>
 
@@ -24,5 +26,14 @@
                     <a href="pathwayB.html">Biologist</a>
                 </div>
         </div>
+
+    <form action="index.html">
+      <button type="submit"> Finished </button>
+    </form>
+
+
+        <!-- Link JavaScript files -->
+        <script src="js/dropDownPathway.js"></script> <!-- Drop down for pathways -->
+        <script src="js/idleReset.js"></script> <!-- Idle reset timer -->
   </body>
 </html>
