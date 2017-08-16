@@ -2,9 +2,6 @@
 
 TODOs::
 
--Turn everything into PHP and MySQL - maybe
-
-
 -More pages for second exhibit
 -Own default pages
 -Languages

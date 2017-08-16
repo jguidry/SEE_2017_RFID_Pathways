@@ -9,7 +9,21 @@
     <script src="js/dropDownPathway.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/populateContent.js"></script>   <!-- Populates content -->
 
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
+        authDomain: "birchaquarium-fd036.firebaseapp.com",
+        databaseURL: "https://birchaquarium-fd036.firebaseio.com",
+        projectId: "birchaquarium-fd036",
+        storageBucket: "birchaquarium-fd036.appspot.com",
+        messagingSenderId: "33111057118"
+      };
+      firebase.initializeApp(config);
+    </script>
 
      <style>
         .btn {
@@ -50,8 +64,9 @@
                 </div>
           </div>
           <div class="col-sm-6">
-                <img src="https://s-media-cache-ak0.pinimg.com/originals/56/86/b3/5686b3d71322a234096d9900ba469011.png"
-                height=400 width=500>
+                <script> populateContent( "T_1", "content_B"); </script>
+                <img id="content_B" src="" height=400 width=500/>
+
           </div>
       </div>
 
@@ -66,6 +81,7 @@
 
     <!-- Link JavaScript files -->
     <script src="js/idleReset.js"></script>  <!-- Idle reset -->
+
 
 
   </body>

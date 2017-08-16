@@ -14,6 +14,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <script src="js/populateContent.js"></script>  <!-- Idle reset -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
+        authDomain: "birchaquarium-fd036.firebaseapp.com",
+        databaseURL: "https://birchaquarium-fd036.firebaseio.com",
+        projectId: "birchaquarium-fd036",
+        storageBucket: "birchaquarium-fd036.appspot.com",
+        messagingSenderId: "33111057118"
+      };
+      firebase.initializeApp(config);
+    </script>
+
     <style>
         .btn {
           background: #000000;
@@ -55,7 +72,9 @@
                 </div>
           </div>
           <div class="col-sm-6">
-                <img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/452/cache/skiing-antarctica_45235_600x450.jpg">
+            <script> populateContent( "T_1", "content_E"); </script>
+
+                  <img id="content_E" src="">
           </div>
       </div>
 
