@@ -21,6 +21,7 @@
   /*visibility: hidden;*/
   width:0%;
   border: 0px;
+  outline: none;
 }
 
 /* For presentation, probably get rid of later */
