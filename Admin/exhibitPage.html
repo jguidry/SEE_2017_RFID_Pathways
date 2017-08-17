@@ -1,4 +1,4 @@
-<!--Author: Josh Duhay-->
+<!--Author: Josh Duhay, Bryle Castro-->
 
 <!doctype html>
 
@@ -7,81 +7,86 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>Admin Control Center</title>
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
-		<script src="js/pushImage.js"></script>
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-
-		<script>
-				// Initialize Firebase
-				var config = {
-						apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
-						authDomain: "birchaquarium-fd036.firebaseapp.com",
-						databaseURL: "https://birchaquarium-fd036.firebaseio.com",
-						projectId: "birchaquarium-fd036",
-						storageBucket: "birchaquarium-fd036.appspot.com",
-						messagingSenderId: "33111057118"
-				};
-				firebase.initializeApp(config);
-		</script>
-
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+        <script src="js/getOptionVal.js"></script>
+    
 </head>
 <body>
-		<section id="body" class="width">
-				<aside id="sidebar" class="column-left">
-						<header>
-								<h1><small><a href="#">admin control center</a></small></h1>
-						</header>
-						<nav id="mainnav">
-								<ul>
-										<li><a href="adminHome.html">Home</a></li>
-										<li class="selected-item"><a href="editTerminals.html">Edit Terminals</a></li>
-										<li><a href="editUsers.html">Add/Remove Users</a></li>
-										<li><a href="viewAnalytics.html">RFID Analytics</a></li>
-										<center><a href="./../index.html">Logout &raquo;</a></center>
-								</ul>
-						</nav>
-				</aside>
-		<section id="content" class="column-right">
-				<article>
-				<h2>Exhibit Name</h2>
-				<h5>exhibit info</h5>
-				<table>
-						<tr>
-								<th>Exhibit</td>
-								<th>Pathway</td>
-								<th>Level</td>
-								<th>Language</td>
-						</tr>
-						<tbody>
-								<tr>
-										<td>Exhibit Name</td>
-										<td>
-												<select>
-														<option value="engineer">Engineer</option>
-														<option value="climatologist">Climatologist</option>
-														<option value="biologist">Biologist</option>
-												</select>
-										</td>
-										<td>
-												<select>
-														<option>Moderate</option>
-														<option>Advanced</option>
-												</select>
-										</td>
-										<td>
-												<select>
-														<option>English</option>
-														<option>Spanish</option>
-												</select>
-										</td>
-								</tr>
-						</tbody>
-				</table>
-						Select image to upload:
-						<input type="file" name="fileToUpload" id="fileToUpload">
-						<input type="submit" value="Upload Image" name="submit" click="pushImage();"/>
-				<a href="./editTerminals.html">Back &raquo;</a>
-		</section>
+    <section id="body" class="width">
+        <!-- Create the navbar on the side of the webpage-->
+        <aside id="sidebar" class="column-left">
+            <header>
+                <h1><small><a href="#">admin control center</a></small></h1>
+            </header>
+            <nav id="mainnav">
+                <ul>
+                    <li class="selected-item"><a href="editTerminals.html">Update Media</a></li>
+                    <li><a href="editUsers.html">Add/Remove Users</a></li>
+                    <li><a href="viewAnalytics.html">RFID Analytics</a></li>
+                   
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Creates the options to choose where the image will be stored on cloud storage (Firebase Storage)-->
+        <section id="content" class="column-right">
+            
+            <h2 id="exhibitName"></h2>
+            <table>
+                <tr>
+                    <td>Exhibit</td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select id="exhibits">
+                                <option value="T_1/">Albedo Exploration</option>
+                                <option value="T_2/">Sally Ride</option>
+                            </select>
+                        
+                        </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+            
+            <script> 
+                var sel = document.getElementById('exhibits');
+                console.log(sel);
+                document.getElementById('exhibitName').innerHTML = getOptText(sel);        
+            </script>
+            
+            <input type="file" value="upload" id="thefileButton"/>
+            <!-- Connect to Firebase Clould Storage-->
+            <script>
+                // Initialize Firebase
+                var config = {
+                    apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
+                    authDomain: "birchaquarium-fd036.firebaseapp.com",
+                    databaseURL: "https://birchaquarium-fd036.firebaseio.com",
+                    projectId: "birchaquarium-fd036",
+                    storageBucket: "birchaquarium-fd036.appspot.com",
+                    messagingSenderId: "33111057118",
+                };
+                firebase.initializeApp(config);
+
+                <!-- Upload file into firebase cloud storage-->
+                var fileButton = document.getElementById('thefileButton');
+                if(fileButton){
+                    fileButton.addEventListener('change',function(e){
+                        var theFile = e.target.files[0];
+                        var sel = document.getElementById('exhibits');
+                        var optValue = getOptVal(sel);
+                        var storageRef = firebase.storage().ref(optValue + theFile.name);
+                        storageRef.put(theFile);
+                    });
+                }
+                
+            </script>
+        </section>
 		<div class="clear"></div>
-	</section>
+	</section> 
+     
 </body>
 </html>
