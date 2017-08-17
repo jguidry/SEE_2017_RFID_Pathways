@@ -86,10 +86,17 @@ function pathway_redirect() {
             var contentID = "content_" + pathwayChar;
 
 
+            axios.get('/user?ID=12345')
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
 
 
             //TODO search for file name to pass in instead of getting extension
-            var contentName = pathwayChar + langChar + levelChar + ".jpeg"; //TODO dynamically get extension
+            var contentName = pathwayChar + langChar + levelChar //+ ".jpeg"; //TODO dynamically get extension
 
 
 
