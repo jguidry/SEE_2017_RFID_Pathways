@@ -7,12 +7,6 @@
 * Author(s): James Guidry
 */
 
-var session_timeout = 45000;   //Amount of for seconds idle timeout
-
-var reloadpage = "index.html";  //Page to reload / redirect to
-var timeout = null;
-
-
 /*
 * Function Name: attachListeners
 * Description: Attaches listeners dynamically to page loaded by the system
@@ -48,6 +42,11 @@ function attachListeners( page ){
 */
 
 function idleReset(){
+
+  var session_timeout = 45000;   //Amount of for seconds idle timeout
+  var reloadpage = "index.html";  //Page to reload / redirect to
+  var timeout = null;
+
   console.log( "reset" );
   if (timeout)
     clearTimeout(timeout);
