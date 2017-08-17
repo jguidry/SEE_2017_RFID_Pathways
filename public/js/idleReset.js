@@ -1,3 +1,4 @@
+
 /*
 * File Name: idleReset.js
 * Description: This file contains the source code for the idle timed reset. If
@@ -6,12 +7,6 @@
 * Date: 4 August 2017
 * Author(s): James Guidry
 */
-
-var session_timeout = 45000;   //Amount of for seconds idle timeout
-
-var reloadpage = "index.html";  //Page to reload / redirect to
-var timeout = null;
-
 
 /*
 * Function Name: attachListeners
@@ -48,6 +43,11 @@ function attachListeners( page ){
 */
 
 function idleReset(){
+
+  var session_timeout = 45000;   //Amount of for seconds idle timeout
+  var reloadpage = "index.html";  //Page to reload / redirect to
+  var timeout = null;
+
   console.log( "reset" );
   if (timeout)
     clearTimeout(timeout);

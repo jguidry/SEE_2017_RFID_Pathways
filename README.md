@@ -2,23 +2,43 @@
 
 TODOs::
 
--Turn everything into PHP and MySQL - maybe
+JS:
+  Test pageDefault.js and verify that it works to a local file
+    (probably need to change the pathway of the offline's file)
+    make sure it works on the RPi
 
 
--More pages for second exhibit
--Own default pages
--Languages
--MVC File structure
-  -->folder for each exhibit
--Get everything onto the pi and make it work XXXXXXXXXXXXXXXXXXXXX
+  Finish pathway_redirect.js and test it. Possible redesign needed.
+    add more security checks for the Scanned input
+    figure out dynamic file query / getting extension for multimedia support
+
+  updateData.js:
+    Determine the user data/stats that Birch wants us to track and do that
+      ( Visitors at a certain terminal, popular pathways, most popular terminal...)
+
+      -Record user data
+          --> add setPathway() to existing work (exhibitsplash.js I think)
 
 
--Record user data
-    --> add setPathway() to existing work (exhibitsplash.js I think)
+  populateContent.js:
+    better error message if error is catched
 
--offline redundancy / online revert
-    --Implemented, just need to test on Pi with connectivity and stuff
+HTML:
+  clean up all the files, comment and document.
+  add better id tags, classes and that stuff
 
+CSS:
+  everything
+
+Security:
+  parse user inputs
+
+Pi integration testing with the current system
+  -make sure the offline default works / get it to work
+
+-Come up with more, viable pathways
+
+-Interactive design
 
 -Think of ways to "extend the visit / stay in contact"
 
@@ -31,34 +51,3 @@ TODOs::
 
 -Determine what kind of data we can/will store in database
   (Following ucsd guidelines or something)
-
-
-
-
-
-
--Go to correct page based off of language & education for Pathways
--Single html page with preferences loading correct image Architecture
-    -->Create js file that contains the code to load correct image from file system
-    when we get to PathwayXXX.html --> onload vs onpageshow
-
-
-
--Update code base for easy maintenance and updatability and overall robustness
--PLACE ALL FILES INTO CORRECT DIRECTORIES (MVC approach?)
--STAY CONSISTANT WITH REQUIREMENTS DOC
-
-
-
--Work on update system
--Updating system
-  --> get file upload working for images, then continue
-  --> get audio / videos to work
-  --> link to OTHER TEAM Employee portal (MAYBE)
--play audio / video clip from browser in general
-
-
-
-
-Security::
--parse user inputs
