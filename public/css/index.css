@@ -17,9 +17,10 @@
 
 #RFID_ID{
 
-  margin-left: -10000px;
+  /*margin-left: -10000px;*/
   /*visibility: hidden;*/
-
+  width:0%;
+  border: 0px;
 }
 
 /* For presentation, probably get rid of later */
