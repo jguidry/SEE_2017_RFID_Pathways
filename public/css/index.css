@@ -6,19 +6,29 @@
 */
 
 /* Text field that the RFID_Scanner reads into */
+#container{
+/*border: 2px solid red;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  /*flex-direction: column;*/
+}
+
 #RFID_ID{
 
-  margin-left: -10000px;
-  /*visibility: hidden; Hide the text field */
+  /*margin-left: -10000px;*/
+  visibility: hidden;
 
 }
 
 /* For presentation, probably get rid of later */
 #defaultText{
-
-  margin-left: 30%;
-  margin-top: 20%;
+  /*border: 2px solid goldenrod;*/
+display: flex;
+justify-content: center;
   font-size: 100px;
+  min-width: 100%;
 
 }
 
