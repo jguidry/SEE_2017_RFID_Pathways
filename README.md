@@ -51,3 +51,44 @@ Pi integration testing with the current system
 
 -Determine what kind of data we can/will store in database
   (Following ucsd guidelines or something)
+
+
+
+
+
+
+
+
+
+-pre-fetch the content for faster display
+
+-store file names into dynamically added object --> need to share this from
+  the admin to that terminal doe (can't really, so either store the stuff into
+  db, which would make redundant data storage, or use https GET option).
+
+-Consensus about Level property  (yes/no)
+  --naming scheme, name of the property...
+
+
+
+
+CDR:: all front end and user interaction basically
+  -brainstorm interactive idea
+  -
+
+
+
+TODO list:
+    display content
+    look into RFID tickets
+    no screensaver for Pi
+    Robustness testing
+    User testing
+    Firebase config to js file
+    Continued CAD design concepts
+    LOADS of documentation
+    Swipe features (Possiblilty)
+    Share to facebook / emails
+    UCSD user info policies
+
+    Creative Idea:

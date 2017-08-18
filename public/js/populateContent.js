@@ -13,10 +13,9 @@
 * Parameters:
 *   terminalNum: The Terminal number that is running. Used for the correct path
 *                in the Storage.
-*   contentID: id of the html element that will be updated
 */
 
-function populateContent( terminalNum, contentID ){
+function populateContent( terminalNum ){
 
   //Get content name from local storage
   var content = localStorage.getItem( "contentName" );
@@ -28,14 +27,12 @@ function populateContent( terminalNum, contentID ){
   //Dynamically set the content
   contentRef.getDownloadURL().then( function( url ){
 
-    var elem = document.getElementById( contentID );
-    elem.src = url;
+    //Store this url into local store for the html page to pick up and set src
+    localStorage.setItem( "downloadURL", url );
 
   }).catch( function( error ){
-
     //Hanlde errors TODO
     console.log( "Content download error..." + error );
-
   });
 
 }

@@ -16,7 +16,6 @@
 function pathway_redirect() {
 
   var ID_LENGTH = 8;  //Length of proper ID
-  var registered = false;  //Scanned id was registered boolean
 
   var database = firebase.database();  //Firebase reference
   var userID = document.getElementById('RFID_ID').value;  //userID scanned
@@ -38,19 +37,20 @@ function pathway_redirect() {
     var langRef = database.ref().child( "RFID/" + userID + "/language");
     var levelRef = database.ref().child( "RFID/" + userID + "/level");
 
+    //Variables used for content generation and html redirection
     var pathwayChar;
     var langChar;
     var levelChar;
-    var pathLink;
+    var pathLink;     //html page to go to
+    var contentID;
+    var terminalNum = "T_1";
+
 
     //Parse the language character for content generation
     langRef.on( 'value', function( snapshot ){
 
       //Check that the user's tag has been registered in database
-      if( snapshot.val() === null){
-
-        registered = false; //Not a registered tag
-        //console.log( "Reg: " + registered );
+      if( snapshot.val() == null){
 
         invalidPopup();   //Display popup error for invalid user
         refocusInput();   //Reset entry field for clean read and refocus
@@ -58,61 +58,56 @@ function pathway_redirect() {
       }
       else{   //user tag is valid, get the language char
 
-        registered = true;
+
         langChar = JSON.stringify( snapshot.val() ).charAt( 1 );
 
 
-        //The ID entered was registered, so we can continue working with database
-        if( registered ){
-          //Parse the level number for content generation
-          levelRef.on( 'value', function( snapshot ){
+        //Parse the level number for content generation
+        levelRef.on( 'value', function( snapshot ){
 
-            levelChar = snapshot.val();
+          levelChar = snapshot.val();
 
-          });
+        });
 
-          //Parse the pathway char for content generation and pathway link
-          pathwayRef.on('value', function( snapshot ){
+        //Parse the pathway char for content generation and pathway link
+        pathwayRef.on('value', function( snapshot ){
 
-            pathwayChar = JSON.stringify( snapshot.val() ).charAt( 1 );
+          pathwayChar = JSON.stringify( snapshot.val() ).charAt( 1 );
 
-            //Build the pathway html link
-            pathLink = "pathway" + pathwayChar + ".html";
+          //Build the pathway html link
+          pathLink = "pathway" + pathwayChar + ".html";
 
-            /**** Content population and pathway redirection ****/
+          /**** Content population and pathway redirection ****/
 
-            //Get qualifiers for content population
-            var terminalNum = "T_1";
-            var contentID = "content_" + pathwayChar;
+          //Get qualifiers for content population
+          //var terminalNum = "T_1";
+          //var contentID = "content_" + pathwayChar;
+          contentID = "content_" + pathwayChar;
 
+          //TODO search for file name to pass in instead of getting extension
+          var contentName = pathwayChar + langChar + levelChar + ".png";
+          //TODO dynamically get extension
 
+          //Set contentName in local storage
+          //localStorage.setItem( "contentName", contentName );
+          localStorage.setItem( "contentName", contentName );
 
+          //Updating user statistics (total visitors)
+          setVisitors( database );
 
-            //TODO search for file name to pass in instead of getting extension
-            var contentName = pathwayChar + langChar + levelChar + ".jpeg"; //TODO dynamically get extension
+          //Take user to correct pathway page
+          window.location.href = pathLink;
 
+          //Reset the text field on index.html
+          document.getElementById('RFID_ID').value = '';
 
-
-
-
-            //window.alert( contentName );
-
-            //Set contentName in local storage
-            localStorage.setItem( "contentName", contentName );
-
-            //Updating user statistics (total visitors)
-            setVisitors( database );
-
-            //Take user to correct pathway page
-            window.location.href = pathLink;
-
-            //Reset the text field on index.html
-            document.getElementById('RFID_ID').value = '';
-
-          }); //End pathwayChar
-        } //End if registered block
+        }); //End pathwayChar
       } //End langRef's else clause
     }); //End langRef function call
+
+    //Preprocess image to display
+    populateContent( terminalNum );
+
   } //End else (valid input read by scanner)
 } //End function
 
