@@ -60,11 +60,6 @@ Pi integration testing with the current system
 
 
 
--pre-fetch the content for faster display
-
--store file names into dynamically added object --> need to share this from
-  the admin to that terminal doe (can't really, so either store the stuff into
-  db, which would make redundant data storage, or use https GET option).
 
 -Consensus about Level property  (yes/no)
   --naming scheme, name of the property...

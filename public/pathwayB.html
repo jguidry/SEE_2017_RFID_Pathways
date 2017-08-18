@@ -9,7 +9,6 @@
     <script src="js/dropDownPathway.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/populateContent.js"></script>   <!-- Populates content -->
 
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script>
@@ -66,17 +65,19 @@
           <div class="col-sm-6">
                 <img id="content_B" src="" height=400 width=500/>
                 <script>
-                  //populateContent( "T_1", "content_B" );
+                  //populate the img's src
                   var url = localStorage.getItem( "downloadURL" );
                   document.getElementById( "content_B" ).src = url;
                 </script>
           </div>
       </div>
 
-     <div align=center class="col-lg-12">
-        <form action="index.html">
-          <button type="submit" name="finishButtonA" onclick="" class=btn> Finished </button>
-        </form>
+
+    <!-- Error modal -->
+    <div align=center class="col-lg-12">
+      <form action="index.html">
+        <button type="submit" name="finishButtonA" onclick="" class=btn> Finished </button>
+      </form>
     </div>
 
 
