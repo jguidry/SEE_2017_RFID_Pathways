@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<script> function blinker() {
+		$('.blinking').fadeOut(500);
+		$('.blinking').fadeIn(500);
+}
+setInterval(blinker, 1500);
+</script>
+
+<html onclick="refocusInput();" >
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale=1>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="">
+        <!-- Style sheet for index.html -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+				<link rel="stylesheet" href="style.css">
+				<link rel="stylesheet" href="css/terminalTemplate.css">
+
+        <!-- Link FireBase to the web page -->
+        <!-- TODO TODO hide this from appearing in our source code view in browser TODO TODO -->
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
+            authDomain: "birchaquarium-fd036.firebaseapp.com",
+            databaseURL: "https://birchaquarium-fd036.firebaseio.com",
+            projectId: "birchaquarium-fd036",
+            storageBucket: "birchaquarium-fd036.appspot.com",
+            messagingSenderId: "33111057118"
+          };
+          firebase.initializeApp(config);
+        </script>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
+
+				<img src="images/albedo-default.jpg">
+
+				<footer>
+						<!-- Testing field for reading the RFID_Card number -->
+						<input type="text" id="RFID_ID" autofocus onchange="pathway_redirect()"><br>
+
+						<h1 class="blinking">Please scan your card to learn more</h1>
+				</footer>
+
+
+
+
+          <!-- Popup message for unregistered tags -->
+          <div id="myPopup" class="popup">
+            <div class="popup-content">
+              <p>Please register your tag at a Registration Kiosk</p>
+            </div>
+          </div>
+
+
+          <!-- Link javascript files -->
+          <script src="js/exhibitSplash.js"></script>      <!-- Scan cards -->
+          <script src="js/pathway_redirect.js"></script>   <!-- Redirect -->
+          <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
+          <script src="js/refocusInput.js"></script>   <!-- refocus for reader -->
+          <script src="js/updateData.js"></script>   <!-- Write data to db -->
+
+    </body>
+</html>
