@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html id="page1">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+		<link rel="stylesheet" href="css/terminalTemplate.css">
+    <link rel="stylesheet" type="text/css" href="css/professionalPathways.css">
+    <link rel="stylesheet" type="text/css" href="css/dropDownButton.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="js/dropDownPathway.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body id=container  onload="attachListeners('page1')">
+
+
+			<!-- top row -->
+
+			<!-- top arrow -->
+			<div class="container">
+					<a href="topPage.html"><img src="images/bottomArrow.gif"></a>
+			</div>
+
+
+
+
+
+
+			<!-- middle row -->
+
+			<!-- left arrow -->
+		  <leftSide>
+		      <a href="leftPage.html"><img src="images/rightArrow.gif"></a>
+		  </leftSide>
+
+		  <!--
+			<img src="images/water.jpg">
+			-->
+			<div class="container">
+					<div class="row"> 
+							<div class="col-md-1">
+							</div>
+							<div class="col-md-10">
+									<img src="images/albedo-engineer.jpg">
+							</div>
+							<div class="col-md-1">
+							</div>
+					</div>
+		  </div>
+
+
+			<!-- right arrow -->
+			<rightSide>
+		      <a href="rightPage.html"><img src="images/leftArrow.gif"></a>
+		  </rightSide>
+			
+
+     <!-- Button to allow user to end experience early and return to default -->
+		 <div class="container">
+				 <div class="row">
+						 <div class="col-md-3">
+						 </div>
+						 <div class="col-md-4">
+								 <form action="pathwayB.html">
+										 <button type="submit" name="finishButtonA" onclick=""
+												 class=btn> Change Pathway </button>
+								 </form>
+						 </div>
+						 <div class="col-md-3">
+								 <form action="index.html">
+										 <button type="submit" name="finishButtonA" onclick=""
+												 class=btn> Finished </button>
+								 </form>
+						 </div>
+				 </div>
+		 </div>
+
+
+
+
+
+		<!-- bottom row -->
+
+		<!-- bottom arrow -->
+
+		<footer>
+				<a href="bottomPage.html"><img src="images/topArrow.gif"></a>
+		</footer>
+        <!-- Link JavaScript files -->
+        <script src="js/idleReset.js"></script>  <!-- Idle reset -->
+
+
+  </body>
+
+
+</html>
