@@ -30,9 +30,6 @@ HTML:
 CSS:
   everything
 
-Security:
-  parse user inputs
-
 Pi integration testing with the current system
   -make sure the offline default works / get it to work
 
@@ -51,3 +48,39 @@ Pi integration testing with the current system
 
 -Determine what kind of data we can/will store in database
   (Following ucsd guidelines or something)
+
+
+
+
+
+
+
+
+
+
+-Consensus about Level property  (yes/no)
+  --naming scheme, name of the property...
+
+
+
+
+CDR:: all front end and user interaction basically
+  -brainstorm interactive idea
+  -
+
+
+
+TODO list:
+    display content
+    look into RFID tickets
+    no screensaver for Pi
+    Robustness testing
+    User testing
+    Firebase config to js file
+    Continued CAD design concepts
+    LOADS of documentation
+    Swipe features (Possiblilty)
+    Share to facebook / emails
+    UCSD user info policies
+
+    Creative Idea:

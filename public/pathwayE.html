@@ -26,39 +26,55 @@
 					<a href="topPage.html"><img src="images/bottomArrow.gif"></a>
 			</div>
 
+      <leftSide>
+          <a href="leftPage.html"><img src="images/rightArrow.gif"></a>
+      </leftSide>
+
+      <!--
+      <img src="images/water.jpg">
+      -->
+      <div class="container">
+          <div class="row">
+              <div class="col-md-1">
+              </div>
+              <div class="col-md-10">
+                  <img src="images/albedo-engineer.jpg">
+              </div>
+              <div class="col-md-1">
+              </div>
+          </div>
+      </div>
 
 
+      <!-- right arrow -->
+      <rightSide>
+          <a href="rightPage.html"><img src="images/leftArrow.gif"></a>
+      </rightSide>
 
+      <h1 class=titlePage> Engineer Pathway</h1>
+      <div class="row">
+          <div class="col-sm-6">
+                <p>Lorem ipsum dolor sit amet, eam et solet insolens. Semper meliore euripidis est ea. Sed amet illud inimicus te, vis invenire patrioque cu. Tale persius nusquam ea sit, dicat deserunt disputando sea et. Soluta nonumes reprehendunt eam te. Eros insolens qui ut, cum aperiam comprehensam an, cu feugiat interesset concludaturque per.
+              <p>
 
+                  <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                  <div id="myDropdown" class="dropdown-content">
+                    <a href="pathwayE.html">Engineer</a>
+                    <a href="pathwayC.html">Climatologist</a>
+                    <a href="pathwayB.html">Biologist</a>
+                  </div>
+                </div>
+          </div>
+          <div class="col-sm-6">
 
-			<!-- middle row -->
-
-			<!-- left arrow -->
-		  <leftSide>
-		      <a href="leftPage.html"><img src="images/rightArrow.gif"></a>
-		  </leftSide>
-
-		  <!--
-			<img src="images/water.jpg">
-			-->
-			<div class="container">
-					<div class="row">
-							<div class="col-md-1">
-							</div>
-							<div class="col-md-10">
-									<img src="images/albedo-engineer.jpg">
-							</div>
-							<div class="col-md-1">
-							</div>
-					</div>
-		  </div>
-
-
-			<!-- right arrow -->
-			<rightSide>
-		      <a href="rightPage.html"><img src="images/leftArrow.gif"></a>
-		  </rightSide>
-
+            <img id="content_E" src="">
+            <script>
+              var url = localStorage.getItem( "downloadURL" );
+              document.getElementById("content_E").src = url;
+            </script>
+          </div>
+      </div>
 
      <!-- Button to allow user to end experience early and return to default -->
 		 <div class="container">
