@@ -27,10 +27,7 @@ function pathway_redirect() {
   else if( isNaN( userID ) ){       //ID scanned was numbers
     refocusInput();
   }
-                                    //TODO possibly get more checks
   else{  //Valid input by scanner
-
-
 
     //Get a reference to the user fields in the database
     var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );

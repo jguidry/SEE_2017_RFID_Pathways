@@ -30,9 +30,6 @@ HTML:
 CSS:
   everything
 
-Security:
-  parse user inputs
-
 Pi integration testing with the current system
   -make sure the offline default works / get it to work
 

@@ -72,9 +72,12 @@
                 </div>
           </div>
           <div class="col-sm-6">
-            <script> populateContent( "T_1", "content_E"); </script>
 
-                  <img id="content_E" src="">
+            <img id="content_E" src="">
+            <script>
+              var url = localStorage.getItem( "downloadURL" );
+              document.getElementById("content_E").src = url;
+            </script>
           </div>
       </div>
 

@@ -16,7 +16,9 @@
 
 function offlineDefault(){
 
-  //TODO
+  console.log( "System lost connection at: " + Date() );
+
+  window.location.replace( "offlineDefault.html" );
 
 }
 
@@ -26,8 +28,10 @@ function offlineDefault(){
 * and determines what the website will then do. TODO finish this when functional
 */
 
-function onDefault(){
+function onlineDefault(){
 
-  //TODO
+  //Log reconnetion
+  console.log( "System ONLINE at: " + Date() );
 
+  window.location.replace( 'index.html' );
 }
