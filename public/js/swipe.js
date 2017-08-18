@@ -9,6 +9,3 @@ mc.on("swipeleft swiperight swipeup swipedown", function(ev) {
 
     myElement.textContent = ev.type +" gesture detected.";
 });
-
-
-var run= [];

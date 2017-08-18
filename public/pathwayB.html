@@ -5,6 +5,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/professionalPathways.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/terminalTemplate.css">
     <link rel="stylesheet" type="text/css" href="css/dropDownButton.css">
     <script src="js/dropDownPathway.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,18 +13,7 @@
     <script src="js/populateContent.js"></script>   <!-- Populates content -->
 
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
-        authDomain: "birchaquarium-fd036.firebaseapp.com",
-        databaseURL: "https://birchaquarium-fd036.firebaseio.com",
-        projectId: "birchaquarium-fd036",
-        storageBucket: "birchaquarium-fd036.appspot.com",
-        messagingSenderId: "33111057118"
-      };
-      firebase.initializeApp(config);
-    </script>
+    <script src="js/firebase_config.js"> </script>
 
      <style>
         .btn {
@@ -47,6 +37,18 @@
 
   </head>
   <body class="container" onload="attachListeners('page2')">
+    <div class="container">
+        <a href="topPage.html"><img src="images/bottomArrow.gif"></a>
+    </div>
+    <leftSide>
+        <a href="leftPage.html"><img src="images/rightArrow.gif"></a>
+    </leftSide>
+    <rightSide>
+        <a href="rightPage.html"><img src="images/leftArrow.gif"></a>
+    </rightSide>
+    <footer>
+        <a href="bottomPage.html"><img src="images/topArrow.gif"></a>
+    </footer>
     <div id="swipe">
     <h1 class=titlePage> Biologist Pathway </h1>
 
@@ -54,6 +56,7 @@
           <div class="col-sm-6">
                 <p>Lorem ipsum dolor sit amet, eam et solet insolens. Semper meliore euripidis est ea. Sed amet illud inimicus te, vis invenire patrioque cu. Tale persius nusquam ea sit, dicat deserunt disputando sea et. Soluta nonumes reprehendunt eam te. Eros insolens qui ut, cum aperiam comprehensam an, cu feugiat interesset concludaturque per.
               <p>
+                <img src="images/albedo-biologist.jpg">
 
                 <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">Dropdown</button>
@@ -85,7 +88,7 @@
     <!-- Link JavaScript files -->
     <script src="js/idleReset.js"></script>  <!-- Idle reset -->
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-    <script src="js/swipe.js"></script>
+    <script src = "js/pathwayB.js"></script>
 
 
   </body>
