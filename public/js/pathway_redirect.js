@@ -82,7 +82,7 @@ function pathway_redirect() {
           contentID = "content_" + pathwayChar;
 
           //TODO search for file name to pass in instead of getting extension
-          var contentName = pathwayChar + langChar + levelChar + ".png";
+          var contentName = pathwayChar + langChar + levelChar + ".jpg";
           //TODO dynamically get extension
 
           //Set contentName in local storage

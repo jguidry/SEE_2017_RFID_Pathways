@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script src="js/getOptionVal.js"></script>
-    
+      <script src="js/firebase_config.js" > </script>
 </head>
 <body>
     <section id="body" class="width">
@@ -24,14 +24,14 @@
                     <li class="selected-item"><a href="editTerminals.html">Update Media</a></li>
                     <li><a href="editUsers.html">Add/Remove Users</a></li>
                     <li><a href="viewAnalytics.html">RFID Analytics</a></li>
-                   
+
                 </ul>
             </nav>
         </aside>
-        
+
         <!-- Creates the options to choose where the image will be stored on cloud storage (Firebase Storage)-->
         <section id="content" class="column-right">
-            
+
             <h2 id="exhibitName"></h2>
             <table>
                 <tr>
@@ -44,33 +44,23 @@
                                 <option value="T_1/">Albedo Exploration</option>
                                 <option value="T_2/">Sally Ride</option>
                             </select>
-                        
+
                         </td>
-                       
+
                     </tr>
                 </tbody>
             </table>
-            
-            <script> 
+
+            <script>
                 var sel = document.getElementById('exhibits');
                 console.log(sel);
-                document.getElementById('exhibitName').innerHTML = getOptText(sel);        
+                document.getElementById('exhibitName').innerHTML = getOptText(sel);
             </script>
-            
+
             <input type="file" value="upload" id="thefileButton"/>
             <!-- Connect to Firebase Clould Storage-->
             <script>
-                // Initialize Firebase
-                var config = {
-                    apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
-                    authDomain: "birchaquarium-fd036.firebaseapp.com",
-                    databaseURL: "https://birchaquarium-fd036.firebaseio.com",
-                    projectId: "birchaquarium-fd036",
-                    storageBucket: "birchaquarium-fd036.appspot.com",
-                    messagingSenderId: "33111057118",
-                };
-                firebase.initializeApp(config);
-
+              
                 <!-- Upload file into firebase cloud storage-->
                 var fileButton = document.getElementById('thefileButton');
                 if(fileButton){
@@ -82,11 +72,11 @@
                         storageRef.put(theFile);
                     });
                 }
-                
+
             </script>
         </section>
 		<div class="clear"></div>
-	</section> 
-     
+	</section>
+
 </body>
 </html>
