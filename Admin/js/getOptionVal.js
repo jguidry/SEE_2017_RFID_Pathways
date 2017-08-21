@@ -1,4 +1,5 @@
- function getOptVal(sel){
+/*Author: Bryle Castro*/ 
+function getOptVal(sel){
      for(var i = 0, len = sel.options.length; i < len; i++){
         var opt = sel.options[i];
         if(opt.selected === true){
