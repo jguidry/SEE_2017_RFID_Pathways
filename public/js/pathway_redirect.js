@@ -32,12 +32,12 @@ function pathway_redirect() {
     //Get a reference to the user fields in the database
     var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );
     var langRef = database.ref().child( "RFID/" + userID + "/language");
-    var levelRef = database.ref().child( "RFID/" + userID + "/level");
+    //var levelRef = database.ref().child( "RFID/" + userID + "/level");
 
     //Variables used for content generation and html redirection
     var pathwayChar;
     var langChar;
-    var levelChar;
+    //var levelChar;
     var pathLink;     //html page to go to
     var contentID;
     var terminalNum = "T_1";
@@ -60,11 +60,11 @@ function pathway_redirect() {
 
 
         //Parse the level number for content generation
-        levelRef.on( 'value', function( snapshot ){
+        /*levelRef.on( 'value', function( snapshot ){
 
           levelChar = snapshot.val();
 
-        });
+        });*/
 
         //Parse the pathway char for content generation and pathway link
         pathwayRef.on('value', function( snapshot ){
@@ -82,7 +82,9 @@ function pathway_redirect() {
           contentID = "content_" + pathwayChar;
 
           //TODO search for file name to pass in instead of getting extension
-          var contentName = pathwayChar + langChar + levelChar + ".png";
+          //var contentName = pathwayChar + langChar + levelChar + ".png";
+          var contentName = pathwayChar + langChar + ".png";
+
           //TODO dynamically get extension
 
           //Set contentName in local storage

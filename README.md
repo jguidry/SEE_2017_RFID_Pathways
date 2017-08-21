@@ -79,7 +79,6 @@ TODO list:
     Firebase config to js file
     Continued CAD design concepts
     LOADS of documentation
-    Swipe features (Possiblilty)
     Share to facebook / emails
     UCSD user info policies
 
