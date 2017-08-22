@@ -11,8 +11,25 @@
     <link rel="stylesheet" type="text/css" href="css/dropDownButton.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="js/dropDownPathway.js"></script>
+    <script src="js/populateContent.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+
+    <script src="js/firebase_config.js"></script>
+    <script>
+    var config = {
+      apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
+      authDomain: "birchaquarium-fd036.firebaseapp.com",
+      databaseURL: "https://birchaquarium-fd036.firebaseio.com",
+      projectId: "birchaquarium-fd036",
+      storageBucket: "birchaquarium-fd036.appspot.com",
+      messagingSenderId: "33111057118"
+    };
+    firebase.initializeApp(config);
+    </script>
+
 
   </head>
 
@@ -70,8 +87,9 @@
 
             <img id="content_E" src="">
             <script>
-              var url = localStorage.getItem( "downloadURL" );
-              document.getElementById("content_E").src = url;
+              populateContent( "T_1", "content_E" );
+              //var url = localStorage.getItem( "downloadURL" );
+              //document.getElementById("content_E").src = url;
             </script>
           </div>
       </div>

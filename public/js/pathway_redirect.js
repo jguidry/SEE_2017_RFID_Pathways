@@ -32,62 +32,72 @@ function pathway_redirect() {
     //Get a reference to the user fields in the database
     var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );
     var langRef = database.ref().child( "RFID/" + userID + "/language");
-    var levelRef = database.ref().child( "RFID/" + userID + "/level");
 
     //Variables used for content generation and html redirection
+    var terminalNum = "T_1";
     var pathwayChar;
     var langChar;
-    var levelChar;
+    var extension;    //extension of media source
+
     var pathLink;     //html page to go to
-    var contentID;
-    var terminalNum = "T_1";
 
+    var registered;   //If the user tag is registered in the DB
 
-    //Parse the language character for content generation
-    langRef.on( 'value', function( snapshot ){
+    //Get the language character, then get the pathway, then get the extension
+    langRef.once( 'value' ).then( function( snapshot ){
 
-      //Check that the user's tag has been registered in database
-      if( snapshot.val() == null){
+      if( snapshot.val() == null){  //User was not registered in the DB
 
         invalidPopup();   //Display popup error for invalid user
         refocusInput();   //Reset entry field for clean read and refocus
+        registered = false;
 
       }
       else{   //user tag is valid, get the language char
 
-
         langChar = JSON.stringify( snapshot.val() ).charAt( 1 );
+        //alert( "Should be 1st step: langChar: " + langChar );
 
+        registered = true;
 
-        //Parse the level number for content generation
-        levelRef.on( 'value', function( snapshot ){
+      }
 
-          levelChar = snapshot.val();
-
-        });
-
-        //Parse the pathway char for content generation and pathway link
-        pathwayRef.on('value', function( snapshot ){
+      //Get the pathway character and build the html link to redirect to
+      if( registered ){
+        return pathwayRef.once( 'value' ).then( function( snapshot ){
 
           pathwayChar = JSON.stringify( snapshot.val() ).charAt( 1 );
+          //alert( "Should be 2nd step: pathway char: " + pathwayChar );
 
-          //Build the pathway html link
           pathLink = "pathway" + pathwayChar + ".html";
 
-          /**** Content population and pathway redirection ****/
+        }); //End pathwayRef stuff on return line
+      }
 
-          //Get qualifiers for content population
-          //var terminalNum = "T_1";
-          //var contentID = "content_" + pathwayChar;
-          contentID = "content_" + pathwayChar;
+    }).then( function() {
 
-          //TODO search for file name to pass in instead of getting extension
-          var contentName = pathwayChar + langChar + levelChar + ".jpg";
-          //TODO dynamically get extension
+      //alert( "done with lang and path, doing some exten stuff")
+      if( registered ){
 
-          //Set contentName in local storage
-          //localStorage.setItem( "contentName", contentName );
+        //Create DB to file
+        var fileRef = database.ref().child( "Terminals/" + terminalNum + "/" +
+          terminalNum + "_" + pathwayChar + langChar );
+
+        //Get the file extension
+        return fileRef.once( 'value' ).then( function( snapshot ){
+
+          extension = JSON.stringify( snapshot.val() ).slice( 1, -1 );
+          //alert( "Should be 3rd: extension: " + extension );
+
+          var contentName = pathwayChar + langChar + extension;
+          //window.alert( "Content: " + contentName );
+
+          //alert( "ContentName inside redirect:" + contentName );
+
+          //alert( "Current contentName in localStorage: " + localStorage.getItem( "contentName") );
+          //Set content's name in local storage for populateContent
           localStorage.setItem( "contentName", contentName );
+          //alert( "Contentname just stored:" + localStorage.getItem( "contentName") );
 
           //Updating user statistics (total visitors)
           setVisitors( database );
@@ -98,15 +108,26 @@ function pathway_redirect() {
           //Reset the text field on index.html
           document.getElementById('RFID_ID').value = '';
 
-        }); //End pathwayChar
-      } //End langRef's else clause
-    }); //End langRef function call
 
-    //Preprocess image to display
-    populateContent( terminalNum );
+        }); //end fileRef .then
+
+      } //End if registered clause
+
+    }); //.then( function(){
+
+      //alert( "Should be actaully last" );
+      //Process image to display
+      //alert( "Calling populate" );
+      //populateContent( terminalNum );
+
+    //}); //End .then of langRef
+
+
 
   } //End else (valid input read by scanner)
+
 } //End function
+
 
 
 /*

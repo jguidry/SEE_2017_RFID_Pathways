@@ -13,6 +13,8 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"> </script>
+    <script src="js/populateContent.js"></script>
+
 
 
 
@@ -28,8 +30,9 @@
                 <img id="content_B" src="" height=400 width=500/>
                 <script>
                   //populate the img's src
-                  var url = localStorage.getItem( "downloadURL" );
-                  document.getElementById( "content_B" ).src = url;
+                  populateContent( "T_1", "content_B" );
+                  //var url = localStorage.getItem( "downloadURL" );
+                  //document.getElementById( "content_B" ).src = url;
                 </script>
           </div>
 
