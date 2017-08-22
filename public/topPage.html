@@ -1,40 +1,24 @@
 <!DOCTYPE html>
-
-<html>
-
+<html id="page3">
   <head>
     <meta charset="utf-8">
     <title></title>
-
 		<link rel="stylesheet" href="css/terminalTemplate.css">
-    <link rel="stylesheet" type="text/css" href="css/professionalPathways.css">
-    <link rel="stylesheet" type="text/css" href="css/dropDownButton.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="js/dropDownPathway.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </head>
+  <body onload="attachListeners('page3')">
 
-	<body>
-			
-  <!-- top row -->
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<h1><center>Video</center></h1>
+		<img id="middle" class="bg" src="images/terminal-background.jpg"
+		style="position:absolute;">
+    <a href="javascript:history.back()"><center><img id="bottomarrow" src="images/upArrow.gif"></a>
 
-	<!-- middle row -->
+    <!-- todo: doesn't work -->
+    <video width="50%" height="50%" autoplay controls>
+      <source src="images/mov_1.mp4" type="video/mp4">
+    </video>
 
-	<!-- bottom row -->
-	<footer>
-      <a href="javascript:history.back()"><center><img src="images/topArrow.gif"></a>
-  </footer>
-
-
-
-  <script src="js/idleReset.js"></script>  <!-- Idle reset -->
-
-
+    <!-- Link JavaScript files -->
+    <script src="js/dropDownPathway.js"></script> <!-- Drop down for pathways -->
+    <script src="js/idleReset.js"></script> <!-- Idle reset timer -->
   </body>
-
-
 </html>

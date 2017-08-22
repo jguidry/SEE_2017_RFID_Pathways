@@ -1,5 +1,6 @@
 
 /* Swipe Functionality */
+
 var myElement = document.getElementById('swipe');
 var mc = new Hammer(myElement);
 mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
@@ -7,16 +8,16 @@ mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 mc.on("swipeleft swiperight swipeup swipedown", function(ev) {
     switch (ev.type) {
       case "swipeleft":
-        window.location.href = "rightPage.html";
+        window.location.href = "gallery/index.html";
         break;
       case "swiperight":
         window.location.href = "leftPage.html";
         break;
       case "swipeup":
-        window.location.href = "topPage.html";
+        window.location.href = "bottomPage.html";
         break;
       case "swipedown":
-        window.location.href = "bottomPage.html";
+        window.location.href = "topPage.html";
       default:
 
     }
