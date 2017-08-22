@@ -15,7 +15,7 @@
 *                in the Storage.
 */
 
-function populateContent( terminalNum ){
+function populateContent( terminalNum, idNum ){
 
   //Get content name from local storage
   var content = localStorage.getItem( "contentName" );
@@ -24,11 +24,17 @@ function populateContent( terminalNum ){
   var folderRef = firebase.storage().ref().child( terminalNum + "/" );
   var contentRef = folderRef.child( terminalNum + "_" + content );
 
+  //alert( "Content: " + content );
+  //alert( "ContenetRef:: " + contentRef );
+
   //Dynamically set the content
   contentRef.getDownloadURL().then( function( url ){
 
     //Store this url into local store for the html page to pick up and set src
-    localStorage.setItem( "downloadURL", url );
+    //localStorage.setItem( "downloadURL", url );
+    //alert( "WOOHOO" );
+    //alert( "Placed into localStorage: " + localStorage.getItem("downloadURL") );
+    document.getElementById( idNum ).src = url;
 
   }).catch( function( error ){
     //Hanlde errors TODO

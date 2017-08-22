@@ -84,7 +84,7 @@ function pathway_redirect() {
           terminalNum + "_" + pathwayChar + langChar );
 
         //Get the file extension
-        fileRef.once( 'value' ).then( function( snapshot ){
+        return fileRef.once( 'value' ).then( function( snapshot ){
 
           extension = JSON.stringify( snapshot.val() ).slice( 1, -1 );
           //alert( "Should be 3rd: extension: " + extension );
@@ -92,8 +92,12 @@ function pathway_redirect() {
           var contentName = pathwayChar + langChar + extension;
           //window.alert( "Content: " + contentName );
 
+          //alert( "ContentName inside redirect:" + contentName );
+
+          //alert( "Current contentName in localStorage: " + localStorage.getItem( "contentName") );
           //Set content's name in local storage for populateContent
           localStorage.setItem( "contentName", contentName );
+          //alert( "Contentname just stored:" + localStorage.getItem( "contentName") );
 
           //Updating user statistics (total visitors)
           setVisitors( database );
@@ -104,15 +108,21 @@ function pathway_redirect() {
           //Reset the text field on index.html
           document.getElementById('RFID_ID').value = '';
 
-          //Process image to display
-          //alert( "Should be last step: populating" );
-          populateContent( terminalNum );
 
         }); //end fileRef .then
 
       } //End if registered clause
 
-    }); //End .then of langRef
+    }); //.then( function(){
+
+      //alert( "Should be actaully last" );
+      //Process image to display
+      //alert( "Calling populate" );
+      //populateContent( terminalNum );
+
+    //}); //End .then of langRef
+
+
 
   } //End else (valid input read by scanner)
 
