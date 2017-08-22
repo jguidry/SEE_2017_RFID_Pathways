@@ -80,14 +80,17 @@
             <form class="box" method="post" action="" enctype="multipart/form-data">
                 <div id="drop-zone">
                     <div class="drop-zone-caption">Drag & Drop Files Here</div>
-                    <span class="btn btn-primary btn-file" style="position: relative">
-                        <span>Choose files</span>
+                    <span class="button" style="position: relative">
+                        <span>Choose File</span>
                         <input type="file"id="drop-zone-file" name="files[]" multiple>
                     </span>
                 </div>
                 
                 <div>
                     <progress value="0" max="100" id="theUploader"></progress>
+                </div>
+                <div align="center">
+                    <p id="uploadComplete"></p>
                 </div>
             </form>
             
@@ -171,6 +174,15 @@
                         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         uploader.value = progress;
                         progress = Math.floor(progress);  
+                        if(uploader.value === 100){
+                            document.getElementById("uploadComplete").innerHTML = "UPLOADING COMPLETE";
+                        }
+                        else if(uploader.value < 100){
+                             document.getElementById("uploadComplete").innerHTML = "UPLOADING ... ";
+                        }
+                        else{
+                              document.getElementById("uploadComplete").innerHTML = "";
+                        }
                         
                         callBackData({
                              progress: progress,
@@ -190,7 +202,6 @@
                               fileName: n});
                     });
                     document.getElementById("drop-zone-file").value = "";
-                    
                 }
 
                 // function to generate random string to use in what creating firebase storage instance 
@@ -262,6 +273,7 @@
                         });
                     }
                 };
+                
             </script>
             
             
