@@ -11,7 +11,24 @@
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script src="js/getOptionVal.js"></script>
         <link rel="stylesheet" href="css/dragAndDrop.css" type="text/css" />
-        <script src="js/firebase_config.js"></script>>
+        <script src="js/firebase_config.js"></script>
+        
+        <script> 
+            function changeTitle(){
+                var sel = document.getElementById('exhibits');
+                console.log(sel);
+                document.getElementById('exhibitName').innerHTML = getOptText(sel);
+            }                  
+        </script>
+    
+        <style>
+            progress[value]{
+                width: 100%;
+                border: 1px solid #000;
+                background: #fff;
+                color: #0063a6;
+            }
+        </style>
     
 </head>
 <body>
@@ -42,7 +59,8 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select id="exhibits">
+                            <!-- Options for terminals-->
+                            <select id="exhibits" onchange="changeTitle()">
                                 <option value="T_1/">Albedo Exploration</option>
                                 <option value="T_2/">Sally Ride</option>
                             </select>
@@ -56,11 +74,9 @@
             <script> 
                 var sel = document.getElementById('exhibits');
                 console.log(sel);
-                document.getElementById('exhibitName').innerHTML = getOptText(sel);        
+                document.getElementById('exhibitName').innerHTML = getOptText(sel);
             </script>
             
-            
-           
             <form class="box" method="post" action="" enctype="multipart/form-data">
                 <div id="drop-zone">
                     <div class="drop-zone-caption">Drag & Drop Files Here</div>
@@ -69,8 +85,9 @@
                         <input type="file"id="drop-zone-file" name="files[]" multiple>
                     </span>
                 </div>
-                <div id="myProgress">
-                    <div id="myBar"></div>
+                
+                <div>
+                    <progress value="0" max="100" id="theUploader"></progress>
                 </div>
             </form>
             
@@ -125,7 +142,7 @@
                     var file = parameters.file;
                     var path = parameters.path;
                     var name;
-
+                    var uploader = document.getElementById("theUploader");
 
                     //just some error check 
                     if (!file) { callBackData({error: 'file required to interact with Firebase storage'}); }
@@ -144,13 +161,17 @@
                     var fullPath = path + '/' + file.name;
 
                     var uploadFile = storageRef.child(fullPath).put(file, metaData);
+                    
+                    
 
                     // first instance identifier
                     callBackData({id: name, fileSize: fileSize, fileType: fileType, fileName: n});
 
                     uploadFile.on('state_changed', function (snapshot) {
                         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        progress = Math.floor(progress);
+                        uploader.value = progress;
+                        progress = Math.floor(progress);  
+                        
                         callBackData({
                              progress: progress,
                              element: name, 
@@ -169,6 +190,7 @@
                               fileName: n});
                     });
                     document.getElementById("drop-zone-file").value = "";
+                    
                 }
 
                 // function to generate random string to use in what creating firebase storage instance 
@@ -240,9 +262,6 @@
                         });
                     }
                 };
-
-
-
             </script>
             
             
