@@ -8,25 +8,33 @@
         <link rel="shortcut icon" href="">
         <!-- Style sheet for index.html -->
         <link rel="stylesheet" type="text/css" href="css/index.css">
-
+        <link rel="stylesheet" href="css/styles.css">
+				<link rel="stylesheet" href="css/terminalTemplate.css">
         <!-- Link FireBase to the web page -->
-        <!-- TODO TODO hide this from appearing in our source code view in browser TODO TODO -->
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script src="js/firebase_config.js" > </script>
 
+        <script> function blinker() {
+        		$('.blinking').fadeOut(500);
+        		$('.blinking').fadeIn(500);
+        }
+        setInterval(blinker, 1500);
+        </script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     </head>
 
     <body id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
+	<img src="images/albedo-default.jpg">
+      <footer>
+  						<!-- Testing field for reading the RFID_Card number -->
+  						<input type="text" id="RFID_ID" autofocus onchange="pathway_redirect()"><br>
 
-        <p id="defaultText" > Default Display </p>
+              <h1 class="blinking">Please scan your card to learn more</h1>
+  				</footer>
 
-          <!-- Testing field for reading the RFID_Card number -->
-          <input type="text" id="RFID_ID" autofocus onchange="pathway_redirect()"><br>
 
 
           <!-- Popup message for unregistered tags -->

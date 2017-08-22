@@ -32,7 +32,7 @@ function populateContent( terminalNum ){
 
   }).catch( function( error ){
     //Hanlde errors TODO
-    console.log( "Content download error..." + error );
+    console.log( "Content download error..." + JSON.stringify( error ) );
   });
 
 }

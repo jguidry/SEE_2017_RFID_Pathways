@@ -10,6 +10,8 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script src="js/getOptionVal.js"></script>
+        <link rel="stylesheet" href="css/dragAndDrop.css" type="text/css" />
+        <script src="js/firebase_config.js"></script>>
     
 </head>
 <body>
@@ -17,7 +19,7 @@
         <!-- Create the navbar on the side of the webpage-->
         <aside id="sidebar" class="column-left">
             <header>
-                <h1><small><a href="#">admin control center</a></small></h1>
+                <h1><small><a href="#">Admin Control Center</a></small></h1>
             </header>
             <nav id="mainnav">
                 <ul>
@@ -57,11 +59,30 @@
                 document.getElementById('exhibitName').innerHTML = getOptText(sel);        
             </script>
             
-            <input type="file" value="upload" id="thefileButton"/>
-            <!-- Connect to Firebase Clould Storage-->
+            
+           
+            <form class="box" method="post" action="" enctype="multipart/form-data">
+                <div id="drop-zone">
+                    <div class="drop-zone-caption">Drag & Drop Files Here</div>
+                    <span class="btn btn-primary btn-file" style="position: relative">
+                        <span>Choose files</span>
+                        <input type="file"id="drop-zone-file" name="files[]" multiple>
+                    </span>
+                </div>
+                <div id="myProgress">
+                    <div id="myBar"></div>
+                </div>
+            </form>
+            
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            
+            
             <script>
-                // Initialize Firebase
-                var config = {
+                //Connect to firebase cloud storage
+                /** var config = {
                     apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
                     authDomain: "birchaquarium-fd036.firebaseapp.com",
                     databaseURL: "https://birchaquarium-fd036.firebaseio.com",
@@ -69,21 +90,162 @@
                     storageBucket: "birchaquarium-fd036.appspot.com",
                     messagingSenderId: "33111057118",
                 };
-                firebase.initializeApp(config);
+                
+                firebase.initializeApp(config); */
+                var obj = $("#drop-zone");
+                var storageRef = firebase.storage().ref(); //get reference to the storage
+                
+                obj.on('dragenter', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $(this).css('border', '2px solid #0B85A1');
+                });
+                obj.on('dragover', function (e) {
+                     e.stopPropagation();
+                     e.preventDefault();
+                });
+                obj.on('drop', function (e) {
+                     $(this).css('border', '2px dotted #0B85A1');
+                     e.preventDefault();
+                     var files = e.originalEvent.dataTransfer.files;
 
-                <!-- Upload file into firebase cloud storage-->
-                var fileButton = document.getElementById('thefileButton');
-                if(fileButton){
-                    fileButton.addEventListener('change',function(e){
-                        var theFile = e.target.files[0];
+                     //We need to send dropped files to firebase
+                     handleFileUpload(files,obj);
+                });
+
+                // automatically submit the form on file select
+                $('#drop-zone-file').on('change', function (e) {
+                    var files = $('#drop-zone-file')[0].files;
+                    handleFileUpload(files, obj);
+                });
+
+                function fireBaseImageUpload(parameters, callBackData) {
+
+                    // expected parameters to start storage upload
+                    var file = parameters.file;
+                    var path = parameters.path;
+                    var name;
+
+
+                    //just some error check 
+                    if (!file) { callBackData({error: 'file required to interact with Firebase storage'}); }
+                    if (!path) { callBackData({error: 'Node name required to interact with Firebase storage'}); }
+
+                    var metaData = {'contentType': file.type};
+                    var arr = file.name.split('.');
+                    var fileSize = formatBytes(file.size); // get clean file size (function below)
+                    var fileType = file.type;
+                    var n = file.name;
+
+                    // generate random string to identify each upload instance  
+                    name = generateRandomString(12); //(location function below)
+
+                    //var fullPath = path + '/' + name + '.' + arr.slice(-1)[0];
+                    var fullPath = path + '/' + file.name;
+
+                    var uploadFile = storageRef.child(fullPath).put(file, metaData);
+
+                    // first instance identifier
+                    callBackData({id: name, fileSize: fileSize, fileType: fileType, fileName: n});
+
+                    uploadFile.on('state_changed', function (snapshot) {
+                        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        progress = Math.floor(progress);
+                        callBackData({
+                             progress: progress,
+                             element: name, 
+                             fileSize: fileSize, 
+                             fileType: fileType, 
+                             fileName: n});
+                    }, function (error) {
+                        callBackData({error: error});
+                    }, function () {
+                        var downloadURL = uploadFile.snapshot.downloadURL;
+                        callBackData({
+                              downloadURL: downloadURL, 
+                              element: name, 
+                              fileSize: fileSize, 
+                              fileType: fileType, 
+                              fileName: n});
+                    });
+                    document.getElementById("drop-zone-file").value = "";
+                }
+
+                // function to generate random string to use in what creating firebase storage instance 
+                function generateRandomString(length) {
+                    var chars = "abcdefghijklmnopqrstuvwxyz";
+                    var pass = "";
+                    for (var x = 0; x < length; x++) {
+                        var i = Math.floor(Math.random() * chars.length);
+                        pass += chars.charAt(i);
+                    }
+                    return pass;
+                }
+
+                function formatBytes(bytes, decimals) {
+                    if (bytes == 0) return '0 Byte';
+                    var k = 1000;
+                    var dm = decimals + 1 || 3;
+                    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+                    var i = Math.floor(Math.log(bytes) / Math.log(k));
+                    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+                }
+
+
+                function handleFileUpload(files, obj) {
+                    for (var i = 0; i < files.length; i++) {
+                        var fd = new FormData();
+                        fd.append('file', files[i]);
                         var sel = document.getElementById('exhibits');
                         var optValue = getOptVal(sel);
-                        var storageRef = firebase.storage().ref(optValue + theFile.name);
-                        storageRef.put(theFile);
-                    });
-                }
-                
+                        console.log(files[i].name);
+      
+    
+                        
+                        var fileExt = files[i].name;
+                        var fileName = files[i].name;
+                        var newStr = optValue.substring(0, optValue.length-1);
+                        fileExt = fileExt.split('.').pop();
+                        fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+                        console.log("Terminal is:" + newStr);
+                        console.log("The file extension is:" + fileExt);
+                        console.log("The file name is:" + fileName);
+                        
+                        var database = firebase.database();
+                         database.ref("Terminals/" + newStr + "/" + fileName).set(fileExt);
+                    
+                    /*    var updates = {};
+                        updates['/posts/' + newPostKey] = postData;
+                        database.ref("Terminals/" + newStr).set({
+                            fileName: fileExt
+                        });*/
+
+                        console.log(files[i]);
+                        fireBaseImageUpload({
+                            'file': files[i],
+                            'path': optValue //path_to_where_you_to_store_the_file
+                        }, function (data) {
+                            //console.log(data);
+                            if (!data.error) {
+                                if (data.progress) {
+                                    // progress update to view here
+                                }
+                                if (data.downloadURL) {
+                                    // update done
+                                    // download URL here "data.downloadURL"
+                                }
+                            } else {
+                                console.log(data.error + ' Firebase image upload error');
+                            }
+                        });
+                    }
+                };
+
+
+
             </script>
+            
+            
         </section>
 		<div class="clear"></div>
 	</section> 

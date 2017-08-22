@@ -6,6 +6,6 @@ var mc = new Hammer(myElement);
 //console.log("HOO")
 // listen to events...
 mc.on("swipeleft swiperight swipeup swipedown", function(ev) {
-  
+
     myElement.textContent = ev.type +" gesture detected.";
 });
