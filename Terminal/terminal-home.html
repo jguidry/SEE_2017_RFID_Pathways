@@ -1,14 +1,39 @@
-<!doctype html>
+<style>
+#thumbnail {
+  height:25%;
+  width:25%;
+}
+#albedo {
+  position:absolute;
+  top:20%;
+  left:20%;
+  height:25%;
+  width:25%;
+}
+#albedo-text {
+  position:absolute;
+  top:44%;
+  left:27%;
+}
+#sally {
+  position:absolute;
+  top:20%;
+  right:20%;
+  height:25%;
+  width:25%;
+}
+#sally-text {
+  position:absolute;
+  top:44%;
+  right:29%;
+}
+</style>
 
-<!--
-Author: Josh Duhay
-Date: August 10, 2017
-Description: HTML contents of the admin index page.
--->
+<!doctype html>
 
 <html>
 <head>
-  <title>Terminals</title>	
+  <title>Terminals</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/styles.css">
@@ -24,10 +49,16 @@ Description: HTML contents of the admin index page.
 
 		<h4>Exhibits</h4>
 
-		<ol>
-				<li><a href="albedo-effect/index.html" target="_blank">Albedo Effect</a></li>
-				<li><a href="sally-ride/index.html" target="_blank">Sally Ride</a></li>
-		</ol>
+    <div class="container">
+
+      <!-- ALBEDO EFFECT -->
+      <a href="albedo-effect/index.html"><img id="albedo" src="images/albedo-thumbnail.jpg"></a>
+      <h1 id="albedo-text"><a href="albedo-effect/index.html">Albedo Effect</h1>
+
+      <!-- SALLY RIDE -->
+      <a href="sally-ride/index.html"><img id="sally" src="images/sally-thumbnail.jpg"></a>
+      <h1 id="sally-text"><a href="sally-ride/index.html">Sally Ride</a></h1>
+    </div>
 
 	</body>
 </html>
