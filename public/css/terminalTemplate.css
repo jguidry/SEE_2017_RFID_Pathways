@@ -11,7 +11,6 @@ img {
 
 
 
-		/*min-height:100%;*/
 
 		max-height:100%;
 		max-width:100%;
@@ -22,10 +21,60 @@ body {
 		margin:0;
 }
 footer {
-		display: flex;
-		justify-content: center;
 		position:absolute;
 		bottom: 3%;
 		width:100%;
 		text-align:center;
+		color: black;
+}
+#toparrow {
+		position:absolute;
+		left:0;
+		right:0;
+		margin:0 auto;
+}
+#bottomarrow {
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		margin:0 auto;
+}
+#leftarrow {
+		position:absolute;
+		margin:auto;
+		top:0;
+		left:0;
+		bottom:0;
+}
+#rightarrow {
+		position:absolute;
+		margin:auto;
+		top:0;
+		right:0;
+		bottom:0;
+}
+#middle {
+		position:absolute;
+		margin:auto;
+		top:0;bottom:0;left:0;right:0;
+}
+#finishbtn {
+	position:absolute;
+	margin:auto;
+  bottom:3%;
+	right:25%;
+}
+#pathwaybtn {
+	position:absolute;
+	margin:auto;
+	bottom:3%;
+	left:25%;
+}
+
+.bg {
+		height: 100%;
+		background-position:center;
+		background-repeat:no-repeat;
+		background-size:cover;
 }

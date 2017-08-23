@@ -18,117 +18,49 @@
 
 
     <script src="js/firebase_config.js"></script>
-    <script>
-    var config = {
-      apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
-      authDomain: "birchaquarium-fd036.firebaseapp.com",
-      databaseURL: "https://birchaquarium-fd036.firebaseio.com",
-      projectId: "birchaquarium-fd036",
-      storageBucket: "birchaquarium-fd036.appspot.com",
-      messagingSenderId: "33111057118"
-    };
-    firebase.initializeApp(config);
-    </script>
+
 
 
   </head>
-
   <body id=container  onload="attachListeners('page1')">
 
+<div id="swipe">
+    <!-- top arrow -->
+    <a href="videoPage.html"><img id="toparrow" src="images/downArrow.gif"></a>
 
-			<!-- top row -->
-
-			<!-- top arrow -->
-			<div class="container">
-					<a href="topPage.html"><img src="images/bottomArrow.gif"></a>
-			</div>
-
-      <leftSide>
-          <a href="leftPage.html"><img src="images/rightArrow.gif"></a>
-      </leftSide>
-
-      <!--
-      <img src="images/water.jpg">
-      -->
-      <div class="container">
-          <div class="row">
-              <div class="col-md-1">
-              </div>
-              <div class="col-md-10">
-                  <img src="images/albedo-engineer.jpg">
-              </div>
-              <div class="col-md-1">
-              </div>
-          </div>
-      </div>
+    <img id="content_E" src="" class="bg" id="middle"/>
+    <script>
+      //populate the img's src
+      populateContent( "T_1", "content_E" );
+      //var url = localStorage.getItem( "downloadURL" );
+      //document.getElementById( "content_B" ).src = url;
+    </script>
 
 
-      <!-- right arrow -->
-      <rightSide>
-          <a href="rightPage.html"><img src="images/leftArrow.gif"></a>
-      </rightSide>
+			<!-- left side arrow -->
+			<a href="leftPage.html"><img id="leftarrow" src="images/rightArrow.gif"></a>
 
-      <h1 class=titlePage> Engineer Pathway</h1>
-      <div class="row">
-          <div class="col-sm-6">
-                <p>Lorem ipsum dolor sit amet, eam et solet insolens. Semper meliore euripidis est ea. Sed amet illud inimicus te, vis invenire patrioque cu. Tale persius nusquam ea sit, dicat deserunt disputando sea et. Soluta nonumes reprehendunt eam te. Eros insolens qui ut, cum aperiam comprehensam an, cu feugiat interesset concludaturque per.
-              <p>
+			<!-- right side arrow -->
+			<a href="gallery/index.html"><img id="rightarrow" src="images/leftArrow.gif"></a>
 
-                  <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                  <div id="myDropdown" class="dropdown-content">
-                    <a href="pathwayE.html">Engineer</a>
-                    <a href="pathwayC.html">Climatologist</a>
-                    <a href="pathwayB.html">Biologist</a>
-                  </div>
-                </div>
-          </div>
-          <div class="col-sm-6">
+			<!-- bottom arrow -->
+		  <a href="bottomPage.html"><img id="bottomarrow" src="images/upArrow.gif"></a>
 
-            <img id="content_E" src="">
-            <script>
-              populateContent( "T_1", "content_E" );
-              //var url = localStorage.getItem( "downloadURL" );
-              //document.getElementById("content_E").src = url;
-            </script>
-          </div>
-      </div>
+			<!-- Button to allow user to change pathway -->
+			<form action="pathwayB.html">
+				<button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class=btn> Change Pathway </button>
+			</form>
 
-     <!-- Button to allow user to end experience early and return to default -->
-		 <div class="container">
-				 <div class="row">
-						 <div class="col-md-3">
-						 </div>
-						 <div class="col-md-4">
-								 <form action="pathwayB.html">
-										 <button type="submit" name="finishButtonA" onclick=""
-												 class=btn> Change Pathway </button>
-								 </form>
-						 </div>
-						 <div class="col-md-3">
-								 <form action="index.html">
-										 <button type="submit" name="finishButtonA" onclick=""
-												 class=btn> Finished </button>
-								 </form>
-						 </div>
-				 </div>
-		 </div>
+			<!-- Button to allow user to end experience early and return to default -->
+			<form action="index.html">
+				<button id="finishbtn" type="submit" name="finishButtonB" onclick="" class=btn> Finished </button>
+			</form>
 
-
-
-
-
-		<!-- bottom row -->
-
-		<!-- bottom arrow -->
-
-		<footer>
-				<a href="bottomPage.html"><img src="images/topArrow.gif"></a>
-		</footer>
-        <!-- Link JavaScript files -->
-        <script src="js/idleReset.js"></script>  <!-- Idle reset -->
-
-
+      <!-- Link JavaScript files -->
+      <script src="js/idleReset.js"></script>  <!-- Idle reset -->
+      <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+      <script src = "js/pathwayE.js"></script>
+</div>
   </body>
 
 

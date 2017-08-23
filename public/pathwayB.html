@@ -19,60 +19,46 @@
 
 
   </head>
-  <body class="container" onload="attachListeners('page2')">
-    <div class="container">
-        <a href="topPage.html"><img src="images/bottomArrow.gif"></a>
-    </div>
-
+  <body id=container onload="attachListeners('page2')">
     <div id="swipe">
 
-          <div>
-                <img id="content_B" src="" height=400 width=500/>
-                <script>
-                  //populate the img's src
-                  populateContent( "T_1", "content_B" );
-                  //var url = localStorage.getItem( "downloadURL" );
-                  //document.getElementById( "content_B" ).src = url;
-                </script>
-          </div>
-
-          <leftSide>
-              <a href="leftPage.html"><img src="images/rightArrow.gif"></a>
-          </leftSide>
-          <rightSide>
-              <a href="rightPage.html"><img src="images/leftArrow.gif"></a>
-          </rightSide>
-
-          <div class="dropdown">
-          <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="pathwayE.html">Engineer</a>
-              <a href="pathwayC.html">Climatologist</a>
-              <a href="pathwayB.html">Biologist</a>
-            </div>
-          </div>
-
-    <!-- Error modal -->
-    <div align=center class="col-lg-12">
-      <form action="index.html">
-        <button type="submit" name="finishButtonA" onclick="" class=btn> Finished </button>
-      </form>
-    </div>
-
-        <footer>
-            <a href="bottomPage.html"><img src="images/topArrow.gif"></a>
-        </footer>
-</div>
-<!--<div id="myElement">
-<h2> HI </h2>
-</div> -->
+      <!-- top arrow -->
+      <a href="videoPage.html"><img id="toparrow" src="images/downArrow.gif"></a>
+    <img id="content_B" src="" class="bg" id="middle"/>
+    <script>
+      //populate the img's src
+      populateContent( "T_1", "content_B" );
+      //var url = localStorage.getItem( "downloadURL" );
+      //document.getElementById( "content_B" ).src = url;
+    </script>
 
 
-    <!-- Link JavaScript files -->
-    <script src="js/idleReset.js"></script>  <!-- Idle reset -->
+
+
+  			<!-- left side arrow -->
+  			<a href="leftPage.html"><img id="leftarrow" src="images/rightArrow.gif"></a>
+
+  			<!-- right side arrow -->
+  			<a href="gallery/index.html"><img id="rightarrow" src="images/leftArrow.gif"></a>
+
+  			<!-- bottom arrow -->
+  			<a href="bottomPage.html"><img id="bottomarrow" src="images/upArrow.gif"></a>
+
+  			<!-- Button to allow user to change pathway -->
+
+  				<button id="pathwaybtn" type="submit" name="finishButtonA" onclick="changePathway('pathwayE')" class=btn> Change Pathway </button>
+
+  			<!-- Button to allow user to end experience early and return to default -->
+  			<form action="index.html">
+  				<button id="finishbtn" type="submit" name="finishButtonB" onclick="" class=btn> Finished </button>
+  			</form>
+
+  			<!-- Link JavaScript files -->
+  			<script src="js/idleReset.js"></script>  <!-- Idle reset --> <!-- Idle reset -->
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
     <script src = "js/pathwayB.js"></script>
+    <script src="js/pathway_redirect.js"></script>
 
-
+</div>
   </body>
 </html>
