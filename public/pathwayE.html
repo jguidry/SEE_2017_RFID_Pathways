@@ -1,67 +1,208 @@
 <!DOCTYPE html>
-
 <html id="page1">
 
-  <head>
-    <meta charset="utf-8">
-    <title></title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-		<link rel="stylesheet" href="css/terminalTemplate.css">
-    <link rel="stylesheet" type="text/css" href="css/professionalPathways.css">
-    <link rel="stylesheet" type="text/css" href="css/dropDownButton.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="js/dropDownPathway.js"></script>
-    <script src="js/populateContent.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-
-
-    <script src="js/firebase_config.js"></script>
-
-
-
-  </head>
-  <body id=container  onload="attachListeners('page1')">
-
-<div id="swipe">
-    <!-- top arrow -->
-    <a href="videoPage.html"><img id="toparrow" src="images/downArrow.gif"></a>
-
-    <img id="content_E" src="" class="bg" id="middle"/>
-    <script>
-      //populate the img's src
-      populateContent( "T_1", "content_E" );
-      //var url = localStorage.getItem( "downloadURL" );
-      //document.getElementById( "content_B" ).src = url;
+    <!-- Scroller functionality -->
+    <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="scroller/examples.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+              sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+              anchors: ['firstPage', 'secondPage', 'thirdPage'],
+              menu: '#menu',
+            });
+        });
     </script>
 
+    <!-- Pathway styles -->
+    <link rel="stylesheet" href="css/terminalTemplate.css">
+    <link rel="stylesheet" type="text/css" href="css/professionalPathways.css">
+    <link rel="stylesheet" type="text/css" href="css/dropDownButton.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="js/dropDownPathway.js"></script>
+    <script src="js/populateContent.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script src="js/firebase_config.js"></script>
 
-			<!-- left side arrow -->
-			<a href="leftPage.html"><img id="leftarrow" src="images/rightArrow.gif"></a>
+    <!-- Loader -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+    	$(".loader").fadeOut("slow");
+    })
+    </script>
 
-			<!-- right side arrow -->
-			<a href="gallery/index.html"><img id="rightarrow" src="images/leftArrow.gif"></a>
+</head>
+<body onload="attachListeners('page1')">
 
-			<!-- bottom arrow -->
-		  <a href="bottomPage.html"><img id="bottomarrow" src="images/upArrow.gif"></a>
+  <!-- Loader -->
+  <div class="loader"></div>
 
-			<!-- Button to allow user to change pathway -->
-			<form action="pathwayB.html">
-				<button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class=btn> Change Pathway </button>
-			</form>
 
-			<!-- Button to allow user to end experience early and return to default -->
-			<form action="index.html">
-				<button id="finishbtn" type="submit" name="finishButtonB" onclick="" class=btn> Finished </button>
-			</form>
+<ul id="menu">
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">TOP</a></li>
+    <li data-menuanchor="secondPage/0"><a href="#secondPage/0">LEFT</a></li>
+    <li data-menuanchor="secondPage/1"><a href="#secondPage/1">MIDDLE</a></li>
+    <li data-menuanchor="secondPage/2"><a href="#secondPage/2">RIGHT</a></li>
+    <li data-menuanchor="thirdPage"><a href="#thirdPage">BOTTOM</a></li>
+</ul>
 
-      <!-- Link JavaScript files -->
-      <script src="js/idleReset.js"></script>  <!-- Idle reset -->
-      <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-      <script src = "js/pathwayE.js"></script>
+
+
+<!-- wanky directional key -->
+<!--
+<ul class="floatingKey">
+  <li><a href="#firstPage" style="color:black;">TOP</a>
+    <a style="visibility:hidden;">--------</li>
+  <li><a href="#secondPage/0" style="color:black;">LEFT</a>
+    <a href="#secondPage/1" style="color:black;">MIDDLE</a>
+    <a href="#secondPage/2" style="color:black;">RIGHT</a></li>
+  <li><a href="#thirdPage" style="color:black;">BOTTOM</a>
+    <a style="visibility:hidden;">------</li>
+</ul>
+-->
+<div id="fullpage">
+
+
+
+
+
+
+
+
+
+    <!-- TOP SECTION -->
+    <div class="section " id="section0">
+
+      <!-- Bottom side arrow -->
+      <img src="images/upArrow.gif" style="position:absolute;bottom:0;left:0;right:0;margin:0 auto;"></a>
+
+      <!-- Main pathway image gets pulled from firebase -->
+      <!-- TODO delete when firebase pull works -->
+      <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
+
+      <!-- Video -->
+      <video width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls>
+        <source src="images/albedo.mp4" type="video/mp4">
+      </video>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- MIDDLE SECTION -->
+    <div class="section active" id="section1">
+
+        <!-- LEFT PAGE -->
+        <div class="slide" id="slide1">
+
+          <!-- Right side arrow -->
+          <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;left:31.8%;"</a>
+
+          <!-- Main pathway image gets pulled from firebase -->
+          <!-- TODO delete when firebase pull works -->
+          <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- CENTER PAGE -->
+        <div class="slide active" id="slide2">
+
+            <!-- Top side arrow -->
+            <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
+            <!-- Bottom side arrow -->
+            <img src="images/upArrow.gif" style="position:absolute;bottom:0;left:0;right:0;margin:0 auto;"></a>
+            <!-- Left side arrow -->
+            <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;"</a>
+            <!-- Right side arrow -->
+            <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:33.5%;"</a>
+
+            <!-- Button to allow user to change pathway -->
+            <form action="pathwayB.html">
+              <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class=btn> Change Pathway </button>
+            </form>
+            <!-- Button to allow user to end experience early and return to default -->
+            <form action="index.html">
+              <button id="finishbtn" type="submit" name="finishButtonB" onclick="" class=btn> Finished </button>
+            </form>
+
+            <!-- Main pathway image gets pulled from firebase -->
+            <!-- TODO delete when firebase pull works -->
+            <img src="images/albedo-engineer.jpg" style="height:100%;width:100%;">
+
+            <!-- Link JavaScript files -->
+
+            <script src="js/idleReset.js"></script>-->  <!-- Idle reset -->
+            <script src = "js/pathwayE.js"></script>
+            <script src="js/pathway_redirect.js"></script>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- RIGHT PAGE -->
+        <div class="slide" id="slide3">
+
+          <!-- Left side arrow -->
+          <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:31.8%;"</a>
+
+          <!-- Main pathway image gets pulled from firebase -->
+          <!-- TODO delete when firebase pull works -->
+          <!--<img src="images/terminal-background.jpg" style="height:100%;width:100%;">-->
+
+          <p>This page will feature a picture gallery.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- BOTTOM SECTION -->
+    <div class="section" id="section2">
+
+      <!-- Top side arrow -->
+      <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
+
+      <!-- Main pathway image gets pulled from firebase -->
+      <!-- TODO delete when firebase pull works -->
+      <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
+
+      <!-- delete -->
+      <img src="images/test.jpg" style="position:absolute;top:20%;right:0;left:0;margin:0 auto;">
+    </div>
 </div>
-  </body>
 
-
+</body>
 </html>
