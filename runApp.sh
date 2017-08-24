@@ -11,7 +11,7 @@ if [[ $? -eq 0 ]];
 #then chromium-browser --kiosk --incognito https://birchaquarium-fd036.firebaseapp.com
 then 
 #chromium-browser --kiosk --incognito file:///home/pi/SEE_2017_RFID_Pathways/Terminal/terminal-home.html &
-chromium-browser --incognito file:///home/pi/SEE_2017_RFID_Pathways/Terminal/terminal-home.html &
+chromium-browser --incognito file:///home/pi/SEE_2017_RFID_Pathways/Terminal/index.html &
 break
 fi
 done 
