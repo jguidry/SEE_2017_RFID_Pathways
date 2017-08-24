@@ -24,8 +24,10 @@
 	</head>
     <body id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 				<!-- Main image to be displayed -->
-				<img id="middle" class="bg" src="images/albedo-default.jpg">
-				<footer>
+
+      	<!-- <img id="middle" class="bg" src="images/albedo-default.jpg"> -->
+        <img id="pic" src="">
+      	<footer>
 						<!-- Testing field for reading the RFID_Card number -->
 						<input type="text" id="RFID_ID" autofocus onchange="pathway_redirect()"><br>
 						<!-- Blinking text -->
@@ -42,6 +44,11 @@
         <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
         <script src="js/refocusInput.js"></script>   <!-- refocus reader -->
         <script src="js/updateData.js"></script>   <!-- Write data to db -->
-        <script src="js/populateContent.js"></script> <!-- Load content -->
+        <!-- <script src="js/populateContent.js"></script>  Load content -->
+        <script src="js/albedo-effect.js"></script>
+        <script>
+        populateContent()
+        </script>
+
     </body>
 </html>
