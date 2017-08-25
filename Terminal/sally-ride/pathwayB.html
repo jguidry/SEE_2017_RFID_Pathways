@@ -33,11 +33,13 @@
     <script src="js/firebase_config.js"></script>
 
     <!-- Loader -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
     $(window).load(function() {
-    	$(".loader").fadeOut("slow");
-    })
+      // set delay 1 seconds
+      setTimeout(function() {
+        $(".loader").fadeOut("slow");
+      }, 1000);
+    });
     </script>
 
 </head>
@@ -55,20 +57,6 @@
     <li data-menuanchor="thirdPage"><a href="#thirdPage">BOTTOM</a></li>
 </ul>
 
-
-
-<!-- wanky directional key -->
-<!--
-<ul class="floatingKey">
-  <li><a href="#firstPage" style="color:black;">TOP</a>
-    <a style="visibility:hidden;">--------</li>
-  <li><a href="#secondPage/0" style="color:black;">LEFT</a>
-    <a href="#secondPage/1" style="color:black;">MIDDLE</a>
-    <a href="#secondPage/2" style="color:black;">RIGHT</a></li>
-  <li><a href="#thirdPage" style="color:black;">BOTTOM</a>
-    <a style="visibility:hidden;">------</li>
-</ul>
--->
 <div id="fullpage">
 
 
