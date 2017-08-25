@@ -11,16 +11,17 @@
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script src="js/getOptionVal.js"></script>
         <link rel="stylesheet" href="css/dragAndDrop.css" type="text/css" />
+				  <link rel="stylesheet" href="css/exhibitPage.css" type="text/css" />
         <script src="js/firebase_config.js"></script>
-        
-        <script> 
+
+        <script>
             function changeTitle(){
                 var sel = document.getElementById('exhibits');
                 console.log(sel);
                 document.getElementById('exhibitName').innerHTML = getOptText(sel);
-            }                  
+            }
         </script>
-    
+
         <style>
             progress[value]{
                 width: 100%;
@@ -29,7 +30,7 @@
                 color: #0063a6;
             }
         </style>
-    
+
 </head>
 <body>
     <section id="body" class="width">
@@ -43,14 +44,14 @@
                     <li class="selected-item"><a href="editTerminals.html">Update Media</a></li>
                     <li><a href="editUsers.html">Add/Remove Users</a></li>
                     <li><a href="viewAnalytics.html">RFID Analytics</a></li>
-                   
+
                 </ul>
             </nav>
         </aside>
-        
+
         <!-- Creates the options to choose where the image will be stored on cloud storage (Firebase Storage)-->
         <section id="content" class="column-right">
-            
+
             <h2 id="exhibitName"></h2>
             <table>
                 <tr>
@@ -64,19 +65,19 @@
                                 <option value="T_1/">Albedo Exploration</option>
                                 <option value="T_2/">Sally Ride</option>
                             </select>
-                        
+
                         </td>
-                       
+
                     </tr>
                 </tbody>
             </table>
-            
-            <script> 
+
+            <script>
                 var sel = document.getElementById('exhibits');
                 console.log(sel);
                 document.getElementById('exhibitName').innerHTML = getOptText(sel);
             </script>
-            
+
             <form class="box" method="post" action="" enctype="multipart/form-data">
                 <div id="drop-zone">
                     <div class="drop-zone-caption">Drag & Drop Files Here</div>
@@ -85,7 +86,7 @@
                         <input type="file"id="drop-zone-file" name="files[]" multiple>
                     </span>
                 </div>
-                
+
                 <div>
                     <progress value="0" max="100" id="theUploader"></progress>
                 </div>
@@ -93,13 +94,13 @@
                     <p id="uploadComplete"></p>
                 </div>
             </form>
-            
+
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <!-- Include all compiled plugins (below), or include individual files as needed -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-            
-            
+
+
             <script>
                 //Connect to firebase cloud storage
                 /** var config = {
@@ -110,11 +111,11 @@
                     storageBucket: "birchaquarium-fd036.appspot.com",
                     messagingSenderId: "33111057118",
                 };
-                
+
                 firebase.initializeApp(config); */
                 var obj = $("#drop-zone");
                 var storageRef = firebase.storage().ref(); //get reference to the storage
-                
+
                 obj.on('dragenter', function (e) {
                     e.stopPropagation();
                     e.preventDefault();
@@ -147,7 +148,7 @@
                     var name;
                     var uploader = document.getElementById("theUploader");
 
-                    //just some error check 
+                    //just some error check
                     if (!file) { callBackData({error: 'file required to interact with Firebase storage'}); }
                     if (!path) { callBackData({error: 'Node name required to interact with Firebase storage'}); }
 
@@ -157,15 +158,15 @@
                     var fileType = file.type;
                     var n = file.name;
 
-                    // generate random string to identify each upload instance  
+                    // generate random string to identify each upload instance
                     name = generateRandomString(12); //(location function below)
 
                     //var fullPath = path + '/' + name + '.' + arr.slice(-1)[0];
                     var fullPath = path + '/' + file.name;
 
                     var uploadFile = storageRef.child(fullPath).put(file, metaData);
-                    
-                    
+
+
 
                     // first instance identifier
                     callBackData({id: name, fileSize: fileSize, fileType: fileType, fileName: n});
@@ -173,7 +174,7 @@
                     uploadFile.on('state_changed', function (snapshot) {
                         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         uploader.value = progress;
-                        progress = Math.floor(progress);  
+                        progress = Math.floor(progress);
                         if(uploader.value === 100){
                             document.getElementById("uploadComplete").innerHTML = "UPLOADING COMPLETE";
                         }
@@ -183,28 +184,28 @@
                         else{
                               document.getElementById("uploadComplete").innerHTML = "";
                         }
-                        
+
                         callBackData({
                              progress: progress,
-                             element: name, 
-                             fileSize: fileSize, 
-                             fileType: fileType, 
+                             element: name,
+                             fileSize: fileSize,
+                             fileType: fileType,
                              fileName: n});
                     }, function (error) {
                         callBackData({error: error});
                     }, function () {
                         var downloadURL = uploadFile.snapshot.downloadURL;
                         callBackData({
-                              downloadURL: downloadURL, 
-                              element: name, 
-                              fileSize: fileSize, 
-                              fileType: fileType, 
+                              downloadURL: downloadURL,
+                              element: name,
+                              fileSize: fileSize,
+                              fileType: fileType,
                               fileName: n});
                     });
                     document.getElementById("drop-zone-file").value = "";
                 }
 
-                // function to generate random string to use in what creating firebase storage instance 
+                // function to generate random string to use in what creating firebase storage instance
                 function generateRandomString(length) {
                     var chars = "abcdefghijklmnopqrstuvwxyz";
                     var pass = "";
@@ -232,9 +233,9 @@
                         var sel = document.getElementById('exhibits');
                         var optValue = getOptVal(sel);
                         console.log(files[i].name);
-      
-    
-                        
+
+
+
                         var fileExt = files[i].name;
                         var fileName = files[i].name;
                         var newStr = optValue.substring(0, optValue.length-1);
@@ -243,10 +244,10 @@
                         console.log("Terminal is:" + newStr);
                         console.log("The file extension is:" + fileExt);
                         console.log("The file name is:" + fileName);
-                        
+
                         var database = firebase.database();
                          database.ref("Terminals/" + newStr + "/" + fileName).set(fileExt);
-                    
+
                     /*    var updates = {};
                         updates['/posts/' + newPostKey] = postData;
                         database.ref("Terminals/" + newStr).set({
@@ -273,13 +274,13 @@
                         });
                     }
                 };
-                
+
             </script>
-            
-            
+
+
         </section>
 		<div class="clear"></div>
-	</section> 
-     
+	</section>
+
 </body>
 </html>

@@ -8,7 +8,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
-    <title>Our Web Application Name</title>
+    <title>Sign-In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/employee_authentication.js"></script>
     <script>
@@ -16,10 +16,10 @@
         //that is retrived from the database.
         var username;
         var password;
-        
+
         function handleLogin(){
-            
-                
+
+
             var inputedPass = document.getElementById("password").value;
             var inputedUser = document.getElementById("username").value;
 
@@ -36,7 +36,7 @@
                 alert("Password or Username is wrong. Please try again.");
                 console.log("Password or Username is wrong");
             }
-            
+
         }
     </script>
 </head>
@@ -120,16 +120,16 @@
                 console.log(username);
 
             });
-            
+
             firebase.database().ref('/ADMIN/password' ).once('value').then(function (snapshot) {
 
                 password = snapshot.val();
                 console.log(password);
-                
+
 
             });
     </script>
-    
+
 <div id="container">
     <div id = "message"><h1 >Login to your account</h1></div>
     <input id="username" type="text" placeholder="Username"><br>
