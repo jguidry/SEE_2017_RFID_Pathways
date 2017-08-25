@@ -46,7 +46,7 @@
     </script>
 
 </head>
-<body onload="attachListeners('page1')">
+<body onload="attachListeners('page1')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 
   <!-- Loader -->
   <div class="loader"></div>
@@ -166,6 +166,7 @@
             <script src="js/idleReset.js"></script>  <!-- Idle reset -->
             <script src = "js/pathwayE.js"></script>
             <script src="js/pathway_redirect.js"></script>
+              <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
 
         </div>
 
