@@ -31,7 +31,10 @@
     <script src="js/populateContent.js"></script>
      <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
-
+    <script src="js/albedo-pathwayB.js"></script>
+    <script>
+    populateContent()
+    </script>
     <!-- Loader -->
 
     <script type="text/javascript">
@@ -48,11 +51,11 @@
 
 
 <ul id="menu">
-    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">TOP</a></li>
-    <li data-menuanchor="secondPage/0"><a href="#secondPage/0">LEFT</a></li>
-    <li data-menuanchor="secondPage/1"><a href="#secondPage/1">MIDDLE</a></li>
-    <li data-menuanchor="secondPage/2"><a href="#secondPage/2">RIGHT</a></li>
-    <li data-menuanchor="thirdPage"><a href="#thirdPage">BOTTOM</a></li>
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">VIDEO</a></li>
+    <li data-menuanchor="secondPage/0"><a href="#secondPage/0">QUIZ</a></li>
+    <li data-menuanchor="secondPage/1"><a href="#secondPage/1">HOME</a></li>
+    <li data-menuanchor="secondPage/2"><a href="#secondPage/2">GALLERY</a></li>
+    <li data-menuanchor="thirdPage"><a href="#thirdPage">TROPHIES</a></li>
 </ul>
 
 
@@ -116,6 +119,8 @@
           <!-- Main pathway image gets pulled from firebase -->
           <!-- TODO delete when firebase pull works -->
           <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
+          <h1 style="position:absolute;top:10%;right:68%;left:0%;margin:0 auto">QUIZ</h1>
+
         </div>
 
 
@@ -149,11 +154,11 @@
 
             <!-- Main pathway image gets pulled from firebase -->
             <!-- TODO delete when firebase pull works -->
-            <img src="images/albedo-biologist.jpg" style="height:100%;width:100%;">
-
+            <!-- <img src="images/albedo-biologist.jpg" style="height:100%;width:100%;"> -->
+	            <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
             <!-- Link JavaScript files -->
 
-            <script src="js/idleReset.js"></script>-->  <!-- Idle reset -->
+            <script src="js/idleReset.js"></script>  <!-- Idle reset -->
             <script src = "js/pathwayB.js"></script>
             <script src="js/pathway_redirect.js"></script>
 
@@ -175,9 +180,10 @@
 
           <!-- Main pathway image gets pulled from firebase -->
           <!-- TODO delete when firebase pull works -->
-          <!--<img src="images/terminal-background.jpg" style="height:100%;width:100%;">-->
+          <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
+          <h1 style="position:absolute;top:10%;right:0%;left:68%;margin:0 auto">Gallery</h1>
 
-          <p>This page will feature a picture gallery.</p>
+          <!-- <p>This page will feature a picture gallery.</p> -->
         </div>
     </div>
 
@@ -200,7 +206,8 @@
       <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
 
       <!-- delete -->
-      <img src="images/test.jpg" style="position:absolute;top:20%;right:0;left:0;margin:0 auto;">
+      <!-- <img src="images/test.jpg" style="position:absolute;top:20%;right:0;left:0;margin:0 auto;"> -->
+      <h1 style="position:absolute;top:10%;right:0%;left:0%;margin:0 auto">Trophies</h1>
     </div>
 </div>
 
