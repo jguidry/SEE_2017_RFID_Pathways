@@ -9,7 +9,8 @@ console.log("YAY")
  .catch(function(err) {
 
    // Handle errors
-
+   var errorCode = err.code;
+   var errorMessage = err.message;
    if (errorCode === 'auth/wrong-password') {
    alert('Wrong password.');
  } else {
