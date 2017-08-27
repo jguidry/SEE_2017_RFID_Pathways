@@ -29,18 +29,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="js/dropDownPathway.js"></script>
     <script src="js/populateContent.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
     <script src="js/albedo-pathwayB.js"></script>
     <script>
     populateContent()
     </script>
-    <!-- Loader -->
 
+    <!-- Loader -->
     <script type="text/javascript">
     $(window).load(function() {
-    	$(".loader").fadeOut("slow");
-    })
+      // set delay 1 seconds
+      setTimeout(function() {
+        $(".loader").fadeOut("slow");
+      }, 500);
+    });
     </script>
 
 </head>
@@ -58,20 +61,6 @@
     <li data-menuanchor="thirdPage"><a href="#thirdPage">TROPHIES</a></li>
 </ul>
 
-
-
-<!-- wanky directional key -->
-<!--
-<ul class="floatingKey">
-  <li><a href="#firstPage" style="color:black;">TOP</a>
-    <a style="visibility:hidden;">--------</li>
-  <li><a href="#secondPage/0" style="color:black;">LEFT</a>
-    <a href="#secondPage/1" style="color:black;">MIDDLE</a>
-    <a href="#secondPage/2" style="color:black;">RIGHT</a></li>
-  <li><a href="#thirdPage" style="color:black;">BOTTOM</a>
-    <a style="visibility:hidden;">------</li>
-</ul>
--->
 <div id="fullpage">
 
 
@@ -158,7 +147,7 @@
 	            <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
             <!-- Link JavaScript files -->
 
-            <script src="js/idleReset.js"></script>  <!-- Idle reset -->
+            <!--<script src="js/idleReset.js"></script>-->  <!-- Idle reset -->
             <script src = "js/pathwayB.js"></script>
             <script src="js/pathway_redirect.js"></script>
               <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->

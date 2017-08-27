@@ -23,32 +23,34 @@
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
     <body id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
-				<!-- Main image to be displayed -->
 
-      	<!-- <img id="middle" class="bg" src="images/albedo-default.jpg"> -->
-        <img id="pic" src="" style="height:100%; width:100%;">
-      	<footer>
-						<!-- Testing field for reading the RFID_Card number -->
-						<input type="text" id="RFID_ID" autofocus onchange="pathway_redirect()"><br>
-						<!-- Blinking text -->
-						<h1 class="blinking">Please scan your card to learn more</h1>
-				</footer>
-        <!-- Popup message for unregistered tags -->
-        <div id="myPopup" class="popup">
-          <div class="popup-content">
-            <p>Please register your tag at a Registration Kiosk</p>
-          </div>
+    	<!-- Main image to be displayed -->
+    	<!-- <img id="middle" class="bg" src="images/albedo-default.jpg"> -->
+      <img id="pic" src="" style="height:100%; width:100%;">
+
+    	<footer>
+					<!-- Testing field for reading the RFID_Card number -->
+					<input type="text" id="RFID_ID" autofocus onchange="pathway_redirect()"><br>
+					<!-- Blinking text -->
+					<h1 class="blinking">Please scan your card to learn more</h1>
+			</footer>
+
+      <!-- Popup message for unregistered tags -->
+      <div id="myPopup" class="popup">
+        <div class="popup-content">
+          <p>Please register your tag at a Registration Kiosk</p>
         </div>
-        <!-- Link javascript files -->
-				<script src="js/pathway_redirect.js"></script>   <!-- Redirect -->
-        <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
-        <script src="js/refocusInput.js"></script>   <!-- refocus reader -->
-        <script src="js/updateData.js"></script>   <!-- Write data to db -->
-        <!-- <script src="js/populateContent.js"></script>  Load content -->
-        <script src="js/albedo-effect.js"></script>
-        <script>
-        populateContent()
-        </script>
+      </div>
 
+      <!-- Link javascript files -->
+			<script src="js/pathway_redirect.js"></script>   <!-- Redirect -->
+      <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
+      <script src="js/refocusInput.js"></script>   <!-- refocus reader -->
+      <script src="js/updateData.js"></script>   <!-- Write data to db -->
+      <!-- <script src="js/populateContent.js"></script>  Load content -->
+      <script src="js/albedo-effect.js"></script>
+      <script>
+        populateContent()
+      </script>
     </body>
 </html>

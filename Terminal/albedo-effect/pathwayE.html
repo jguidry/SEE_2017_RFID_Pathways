@@ -7,7 +7,7 @@
     <!-- Scroller functionality -->
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
@@ -21,7 +21,6 @@
         });
     </script>
 
-
     <!-- Pathway styles -->
     <link rel="stylesheet" href="css/terminalTemplate.css">
     <link rel="stylesheet" type="text/css" href="css/professionalPathways.css">
@@ -30,7 +29,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="js/dropDownPathway.js"></script>
     <script src="js/populateContent.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
     <script src="js/albedo-pathwayE.js"></script>
     <script>
@@ -38,11 +37,13 @@
     </script>
 
     <!-- Loader -->
-
     <script type="text/javascript">
     $(window).load(function() {
-    	$(".loader").fadeOut("slow");
-    })
+      // set delay 1 seconds
+      setTimeout(function() {
+        $(".loader").fadeOut("slow");
+      }, 500);
+    });
     </script>
 
 </head>
@@ -60,20 +61,6 @@
     <li data-menuanchor="thirdPage"><a href="#thirdPage">TROPHIES</a></li>
 </ul>
 
-
-
-<!-- wanky directional key -->
-<!--
-<ul class="floatingKey">
-  <li><a href="#firstPage" style="color:black;">TOP</a>
-    <a style="visibility:hidden;">--------</li>
-  <li><a href="#secondPage/0" style="color:black;">LEFT</a>
-    <a href="#secondPage/1" style="color:black;">MIDDLE</a>
-    <a href="#secondPage/2" style="color:black;">RIGHT</a></li>
-  <li><a href="#thirdPage" style="color:black;">BOTTOM</a>
-    <a style="visibility:hidden;">------</li>
-</ul>
--->
 <div id="fullpage">
 
 
@@ -163,7 +150,7 @@
             <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
             <!-- Link JavaScript files -->
 
-            <script src="js/idleReset.js"></script>  <!-- Idle reset -->
+            <!--<script src="js/idleReset.js"></script>-->  <!-- Idle reset -->
             <script src = "js/pathwayE.js"></script>
             <script src="js/pathway_redirect.js"></script>
               <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
@@ -188,7 +175,6 @@
           <!-- TODO delete when firebase pull works -->
           <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
   <!-- <img id="right" src="" style="height:100%;width:100%;"> -->
-          <!-- <p>This page will feature a picture gallery.</p> -->
           <h1 style="position:absolute;top:10%;right:0%;left:68%;margin:0 auto">Gallery</h1>
         </div>
     </div>
