@@ -5,6 +5,8 @@
     <title></title>
 
   <link rel="stylesheet" type="text/css" href="stars.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
   <script>
@@ -23,30 +25,42 @@
 
   <body>
 
-  <button type="button" onclick="rateMe()">Rate this terminal</button>
-  <script>
-    function rateMe(){
-      document.getElementById('rating').style = 'display: inline-block';
+  <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
 
-      //document.getElementById('rating').animate({left: '+=300px'}, 1000 );
 
-    }
-  </script>
+      <div class=" box" id="mainSlideBox">
 
-    <div id="rating">
-      <span onclick="rate( 1, 'T_1' )">★</span>
-      <span onclick="rate( 2, 'T_1' )">★</span>
-      <span onclick="rate( 3, 'T_1' )">★</span>
-      <span onclick="rate( 4, 'T_1' )">★</span>
-      <span onclick="rate( 5, 'T_1' )">★</span>
-    </div>
+        <div id="closeBox">
+          <p onclick="rateMe()">X</p>
+        </div>
+        <div id="boxText">
+          <p>Rate your Experience</p>
+        </div>
 
-    <!-- Popup message for post rating -->
+        <div id="Thankyou">
+          <p>Thank you!</p>
+        </div>
+
+        <div id="rating">
+          <span onclick="rate( 1, 'T_1' )">★</span>
+          <span onclick="rate( 2, 'T_1' )">★</span>
+          <span onclick="rate( 3, 'T_1' )">★</span>
+          <span onclick="rate( 4, 'T_1' )">★</span>
+          <span onclick="rate( 5, 'T_1' )">★</span>
+        </div>
+
+
+
+      </div>
+
+
+
+    <!-- Popup message for post rating
     <div id="thankPop" class="popup">
       <div class="popup-content">
         <p>Thank you for rating this terminal!</p>
       </div>
-    </div>
+    </div> -->
 
 
 <!-- TODO TODO TODO make the popup stuff better style -->
