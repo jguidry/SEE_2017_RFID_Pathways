@@ -11,10 +11,14 @@
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script src="js/getOptionVal.js"></script>
         <link rel="stylesheet" href="css/dragAndDrop.css" type="text/css" />
-				  <link rel="stylesheet" href="css/exhibitPage.css" type="text/css" />
+        <link rel="stylesheet" href="css/exhibitPage.css" type="text/css" />
+        <link rel="stylesheet" href="css/errorPopUp.css" type="text/css" />
+        <link rel="stylesheet" href="css/progressBar.css" type="text/css" />
         <script src="js/firebase_config.js"></script>
-				<script src="js/logout.js"></script>
-
+        <script src="js/logout.js"></script>
+        <script src="js/fileNameCheck.js"></script>
+        <script src="js/errorPopup.js"></script>
+        
         <script>
             function changeTitle(){
                 var sel = document.getElementById('exhibits');
@@ -22,15 +26,6 @@
                 document.getElementById('exhibitName').innerHTML = getOptText(sel);
             }
         </script>
-
-        <style>
-            progress[value]{
-                width: 100%;
-                border: 1px solid #000;
-                background: #fff;
-                color: #0063a6;
-            }
-        </style>
 
 </head>
 <body>
@@ -43,7 +38,6 @@
             <nav id="mainnav">
                 <ul>
                     <li class="selected-item"><a href="editTerminals.html">Update Media</a></li>
-                    <li><a href="editUsers.html">Add/Remove Users</a></li>
                     <li><a href="viewAnalytics.html">RFID Analytics</a></li>
 
                 </ul>
@@ -102,7 +96,6 @@
             <!-- Include all compiled plugins (below), or include individual files as needed -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
             <script>
                 var obj = $("#drop-zone");
                 var storageRef = firebase.storage().ref(); //get reference to the storage
@@ -130,7 +123,13 @@
                     var files = $('#drop-zone-file')[0].files;
                     handleFileUpload(files, obj);
                 });
-
+                
+                
+                /*
+                * Function Name: firebaseImageUpload
+                * Description: Gets the username from firebase
+                *       
+                */
                 function fireBaseImageUpload(parameters, callBackData) {
 
                     // expected parameters to start storage upload
@@ -230,23 +229,28 @@
                         var fileExt = files[i].name;
                         var fileName = files[i].name;
                         var newStr = optValue.substring(0, optValue.length-1);
+                        
+    
+                        
                         fileExt = fileExt.split('.').pop();
                         fileName = fileName.substring(0, fileName.lastIndexOf('.'));
                         console.log("Terminal is:" + newStr);
                         console.log("The file extension is:" + fileExt);
                         console.log("The file name is:" + fileName);
 
+                        var bool = checkFileName(fileName,fileExt);
+                        if(bool === -1){
+                            invalidPopup();
+                            document.getElementById("drop-zone-file").value = "";
+                            return;
+                        }
+                        
                         var database = firebase.database();
                          	database.ref("Terminals/" + newStr + "/" + fileName).set(fileExt).catch((err)=>{
 														alert("Permission Denied");
 														window.location.href = "index.html"
 													});
 
-                    /*    var updates = {};
-                        updates['/posts/' + newPostKey] = postData;
-                        database.ref("Terminals/" + newStr).set({
-                            fileName: fileExt
-                        });*/
 
                         console.log(files[i]);
                         fireBaseImageUpload({
@@ -268,11 +272,17 @@
                         });
                     }
                 };
-
             </script>
-
-
         </section>
+          <!-- Popup message for unregistered tags -->
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                <span onclick="document.getElementById('myPopup').style.display='none'" >&times;</span>
+              <p>Wrong Naming Scheme. The correct naming scheme is:<br>
+                  "exhibit-pathway-location.extention"</p>
+            </div>
+        </div>
+        
 		<div class="clear"></div>
 	</section>
 

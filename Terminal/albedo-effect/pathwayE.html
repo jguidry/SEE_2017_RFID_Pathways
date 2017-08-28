@@ -7,6 +7,9 @@
     <!-- Scroller functionality -->
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
+    <link rel="stylesheet" type="text/css" href="css/stars.css" />
+    <link rel="stylesheet" type="text/css" href="css/rating.css" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
@@ -192,6 +195,35 @@
       <!-- Top side arrow -->
       <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
 
+      <!-- Rating system -->
+      <div id="totalContainer">
+        <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
+
+          <div class=" box" id="mainSlideBox">
+
+            <div id="closeBox">
+              <p onclick="rateMe()">X</p>
+            </div>
+            <div id="boxText">
+              <p>Rate your Experience</p>
+            </div>
+
+            <div >
+              <p id="Thankyou">Thank you!</p>
+            </div>
+
+            <div id="rating">
+              <span onclick="rate( 1, 'T_1' )">★</span>
+              <span onclick="rate( 2, 'T_1' )">★</span>
+              <span onclick="rate( 3, 'T_1' )">★</span>
+              <span onclick="rate( 4, 'T_1' )">★</span>
+              <span onclick="rate( 5, 'T_1' )">★</span>
+            </div>
+          </div>
+      </div>
+
+
+
       <!-- Main pathway image gets pulled from firebase -->
       <!-- TODO delete when firebase pull works -->
       <!-- <img src="images/terminal-background.jpg" style="height:100%;width:100%;"> -->
@@ -201,6 +233,9 @@
       <h1 style="position:absolute;top:10%;right:0%;left:0%;margin:0 auto">Trophies</h1>
     </div>
 </div>
+
+<script src="js/rate.js"></script>
+<script src="js/stars.js"></script>
 
 </body>
 </html>

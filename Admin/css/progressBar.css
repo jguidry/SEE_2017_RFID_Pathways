@@ -1,0 +1,8 @@
+  
+
+  progress[value]{
+      width: 100%;
+      border: 1px solid #000;
+      background: #fff;
+      color: #0063a6;
+  }

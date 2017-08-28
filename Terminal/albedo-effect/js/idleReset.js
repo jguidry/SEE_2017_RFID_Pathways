@@ -31,6 +31,11 @@ function attachListeners( page ){
   element.addEventListener( "dragend", idleReset );
   element.addEventListener( "play", idleReset );
 
+  //Check that these are correct
+  element.addEventListener( "touchmove", idleReset );
+  element.addEventListener( "touchstart", idleReset );
+
+
   //Begin the idle reset
   idleReset();
 
