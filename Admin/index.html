@@ -11,33 +11,34 @@
     <title>Sign-In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/employee_authentication.js"></script>
+    <script src="js/login.js"></script>
     <script>
-        //Global variables that'll hold the values of the username and password
-        //that is retrived from the database.
-        var username;
-        var password;
-
-        function handleLogin(){
-
-
-            var inputedPass = document.getElementById("password").value;
-            var inputedUser = document.getElementById("username").value;
-
-            console.log("inputedPass is:" + inputedPass);
-            console.log("inputedUser is:" + inputedUser);
-            console.log("password is:" + password);
-            console.log("username is:" + username);
-
-            if(password === inputedPass && username === inputedUser){
-                console.log("You May Pass");
-                window.location.href = "exhibitPage.html";
-            }
-            else{
-                alert("Password or Username is wrong. Please try again.");
-                console.log("Password or Username is wrong");
-            }
-
-        }
+    // //Global variables that'll hold the values of the username and password
+        // //that is retrived from the database.
+        // var username;
+        // var password;
+        //
+        // function handleLogin(){
+        //
+        //
+        //     var inputedPass = document.getElementById("password").value;
+        //     var inputedUser = document.getElementById("username").value;
+        //
+        //     console.log("inputedPass is:" + inputedPass);
+        //     console.log("inputedUser is:" + inputedUser);
+        //     console.log("password is:" + password);
+        //     console.log("username is:" + username);
+        //
+        //     if(password === inputedPass && username === inputedUser){
+        //         console.log("You May Pass");
+        //         window.location.href = "exhibitPage.html";
+        //     }
+        //     else{
+        //         alert("Password or Username is wrong. Please try again.");
+        //         console.log("Password or Username is wrong");
+        //     }
+        //
+        // }
     </script>
 </head>
 <style>
@@ -114,28 +115,31 @@
 </style>
 <body>
     <script>
-        firebase.database().ref('/ADMIN/username' ).once('value').then(function (snapshot) {
-
-                username = snapshot.val();
-                console.log(username);
-
-            });
-
-            firebase.database().ref('/ADMIN/password' ).once('value').then(function (snapshot) {
-
-                password = snapshot.val();
-                console.log(password);
-
-
-            });
+        // firebase.database().ref('/ADMIN/username' ).once('value').then(function (snapshot) {
+        //
+        //         username = snapshot.val();
+        //         console.log(username);
+        //
+        //     });
+        //
+        //     firebase.database().ref('/ADMIN/password' ).once('value').then(function (snapshot) {
+        //
+        //         password = snapshot.val();
+        //         console.log(password);
+        //
+        //
+        //     });
     </script>
 
 <div id="container">
     <div id = "message"><h1 >Login to your account</h1></div>
+    <!-- <form onsubmit="handleLogin()"> -->
     <input id="username" type="text" placeholder="Username"><br>
     <input id="password" type="password" placeholder="Password"><br>
+
     <p id="passPop" class="errorPop">Invalid Password <br>Must be 6 characters or more</p>
     <button id="submit" class="pure-button pure-button-primary" onclick="handleLogin()">Sign In</button>
+    <!-- </form> -->
 </div>
 </body>
 </html>
