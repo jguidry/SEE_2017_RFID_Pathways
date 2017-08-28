@@ -1,6 +1,6 @@
     #myProgress {
     width: 100%;
-    background-color: grey;
+    background-color: black;
     }
     
     #myBar {
@@ -10,7 +10,7 @@
     }
 
     #dragandrophandler {
-        border: 2px dotted #0B85A1;
+        border: 2px dotted #000;
         width: 400px;
         color: #92AAB0;
         text-align: left;
@@ -57,7 +57,66 @@
     }
 
     .btn.btn-primary {
-        background-color: darkcyan;
+        background-color: darkgrey;
         border-color: black;
         
     }
+
+
+    .button input[type=file] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .button {
+       border: 1px solid #000000;
+       background: #eaeced;
+       background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eaeced));
+       background: -webkit-linear-gradient(top, #ffffff, #eaeced);
+       background: -moz-linear-gradient(top, #ffffff, #eaeced);
+       background: -ms-linear-gradient(top, #ffffff, #eaeced);
+       background: -o-linear-gradient(top, #ffffff, #eaeced);
+       background-image: -ms-linear-gradient(top, #ffffff 0%, #eaeced 100%);
+       padding: 13px 26px;
+       -webkit-border-radius: 7px;
+       -moz-border-radius: 7px;
+       border-radius: 7px;
+       -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+       -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+       box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+       text-shadow: #7ea4bd 0 1px 0;
+       color: #06426c;
+       font-size: 19px;
+       font-family: helvetica, serif;
+       text-decoration: none;
+       vertical-align: middle;
+   }
+    .button:hover {
+       border: 1px solid #0a3c59;
+       text-shadow: #1e4158 0 1px 0;
+       background: #78b8e3;
+       background: -webkit-gradient(linear, left top, left bottom, from(#d1e4f0), to(#78b8e3));
+       background: -webkit-linear-gradient(top, #d1e4f0, #78b8e3);
+       background: -moz-linear-gradient(top, #d1e4f0, #78b8e3);
+       background: -ms-linear-gradient(top, #d1e4f0, #78b8e3);
+       background: -o-linear-gradient(top, #d1e4f0, #78b8e3);
+       background-image: -ms-linear-gradient(top, #d1e4f0 0%, #78b8e3 100%);
+       color: #fff;
+       }
+    .button:active {
+       text-shadow: #1e4158 0 1px 0;
+       border: 1px solid #0a3c59;
+       background: #65a9d7;
+       background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#78b8e3));
+       background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+       background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+       background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+       background: -o-linear-gradient(top, #3e779d, #65a9d7);
+       background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+       color: #fff;
+       }

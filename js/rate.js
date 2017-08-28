@@ -49,29 +49,18 @@ function rate( rating, terminalNum ){
 
     });
 
-    //thankyou popup
-/*
-    var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
-    //Get the popup
-    var popup = document.getElementById( 'thankPop' );
+    //Show thankyou text
+    document.getElementById( 'Thankyou' ).style.display = "block";
 
-    //Make popup visable
-    popup.style.display = "block";
-    //Automatically close
-    setTimeout( function(){
-      popup.style.display = "none";
-
-
-
-      //Hide ratings
-
-    }, TIME_LENGTH ); */
-
-    document.getElementById( 'Thankyou.p' ).style.display = "block";
-
+    //Slide the rating box back down
     setTimeout( function(){
       $("#mainSlideBox").slideToggle();
-    }, 250 );
+    }, 300 );
+
+    //Hide the thankyou text
+    setTimeout( function(){
+      document.getElementById( 'Thankyou' ).style.display = "none";
+    }, 1000 );
 }
 
 /*
