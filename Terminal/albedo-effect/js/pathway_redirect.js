@@ -53,7 +53,7 @@ function pathway_redirect() {
       else{   //user tag is valid, get the pathway char
 
         pathwayChar = JSON.stringify( snapshot.val() ).charAt( 1 );
-        alert( "Should be 1st step: pathwayChar: " + pathwayChar );
+        //alert( "Should be 1st step: pathwayChar: " + pathwayChar );
         pathLink = "pathway" + pathwayChar + ".html";
 
         registered = true;
@@ -71,7 +71,7 @@ function pathway_redirect() {
         return fileRef.once( 'value' ).then( function( snapshot ){
 
           extension = JSON.stringify( snapshot.val() ).slice( 1, -1 );
-          alert( "Should be 2nd: extension: " + extension );
+          //alert( "Should be 2nd: extension: " + extension );
 
           var contentName = pathwayChar + extension;
           //window.alert( "Content: " + contentName );
