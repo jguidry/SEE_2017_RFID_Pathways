@@ -52,28 +52,51 @@ function rate( rating, terminalNum ){
 
     });
 
+
     //Show thankyou text
-    document.getElementById( 'Thankyou' ).style.display = "block";
+    document.getElementById( 'Thankyou' ).style.visibility = "visible";
 
-    //Slide the rating box back down
-    setTimeout( function(){
-      $("#mainSlideBox").slideToggle();
-    }, 300 );
-
+  //  Slide the rating box back down
     //Hide the thankyou text
     setTimeout( function(){
-      document.getElementById( 'Thankyou' ).style.display = "none";
+
+      $("#mainSlideBox").slideToggle();
+      document.getElementById( 'Thankyou' ).style.visibility = "hidden";
+
     }, 500 );
+
+
+
 }
 
 /*
 * Function Name: rateMe()
 * Description:
 */
-function rateMe(){
-console.log( "rating" );
-  document.getElementById('mainSlideBox').stlye = "display: inline-block";
-  $("#mainSlideBox").slideToggle();
-  return false;
+// function rateMe(){
+// console.log( "rating" );
+//   // document.getElementById('mainSlideBox').stlye = "display: inline-block";
+//   $("#mainSlideBox").slideDown();
+//   return false;
+//
+// }
 
-}
+
+
+
+
+$(document).ready(function(){
+  $("#mainSlideBox").hide();
+  $( "#toggle" ).click(function () {
+    if ( $( "#mainSlideBox:first" ).is( ":hidden" ) ) {
+      $( "#mainSlideBox" ).slideDown( "slow" );
+    } else {
+      $( "#mainSlideBox" ).slideUp( "slow" );
+    }
+  });
+  $( "#X" ).click(function () {
+      $( "#mainSlideBox" ).slideUp( "slow" );
+    });
+
+
+});

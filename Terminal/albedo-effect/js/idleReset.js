@@ -49,7 +49,7 @@ function attachListeners( page ){
 
 function idleReset(){
 
-  var session_timeout = 45000;   //Amount of for seconds idle timeout
+  var session_timeout = 4500000;   //Amount of for seconds idle timeout
   var reloadpage = "index.html";  //Page to reload / redirect to
   var timeout = null;
 

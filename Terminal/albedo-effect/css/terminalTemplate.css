@@ -32,12 +32,14 @@ footer {
 	margin:auto;
   bottom:3%;
 	right:40%;
+	min-height: 5%;
 }
 #pathwaybtn {
 	position:absolute;
 	margin:auto;
 	bottom:3%;
 	left:40%;
+	min-height: 5%;
 }
 #middle {
 		position:absolute;
