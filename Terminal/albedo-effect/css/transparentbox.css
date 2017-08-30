@@ -1,13 +1,12 @@
 div.transbox {
   position:absolute;
   margin:auto;
-  bottom:40%;
-  right:46.5%;
+  top: 6%;
+  right:35%;
   min-height:5%;
   background-color: #ffffff;
-  padding:25px;
+  padding:15px;
   opacity:0.6;
-  border: 1px solid black;
 }
 #close {
     float:right;
