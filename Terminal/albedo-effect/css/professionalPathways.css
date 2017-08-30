@@ -55,6 +55,7 @@ a:hover { color: #ffcc66 }
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 10px;
+  border-color:gold;
   font-family: Courier New;
   color: #ffffff;
   font-size: 25px;
