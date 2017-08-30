@@ -26,6 +26,9 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
         });
     </script>
 
+    <!-- Arrows -->
+    <link rel="stylesheet" type="text/css" href="css/arrows.css" />
+
     <!-- Transparent instruction box -->
     <link rel="stylesheet" type="text/css" href="css/transparentbox.css"/>
     <script src="js/closebox.js"></script>
@@ -72,7 +75,11 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
     <!-- TOP SECTION -->
     <div class="section " id="section0">
       <!-- Bottom side arrow -->
-      <img src="images/upArrow.gif" style="position:absolute;bottom:2%;left:0;right:0;margin:0 auto;"></a>
+      <div>
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+      </div>
       <!-- Main pathway image gets pulled from firebase -->
       <img id="top" src="" style="height:100%;width:100%;">
       <!-- Video -->
@@ -87,7 +94,11 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
         <!-- LEFT SLIDE -->
         <div class="slide" id="slide1">
           <!-- Right side arrow -->
-          <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;left:31.3%;"</a>
+          <div>
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+          </div>
           <!-- Main pathway image gets pulled from firebase -->
           <img id="left" src="" style="height:100%;width:100%;">
           <!-- TODO delete placeholder text -->
@@ -104,13 +115,29 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
             </div>
             </a>
             <!-- Top side arrow -->
-            <img src="images/downArrow.gif" style="position:absolute;top:2%;left:0;right:0;margin:0 auto;">
+            <div>
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+            </div>
             <!-- Bottom side arrow -->
-            <img src="images/upArrow.gif" style="position:absolute;bottom:2%;left:0;right:0;margin:0 auto;">
+            <div>
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+            </div>
             <!-- Left side arrow -->
-            <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;left:34%;">
+            <div>
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+            </div>
             <!-- Right side arrow -->
-            <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:34%;">
+            <div>
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+            </div>
             <!-- Button to allow user to change pathway -->
             <form action="pathwayB.html">
               <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class="pathbtn"> Change Pathway </button>
@@ -130,7 +157,11 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
         <!-- RIGHT SLIDE -->
         <div class="slide" id="slide3">
           <!-- Left side arrow -->
-          <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:31.3%;"</a>
+          <div>
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+          </div>
           <!-- Main pathway image gets pulled from firebase -->
           <img id="right" src="" style="height:100%;width:100%;">
           <!-- TODO delete placeholder text -->
@@ -141,7 +172,11 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
     <!-- BOTTOM SECTION -->
     <div class="section" id="section2">
       <!-- Top side arrow -->
-      <img src="images/downArrow.gif" style="position:absolute;top:2%;left:0;right:0;margin:0 auto;"></a>
+      <div>
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+      </div>
       <!-- Main pathway image gets pulled from firebase -->
       <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
       <!-- Rating system -->
