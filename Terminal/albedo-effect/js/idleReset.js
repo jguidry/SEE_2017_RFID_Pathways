@@ -15,9 +15,10 @@
 * the idle timer.
 * Parameters:
 *   page: The page that the system was redirected to and needs the listeners
+*   terminalNum: The terminal that is active
 */
 
-function attachListeners( page ){
+function attachListeners( page, terminalNum ){
 
   //The page the system was redirected to
   var element = document.getElementById( page );
@@ -31,13 +32,10 @@ function attachListeners( page ){
   element.addEventListener( "dragend", idleReset );
   element.addEventListener( "play", idleReset );
 
-  //Check that these are correct
-  element.addEventListener( "touchmove", idleReset );
-  element.addEventListener( "touchstart", idleReset );
-
+  console.log( terminalNum );
 
   //Begin the idle reset
-  idleReset();
+  idleReset( terminalNum );
 
 }
 
@@ -45,16 +43,19 @@ function attachListeners( page ){
 * Function Name: idleReset
 * Description: Redirects page to the 'reloadpage' var if user is determined to
 * be idle.
+* Parameters:
+*   terminalNum: The terminal that is active
 */
 
-function idleReset(){
+function idleReset( terminalNum ){
 
-  var session_timeout = 45000;   //Amount of for seconds idle timeout
+  var session_timeout = 40000;   //Amount of for seconds idle timeout
   var reloadpage = "index.html";  //Page to reload / redirect to
   var timeout = null;
 
-  console.log( "reset" );
   if (timeout)
     clearTimeout(timeout);
-    timeout = setTimeout("location.replace('" + reloadpage + "');", session_timeout);
+
+    //Set the average interaction time and send back to index page
+    timeout = setTimeout(function(){calcTime( true, terminalNum)}, session_timeout);
 }

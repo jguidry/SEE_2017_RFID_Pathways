@@ -21,26 +21,25 @@ function pathway_redirect() {
   var userID = document.getElementById('RFID_ID').value;  //userID scanned
 
   //User validation checks
-  if( userID.length != ID_LENGTH ){ //Correct ID length
+  if( userID.length != ID_LENGTH ){   //Correct ID length
     refocusInput();
   }
-  else if( isNaN( userID ) ){       //ID scanned was numbers
+  else if( isNaN( userID ) ){         //ID scanned was numbers
     refocusInput();
   }
   else{  //Valid input by scanner
 
-    //Get a reference to the user fields in the database
+    //Get a reference to the user's pathway in the database
     var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );
 
-    //Variables used for content generation and html redirection
+    //Variables used for html redirection
     var terminalNum = "T_1";
     var pathwayChar;
-    var extension;    //extension of media source
 
     var pathLink;     //html page to go to
     var registered;   //If the user tag is registered in the DB
 
-    //Get the pathway character, then get the extension
+    //Get the pathway character
     pathwayRef.once( 'value' ).then( function( snapshot ){
 
       if( snapshot.val() == null){  //User was not registered in the DB
@@ -53,8 +52,8 @@ function pathway_redirect() {
       }
       else{   //user tag is valid, get the pathway char
 
+        //Get the character and build the html link
         pathwayChar = JSON.stringify( snapshot.val() ).charAt( 1 );
-        //alert( "Should be 1st step: pathwayChar: " + pathwayChar );
         pathLink = "pathway" + pathwayChar + ".html";
 
         //Updating user statistics
@@ -69,7 +68,7 @@ function pathway_redirect() {
         //Take user to correct pathway page
         window.location.href = pathLink;
 
-        //Reset the text field on index.html
+        //Reset the text field for ID entry
         document.getElementById('RFID_ID').value = '';
       }
 
@@ -87,47 +86,15 @@ function pathway_redirect() {
 * the user to register their RFID tag.
 */
 
-var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
 function invalidPopup(){
 
-  //Get the popup
-  var popup = document.getElementById( 'myPopup' );
+  var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
 
-  //Make popup visable
+  //Get the popup and make it visible
+  var popup = document.getElementById( 'myPopup' );
   popup.style.display = "block";
 
   //Automatically close
   setTimeout( function(){ popup.style.display = "none"; }, TIME_LENGTH );
 
 }
-
-
-/*
-//Get the pathway character and build the html link to redirect to
-if( registered ){
-
-  //Create DB to file
-  var fileRef = database.ref().child( "Terminals/" + terminalNum + "/" +
-  terminalNum + "_" + pathwayChar );
-
-  //Get the file extension
-  return fileRef.once( 'value' ).then( function( snapshot ){
-
-    extension = JSON.stringify( snapshot.val() ).slice( 1, -1 );
-    //alert( "Should be 2nd: extension: " + extension );
-
-    var contentName = pathwayChar + extension;
-    //window.alert( "Content: " + contentName );
-
-    //alert( "ContentName inside redirect:" + contentName );
-
-    //alert( "Current contentName in localStorage: " + localStorage.getItem( "contentName") );
-    //Set content's name in local storage for populateContent
-    localStorage.setItem( "contentName", contentName );
-    //alert( "Contentname just stored:" + localStorage.getItem( "contentName") );
-
-
-
-  }); //End file extension .then()
-} //Ends if registered inside of pathway's .then()
-*/

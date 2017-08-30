@@ -6,28 +6,9 @@
  * statistics recorded in the User_Data child of the database for later use.
  */
 
- /*
- * Function Name: setVisitors
- * Description: increments the total number of visitors in the database.
- * Parameters:
- *   database: The firebase database reference that will be manipulated
- */
-
- function setVisitors( database ){
-
-   //Reference to the Total_Visitors child in the db
-  var visitorRef = database.ref().child( 'User_Data' ).child( 'Total_Visitors' );
-
-  //Update the total number of visitors
-  visitorRef.transaction( function( visitors ){
-    return visitors + 1;
-  });
-
-}
-
 /*
 * Function Name: setVisitors
-* Description: increments the number of times a particular pathway has been
+* Description: Increments the number of times a particular pathway has been
 * selected by visitors.
 * Parameters:
 *   database: The firebase database reference that will be manipulated

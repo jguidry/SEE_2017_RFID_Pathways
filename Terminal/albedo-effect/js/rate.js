@@ -16,64 +16,69 @@
 
 function rate( rating, terminalNum ){
 
-    //Get the current rating reference
-    var ratingRef = firebase.database().ref().child( "Terminals/" +
-      terminalNum + "/rating" );
+  var ROUND_FACTOR = 100;   //Factor used for rounding the rating
+  var SLIDE_TIME = 300;     //Time before the rating box toggles
+  var TEXT_TIME = 500;      //Time before the thankyou text hides
 
-    //Get the current number of raters reference
-    var ratersRef = firebase.database().ref().child( "Terminals/" +
-      terminalNum + "/raters" );
+  //Get the current rating reference
+  var ratingRef = firebase.database().ref().child( "Terminals/" +
+    terminalNum + "/rating" );
 
-    var numRaters;  //Current number of user who have rated the terminal
+  //Get the current number of raters reference
+  var ratersRef = firebase.database().ref().child( "Terminals/" +
+    terminalNum + "/raters" );
 
-    //Get the number of raters
-    ratersRef.transaction( function( raters ){
-      numRaters = raters + 1;
-      return raters + 1;        //Store new number of raters
-    });
+  var numRaters;  //Number of user who have rated the terminal
+  var newRating;  //The new terminal rating
 
-    //Calculate and store new average rating
-    ratingRef.transaction( function( oldRating ){
+  //Get the number of raters
+  ratersRef.transaction( function( raters ){
+    numRaters = raters + 1;
+    return raters + 1;        //Store new number of raters
+  });
 
-      var newRating;
+  //Calculate and store new average rating
+  ratingRef.transaction( function( oldRating ){
 
-      //Calculate
-      if( numRaters < 1 ){
-          newRating = (( oldRating * numRaters) + rating) / numRaters;
-      }
-      else{
-        newRating = (( oldRating * (numRaters-1)) + rating) / numRaters;
-      }
+    //Calculate
+    if( numRaters < 1 ){
+        newRating = (( oldRating * numRaters) + rating) / numRaters;
+    }
+    else{
+      newRating = (( oldRating * (numRaters-1)) + rating) / numRaters;
+    }
 
-      //Round to 2? decimals
-      newRating = Math.round( newRating  * 100 ) / 100;
+    //Round to 2? decimals
+    newRating = Math.round( newRating  * ROUND_FACTOR ) / ROUND_FACTOR;
 
-      return newRating; //Store
+    return newRating; //Store
 
-    });
+  });
 
-    //Show thankyou text
-    document.getElementById( 'Thankyou' ).style.display = "block";
+  //Show thankyou text
+  document.getElementById( 'Thankyou' ).style.display = "block";
 
-    //Slide the rating box back down
-    setTimeout( function(){
-      $("#mainSlideBox").slideToggle();
-    }, 300 );
+  //Slide the rating box back up
+  setTimeout( function(){
+    $("#mainSlideBox").slideToggle();
+  }, SLIDE_TIME );
 
-    //Hide the thankyou text
-    setTimeout( function(){
-      document.getElementById( 'Thankyou' ).style.display = "none";
-    }, 500 );
+  //Hide the thankyou text
+  setTimeout( function(){
+    document.getElementById( 'Thankyou' ).style.display = "none";
+  }, TEXT_TIME );
 }
 
 /*
 * Function Name: rateMe()
 * Description: Display the rating box to allow user input and rating.
 */
+
 function rateMe(){
-console.log( "rating" );
+
   document.getElementById('mainSlideBox').stlye = "display: inline-block";
   $("#mainSlideBox").slideToggle();
+
   return false;
 
 }

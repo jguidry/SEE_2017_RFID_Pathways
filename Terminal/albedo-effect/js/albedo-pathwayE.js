@@ -1,3 +1,18 @@
+/*
+* File Name: albedo-pathwayE.js
+* Author(s): Matt Rice, Bryle Castro
+* Description: Contains the needed js functionality for the specific pathway.
+* Date: 30 August 2017
+*/
+
+/*
+* Function Name: populateContent
+* Description: Retrieves the correct content from the database and populates
+*   the html elements with the content.
+*
+* Algorithm: TODO
+*/
+
 function populateContent(){
 
   //Get content name from local storage

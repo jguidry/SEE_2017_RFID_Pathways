@@ -8,7 +8,8 @@
 
 /*
 * Function Name: startTimer
-* Description: Sets the starting time of when the page first loads.
+* Description: Sets the starting time of when the page first loads. Used in the
+*   calculation of average interactivity with the terminal.
 */
 
 function startTimer(){
@@ -70,15 +71,11 @@ function calcTime( idle, terminalNum ){
 
   //Calculate sessionTime
   if( !idle ){ //User clicked Finish button
-
     sessionTime = Math.round( (endTime - startTime) / MS_FACTOR );
-
   }
   else{ //User timed out due to inactivity
-
     sessionTime = Math.round( (endTime - IDLE_FACTOR - startTime  ) /
       MS_FACTOR );
-
   }
 
   //Calculate new average time spent, store into db and redirect to default page
