@@ -26,6 +26,10 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
         });
     </script>
 
+    <!-- Transparent instruction box -->
+    <link rel="stylesheet" type="text/css" href="css/transparentbox.css"/>
+    <script src="js/closebox.js"></script>
+
     <!-- Rating system -->
     <link rel="stylesheet" type="text/css" href="css/stars.css" />
     <link rel="stylesheet" type="text/css" href="css/rating.css" />
@@ -63,15 +67,6 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
   <!-- Loader -->
   <div class="loader"></div>
 
-  <!-- Menu buttons TODO delete? -->
-  <ul id="menu">
-      <li data-menuanchor="firstPage" class="active"><a href="#firstPage">VIDEO</a></li>
-      <li data-menuanchor="secondPage/0"><a href="#secondPage/0">QUIZ</a></li>
-      <li data-menuanchor="secondPage/1"><a href="#secondPage/1">HOME</a></li>
-      <li data-menuanchor="secondPage/2"><a href="#secondPage/2">GALLERY</a></li>
-      <li data-menuanchor="thirdPage"><a href="#thirdPage">TROPHIES</a></li>
-  </ul>
-
   <div id="fullpage">
 
     <!-- TOP SECTION -->
@@ -101,6 +96,13 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
 
         <!-- CENTER SLIDE -->
         <div class="slide active" id="slide2">
+            <!-- Transparent instruction box that disappears -->
+            <a>
+            <div class="transbox"><span id="close" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;">CLOSE</span>
+              <img src="images/swipe.gif">
+              <h1>Swipe to navigate!</h1>
+            </div>
+            </a>
             <!-- Top side arrow -->
             <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
             <!-- Bottom side arrow -->
@@ -111,11 +113,11 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
             <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:33.5%;"</a>
             <!-- Button to allow user to change pathway -->
             <form action="pathwayE.html">
-              <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class=btn> Change Pathway </button>
+              <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class="pathbtn"> Change Pathway </button>
             </form>
             <!-- Button to allow user to end experience early and return to default -->
             <form action="index.html">
-              <button id="finishbtn" type="submit" name="finishButtonB" onclick="" class=btn> Finished </button>
+              <button id="finishbtn" type="submit" name="finishButtonB" onclick="" class="pathbtn"> Finished </button>
             </form>
             <!-- Main pathway image gets pulled from firebase -->
 	          <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">

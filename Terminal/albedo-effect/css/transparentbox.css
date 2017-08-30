@@ -12,6 +12,13 @@ div.transbox {
 #close {
     float:right;
     display:inline-block;
-    padding:2px 5px;
+    padding:4px 10px;
     background:#ccc;
+}
+#close:hover {
+    float:right;
+    display:inline-block;
+    padding:4px 10px;
+    background:#000;
+    color:#fff;
 }
