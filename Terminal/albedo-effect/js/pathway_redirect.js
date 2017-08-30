@@ -47,6 +47,7 @@ function pathway_redirect() {
 
         invalidPopup();   //Display popup error for invalid user
         refocusInput();   //Reset entry field for clean read and refocus
+
         registered = false;
 
       }
@@ -56,7 +57,7 @@ function pathway_redirect() {
         //alert( "Should be 1st step: pathwayChar: " + pathwayChar );
         pathLink = "pathway" + pathwayChar + ".html";
 
-        //Updating user statistics TODO make sure this works, and doesnt halt progression
+        //Updating user statistics
         setTerminalUses( database, terminalNum );
         setPathwayUses( database, pathwayChar );
 
@@ -64,39 +65,18 @@ function pathway_redirect() {
 
       }
 
-      //Get the pathway character and build the html link to redirect to
       if( registered ){
+        //Take user to correct pathway page
+        window.location.href = pathLink;
 
-        //Create DB to file
-        var fileRef = database.ref().child( "Terminals/" + terminalNum + "/" +
-        terminalNum + "_" + pathwayChar );
+        //Reset the text field on index.html
+        document.getElementById('RFID_ID').value = '';
+      }
 
-        //Get the file extension
-        return fileRef.once( 'value' ).then( function( snapshot ){
-
-          extension = JSON.stringify( snapshot.val() ).slice( 1, -1 );
-          //alert( "Should be 2nd: extension: " + extension );
-
-          var contentName = pathwayChar + extension;
-          //window.alert( "Content: " + contentName );
-
-          //alert( "ContentName inside redirect:" + contentName );
-
-          //alert( "Current contentName in localStorage: " + localStorage.getItem( "contentName") );
-          //Set content's name in local storage for populateContent
-          localStorage.setItem( "contentName", contentName );
-          //alert( "Contentname just stored:" + localStorage.getItem( "contentName") );
-
-          //Take user to correct pathway page
-          window.location.href = pathLink;
-
-          //Reset the text field on index.html
-          document.getElementById('RFID_ID').value = '';
-
-        }); //End file extension .then()
-      } //Ends if registered inside of pathway's .then()
     }); //End pathway .then()
+
   } //End else
+
 } //End function
 
 
@@ -120,3 +100,34 @@ function invalidPopup(){
   setTimeout( function(){ popup.style.display = "none"; }, TIME_LENGTH );
 
 }
+
+
+/*
+//Get the pathway character and build the html link to redirect to
+if( registered ){
+
+  //Create DB to file
+  var fileRef = database.ref().child( "Terminals/" + terminalNum + "/" +
+  terminalNum + "_" + pathwayChar );
+
+  //Get the file extension
+  return fileRef.once( 'value' ).then( function( snapshot ){
+
+    extension = JSON.stringify( snapshot.val() ).slice( 1, -1 );
+    //alert( "Should be 2nd: extension: " + extension );
+
+    var contentName = pathwayChar + extension;
+    //window.alert( "Content: " + contentName );
+
+    //alert( "ContentName inside redirect:" + contentName );
+
+    //alert( "Current contentName in localStorage: " + localStorage.getItem( "contentName") );
+    //Set content's name in local storage for populateContent
+    localStorage.setItem( "contentName", contentName );
+    //alert( "Contentname just stored:" + localStorage.getItem( "contentName") );
+
+
+
+  }); //End file extension .then()
+} //Ends if registered inside of pathway's .then()
+*/
