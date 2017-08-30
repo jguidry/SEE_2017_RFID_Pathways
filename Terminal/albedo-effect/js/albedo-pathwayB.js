@@ -91,6 +91,14 @@ var key=names[name];
           });
     });
 
+    $(document).ready(function(){
+      $(document.body).on("touchstart", ()=>{
+        $("#swipe-box").hide();
+
+      })
+
+    });
+
 
 
   // }

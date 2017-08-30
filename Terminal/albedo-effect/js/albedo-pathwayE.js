@@ -90,7 +90,13 @@ var key=names[name];
             console.log( "Content download error..." + JSON.stringify( error ) );
           });
     });
+    $(document).ready(function(){
+      $(document.body).on("touchstart", ()=>{
+        $("#swipe-box").hide();
 
+      })
+
+    });
 
 
   // }

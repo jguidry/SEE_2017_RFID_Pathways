@@ -18,7 +18,7 @@
         <script src="js/logout.js"></script>
         <script src="js/fileNameCheck.js"></script>
         <script src="js/errorPopup.js"></script>
-        
+
         <script>
             function changeTitle(){
                 var sel = document.getElementById('exhibits');
@@ -37,7 +37,7 @@
             </header>
             <nav id="mainnav">
                 <ul>
-                    <li class="selected-item"><a href="editTerminals.html">Update Media</a></li>
+                    <li class="selected-item"><a href="">Update Media</a></li>
                     <li><a href="viewAnalytics.html">RFID Analytics</a></li>
 
                 </ul>
@@ -123,12 +123,12 @@
                     var files = $('#drop-zone-file')[0].files;
                     handleFileUpload(files, obj);
                 });
-                
-                
+
+
                 /*
                 * Function Name: firebaseImageUpload
-                * Description: Puts file into firebase storage. 
-                *       
+                * Description: Puts file into firebase storage.
+                *
                 */
                 function fireBaseImageUpload(parameters, callBackData) {
 
@@ -198,7 +198,7 @@
                 /*
                 * Function Name: generateRandomString(length)
                 * Description: function to generate random string to use in what creating firebase storage instance
-                *       
+                *
                 */
                 function generateRandomString(length) {
                     var chars = "abcdefghijklmnopqrstuvwxyz";
@@ -222,8 +222,8 @@
 
                  /*
                 * Function Name: handleFileUpload(length)
-                * Description: Handles parsing files to the correct location in firebase storage. 
-                *              Also handles, the checking of filenames if the filenames follow 
+                * Description: Handles parsing files to the correct location in firebase storage.
+                *              Also handles, the checking of filenames if the filenames follow
                 *              the correct naming scheme: "exhibit-pathway-location.extention"
                 */
                 function handleFileUpload(files, obj) {
@@ -239,9 +239,9 @@
                         var fileExt = files[i].name;
                         var fileName = files[i].name;
                         var newStr = optValue.substring(0, optValue.length-1);
-                        
-    
-                        
+
+
+
                         fileExt = fileExt.split('.').pop();
                         fileName = fileName.substring(0, fileName.lastIndexOf('.'));
                         console.log("Terminal is:" + newStr);
@@ -254,7 +254,7 @@
                             document.getElementById("drop-zone-file").value = "";
                             return;
                         }
-                        
+
                         var database = firebase.database();
                          	database.ref("Terminals/" + newStr + "/" + "Content/"+ fileName).set(fileExt).catch((err)=>{
 														alert("Permission Denied");
@@ -303,7 +303,7 @@
                   "exhibit-pathway-location.extention"</p>
             </div>
         </div>
-        
+
 		<div class="clear"></div>
 	</section>
 
