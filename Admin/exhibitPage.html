@@ -51,7 +51,7 @@
             <table>
                 <tr>
                     <td>Exhibit</td>
-										<td><button id="submit" class="pure-button pure-button-primary" onclick="handleLogout()">Sign Out</td>
+                    <td><button id="submit" class="pure-button pure-button-primary" onclick="handleLogout()">Sign Out</button></td>
                 </tr>
                 <tbody>
                     <tr>
@@ -127,7 +127,7 @@
                 
                 /*
                 * Function Name: firebaseImageUpload
-                * Description: Gets the username from firebase
+                * Description: Puts file into firebase storage. 
                 *       
                 */
                 function fireBaseImageUpload(parameters, callBackData) {
@@ -195,7 +195,11 @@
                     document.getElementById("drop-zone-file").value = "";
                 }
 
-                // function to generate random string to use in what creating firebase storage instance
+                /*
+                * Function Name: generateRandomString(length)
+                * Description: function to generate random string to use in what creating firebase storage instance
+                *       
+                */
                 function generateRandomString(length) {
                     var chars = "abcdefghijklmnopqrstuvwxyz";
                     var pass = "";
@@ -216,6 +220,12 @@
                 }
 
 
+                 /*
+                * Function Name: handleFileUpload(length)
+                * Description: Handles parsing files to the correct location in firebase storage. 
+                *              Also handles, the checking of filenames if the filenames follow 
+                *              the correct naming scheme: "exhibit-pathway-location.extention"
+                */
                 function handleFileUpload(files, obj) {
                     for (var i = 0; i < files.length; i++) {
                         var fd = new FormData();
@@ -277,8 +287,19 @@
           <!-- Popup message for unregistered tags -->
         <div id="myPopup" class="popup">
             <div class="popup-content">
-                <span onclick="document.getElementById('myPopup').style.display='none'" >&times;</span>
-              <p>Wrong Naming Scheme. The correct naming scheme is:<br>
+                <button  style="background-color: black;
+                                border: blue;
+                                color: white;
+                                padding: 5px 15px;
+                                text-align: center;
+                                display: inline-block;
+                                font-size: 15px;
+                                margin: 1px 1px;
+                                cursor: pointer;"
+                                id="closeButton" type="button" class="close" aria-label="Close" onclick="document.getElementById('myPopup').style.display='none'">
+                    <span aria-hidden="true">&#10006;</span>
+                </button>
+                <p id="popupText">Wrong Naming Scheme. The correct naming scheme is:<br>
                   "exhibit-pathway-location.extention"</p>
             </div>
         </div>

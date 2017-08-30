@@ -12,6 +12,7 @@ function invalidPopup(){
   //Make popup visable
   popup.style.display = "block";
     
+  //Close popup upon clicking outside the box
   window.onclick = function(event) {
     if (event.target == popup) {
         popup.style.display = "none";
