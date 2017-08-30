@@ -5,11 +5,11 @@ function populateContent(){
   //var content = localStorage.getItem( "contentName" );
 
 var names={
-  middle: "albedo-engineer.jpg",
-  right: "terminal-background.jpg",
-  top: "terminal-background.jpg",
-  left: "terminal-background.jpg",
-  bottom: "terminal-background.jpg"
+  middle: "albedo-engineer-middle.jpg",
+  right: "albedo-engineer-right.jpg",
+  top: "albedo-engineer-top.jpg",
+  left: "albedo-engineer-left.jpg",
+  bottom: "albedo-engineer-bottom.jpg"
 }
 // for(var name in names){
 
@@ -84,6 +84,17 @@ var key=names[name];
 
         contentRef.getDownloadURL().then( function( url ){
           document.getElementById(name).src = url;
+
+          }).catch( function( error ){
+            //Hanlde errors TODO
+            console.log( "Content download error..." + JSON.stringify( error ) );
+          });
+    }).then((err)=>{
+        var folderRef = firebase.storage().ref().child( "T_1/" );
+        var contentRef = folderRef.child("albedo-engineer-top.mp4");
+
+        contentRef.getDownloadURL().then(function( url ){
+        document.getElementById("videoTop").src = url;
 
           }).catch( function( error ){
             //Hanlde errors TODO
