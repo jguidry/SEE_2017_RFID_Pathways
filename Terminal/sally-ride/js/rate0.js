@@ -18,11 +18,11 @@ function rate( rating, terminalNum ){
 
     //Get the current rating reference
     var ratingRef = firebase.database().ref().child( "Terminals/" +
-      terminalNum + "/Rating_Sys/rating" );
+      terminalNum + "/rating" );
 
     //Get the current number of raters reference
     var ratersRef = firebase.database().ref().child( "Terminals/" +
-      terminalNum + "/Rating_Sys/raters" );
+      terminalNum + "/raters" );
 
     var numRaters;  //Current number of user who have rated the terminal
 
@@ -68,7 +68,7 @@ function rate( rating, terminalNum ){
 
 /*
 * Function Name: rateMe()
-* Description: Display the rating option for user input and ratings.
+* Description:
 */
 function rateMe(){
 console.log( "rating" );

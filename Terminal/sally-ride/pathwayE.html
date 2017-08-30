@@ -15,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
+    <script src="js/Timer.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#fullpage').fullpage({
@@ -22,6 +23,8 @@
               anchors: ['firstPage', 'secondPage', 'thirdPage'],
               menu: '#menu',
             });
+
+            startTimer(); //Timer for tracking Interaction
         });
     </script>
 
@@ -135,9 +138,8 @@
               <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class=btn> Change Pathway </button>
             </form>
             <!-- Button to allow user to end experience early and return to default -->
-            <form action="index.html">
-              <button id="finishbtn" type="submit" name="finishButtonB" onclick="" class=btn> Finished </button>
-            </form>
+            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_2')" class=btn> Finished </button>
+
 
             <!-- Main pathway image gets pulled from firebase -->
             <!-- TODO delete when firebase pull works -->
@@ -203,11 +205,11 @@
             </div>
 
             <div id="rating">
-              <span onclick="rate( 1, 'T_1' )">★</span>
-              <span onclick="rate( 2, 'T_1' )">★</span>
-              <span onclick="rate( 3, 'T_1' )">★</span>
-              <span onclick="rate( 4, 'T_1' )">★</span>
-              <span onclick="rate( 5, 'T_1' )">★</span>
+              <span onclick="rate( 1, 'T_2' )">★</span>
+              <span onclick="rate( 2, 'T_2' )">★</span>
+              <span onclick="rate( 3, 'T_2' )">★</span>
+              <span onclick="rate( 4, 'T_2' )">★</span>
+              <span onclick="rate( 5, 'T_2' )">★</span>
             </div>
           </div>
       </div>

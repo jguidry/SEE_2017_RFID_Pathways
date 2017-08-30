@@ -56,6 +56,10 @@ function pathway_redirect() {
         //alert( "Should be 1st step: pathwayChar: " + pathwayChar );
         pathLink = "pathway" + pathwayChar + ".html";
 
+        //Updating user statistics TODO make sure this works, and doesnt halt progression
+        setTerminalUses( database, terminalNum );
+        setPathwayUses( database, pathwayChar );
+
         registered = true;
 
       }
@@ -82,9 +86,6 @@ function pathway_redirect() {
           //Set content's name in local storage for populateContent
           localStorage.setItem( "contentName", contentName );
           //alert( "Contentname just stored:" + localStorage.getItem( "contentName") );
-
-          //Updating user statistics (total visitors)
-          setVisitors( database );
 
           //Take user to correct pathway page
           window.location.href = pathLink;

@@ -68,7 +68,7 @@ function rate( rating, terminalNum ){
 
 /*
 * Function Name: rateMe()
-* Description:
+* Description: Display the rating box to allow user input and rating.
 */
 function rateMe(){
 console.log( "rating" );
