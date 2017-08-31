@@ -65,20 +65,39 @@ section#content{
 .analytics-main-title {
 
 }
+.analytics-title-row {
+  display: flex;
+  /*justify-content: space-around;*/
+  /*min-width: 100%;*/
+  flex: 2;
+  align-items: stretch;
+  /*align-self: center;*/
+}
+.analytics-title-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .analytics-row {
 
   /*align-self: flex-start;*/
   display: flex;
   /*justify-content: space-around;*/
   min-width: 100%;
+  flex: 2;
+  align-items: stretch;
+  align-self: stretch;
   /*border: 2px solid gold;*/
   /*padding-bottom: 30px;*/
 
 }
 .analytics-col {
-  flex: 1;
-  padding-left: 15%;
-  margin-bottom: 20%;
+  /*flex: 1;*/
+  padding-left: 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*margin-bottom: 20%;*/
 }
 
 .analytics-dropdown {
@@ -93,7 +112,8 @@ section#content{
 .analytics-info {
   /*visibility: hidden;*/
   display: none;
-  margin-top: -10%;
+
+  /*margin-top: -10%;*/
 }
 .analytics-link1 {
 display: flex;
@@ -107,6 +127,10 @@ justify-content: center;
 cursor: default;
 
 }
+.analytics-text {
+  font-size: 15px;
+  border: 2px;
+}
 
 .dropbtn {
     min-height: 25px;
@@ -115,6 +139,7 @@ cursor: default;
     font-size: 16px;
     border: none;
     cursor: pointer;
+
 
 
 }
@@ -134,13 +159,14 @@ cursor: default;
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  visibility: hidden;
+  /*visibility: hidden;*/
+  /*display: none;*/
     /*position: absolute;*/
     /*background-color: #566172;*/
     background-color: #f9f9f9;
     /*min-width: 160px;*/
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 5;
 }
 
 /* Links inside the dropdown */
@@ -150,7 +176,17 @@ cursor: default;
     text-decoration: none;
     /*display: block;*/
 }
+#info1 {
+  /*margin-bottom: 7%;*/
+  margin-top: 1%;
+}
+#info2 {
+  /*margin-bottom: 10%;*/
+}
 
+/*#dropbtn2 {
+  margin-top: 10%;
+}*/
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #929ba8}
 

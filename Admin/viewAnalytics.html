@@ -13,7 +13,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 		<link rel="stylesheet" href="css/index.css" type="text/css" />
+
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+		<script src="js/firebase_config.js"></script>
 		<script src="js/analytics.js"> </script>
 </head>
 <body>
@@ -34,8 +37,13 @@
 		<section id="content" class="column-right">
 				<div class="analytics-main-container">
 					<h1 class="analytics-main-title"> Analytics </h1>
-					<div>
-						Total number of Users: 10
+					<div class="analytics-title-row">
+						<div class="analytics-title-col">
+						<h2 style="font-size: 20px"> Total Number of Registrations:&nbsp  </h2>
+					</div>
+					<div class = "analytics-title-col">
+						<h2 id="grand-total" style="font-size: 20px"></h2>
+					</div>
 					</div>
 					<div class="analytics-dropdown">
 						<div class="dropdown">
@@ -50,12 +58,16 @@
 				<div class="analytics-row">
 					<div class="analytics-col">
 						<div class="analytics-info" id="info1">
-							Analytics 1: 200
+							<h3>Interaction</h3>
+							<h5 class="analytics-text" id="time"></h5>
+							<h5 class="analytics-text" id="uses"></h5>
 						</div>
 				</div>
 					<div class="analytics-col">
 						<div class="analytics-info" id="info2">
-							Analytics 2: 100
+							<h3>Rating</h3>
+							<h5 class="analytics-text" id="rating"></h5>
+							<h5 class="analytics-text" id="raters"></h5>
 						</div>
 					</div>
 				</div>
@@ -72,12 +84,14 @@
 				<div class="analytics-row">
 					<div class="analytics-col">
 						<div class="analytics-info" id="info3">
-							Analytics 3: 500
+							<h3>Registrations </h3>
+							<h5 class="analytics-text" id ="registrations"></h5>
 						</div>
 				</div>
 					<div class="analytics-col">
 						<div class="analytics-info" id="info4">
-							Analytics 4: 0
+							<h3>Uses</h3>
+							<h5 class="analytics-text" id="total-uses"></h5>
 						</div>
 					</div>
 				</div>
