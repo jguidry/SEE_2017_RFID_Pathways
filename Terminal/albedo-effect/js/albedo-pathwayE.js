@@ -5,7 +5,7 @@ function populateContent(){
   //var content = localStorage.getItem( "contentName" );
 
 var names={
-  middle: "albedo-engineer-middle.jpg",
+  middle: "albedo-engineer-middle.png",
   right: "albedo-engineer-right.jpg",
   top: "albedo-engineer-top.jpg",
   left: "albedo-engineer-left.jpg",
