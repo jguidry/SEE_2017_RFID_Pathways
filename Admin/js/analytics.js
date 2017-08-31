@@ -10,11 +10,13 @@ var pathwayMap = {
 }
 function drop1(){
   $(".analytics-link1").toggle();
+  $(".analytics-link2").hide();
 
 }
 
 function drop2(){
-$(".analytics-link2").toggle()
+  $(".analytics-link2").toggle();
+  $(".analytics-link1").hide();
 
 }
 

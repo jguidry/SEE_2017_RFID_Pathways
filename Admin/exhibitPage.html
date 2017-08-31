@@ -46,12 +46,15 @@
 
         <!-- Creates the options to choose where the image will be stored on cloud storage (Firebase Storage)-->
         <section id="content" class="column-right">
+					<div class="the-div">
+						<button id="submit" onclick="handleLogout()">Sign Out</button>
 
             <h2 id="exhibitName"></h2>
+					</div>
+
             <table>
                 <tr>
                     <td>Exhibit</td>
-                    <td><button id="submit" class="pure-button pure-button-primary" onclick="handleLogout()">Sign Out</button></td>
                 </tr>
                 <tbody>
                     <tr>
@@ -299,8 +302,11 @@
                                 id="closeButton" type="button" class="close" aria-label="Close" onclick="document.getElementById('myPopup').style.display='none'">
                     <span aria-hidden="true">&#10006;</span>
                 </button>
-                <p id="popupText">Wrong Naming Scheme. The correct naming scheme is:<br>
-                  "exhibit-pathway-location.extention"</p>
+								<h1 id="popupTitle">Wrong Naming Scheme </h1>
+                <p id="popupText">Naming:
+                  "exhibit-pathway-location.extention"<br> For example:
+									"albedo-pathway-right.png"
+								</p>
             </div>
         </div>
 
