@@ -10,7 +10,14 @@
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="css/index.css" type="text/css" />
+
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+		<script src="js/firebase_config.js"></script>
+		<script src="js/analytics.js"> </script>
 </head>
 <body>
 		<section id="body" class="width">
@@ -20,21 +27,77 @@
 						</header>
 						<nav id="mainnav">
 								<ul>
-										
+
 										<li><a href="exhibitPage.html">Update Media</a></li>
-										<li><a href="editUsers.html">Add/Remove Users</a></li>
 										<li class="selected-item"><a href="viewAnalytics.html">RFID Analytics</a></li>
-										
+
 								</ul>
 						</nav>
 				</aside>
 		<section id="content" class="column-right">
-				<article>
-				<h2>RFID Analytics</h2>
-				<br>
-				<h4><u>RFID Analytics</u></h4>
-				<p>This page will contain everything needed to view RFID database
-				analytics and see who's even using the RFID technology.</p>
+				<div class="analytics-main-container">
+					<h1 class="analytics-main-title"> Analytics </h1>
+					<div class="analytics-title-row">
+						<div class="analytics-title-col">
+						<h2 style="font-size: 20px"> Total Number of Registrations:&nbsp  </h2>
+					</div>
+					<div class = "analytics-title-col">
+						<h2 id="grand-total" style="font-size: 20px"></h2>
+					</div>
+					</div>
+					<div class="analytics-dropdown">
+						<div class="dropdown">
+							<button onclick="drop1()" class="dropbtn" id="dropbtn1">Terminals</button>
+							<div id="drop1" class="dropdown-content">
+								<a id="show1" class="analytics-link1">Albedo</a>
+								<a id="show2" class="analytics-link1">Sally Ride</a>
+
+							</div>
+						</div>
+					</div>
+				<div class="analytics-row">
+					<div class="analytics-col">
+						<div class="analytics-info" id="info1">
+							<h3>Interaction</h3>
+							<h5 class="analytics-text" id="time"></h5>
+							<h5 class="analytics-text" id="uses"></h5>
+						</div>
+				</div>
+					<div class="analytics-col">
+						<div class="analytics-info" id="info2">
+							<h3>Rating</h3>
+							<h5 class="analytics-text" id="rating"></h5>
+							<h5 class="analytics-text" id="raters"></h5>
+						</div>
+					</div>
+				</div>
+				<div class="analytics-dropdown">
+					<div class="dropdown">
+						<button onclick="drop2()" class="dropbtn" id="dropbtn2">Pathways</button>
+						<div id="drop2" class="dropdown-content">
+							<a id="show4" class="analytics-link2">Engineer</a>
+							<a id="show5" class="analytics-link2">Biologist</a>
+							<a id="show6" class="analytics-link2">Climatologist</a>
+						</div>
+					</div>
+				</div>
+				<div class="analytics-row">
+					<div class="analytics-col">
+						<div class="analytics-info" id="info3">
+							<h3>Registrations </h3>
+							<h5 class="analytics-text" id ="registrations"></h5>
+						</div>
+				</div>
+					<div class="analytics-col">
+						<div class="analytics-info" id="info4">
+							<h3>Uses</h3>
+							<h5 class="analytics-text" id="total-uses"></h5>
+						</div>
+					</div>
+				</div>
+
+				</div>
+
 		</section>
 		<div class="clear"></div>
 	</section>

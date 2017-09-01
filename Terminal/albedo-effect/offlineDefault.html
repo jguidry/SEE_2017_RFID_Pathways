@@ -1,17 +1,25 @@
+<!--
+Filename: offlineDefault.html
+Authors: Josh Duhay, Matthew Rice, Wyatt Guidry, Bryle Castro
+Description: Default exhibit screen for when the system is offline.
+-->
+
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width", initial-scale=1>
-    <link href="css/bootstramp.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="">
-    <!-- Style sheet for offlineDefault.html -->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="css/terminalTemplate.css">
-  </head>
 
-  <body id="test" ononline="onlineDefault();">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/stars.css">  <!-- rating system -->
+  	<link rel="stylesheet" href="css/terminalTemplate.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="">
+</head>
+
+<body id="test" ononline="onlineDefault();">
 
     <!-- Main image -->
     <img id="pic" src="images/albedo-default.jpg" style="height:100%;width:100%;">
@@ -19,15 +27,13 @@
     <!-- Link Javascript files -->
     <script src="js/pageDefault.js"></script> <!-- Online redirection -->
     <script>
-      //pull the image from localStorage
+      //pull the image from localStorage TODO
     </script>
 
     <!-- Link javascript files -->
-    <script src="js/pathway_redirect.js"></script>   <!-- Redirect -->
     <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
     <script src="js/refocusInput.js"></script>   <!-- refocus reader -->
     <script src="js/updateData.js"></script>   <!-- Write data to db -->
-    <!-- <script src="js/populateContent.js"></script>  Load content -->
     <script src="js/albedo-effect.js"></script>
   </body>
 </html>

@@ -21,12 +21,12 @@ function rate( rating, terminalNum ){
   var TEXT_TIME = 500;      //Time before the thankyou text hides
 
   //Get the current rating reference
-  var ratingRef = firebase.database().ref().child( "Terminals/" +
-    terminalNum + "/rating" );
+  var ratingRef = firebase.database().ref().child( "Terminals" ).child(
+    terminalNum ).child( "Rating_Sys" ).child( "rating" );
 
   //Get the current number of raters reference
-  var ratersRef = firebase.database().ref().child( "Terminals/" +
-    terminalNum + "/raters" );
+  var ratersRef = firebase.database().ref().child( "Terminals" ).child(
+    terminalNum ).child( "Rating_Sys" ).child( "raters" );
 
   var numRaters;  //Number of user who have rated the terminal
   var newRating;  //The new terminal rating
@@ -55,18 +55,35 @@ function rate( rating, terminalNum ){
 
   });
 
+
+
   //Show thankyou text
   document.getElementById( 'Thankyou' ).style.display = "block";
 
-  //Slide the rating box back up
+  //Slide the rating box back down
   setTimeout( function(){
     $("#mainSlideBox").slideToggle();
-  }, SLIDE_TIME );
+  }, 300 );
 
   //Hide the thankyou text
   setTimeout( function(){
     document.getElementById( 'Thankyou' ).style.display = "none";
-  }, TEXT_TIME );
+  }, 500 );
+
+/*
+    //Show thankyou text
+    document.getElementById( 'Thankyou' ).style.visibility = "visible";
+
+  //  Slide the rating box back down
+    //Hide the thankyou text
+    setTimeout( function(){
+
+      $("#mainSlideBox").slideToggle();
+      document.getElementById( 'Thankyou' ).style.visibility = "hidden";
+
+    }, TEXT_TIME );
+*/
+
 }
 
 /*
@@ -80,5 +97,31 @@ function rateMe(){
   $("#mainSlideBox").slideToggle();
 
   return false;
-
 }
+// function rateMe(){
+// console.log( "rating" );
+//   // document.getElementById('mainSlideBox').stlye = "display: inline-block";
+//   $("#mainSlideBox").slideDown();
+//   return false;
+//
+// }
+
+
+
+/*
+
+$(document).ready(function(){
+  $("#mainSlideBox").hide();
+  $( "#toggle" ).click(function () {
+    if ( $( "#mainSlideBox:first" ).is( ":hidden" ) ) {
+      $( "#mainSlideBox" ).slideDown( "slow" );
+    } else {
+      $( "#mainSlideBox" ).slideUp( "slow" );
+    }
+  });
+  $( "#X" ).click(function () {
+      $( "#mainSlideBox" ).slideUp( "slow" );
+    });
+
+
+});*/

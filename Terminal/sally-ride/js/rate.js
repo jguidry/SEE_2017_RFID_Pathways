@@ -71,9 +71,10 @@ function rate( rating, terminalNum ){
 * Description: Display the rating option for user input and ratings.
 */
 function rateMe(){
-console.log( "rating" );
+
   document.getElementById('mainSlideBox').stlye = "display: inline-block";
   $("#mainSlideBox").slideToggle();
+
   return false;
 
 }

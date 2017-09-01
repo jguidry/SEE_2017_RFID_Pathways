@@ -125,7 +125,7 @@
 
             //scrolling
             css3: true,
-            scrollingSpeed: 700,
+            scrollingSpeed: 400,
             autoScrolling: true,
             fitToSection: true,
             fitToSectionDelay: 1000,
@@ -374,6 +374,23 @@
         */
         function moveSectionUp(){
             var prev = $(SECTION_ACTIVE_SEL).prev(SECTION_SEL);
+            var slide = $(SLIDE_ACTIVE_SEL).next(SLIDE_SEL);
+            var next = $(SECTION_ACTIVE_SEL).next(SECTION_SEL);
+            var blah = $(SLIDE_ACTIVE_SEL).prev(SLIDE_SEL);
+
+
+            // If center section, only allow scroll up for center slide
+            // If right slide, can't scroll up
+            if(!slide.length && prev.length){
+              return false;
+            }
+
+            // If left slide, can't scroll up
+            if(next.length && prev.length && !blah.length){
+              return false;
+            }
+
+
 
             //looping to the bottom if there's no more sections above
             if (!prev.length && (options.loopTop || options.continuousVertical)) {
@@ -390,6 +407,19 @@
         */
         function moveSectionDown(){
             var next = $(SECTION_ACTIVE_SEL).next(SECTION_SEL);
+            var slide = $(SLIDE_ACTIVE_SEL).next(SLIDE_SEL);
+            var prev = $(SLIDE_ACTIVE_SEL).prev(SLIDE_SEL);
+
+            // If center section, only allow scroll down for center slide
+            // If right slide, can't scroll down
+            if(!slide.length && next.length){
+              return false;
+            }
+            // If left slide, can't scroll down
+            if(!prev.length && next.length){
+              return false;
+            }
+
 
             //looping to the top if there's no more sections below
             if(!next.length &&

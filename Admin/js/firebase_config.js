@@ -1,3 +1,7 @@
+
+/*
+* Description: Allows access to firebase database and firebase storage      
+*/
 var config = {
   apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
   authDomain: "birchaquarium-fd036.firebaseapp.com",

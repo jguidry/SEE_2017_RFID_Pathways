@@ -20,11 +20,8 @@
    var usesRef = database.ref().child( 'Terminals' ).child(
      terminalNum ).child('Interaction').child( 'Total_Uses');
 
-
   //Update the total number of visitors
   usesRef.transaction( function( uses ){
-    //alert( "term uses" );
-
     return uses + 1;
   });
 
@@ -47,10 +44,9 @@ function setPathwayUses( database, pathwayChar ){
     pathwayChar ).child( "Uses" );
 
 
-
   pathwayRef.transaction( function( path ){
     //alert( "path uses" );
-
+    console.log( "path uses set" );
     return path + 1;
   });
 

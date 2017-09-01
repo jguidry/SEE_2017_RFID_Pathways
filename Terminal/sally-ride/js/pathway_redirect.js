@@ -56,9 +56,9 @@ function pathway_redirect() {
         pathLink = "pathway" + pathwayChar + ".html";
 
         //Updating user statistics TODO make sure this works, and doesnt halt progression
+        console.log( "Updating data" );
         setTerminalUses( database, terminalNum );
         setPathwayUses( database, pathwayChar );
-
 
         registered = true;
 
@@ -101,7 +101,7 @@ function pathway_redirect() {
 * the user to register their RFID tag.
 */
 
-var TIME_LENGTH = 3000; //Time before automatic close (3 seconds)
+var TIME_LENGTH = 40000; //Time before automatic close (3 seconds)
 function invalidPopup(){
 
   //Get the popup
