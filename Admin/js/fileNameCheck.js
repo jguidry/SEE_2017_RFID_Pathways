@@ -10,7 +10,7 @@ function checkFileName(fileName,extensionName){
     var exhibitName = ['albedo', 'sallyride'];
     var pathways = ['engineer', 'biologist', 'climatologist'];
     var location = ['top','right','left','bottom','middle'];
-    var extension = ['png','jpeg','jpg','gif','bmp','PNG','JPEG','JPG','GIF','BMP','mp4','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV'];
+    var extension =['png','svg','jpeg','jpg','gif','bmp','SVG','PNG','JPEG','JPG','GIF','BMP','mp4','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV'];
     var name = fileName; 
       
     

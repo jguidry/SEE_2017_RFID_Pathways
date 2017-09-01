@@ -255,12 +255,25 @@
                             return;
                         }
                         
-                        var database = firebase.database();
+                        var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV','GIF'];
+                        if(videoExtension.indexOf(fileExt) != -1){
+                              var database = firebase.database();
+                         	database.ref("Terminals/" + newStr + "/" + "Content/Video/"+ fileName).set(fileExt).catch((err)=>{
+														alert("Permission Denied");
+														window.location.href = "index.html"
+				                        });
+                            
+                        }
+                        else{
+                              var database = firebase.database();
                          	database.ref("Terminals/" + newStr + "/" + "Content/"+ fileName).set(fileExt).catch((err)=>{
 														alert("Permission Denied");
 														window.location.href = "index.html"
-													});
-
+				                        });
+                            
+                        }
+                        
+                      
 
                         console.log(files[i]);
                         fireBaseImageUpload({

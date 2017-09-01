@@ -47,10 +47,10 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
     <script src="js/albedo-pathwayE.js"></script>
-    <script>
-      populateContent()
+    
+     <script>    
+      populateContent();
     </script>
-
     <!-- Loader -->
     <script type="text/javascript">
     $(window).load(function() {
@@ -58,12 +58,14 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
       setTimeout(function() {
         $(".loader").fadeOut("slow");
       }, 1500);
-    });
+    });    
     </script>
 
 </head>
 <body onload="attachListeners('page1')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 
+     
+   
   <!-- Loader -->
   <div class="loader"></div>
 
