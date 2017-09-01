@@ -1,5 +1,5 @@
 /*
-* Filename: albedo-pathwayB.js
+* Filename: albedo-pathwayC.js
 * Author(s): Matthew Rice, Bryle Castro
 * Description: This file contains the source javascript that handles the population
 * of content on the albedo exhibit terminal.
@@ -14,16 +14,16 @@ var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV
  
 //The different image names that we will look for in firebase database.
 var firebaseKeys = [
-     "albedo-biologist-right",
-     "albedo-biologist-left",
-     "albedo-biologist-top",
-     "albedo-biologist-bottom",
-     "albedo-biologist-middle"
+     "albedo-climatologist-right",
+     "albedo-climatologist-left",
+     "albedo-climatologist-top",
+     "albedo-climatologist-bottom",
+     "albedo-climatologist-middle"
 ];
 
 //The different image names that we will look for in firebase storage.
 var names={
-    background: "albedo-biologist-background.png"
+    background: "albedo-climatologist-background.png"
 };
 
 
@@ -253,7 +253,7 @@ function populateContent(){
     var name = "background";
     var key=names[name];
         var folderRef = firebase.storage().ref().child( "T_1/" );
-        var contentRef = folderRef.child("albedo-biologist-background.png");
+        var contentRef = folderRef.child("albedo-climatologist-background.png");
 
         contentRef.getDownloadURL().then(function( url ){
         document.getElementById(name).src = url;

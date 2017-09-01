@@ -227,7 +227,7 @@
                 * Function Name: handleFileUpload(length)
                 * Description: Handles parsing files to the correct location in firebase storage.
                 *              Also handles, the checking of filenames if the filenames follow
-                *              the correct naming scheme: "exhibit-pathway-location.extention"
+                *              the correct naming scheme: "exhibit-pathway-location.extension"
                 */
                 function handleFileUpload(files, obj) {
                     for (var i = 0; i < files.length; i++) {
@@ -257,11 +257,10 @@
                             document.getElementById("drop-zone-file").value = "";
                             return;
                         }
-<<<<<<< HEAD
                         
                         var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV','GIF'];
                         if(videoExtension.indexOf(fileExt) != -1){
-                              var database = firebase.database();
+                            var database = firebase.database();
                          	database.ref("Terminals/" + newStr + "/" + "Content/Video/"+ fileName).set(fileExt).catch((err)=>{
 														alert("Permission Denied");
 														window.location.href = "index.html"
@@ -269,11 +268,7 @@
                             
                         }
                         else{
-                              var database = firebase.database();
-=======
-
-                        var database = firebase.database();
->>>>>>> 7530e1a2a002572c91f3a91cc4c96133cff6f403
+                            var database = firebase.database();
                          	database.ref("Terminals/" + newStr + "/" + "Content/"+ fileName).set(fileExt).catch((err)=>{
 														alert("Permission Denied");
 														window.location.href = "index.html"
@@ -322,7 +317,7 @@
                 </button>
 								<h1 id="popupTitle">Wrong Naming Scheme </h1>
                 <p id="popupText">Naming:
-                  "exhibit-pathway-location.extention"<br> For example:
+                  "exhibit-pathway-location.extension"<br> For example:
 									"albedo-pathway-right.png"
 								</p>
             </div>

@@ -1,11 +1,23 @@
 <!--
-Filename: pathwayB.html
+Filename: pathwayE.html
 Authors: Josh Duhay, Matthew Rice, Wyatt Guidry, Bryle Castro
-Description: Pathway page for biologist. Utilizes fullPage.js for scroller functionality.
+Description: Pathway page for engineer. Utilizes fullPage.js for scroller functionality.
 -->
 
-<!DOCTYPE html>
-<html id="page2">
+<!-- MAIN BACKGROUND IMAGE -->
+<style>
+/* TODO uncomment when firebase pull works */
+/*body id="background"{
+  background-image: url("");
+  background-size: cover;
+}*/
+body {
+  background-image:url("images/terminal-background.jpg");
+  background-size:cover;
+}
+</style>
+
+<html id="page1">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -25,6 +37,9 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
             });
         });
     </script>
+
+    <!-- Arrows -->
+    <link rel="stylesheet" type="text/css" href="css/arrows.css" />
 
     <!-- Transparent instruction box -->
     <link rel="stylesheet" type="text/css" href="css/transparentbox.css"/>
@@ -47,10 +62,8 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
     <script src="js/albedo-pathwayB.js"></script>
-    <script>
-      populateContent()
-    </script>
-
+    
+     
     <!-- Loader -->
     <script type="text/javascript">
     $(window).load(function() {
@@ -58,12 +71,14 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
       setTimeout(function() {
         $(".loader").fadeOut("slow");
       }, 1500);
-    });
+    });    
     </script>
 
 </head>
-<body onload="attachListeners('page2')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
+<body onload="attachListeners('page1')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 
+     
+   
   <!-- Loader -->
   <div class="loader"></div>
 
@@ -72,9 +87,13 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
     <!-- TOP SECTION -->
     <div class="section " id="section0">
       <!-- Bottom side arrow -->
-      <img src="images/upArrow.gif" style="position:absolute;bottom:0;left:0;right:0;margin:0 auto;"></a>
+      <div><a href="#secondPage/1">
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+      </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <img id="top" src="" style="height:100%; width:100%;">
+      <img id="top" src="" style="height:100%;width:100%;"> 
       <!-- Video -->
       <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls>
         <source src="" type="video/mp4">
@@ -87,9 +106,13 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
         <!-- LEFT SLIDE -->
         <div class="slide" id="slide1">
           <!-- Right side arrow -->
-          <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;left:31.8%;"</a>
+          <div><a href="#secondPage/1">
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+          </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <img id="left" src="" style="height: 100%; width: 100%;">
+          <img id="left" src="" style="height:100%;width:100%;"> 
           <!-- TODO delete placeholder text -->
           <h1 style="position:absolute;top:10%;right:68%;left:0%;margin:0 auto">QUIZ</h1>
         </div>
@@ -104,23 +127,43 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
             </div>
             </a>
             <!-- Top side arrow -->
-            <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
+            <div><a href="#firstPage">
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+            </div></a>
             <!-- Bottom side arrow -->
-            <img src="images/upArrow.gif" style="position:absolute;bottom:0;left:0;right:0;margin:0 auto;"></a>
+            <div><a href="#thirdPage">
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+            </div></a>
             <!-- Left side arrow -->
-            <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;"</a>
+            <div><a href="#secondPage/0">
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+            </div></a>
             <!-- Right side arrow -->
-            <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:33.5%;"</a>
+            <div><a href="#secondPage/2">
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+            </div></a>
             <!-- Button to allow user to change pathway -->
-            <form action="pathwayE.html">
-              <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class="pathbtn"> Change Pathway </button>
-            </form>
+            <div class="dropdown">
+             <button onclick="myFunction()" name="finishButtonA" class="dropbtn">Change Pathway</button>
+             <div id="myDropdown" class="dropdown-content">
+               <a href="./pathwayB.html">Biologist Pathway</a>
+               <a href="#">Climatologist Pathway</a>
+             </div>
+            </div>
             <!-- Button to allow user to end experience early and return to default -->
             <form action="index.html">
               <button id="finishbtn" type="submit" name="finishButtonB" onclick="" class="pathbtn"> Finished </button>
             </form>
             <!-- Main pathway image gets pulled from firebase -->
-	          <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
+            <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
             <!-- Link JavaScript files -->
             <script src="js/idleReset.js"></script>
             <script src="js/pathway_redirect.js"></script>
@@ -130,9 +173,13 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
         <!-- RIGHT SLIDE -->
         <div class="slide" id="slide3">
           <!-- Left side arrow -->
-          <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:31.8%;"</a>
+          <div><a href="#secondPage/1">
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+          </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <img id="right" src="" style="height:100%;width:100%">
+          <img id="right" src="" style="height:100%;width:100%;">
           <!-- TODO delete placeholder text -->
           <h1 style="position:absolute;top:10%;right:0%;left:68%;margin:0 auto">Gallery</h1>
         </div>
@@ -141,19 +188,25 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
     <!-- BOTTOM SECTION -->
     <div class="section" id="section2">
       <!-- Top side arrow -->
-      <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
+      <div><a href="#secondPage/1">
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+      </div></a>
       <!-- Main pathway image gets pulled from firebase -->
       <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
       <!-- Rating system -->
-
       <div id="totalContainer">
-        <button type="button" id="toggle" href="#">Rate this terminal</button>
+        <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
           <div class=" box" id="mainSlideBox">
             <div id="closeBox">
-              <p onclick="rateMe()" id="X">X</p>
+              <p onclick="rateMe()">X</p>
             </div>
             <div id="boxText">
               <p>Rate your Experience</p>
+            </div>
+            <div >
+              <p id="Thankyou">Thank you!</p>
             </div>
             <div id="rating">
               <span onclick="rate( 1, 'T_1' )">★</span>
@@ -162,16 +215,14 @@ Description: Pathway page for biologist. Utilizes fullPage.js for scroller funct
               <span onclick="rate( 4, 'T_1' )">★</span>
               <span onclick="rate( 5, 'T_1' )">★</span>
             </div>
-            <div id="Thankyou">
-              <p>Thank you!</p>
-            </div>
           </div>
       </div>
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
+      <script>populateContent()</script>
     </div>
 
   </div> <!-- end full page scoller -->
-
+  
 </body>
 </html>
