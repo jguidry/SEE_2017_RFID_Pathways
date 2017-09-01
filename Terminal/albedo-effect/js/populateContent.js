@@ -14,7 +14,7 @@
 *   terminalNum: The Terminal number that is running. Used for the correct path
 *                in the Storage.
 */
-
+/*
 function populateContent( terminalNum, idNum ){
 
   //Get content name from local storage
@@ -41,4 +41,4 @@ function populateContent( terminalNum, idNum ){
     console.log( "Content download error..." + JSON.stringify( error ) );
   });
 
-}
+}*/
