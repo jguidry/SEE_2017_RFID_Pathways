@@ -18,12 +18,13 @@ var firebaseKeys = [
      "albedo-engineer-left",
      "albedo-engineer-top",
      "albedo-engineer-bottom",
-     "albedo-engineer-middle"
+     "albedo-engineer-middle",
+     "albedo-engineer-background"
 ];
 
 //The different image names that we will look for in firebase storage.
 var names={
-    background: "albedo-engineer-background.png"
+
 };
 
 /*
@@ -228,6 +229,43 @@ function getVideoTop(){
 }
 
 /*
+* Function Name: getVideoTop
+* This function handles populating the top most page with
+* a video that is pulled from firebase storage.
+*/
+function getBackground(){
+    var theKey = firebaseKeys[5];
+    var ref = firebase.database().ref("Terminals/T_1/Content");
+    ref.once("value").then(function(snapshot) {
+        var ext = snapshot.child(theKey).val();
+        console.log("extension is:" + ext);
+        var bool = videoExtension.indexOf(ext);
+        if(bool != -1){
+            if(theKey.search("top") != -1){
+                console.log(theKey)
+                var str = theKey.concat(".")
+                str = str.concat(ext);
+                videoTop.top = str;
+                console.log("stf is:" + str);
+            }
+        }
+    }).then((error) =>{
+        var name = "background";
+        var key = names[name];
+        console.log(key);
+        var folderRef = firebase.storage().ref().child( "T_1/" );
+        var contentRef = folderRef.child(key);
+        
+        //Dynamically set the content
+        contentRef.getDownloadURL().then(function( url ){
+            document.getElementById(name).src = url;
+        })
+                
+    })
+
+}
+
+/*
 * Function Name: populateContent
 * This function calls all other functions that handle the
 * population of content.
@@ -239,7 +277,8 @@ function populateContent(){
      getBottom();
      getLeft();
      getVideoTop();
-   
+     //getBackground();
+    
     /*
     var name = "background";
     var key=names[name];
@@ -253,7 +292,6 @@ function populateContent(){
             //Hanlde errors TODO
             console.log( "Content download error..." + JSON.stringify( error ) );
           });
-<<<<<<< HEAD
     });*/
 
     
