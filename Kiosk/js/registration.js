@@ -5,6 +5,10 @@
 
     // Avatar choice
 var avatarText = "";
+
+//Pathway choice
+var pathwayChoice = ""
+
 // rfid input text
 var rfidText = window.localStorage.getItem('userID');
 
@@ -72,7 +76,7 @@ function update() {
     var languageText = document.getElementById("languageInput").value;
     var nameText = document.getElementById("nameInput").value;
     var ageGroupText = document.getElementById("ageGroupInput").value;
-    var pathwayText = document.getElementById("pathwayInput").value;
+    var pathwayText = pathwayChoice;
     var emailText = document.getElementById("emailInput").value;
 
 
@@ -114,3 +118,19 @@ function redirect(){
     alert( "redirecting!" );
     window.location.href = "../html/registrationSplash.html"
 }
+
+$(document).ready(()=>{
+  $(".pathway-box").click((e)=>{
+    var id = e.target.id;
+    pathwayChoice = id;
+    // console.log(this);
+
+    console.log("yay")
+    // $(id).css("border", "2px solid red")
+    // $(id).css("background-color", "#9C9C9C");
+    window.location.href = "#firstPage/2";
+    // console.log(id);
+    // $(id).addClass('selected');
+    // $(this).addClass('selected');
+  });
+})
