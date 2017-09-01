@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+    <link rel="stylesheet" href="../css/employee_welcome.css">
+    <link rel="stylesheet" href="../css/helpTip.css">
+
+    <!-- Scroller -->
+    <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="scroller/examples.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+              anchors: ['firstPage'],
+              menu: '#menu',
+            });
+        });
+    </script>
+
+    <!-- Registration scripts -->
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+
+    <script src="../js/updateData.js"></script>
+    <script src="../js/showBorder.js"></script>
+    <script src="../js/registration.js"></script>
+</head>
+
+<body>
+
+    <div id="fullpage">
+
+      <!-- MAIN SCROLLER -->
+      <div class="section active" id="section0">
+
+        <!-- NEED TO CHANGE THIS TO A PAGE THAT WE WANT IT TO GO TO-->
+        <form class="form-horizontal" action="registrationThanks.html">
+
+
+
+
+
+        <!-- First slide: General info -->
+        <div class="slide active" id="slide1">
+          <h1><small><bold>GENERAL INFORMATION</bold></small></h1>
+
+              <!-- RFID number label and textbox -->
+              <!-- <div class="form-group">
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-3"></div>
+              </div> -->
+
+              <!-- Name label and textbox -->
+              <div class="form-group">
+                  <div class="col-sm-1"></div>
+                  <label for="name" class="col-sm-4">What would you like to be called?</label>
+                  <div class="col-sm-4">
+                      <input type="text" class="form-control" id="nameInput" placeholder="Cap'n Nautilus">
+                  </div>
+                  <div class="col-sm-3"></div>
+              </div>
+
+              <!-- Language label and menu -->
+              <div class="form-group">
+                  <div class="col-sm-1"></div>
+                  <label for="language" class="col-sm-4">Select your language:</label>
+                  <div class="col-sm-4">
+                      <select class="form-control" id="languageInput">
+                      <option>English</option>
+                      <option>Español</option>
+                      <option>中文</option>
+                  </select>
+                  </div>
+                  <div class="col-sm-3"></div>
+              </div>
+
+              <!-- Age group label and menu -->
+              <div class="form-group">
+                  <div class="col-sm-1"></div>
+                  <label for="ageGroup" class="col-sm-4">Select your age group:</label>
+                  <div class="col-sm-4">
+                      <select class="form-control" id="ageGroupInput">
+                      <option>Elementary School</option>
+                      <option>Middle School</option>
+                      <option>High School</option>
+                      <option>College</option>
+                  </select>
+                  </div>
+                  <div class="col-sm-3"></div>
+              </div>
+
+              <!-- Email label and textbox -->
+              <div class="form-group">
+                  <div class="col-sm-1"></div>
+                  <label for="name" class="col-sm-4">Please enter your email:<br>(optional)</br></label>
+                  <div class="col-sm-4">
+                      <input type="text" class="form-control" id="emailInput" placeholder="Cap'nNautilus@gmail.com">
+                  </div>
+                  <div class="col-sm-3"></div>
+              </div>
+
+              <br>
+              <a href="./registration.html#firstPage/1">Next</a>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- Second slide: Pathway preferences -->
+        <div class="slide" id="slide2">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <h1><small><bold>PROFESSIONAL PATHWAYS</bold></small></h1>
+              <p><small><small>Choose a pathway! As you journey throughout <i>Expedition</i>, you will identify as one of the roles below. The profession you select will determine what you see at each exhibit whenever you scan your card, so choose wisely!</small></small></p>
+            </div>
+          </div>
+
+          <!-- Professional pathway selection -->
+          <!-- TODO -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Third slide: Instructions -->
+        <div class="slide" id="slide3">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <h1><small><bold>INSTRUCTIONS</bold></small></h1>
+              <br>
+              <p><small><small>When you click finish, your card will be registered to you with the preferences you provided. Each exhibit will have a touch-screen display where you can scan your card to see personalized information and navigate through fun activities.</small></small></p>
+              <br><p><small><small><small>(insert gif of someone scanning and swiping)</small></small></small></p>
+              <br><br>
+              <p><i>Expedition awaits!</i></p>
+            </div>
+          </div>
+          <br><br>
+          <div class="row">
+            <!-- Submit button. To stop the whole page from refreshing after the button is pressed, move the button line outside of the </form> tag -->
+            <button type="submit" class="btn btn-lg" onclick="return update()" id="submit">FINISH</button>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        </form>
+      </div> <!-- end section -->
+    </div> <!-- end full page scroller -->
+
+</body>
+</html>
