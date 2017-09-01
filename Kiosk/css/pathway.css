@@ -1,0 +1,44 @@
+.pathway-container {
+  display: flex;
+  flex-direction: column;
+}
+.pathway-row {
+display: flex;
+justify-content: center;
+}
+.pathway-col {
+margin: 2%;
+
+}
+.pathway-box {
+  border: 2px solid gray;
+  padding: 5%;
+}
+.pathway-title {
+  font-size: 18px;
+  margin-bottom: 1%;
+  color: #9C9C9C;
+}
+.pathway-box:hover {
+  cursor: pointer;
+}
+.pathway-box:active {
+    background-color: #9C9C9C;
+}
+.btn {
+  color: white!important;
+  background-color: black!important;
+  border-color: #FFD700!important;
+  border-radius: 10%!important;
+  font-size: 18px!important;
+
+}
+.btn:hover{
+
+  background-color: blue!important;
+}
+/*.selected{
+
+  padding: 10%;
+*/
+}

@@ -13,6 +13,7 @@
     <!-- Scroller -->
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
+    <link rel ="stylesheet" type="text/css" href="../css/pathway.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
@@ -109,7 +110,7 @@
               </div>
 
               <br>
-              <a href="./registration.html#firstPage/1">Next</a>
+              <a href="#firstPage/1">Next</a>
         </div>
 
 
@@ -122,30 +123,33 @@
 
         <!-- Second slide: Pathway preferences -->
         <div class="slide" id="slide2">
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+          <div class = "pathway-container">
+          <!-- <div class="row"> -->
+            <!-- <div class="col-md-2"></div> -->
+            <!-- <div class="col-md-8"> -->
               <h1><small><bold>PROFESSIONAL PATHWAYS</bold></small></h1>
-              <p><small><small>Choose a pathway! As you journey throughout <i>Expedition</i>, you will identify as one of the roles below. The profession you select will determine what you see at each exhibit whenever you scan your card, so choose wisely!</small></small></p>
-            </div>
+              <p><small><small>Choose a pathway! As you journey throughout <i>Expedition</i>, you will identify as one of the roles below. The pathway you select will determine what you see at each exhibit whenever you scan your card, so choose wisely!</small></small></p>
+              <div class="pathway-row">
+
+                <div class="pathway-col">
+                  <h2 class="pathway-title"> Engineer </h2>
+                  <img id="Engineer" src ="../img/engineer.jpg" class="pathway-box" />
+                </div>
+                  <div class="pathway-col">
+                    <h2 class="pathway-title"> Biologist </h2>
+                    <img id="Biologist" src ="../img/biologist.jpg" class="pathway-box" />
+                  </div>
+                  <div class="pathway-col">
+                    <h2 class="pathway-title"> Climatologist </h2>
+                    <img id="Climatologist" src ="../img/explorer.jpg" class="pathway-box" />
+                  </div>
+
+              </div>
+            <!-- </div> -->
           </div>
 
           <!-- Professional pathway selection -->
           <!-- TODO -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -157,7 +161,7 @@
               <h1><small><bold>INSTRUCTIONS</bold></small></h1>
               <br>
               <p><small><small>When you click finish, your card will be registered to you with the preferences you provided. Each exhibit will have a touch-screen display where you can scan your card to see personalized information and navigate through fun activities.</small></small></p>
-              <br><p><small><small><small>(insert gif of someone scanning and swiping)</small></small></small></p>
+              <!-- <br><p><small><small><small>(insert gif of someone scanning and swiping)</small></small></small></p> -->
               <br><br>
               <p><i>Expedition awaits!</i></p>
             </div>
