@@ -209,7 +209,18 @@ function populateContent(){
             //Hanlde errors TODO
             console.log( "Content download error..." + JSON.stringify( error ) );
           });
+<<<<<<< HEAD
     });*/
+
+
+    $(document).ready(function(){
+      $(document.body).on("touchstart", ()=>{
+        $("#swipe-box").hide();
+
+      })
+
+    });
+
 
 
 }

@@ -40,6 +40,13 @@ function getMiddle(){
                 
     });
     
+/*
+  middle: "albedo-engineer-middle.png",
+  right: "albedo-engineer-right.jpg",
+  top: "albedo-engineer-top.jpg",
+  left: "albedo-engineer-left.jpg",
+  bottom: "albedo-engineer-bottom.jpg"
+*/
 }
 
 function getRight(){
@@ -206,7 +213,18 @@ function populateContent(){
             //Hanlde errors TODO
             console.log( "Content download error..." + JSON.stringify( error ) );
           });
+<<<<<<< HEAD
     });*/
+
+    
+    $(document).ready(function(){
+      $(document.body).on("touchstart", ()=>{
+        $("#swipe-box").hide();
+
+      })
+
+    });
+
 
 
 }

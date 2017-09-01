@@ -4,7 +4,19 @@ Authors: Josh Duhay, Matthew Rice, Wyatt Guidry, Bryle Castro
 Description: Pathway page for engineer. Utilizes fullPage.js for scroller functionality.
 -->
 
-<!DOCTYPE html>
+<!-- MAIN BACKGROUND IMAGE -->
+<style>
+/* TODO uncomment when firebase pull works */
+/*body id="background"{
+  background-image: url("");
+  background-size: cover;
+}*/
+body {
+  background-image:url("images/terminal-background.jpg");
+  background-size:cover;
+}
+</style>
+
 <html id="page1">
 
 <head>
@@ -25,6 +37,9 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
             });
         });
     </script>
+
+    <!-- Arrows -->
+    <link rel="stylesheet" type="text/css" href="css/arrows.css" />
 
     <!-- Transparent instruction box -->
     <link rel="stylesheet" type="text/css" href="css/transparentbox.css"/>
@@ -74,9 +89,13 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
     <!-- TOP SECTION -->
     <div class="section " id="section0">
       <!-- Bottom side arrow -->
-      <img src="images/upArrow.gif" style="position:absolute;bottom:2%;left:0;right:0;margin:0 auto;"></a>
+      <div><a href="#secondPage/1">
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+      </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <img id="top" src="" style="height:100%;width:100%;">
+      <!-- <img id="top" src="" style="height:100%;width:100%;"> -->
       <!-- Video -->
       <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls>
         <source src="" type="video/mp4">
@@ -89,9 +108,13 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
         <!-- LEFT SLIDE -->
         <div class="slide" id="slide1">
           <!-- Right side arrow -->
-          <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;left:31.3%;"</a>
+          <div><a href="#secondPage/1">
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+          </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <img id="left" src="" style="height:100%;width:100%;">
+          <!-- <img id="left" src="" style="height:100%;width:100%;"> -->
           <!-- TODO delete placeholder text -->
           <h1 style="position:absolute;top:10%;right:68%;left:0%;margin:0 auto">QUIZ</h1>
         </div>
@@ -100,23 +123,43 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
         <div class="slide active" id="slide2">
             <!-- Transparent instruction box that disappears -->
             <a>
-            <div class="transbox"><span id="close" onclick="this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;">CLOSE</span>
+            <div class="transbox" id="swipe-box">
               <img src="images/swipe.gif">
               <h1>Swipe to navigate!</h1>
             </div>
             </a>
             <!-- Top side arrow -->
-            <img src="images/downArrow.gif" style="position:absolute;top:2%;left:0;right:0;margin:0 auto;">
+            <div><a href="#firstPage">
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+            </div></a>
             <!-- Bottom side arrow -->
-            <img src="images/upArrow.gif" style="position:absolute;bottom:2%;left:0;right:0;margin:0 auto;">
+            <div><a href="#thirdPage">
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+            </div></a>
             <!-- Left side arrow -->
-            <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;left:34%;">
+            <div><a href="#secondPage/0">
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+            </div></a>
             <!-- Right side arrow -->
-            <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:34%;">
+            <div><a href="#secondPage/2">
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+            </div></a>
             <!-- Button to allow user to change pathway -->
-            <form action="pathwayB.html">
-              <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class="pathbtn"> Change Pathway </button>
-            </form>
+            <div class="dropdown">
+             <button onclick="myFunction()" name="finishButtonA" class="dropbtn">Change Pathway</button>
+             <div id="myDropdown" class="dropdown-content">
+               <a href="./pathwayB.html">Biologist Pathway</a>
+               <a href="#">Climatologist Pathway</a>
+             </div>
+            </div>
             <!-- Button to allow user to end experience early and return to default -->
             <form action="index.html">
               <button id="finishbtn" type="submit" name="finishButtonB" onclick="" class="pathbtn"> Finished </button>
@@ -132,9 +175,13 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
         <!-- RIGHT SLIDE -->
         <div class="slide" id="slide3">
           <!-- Left side arrow -->
-          <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:31.3%;"</a>
+          <div><a href="#secondPage/1">
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+          </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <img id="right" src="" style="height:100%;width:100%;">
+          <!-- <img id="right" src="" style="height:100%;width:100%;"> -->
           <!-- TODO delete placeholder text -->
           <h1 style="position:absolute;top:10%;right:0%;left:68%;margin:0 auto">Gallery</h1>
         </div>
@@ -143,9 +190,13 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
     <!-- BOTTOM SECTION -->
     <div class="section" id="section2">
       <!-- Top side arrow -->
-      <img src="images/downArrow.gif" style="position:absolute;top:2%;left:0;right:0;margin:0 auto;"></a>
+      <div><a href="#secondPage/1">
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+      </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
+      <!-- <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;"> -->
       <!-- Rating system -->
       <div id="totalContainer">
         <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
