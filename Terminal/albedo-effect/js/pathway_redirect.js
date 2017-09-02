@@ -56,20 +56,25 @@ function pathway_redirect() {
         pathwayChar = JSON.stringify( snapshot.val() ).charAt( 1 );
         pathLink = "pathway" + pathwayChar + ".html";
 
-        //Updating user statistics
-        setTerminalUses( database, terminalNum );
-        setPathwayUses( database, pathwayChar );
-
         registered = true;
 
-      }
 
-      if( registered ){
-        //Take user to correct pathway page
-        window.location.href = pathLink;
+        updateUses( database, pathLink, terminalNum, pathwayChar );
 
-        //Reset the text field for ID entry
-        document.getElementById('RFID_ID').value = '';
+        //Updating user statistics
+        /*setTerminalUses( database, terminalNum ).then( function(){
+          setPathwayUses( database, pathwayChar ).then( function(){
+           });
+        });*/
+/*
+        if( registered ){
+          //Take user to correct pathway page
+          window.location.href = pathLink;
+          console.log( "redirected" );
+          //Reset the text field for ID entry
+          document.getElementById('RFID_ID').value = '';
+        }*/
+
       }
 
     }); //End pathway .then()

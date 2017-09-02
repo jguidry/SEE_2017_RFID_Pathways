@@ -1,15 +1,19 @@
 /*
-* File Name: albedo-pathwayB.js
-* Author(s): Matt Rice, Bryle Castro
-* Description: Contains the needed js functionality for the specific pathway.
-* Date: 30 August 2017
+* Filename: albedo-pathwayB.js
+* Author(s): Matthew Rice, Bryle Castro
+* Description: This file contains the source javascript that handles the population
+* of content on the albedo exhibit terminal.
+* Date: 31 August 2017
 */
 
-
-
+ //Used to check the image file extensions.
 var extension = ['png','jpeg','jpg','bmp','PNG','JPEG','JPG','BMP'];
+
+//Used to check and compare of the video file extensions that should be pulled
 var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV','GIF'];
- var firebaseKeys = [
+
+//The different image names that we will look for in firebase database.
+var firebaseKeys = [
      "albedo-biologist-right",
      "albedo-biologist-left",
      "albedo-biologist-top",
@@ -17,10 +21,18 @@ var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV
      "albedo-biologist-middle"
 ];
 
+//The different image names that we will look for in firebase storage.
 var names={
     background: "albedo-biologist-background.png"
 };
 
+
+
+/*
+* Function Name: getMiddle
+* This function handles populating the background image
+* of the center page of the page. The content is pulled from firebase storage.
+*/
 function getMiddle(){
 
     var theKey = firebaseKeys[4];
@@ -50,6 +62,12 @@ function getMiddle(){
 
 }
 
+
+/*
+* Function Name: getRight
+* This function handles populating the background image
+* of the right most page.  The content is pulled from firebase storage.
+*/
 function getRight(){
     var theKey = firebaseKeys[0];
     var ref = firebase.database().ref("Terminals/T_1/Content");
@@ -77,6 +95,11 @@ function getRight(){
     });
 }
 
+/*
+* Function Name: getLeft
+* This function handles populating the background image
+* of the left most page.  The content is pulled from firebase storage.
+*/
 function getLeft(){
     var theKey = firebaseKeys[1];
     var ref = firebase.database().ref("Terminals/T_1/Content");
@@ -104,6 +127,12 @@ function getLeft(){
     });
 }
 
+
+/*
+* Function Name: getBottom
+* This function handles populating the background image
+* of the bottom most page.  The content is pulled from firebase storage.
+*/
 function getBottom(){
     var theKey = firebaseKeys[3];
     var ref = firebase.database().ref("Terminals/T_1/Content");
@@ -131,6 +160,11 @@ function getBottom(){
     });
 }
 
+/*
+* Function Name: getTop
+* This function handles populating the background image
+* of the top most page. The content is pulled from firebase storage.
+*/
 function getTop(){
     var theKey = firebaseKeys[2];
 
@@ -164,6 +198,11 @@ function getTop(){
 }
 
 
+/*
+* Function Name: getVideoTop
+* This function handles populating the top most page with
+* a video that is pulled from firebase storage.
+*/
 function getVideoTop(){
     var videoTop = {};
     var theKey = firebaseKeys[2];
@@ -199,12 +238,9 @@ function getVideoTop(){
 
 /*
 * Function Name: populateContent
-* Description: Retrieves the correct content from the database and populates
-*   the html elements with the content.
-*
-* Algorithm: TODO
+* This function calls all other functions that handle the
+* population of content.
 */
-
 function populateContent(){
      getTop();
      getMiddle();

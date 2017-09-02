@@ -29,14 +29,12 @@ body {
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
-    <script src="js/Timer.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#fullpage').fullpage({
               anchors: ['firstPage', 'secondPage', 'thirdPage'],
               menu: '#menu',
             });
-            startTimer();
         });
     </script>
 
@@ -63,7 +61,7 @@ body {
     <!-- Script to pull images from firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
-    <script src="js/albedo-pathwayE.js"></script>
+    <script src="js/albedo-pathwayC.js"></script>
 
 
     <!-- Loader -->
@@ -77,7 +75,7 @@ body {
     </script>
 
 </head>
-<body onload="attachListeners('T_1')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
+<body onload="attachListeners('page1')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 
 
 
@@ -162,6 +160,8 @@ body {
             </div>
             <!-- Button to allow user to end experience early and return to default -->
             <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_1')" class=btn> Finished </button>
+
+
 
 
             <!-- Main pathway image gets pulled from firebase -->
