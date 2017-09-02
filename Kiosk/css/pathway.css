@@ -79,3 +79,6 @@ margin: 2%;
 #error-2 {
   left: 47%;
 }
+.fp-slidesNav ul {
+  display: none;
+}
