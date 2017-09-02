@@ -32,12 +32,14 @@ footer {
 	margin:auto;
   bottom:3%;
 	right:40%;
+	min-height: 5%;
 }
 #pathwaybtn {
 	position:absolute;
 	margin:auto;
 	bottom:3%;
 	left:40%;
+	min-height: 5%;
 }
 #middle {
 		position:absolute;
@@ -49,19 +51,4 @@ footer {
 		background-position:center;
 		background-repeat:no-repeat;
 		background-size:cover;
-}
-.floatingKey {
-	text-align:right;
-	font-style: italic;
-	top:13%;
-	right:7%;
-	position:fixed;
-	width:100%;
-	z-index:9999;
-}
-.fixedBackground {
-	position:fixed;
-	height:100%;
-	width:100%;
-	z-index:-999;
 }

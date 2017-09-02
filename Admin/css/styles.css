@@ -55,7 +55,7 @@ a:hover {
 a:focus {
 	outline:none;
 }
-a.button { 
+a.button {
 		background-color: #95B9FE;
     border-radius: 5px;
     color: #FFFFFF;
@@ -68,7 +68,7 @@ a.button {
     text-transform: uppercase;
 }
 
-a.button-reversed { 
+a.button-reversed {
     background-color: #333;
 }
 
@@ -163,7 +163,7 @@ header {
 	padding:30px 0 30px;
 	margin:0 auto;
 }
-header h1 { 
+header h1 {
 	text-align: center;
 }
 
@@ -203,7 +203,7 @@ section#body {
 /** content+sidebar styles **/
 section#content {
 	width:580px;
-	height:692px;
+	height:93vh;
 	padding: 20px;
 	background-color: #fff;
 }
@@ -252,7 +252,7 @@ nav#mainnav li a {
 	letter-spacing: 0.5px;
 }
 
-aside#sidebar h4 { 
+aside#sidebar h4 {
 	color:#0C367E;
 	font-size:16px;
 	text-transform:uppercase;
@@ -280,7 +280,7 @@ padding: 0px 0px 10px;
 text-transform: uppercase;
 }
 
-article .article-info a { 
+article .article-info a {
 	color: #ccc;
 }
 
@@ -314,7 +314,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 	line-height: 0;
 	height: 0;
 }
- 
+
 .clear {
 	clear: both;
 	display: inline-block;
@@ -329,16 +329,16 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 
 @media screen and (max-width: 740px) {
 
-	body { font-size: 0.9em; }	
+	body { font-size: 0.9em; }
 
 
 	.width { width:auto; padding-left: 10px; padding-right: 10px; }
 
 	.column-left, .column-right { margin:0 5px; }
-	
+
 	section#content, aside#sidebar { position: relative; float: none; width: auto; }
 
-	
+
 }
 
 

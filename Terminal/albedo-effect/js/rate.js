@@ -55,7 +55,7 @@ function rate( rating, terminalNum ){
 
   });
 
-  //Show thankyou text
+  /*//Show thankyou text --> Wyatt's stuff
   document.getElementById( 'Thankyou' ).style.display = "block";
 
   //Slide the rating box back up
@@ -66,7 +66,24 @@ function rate( rating, terminalNum ){
   //Hide the thankyou text
   setTimeout( function(){
     document.getElementById( 'Thankyou' ).style.display = "none";
-  }, TEXT_TIME );
+  }, TEXT_TIME );*/
+
+
+
+    //Show thankyou text --> Matt's stuff
+    document.getElementById( 'Thankyou' ).style.visibility = "visible";
+
+  //  Slide the rating box back down
+    //Hide the thankyou text
+    setTimeout( function(){
+
+      $("#mainSlideBox").slideToggle();
+      document.getElementById( 'Thankyou' ).style.visibility = "hidden";
+
+    }, 500 );
+
+
+
 }
 
 /*
@@ -80,5 +97,23 @@ function rateMe(){
   $("#mainSlideBox").slideToggle();
 
   return false;
-
 }
+
+
+
+
+$(document).ready(function(){
+  $("#mainSlideBox").hide();
+  $( "#toggle" ).click(function () {
+    if ( $( "#mainSlideBox:first" ).is( ":hidden" ) ) {
+      $( "#mainSlideBox" ).slideDown( "slow" );
+    } else {
+      $( "#mainSlideBox" ).slideUp( "slow" );
+    }
+  });
+  $( "#X" ).click(function () {
+      $( "#mainSlideBox" ).slideUp( "slow" );
+    });
+
+
+});

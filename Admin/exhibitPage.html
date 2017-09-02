@@ -11,9 +11,13 @@
         <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
         <script src="js/getOptionVal.js"></script>
         <link rel="stylesheet" href="css/dragAndDrop.css" type="text/css" />
-				  <link rel="stylesheet" href="css/exhibitPage.css" type="text/css" />
+        <link rel="stylesheet" href="css/exhibitPage.css" type="text/css" />
+        <link rel="stylesheet" href="css/errorPopUp.css" type="text/css" />
+        <link rel="stylesheet" href="css/progressBar.css" type="text/css" />
         <script src="js/firebase_config.js"></script>
-				<script src="js/logout.js"></script>
+        <script src="js/logout.js"></script>
+        <script src="js/fileNameCheck.js"></script>
+        <script src="js/errorPopup.js"></script>
 
         <script>
             function changeTitle(){
@@ -22,15 +26,6 @@
                 document.getElementById('exhibitName').innerHTML = getOptText(sel);
             }
         </script>
-
-        <style>
-            progress[value]{
-                width: 100%;
-                border: 1px solid #000;
-                background: #fff;
-                color: #0063a6;
-            }
-        </style>
 
 </head>
 <body>
@@ -42,8 +37,7 @@
             </header>
             <nav id="mainnav">
                 <ul>
-                    <li class="selected-item"><a href="editTerminals.html">Update Media</a></li>
-                    <li><a href="editUsers.html">Add/Remove Users</a></li>
+                    <li class="selected-item"><a href="">Update Media</a></li>
                     <li><a href="viewAnalytics.html">RFID Analytics</a></li>
 
                 </ul>
@@ -52,12 +46,15 @@
 
         <!-- Creates the options to choose where the image will be stored on cloud storage (Firebase Storage)-->
         <section id="content" class="column-right">
+					<div class="the-div">
+						<button id="submit" onclick="handleLogout()">Sign Out</button>
 
             <h2 id="exhibitName"></h2>
+					</div>
+
             <table>
                 <tr>
                     <td>Exhibit</td>
-										<td><button id="submit" class="pure-button pure-button-primary" onclick="handleLogout()">Sign Out</td>
                 </tr>
                 <tbody>
                     <tr>
@@ -102,7 +99,6 @@
             <!-- Include all compiled plugins (below), or include individual files as needed -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
             <script>
                 var obj = $("#drop-zone");
                 var storageRef = firebase.storage().ref(); //get reference to the storage
@@ -131,6 +127,12 @@
                     handleFileUpload(files, obj);
                 });
 
+
+                /*
+                * Function Name: firebaseImageUpload
+                * Description: Puts file into firebase storage.
+                *
+                */
                 function fireBaseImageUpload(parameters, callBackData) {
 
                     // expected parameters to start storage upload
@@ -196,7 +198,11 @@
                     document.getElementById("drop-zone-file").value = "";
                 }
 
-                // function to generate random string to use in what creating firebase storage instance
+                /*
+                * Function Name: generateRandomString(length)
+                * Description: function to generate random string to use in what creating firebase storage instance
+                *
+                */
                 function generateRandomString(length) {
                     var chars = "abcdefghijklmnopqrstuvwxyz";
                     var pass = "";
@@ -217,6 +223,12 @@
                 }
 
 
+                 /*
+                * Function Name: handleFileUpload(length)
+                * Description: Handles parsing files to the correct location in firebase storage.
+                *              Also handles, the checking of filenames if the filenames follow
+                *              the correct naming scheme: "exhibit-pathway-location.extension"
+                */
                 function handleFileUpload(files, obj) {
                     for (var i = 0; i < files.length; i++) {
                         var fd = new FormData();
@@ -230,23 +242,41 @@
                         var fileExt = files[i].name;
                         var fileName = files[i].name;
                         var newStr = optValue.substring(0, optValue.length-1);
+
+
+
                         fileExt = fileExt.split('.').pop();
                         fileName = fileName.substring(0, fileName.lastIndexOf('.'));
                         console.log("Terminal is:" + newStr);
                         console.log("The file extension is:" + fileExt);
                         console.log("The file name is:" + fileName);
 
-                        var database = firebase.database();
-                         	database.ref("Terminals/" + newStr + "/" + fileName).set(fileExt).catch((err)=>{
+                        var bool = checkFileName(fileName,fileExt);
+                        if(bool === -1){
+                            invalidPopup();
+                            document.getElementById("drop-zone-file").value = "";
+                            return;
+                        }
+                        
+                        var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV','GIF'];
+                        if(videoExtension.indexOf(fileExt) != -1){
+                            var database = firebase.database();
+                         	database.ref("Terminals/" + newStr + "/" + "Content/Video/"+ fileName).set(fileExt).catch((err)=>{
 														alert("Permission Denied");
 														window.location.href = "index.html"
-													});
-
-                    /*    var updates = {};
-                        updates['/posts/' + newPostKey] = postData;
-                        database.ref("Terminals/" + newStr).set({
-                            fileName: fileExt
-                        });*/
+				                        });
+                            
+                        }
+                        else{
+                            var database = firebase.database();
+                         	database.ref("Terminals/" + newStr + "/" + "Content/"+ fileName).set(fileExt).catch((err)=>{
+														alert("Permission Denied");
+														window.location.href = "index.html"
+				                        });
+                            
+                        }
+                        
+                      
 
                         console.log(files[i]);
                         fireBaseImageUpload({
@@ -268,11 +298,31 @@
                         });
                     }
                 };
-
             </script>
-
-
         </section>
+          <!-- Popup message for unregistered tags -->
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                <button  style="background-color: black;
+                                border: blue;
+                                color: white;
+                                padding: 5px 15px;
+                                text-align: center;
+                                display: inline-block;
+                                font-size: 15px;
+                                margin: 1px 1px;
+                                cursor: pointer;"
+                                id="closeButton" type="button" class="close" aria-label="Close" onclick="document.getElementById('myPopup').style.display='none'">
+                    <span aria-hidden="true">&#10006;</span>
+                </button>
+								<h1 id="popupTitle">Wrong Naming Scheme </h1>
+                <p id="popupText">Naming:
+                  "exhibit-pathway-location.extension"<br> For example:
+									"albedo-pathway-right.png"
+								</p>
+            </div>
+        </div>
+
 		<div class="clear"></div>
 	</section>
 
