@@ -8,6 +8,7 @@ var avatarText = "";
 
 //Pathway choice
 var pathwayChoice = ""
+var selected = false;
 
 // rfid input text
 var rfidText = window.localStorage.getItem('userID');
@@ -27,7 +28,6 @@ var database = firebase.database();
 
 
 //console logs
-console.log('heyhello');
 console.log(rfidText);
 
 /********** avatar field **********/
@@ -118,19 +118,71 @@ function redirect(){
     alert( "redirecting!" );
     window.location.href = "../html/registrationSplash.html"
 }
-
+window.addEventListener("keydown", function(e) {
+  // space and arrow keys
+  if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    console.log("PUSH")
+      e.preventDefault();
+  }
+}, false);
 $(document).ready(()=>{
+$(".error-box").hide();
   $(".pathway-box").click((e)=>{
     var id = e.target.id;
     pathwayChoice = id;
     // console.log(this);
+    // if ($("#Engineer").css("background-color", "#9C9C9C")){
+    //
+    // }
+    // if ( $('#myElem').hasClass('blue') ) {
+      //it has the .blue class!
+      $('.pathway-box').each(function(i){
+        if (this.id == id ) {
+            if($(this).hasClass('selected')){
+              $(this).removeClass('selected');
+              selected = false;
+            } else {
+              $(this).addClass('selected');
+              selected = true;
+            }
 
-    console.log("yay")
-    // $(id).css("border", "2px solid red")
-    // $(id).css("background-color", "#9C9C9C");
-    window.location.href = "#firstPage/2";
-    // console.log(id);
-    // $(id).addClass('selected');
-    // $(this).addClass('selected');
+
+        }
+        else if ($(this).hasClass('selected')) {
+          $(this).removeClass('selected')
+        }
+
+
+      });
+
+    // $("#"+id).addClass('selected')
+
+    // window.location.href = "#firstPage/2";
   });
-})
+  $("#first-button").click(()=>{
+    if($("#nameInput").val()==""){
+      console.log("hey");
+            $("#error-1").show()
+      setTimeout(()=>{
+        $("#error-1").hide()
+      }, 1200)
+
+
+    }
+    else window.location.href="#firstPage/1"
+  });
+  $("#second-button").click(()=>{
+    if(!selected){
+
+        $("#error-2").show()
+      setTimeout(()=>{
+        $("#error-2").hide()
+      }, 1200)
+
+
+    }
+    else window.location.href="#firstPage/2"
+  });
+
+
+});

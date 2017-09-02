@@ -22,23 +22,60 @@ margin: 2%;
 .pathway-box:hover {
   cursor: pointer;
 }
-.pathway-box:active {
+/*.pathway-box:active {
     background-color: #9C9C9C;
-}
+}*/
 .btn {
   color: white!important;
   background-color: black!important;
   border-color: #FFD700!important;
   border-radius: 10%!important;
   font-size: 18px!important;
+  border: 3px solid #FFD700!important;
+  padding: 10px 50px!important;
 
 }
 .btn:hover{
 
   background-color: blue!important;
 }
-/*.selected{
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.redirect-button {
+  color: white!important;
+  background-color: black!important;
+  border-radius: 10%;
+  font-size: 18px!important;
+  border: 3px solid #FFD700;
+  padding: 10px 50px;
+  /*text-decoration: none;*/
+  margin: 0 2% 0 2%!important;
 
-  padding: 10%;
-*/
+}
+.redirect-button:active {
+  text-decoration: none;
+}
+.redirect-button:hover {
+  text-decoration: none;
+  background-color: blue!important;
+
+}
+.selected{
+  background-color: #9C9C9C;
+}
+
+.error-box {
+  border: 2px solid black;
+  background-color: white;
+  position: absolute;
+  top: 40vh;
+  left: 15%;
+  color: red;
+  padding: 10px 50px 10px 50px;
+
+}
+#error-2 {
+  left: 47%;
 }

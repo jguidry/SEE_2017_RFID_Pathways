@@ -110,7 +110,11 @@
               </div>
 
               <br>
-              <a href="#firstPage/1">Next</a>
+              <a class="btn btn-lg redirect-button" id="first-button">NEXT</a>
+
+              <div class="error-box" id="error-1">
+              Please Enter Your Name!
+              </div>
         </div>
 
 
@@ -145,6 +149,13 @@
                   </div>
 
               </div>
+              <div class="button-container" >
+              <a href="#firstPage/0" class="btn btn-lg redirect-button"> BACK </a>
+              <a class="btn btn-lg redirect-button" id="second-button"> NEXT </a>
+            </div>
+            <div class="error-box" id="error-2">
+            Please Select a Pathway!
+            </div>
             <!-- </div> -->
           </div>
 
@@ -169,6 +180,7 @@
           <br><br>
           <div class="row">
             <!-- Submit button. To stop the whole page from refreshing after the button is pressed, move the button line outside of the </form> tag -->
+            <a href="#firstPage/1" class="btn btn-lg redirect-button"> BACK </a>
             <button type="submit" class="btn btn-lg" onclick="return update()" id="submit">FINISH</button>
           </div>
         </div>
