@@ -89,7 +89,7 @@ flex: 0.1;
 
 #mainSlideBox{
 
-  /*display:  none;*/
+  display:  none;
   background: radial-gradient(#333, #000);
   border-radius: 15px;
   position: relative;
@@ -99,7 +99,7 @@ flex: 0.1;
   border-radius: 20px;
   /*min-height: 50%;*/
   /*min-width: 100%;*/
-  display: flex;
+  /*display: flex;*/
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -158,16 +158,17 @@ flex: 0.1;
 
 #Thankyou{
 
-  /*position: absolute;*/
+  position: absolute;
   text-align: center;
 
   color: gold;
   /*font-size: 30px;*/
   font-family: cursive;
-  /*margin-left: 37%;*/
-  /*top: 70%;*/
-  /*align-items: center;*/
-  visibility: hidden;
-  /*padding-top: 5%;*/
+  margin-left: 37%;
+  top: 70%;
+  align-items: center;
+  /*visibility: hidden;*/
+  display: none;
+  padding-top: 5%;
 
 }

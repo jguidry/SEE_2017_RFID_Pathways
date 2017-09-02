@@ -55,7 +55,7 @@ function rate( rating, terminalNum ){
 
   });
 
-  /*//Show thankyou text --> Wyatt's stuff
+  //Show thankyou text --> Wyatt's stuff
   document.getElementById( 'Thankyou' ).style.display = "block";
 
   //Slide the rating box back up
@@ -66,10 +66,10 @@ function rate( rating, terminalNum ){
   //Hide the thankyou text
   setTimeout( function(){
     document.getElementById( 'Thankyou' ).style.display = "none";
-  }, TEXT_TIME );*/
+  }, TEXT_TIME );
 
 
-
+/*
     //Show thankyou text --> Matt's stuff
     document.getElementById( 'Thankyou' ).style.visibility = "visible";
 
@@ -81,7 +81,7 @@ function rate( rating, terminalNum ){
       document.getElementById( 'Thankyou' ).style.visibility = "hidden";
 
     }, 500 );
-
+*/
 
 
 }
@@ -100,7 +100,7 @@ function rateMe(){
 }
 
 
-
+/*
 
 $(document).ready(function(){
   $("#mainSlideBox").hide();
@@ -117,3 +117,4 @@ $(document).ready(function(){
 
 
 });
+*/
