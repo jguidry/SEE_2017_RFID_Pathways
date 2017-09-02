@@ -45,6 +45,8 @@ function rate( rating, terminalNum ){
         newRating = (( oldRating * (numRaters-1)) + rating) / numRaters;
       }
 
+      //Cut to 2? decimals
+      newRating = Math.round( newRating * 100 ) / 100;
       return newRating; //Store
 
     });
