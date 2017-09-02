@@ -21,12 +21,12 @@ function rate( rating, terminalNum ){
   var TEXT_TIME = 500;      //Time before the thankyou text hides
 
   //Get the current rating reference
-  var ratingRef = firebase.database().ref().child( "Terminals/" +
-    terminalNum + "/rating" );
+  var ratingRef = firebase.database().ref().child( "Terminals" ).child(
+    terminalNum ).child( "Rating_Sys" ).child( "rating" );
 
   //Get the current number of raters reference
-  var ratersRef = firebase.database().ref().child( "Terminals/" +
-    terminalNum + "/raters" );
+  var ratersRef = firebase.database().ref().child( "Terminals" ).child(
+    terminalNum ).child( "Rating_Sys" ).child( "raters" );
 
   var numRaters;  //Number of user who have rated the terminal
   var newRating;  //The new terminal rating
