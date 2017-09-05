@@ -8,6 +8,9 @@
 * Author(s): James Guidry
 */
 
+//Global variable needed for the setTimeout and clearTimeout functions
+var timeout;
+
 /*
 * Function Name: attachListeners
 * Description: Attaches listeners dynamically to page loaded by the system
@@ -15,46 +18,61 @@
 * the idle timer.
 * Parameters:
 *   page: The page that the system was redirected to and needs the listeners
+*   terminalNum: The terminal that is active
 */
 
-function attachListeners( page ){
-
-  //The page the system was redirected to
-  var element = document.getElementById( page );
+function attachListeners( terminalNum ){
 
   //Events that will restart the idle timer
-  element.addEventListener( "click", idleReset );
-  element.addEventListener( "mousemove", idleReset );
-  element.addEventListener( "keypress", idleReset );
-  element.addEventListener( "scroll", idleReset );
-  element.addEventListener( "drag", idleReset );
-  element.addEventListener( "dragend", idleReset );
-  element.addEventListener( "play", idleReset );
+  window.addEventListener( "click", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "mousemove", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "keypress", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "scroll", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "drag", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "dragend", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "play", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "touchend", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "touchmove", function(){ idleReset( terminalNum ); });
+  window.addEventListener( "touchstart", function(){ idleReset( terminalNum ); });
 
-  //Check that these are correct
-  element.addEventListener( "touchmove", idleReset );
-  element.addEventListener( "touchstart", idleReset );
-
-
-  //Begin the idle reset
-  idleReset();
+  //Begin the idle timer
+  idleBegin( terminalNum );
 
 }
 
 /*
-* Function Name: idleReset
-* Description: Redirects page to the 'reloadpage' var if user is determined to
-* be idle.
+* Function Name: idleBegin
+* Description: Begins the count down before the page is considered 'idle,' in
+*   which the terminal will reset itself back to the default page, and update
+*   the interaction time.
+* Parameters:
+*   terminalNum: Active terminal
 */
 
-function idleReset(){
+function idleBegin( terminalNum ){
 
-  var session_timeout = 4500000;   //Amount of for seconds idle timeout
-  var reloadpage = "index.html";  //Page to reload / redirect to
-  var timeout = null;
+  var session_timeout = 40000;   //Amount for seconds idle timeout
 
+  //Set the average interaction time and send back to index page
+  timeout = setTimeout(function(){calcTime( true, terminalNum);}, session_timeout);
+}
+
+
+/*
+* Function Name: idleReset
+* Description: Resets the setTimeout function while the page is still deemed to
+*   be active. It then calls idleBegin again to make sure the timeout is
+*   restarted.
+* Parameters:
+*   terminalNum: The terminal that is active
+*/
+
+function idleReset( terminalNum ){
+
+  //Reset the timeout
   console.log( "reset" );
-  if (timeout)
-    clearTimeout(timeout);
-    timeout = setTimeout("location.replace('" + reloadpage + "');", session_timeout);
+  clearTimeout( timeout );
+
+  idleBegin( terminalNum );
+
 }

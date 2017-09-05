@@ -2,6 +2,7 @@
 * File Name: stars.js
 * Description: Adds functionality for the rating stars
 * Source: https://gielberkers.com/how-to-create-a-neat-star-rating-with-css-and-javascript/
+* Functionality discovered online at the link above ^
 */
 
 

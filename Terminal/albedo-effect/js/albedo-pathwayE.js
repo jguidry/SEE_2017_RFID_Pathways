@@ -6,12 +6,12 @@
 * Date: 31 August 2017
 */
 
- //Used to check the image file extensions. 
+ //Used to check the image file extensions.
  var extension = ['png','jpeg','jpg','bmp','PNG','JPEG','JPG','BMP'];
 
  //Used to check and compare of the video file extensions that should be pulled
  var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV','GIF'];
- 
+
 //The different image names that we will look for in firebase database.
 var firebaseKeys = [
      "albedo-engineer-right",
@@ -29,11 +29,11 @@ var names={
 
 /*
 * Function Name: getMiddle
-* This function handles populating the background image 
-* of the center page of the page. The content is pulled from firebase storage.         
+* This function handles populating the background image
+* of the center page of the page. The content is pulled from firebase storage.
 */
 function getMiddle(){
-    
+
     var theKey = firebaseKeys[4];
     var ref = firebase.database().ref("Terminals/T_1/Content");
     ref.once("value").then(function(snapshot) {
@@ -51,19 +51,19 @@ function getMiddle(){
         var key = names[name];
         var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
-        
+
         //Dynamically set the content
         contentRef.getDownloadURL().then(function( url ){
             document.getElementById(name).src = url;
         })
-                
-    });    
+
+    });
 }
 
 /*
 * Function Name: getRight
-* This function handles populating the background image 
-* of the right most page.  The content is pulled from firebase storage.         
+* This function handles populating the background image
+* of the right most page.  The content is pulled from firebase storage.
 */
 function getRight(){
     var theKey = firebaseKeys[0];
@@ -83,19 +83,19 @@ function getRight(){
         var key = names[name];
         var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
-        
+
         //Dynamically set the content
         contentRef.getDownloadURL().then(function( url ){
             document.getElementById(name).src = url;
         })
-                
+
     });
 }
 
 /*
 * Function Name: getLeft
-* This function handles populating the background image 
-* of the left most page.  The content is pulled from firebase storage.       
+* This function handles populating the background image
+* of the left most page.  The content is pulled from firebase storage.
 */
 function getLeft(){
     var theKey = firebaseKeys[1];
@@ -115,19 +115,19 @@ function getLeft(){
         var key = names[name];
         var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
-        
+
         //Dynamically set the content
         contentRef.getDownloadURL().then(function( url ){
             document.getElementById(name).src = url;
         })
-                
+
     });
 }
 
 /*
 * Function Name: getBottom
-* This function handles populating the background image 
-* of the bottom most page.  The content is pulled from firebase storage.       
+* This function handles populating the background image
+* of the bottom most page.  The content is pulled from firebase storage.
 */
 function getBottom(){
     var theKey = firebaseKeys[3];
@@ -148,22 +148,22 @@ function getBottom(){
         var key = names[name];
         var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
-        
+
         //Dynamically set the content
         contentRef.getDownloadURL().then(function( url ){
             document.getElementById(name).src = url;
-        })         
+        })
     });
 }
 
 /*
 * Function Name: getTop
-* This function handles populating the background image 
-* of the top most page. The content is pulled from firebase storage.  
+* This function handles populating the background image
+* of the top most page. The content is pulled from firebase storage.
 */
 function getTop(){
     var theKey = firebaseKeys[2];
-   
+
     var ref = firebase.database().ref("Terminals/T_1/Content");
     ref.once("value").then(function(snapshot) {
         var ext = snapshot.child(theKey).val();
@@ -180,14 +180,14 @@ function getTop(){
         var key = names[name];
         var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
-        
+
         //Dynamically set the content
         contentRef.getDownloadURL().then(function( url ){
             document.getElementById(name).src = url;
         })
-                
+
     })
-    
+
 }
 
 /*
@@ -218,12 +218,12 @@ function getVideoTop(){
         console.log(key);
         var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
-        
+
         //Dynamically set the content
         contentRef.getDownloadURL().then(function( url ){
             document.getElementById("videoTop").src = url;
         })
-                
+
     })
 
 }
@@ -270,7 +270,7 @@ function getBackground(){
 * This function calls all other functions that handle the
 * population of content.
 */
-function populateContent(){    
+function populateContent(){
      getTop();
      getMiddle();
      getRight();
@@ -278,23 +278,7 @@ function populateContent(){
      getLeft();
      getVideoTop();
      //getBackground();
-    
-    /*
-    var name = "background";
-    var key=names[name];
-        var folderRef = firebase.storage().ref().child( "T_1/" );
-        var contentRef = folderRef.child("albedo-engineer-background.png");
 
-        contentRef.getDownloadURL().then(function( url ){
-        document.getElementById(name).src = url;
-
-          }).catch( function( error ){
-            //Hanlde errors TODO
-            console.log( "Content download error..." + JSON.stringify( error ) );
-          });
-    });*/
-
-    
     $(document).ready(function(){
       $(document.body).on("touchstart", ()=>{
         $("#swipe-box").hide();

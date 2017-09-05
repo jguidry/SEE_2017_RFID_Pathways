@@ -5,6 +5,9 @@
  *
  * Copyright (C) 2015 alvarotrigo.com - A project by Alvaro Trigo
  */
+
+
+ // !!Lines 463, 472, Commented out Prevent Sliding!!
 (function(global, factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
@@ -461,7 +464,8 @@
         * Optional `section` param.
         */
         function moveSlideRight(section){
-            moveSlide('right', section);
+            // moveSlide('right', section);
+                  console.log("READY")
         }
 
         /**
@@ -469,7 +473,8 @@
         * Optional `section` param.
         */
         function moveSlideLeft(section){
-            moveSlide('left', section);
+            // moveSlide('left', section);
+                  console.log("READY")
         }
 
         /**
@@ -594,6 +599,7 @@
 
             if(document.readyState === 'complete'){
                 scrollToAnchor();
+
             }
             $window.on('load', scrollToAnchor);
         }

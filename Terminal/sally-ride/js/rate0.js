@@ -45,8 +45,9 @@ function rate( rating, terminalNum ){
         newRating = (( oldRating * (numRaters-1)) + rating) / numRaters;
       }
 
-      //Cut to 2? decimals
-      newRating = Math.round( newRating * 100 ) / 100;
+      //Round to 2? decimals
+      newRating = Math.round( newRating  * 100 ) / 100;
+
       return newRating; //Store
 
     });
@@ -62,7 +63,7 @@ function rate( rating, terminalNum ){
     //Hide the thankyou text
     setTimeout( function(){
       document.getElementById( 'Thankyou' ).style.display = "none";
-    }, 1000 );
+    }, 500 );
 }
 
 /*
@@ -70,7 +71,7 @@ function rate( rating, terminalNum ){
 * Description:
 */
 function rateMe(){
-
+console.log( "rating" );
   document.getElementById('mainSlideBox').stlye = "display: inline-block";
   $("#mainSlideBox").slideToggle();
   return false;

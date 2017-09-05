@@ -29,12 +29,15 @@ body {
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
+    <script src="js/Timer.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             $('#fullpage').fullpage({
               anchors: ['firstPage', 'secondPage', 'thirdPage'],
               menu: '#menu',
             });
+            startTimer();
         });
     </script>
 
@@ -62,8 +65,8 @@ body {
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
     <script src="js/albedo-pathwayB.js"></script>
-    
-     
+
+
     <!-- Loader -->
     <script type="text/javascript">
     $(window).load(function() {
@@ -71,14 +74,14 @@ body {
       setTimeout(function() {
         $(".loader").fadeOut("slow");
       }, 1500);
-    });    
+    });
     </script>
 
 </head>
-<body onload="attachListeners('page1')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
+<body onload="attachListeners('T_1')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 
-     
-   
+
+
   <!-- Loader -->
   <div class="loader"></div>
 
@@ -93,7 +96,7 @@ body {
         <div class="chevronBottom"></div>
       </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <img id="top" src="" style="height:100%;width:100%;"> 
+      <img id="top" src="" style="height:100%;width:100%;">
       <!-- Video -->
       <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls>
         <source src="" type="video/mp4">
@@ -112,7 +115,7 @@ body {
             <div class="chevronRight" style="right:66%;"></div>
           </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <img id="left" src="" style="height:100%;width:100%;"> 
+          <img id="left" src="" style="height:100%;width:100%;">
           <!-- TODO delete placeholder text -->
           <h1 style="position:absolute;top:10%;right:68%;left:0%;margin:0 auto">QUIZ</h1>
         </div>
@@ -159,9 +162,8 @@ body {
              </div>
             </div>
             <!-- Button to allow user to end experience early and return to default -->
-            <form action="index.html">
-              <button id="finishbtn" type="submit" name="finishButtonB" onclick="" class="pathbtn"> Finished </button>
-            </form>
+            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_1')" class=btn> Finished </button>
+
             <!-- Main pathway image gets pulled from firebase -->
             <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
             <!-- Link JavaScript files -->
@@ -223,6 +225,6 @@ body {
     </div>
 
   </div> <!-- end full page scoller -->
-  
+
 </body>
 </html>

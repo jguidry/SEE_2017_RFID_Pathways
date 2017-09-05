@@ -1,8 +1,9 @@
 div.transbox {
   position:absolute;
   margin:auto;
-  top: 6%;
-  right:35%;
+  top: 33vh;
+  /*right:35%;*/
+  left: 45%;
   min-height:5%;
   background-color: #ffffff;
   padding:15px;
