@@ -1,4 +1,4 @@
-<!--Author: Josh Duhay, Bryle Castro-->
+<!--Author: Josh Duhay, Bryle Castro, Matthew Rice-->
 
 <!doctype html>
 
@@ -14,10 +14,15 @@
         <link rel="stylesheet" href="css/exhibitPage.css" type="text/css" />
         <link rel="stylesheet" href="css/errorPopUp.css" type="text/css" />
         <link rel="stylesheet" href="css/progressBar.css" type="text/css" />
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         <script src="js/firebase_config.js"></script>
-        <script src="js/logout.js"></script>
+				<script src="js/employee_authentication.js" > </script>
+				<script src="js/logout.js"></script>
         <script src="js/fileNameCheck.js"></script>
         <script src="js/errorPopup.js"></script>
+
+
 
         <script>
             function changeTitle(){
@@ -257,7 +262,7 @@
                             document.getElementById("drop-zone-file").value = "";
                             return;
                         }
-                        
+
                         var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV','GIF'];
                         if(videoExtension.indexOf(fileExt) != -1){
                             var database = firebase.database();
@@ -265,7 +270,7 @@
 														alert("Permission Denied");
 														window.location.href = "index.html"
 				                        });
-                            
+
                         }
                         else{
                             var database = firebase.database();
@@ -273,10 +278,10 @@
 														alert("Permission Denied");
 														window.location.href = "index.html"
 				                        });
-                            
+
                         }
-                        
-                      
+
+
 
                         console.log(files[i]);
                         fireBaseImageUpload({
