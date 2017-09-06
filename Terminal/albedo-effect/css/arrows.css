@@ -49,12 +49,12 @@
   top:9%;
   margin:0 auto;
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {
@@ -143,12 +143,12 @@
   bottom:9%;
   margin:0 auto;
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {
@@ -236,12 +236,12 @@
   top:46.5%;
   margin-left:15px;
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {
@@ -333,12 +333,12 @@
   right:33.5%;
 
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {
