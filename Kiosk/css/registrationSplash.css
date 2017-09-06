@@ -1,5 +1,5 @@
 body {
-    background-image: url("../img/splashscreen.png");
+    background-image: url("../img/registrationSplash.svg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover
 }

@@ -130,6 +130,7 @@ $(".error-box").hide();
   $(".pathway-box").click((e)=>{
     var id = e.target.id;
     pathwayChoice = id;
+
     // console.log(this);
     // if ($("#Engineer").css("background-color", "#9C9C9C")){
     //
