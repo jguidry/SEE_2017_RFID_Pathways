@@ -243,12 +243,10 @@
                         console.log(files[i].name);
 
 
-
+                        //Parse filename: the filname and its extension.    
                         var fileExt = files[i].name;
                         var fileName = files[i].name;
                         var newStr = optValue.substring(0, optValue.length-1);
-
-
 
                         fileExt = fileExt.split('.').pop();
                         fileName = fileName.substring(0, fileName.lastIndexOf('.'));
