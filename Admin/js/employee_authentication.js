@@ -32,9 +32,12 @@ $(document).ready(()=>{
   var signOut = false;
 
   var user = firebase.auth().currentUser;
-
+  console.log(user);
   if (user) {
     // User is signed in.
+
+
+
 
   } else {
     alert("You are not signed in")

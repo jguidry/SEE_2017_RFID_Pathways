@@ -1,10 +1,28 @@
+html {
+  user-select: none;
+}
+.section {
+  background-size: cover;
+  /*background-repeat: no-repeat;*/
+}
+.slide {
+  background-size: cover;
+}
+#slide1 {
+  background-image: url("../img/Birch Four Corners.png");
+}
+#slide2 {
+  
+  background-image: url("../img/Birch Top Corners.png");
+}
+
 .pathway-container {
   display: flex;
   flex-direction: column;
 }
 .pathway-paragraph {
   font-size: 18px;
-  margin: 1% 8%;
+  margin: 1% 20%;
 }
 .choose-highlight {
   background-color: #baf1ff;
@@ -12,10 +30,11 @@
 .pathway-row {
 display: flex;
 justify-content:space-around;
+margin: 0% 5%;
 }
 .pathway-col {
 margin: 2%;
-
+flex: 1;
 
 }
 .pathway-box {
@@ -27,6 +46,7 @@ margin: 2%;
   /*flex: 1;*/
   flex-wrap: wrap;
   height: 100%;
+
 }
 
 .pathway-title {
@@ -34,24 +54,22 @@ margin: 2%;
   margin-bottom: 4%;
   /*color: #9C9C9C;*/
 
-  flex: 4;
 
 }
 .pathway-img {
-  flex: 1;
   height: 15vh;
   width: 15vh;
   align-self: center;
 }
 .pathway-description {
   margin-top: 2%;
-  flex: 4;
+  flex: 2;
   font-size: 18px;
 }
 .pathway-recommendation {
   margin: 2%;
   font-size: 16px;
-  flex: 2;
+
 
   font-weight: bold;
 }
