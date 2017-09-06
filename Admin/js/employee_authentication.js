@@ -28,13 +28,13 @@
 //     });
 // }
 $(document).ready(()=>{
-  console.log("hiii")
+
   var signOut = false;
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      console.log("HII")
+      // console.log("HII")
     } else {
       // No user is signed in.
       alert("You are not signed in");
