@@ -110,12 +110,12 @@
 }
 
 /** X to close **/
-#closeBox #X{
+#closeBox p{
 
-  margin-top: -1px;
   font-family: sans-serif;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
+
+  margin-top: auto;
 
 }
 
@@ -123,8 +123,8 @@
 #closeBox{
 
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 
   color: white;
 
@@ -133,14 +133,14 @@
   background-color: grey;
 
   text-align: center;
-  right: 5px;
-  top: 5px;
+  right: 2%;
+  top: 2%;
 }
 
 
 /** Rate your exp **/
 #boxText {
-  flex: 3;
+  /*flex: 3;*/
   position: absolute;
   margin-top: 5%;
   /*margin-bottom: 10%;*/
@@ -149,10 +149,9 @@
   font-family: cursive;
 
   color: gold;
-  /*min-width: 50%;  */
-  /*margin-left: -20%;*/
-  /*margin-left: 21%;
-  margin-top: 10%;*/
+  min-width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
 
 }
 

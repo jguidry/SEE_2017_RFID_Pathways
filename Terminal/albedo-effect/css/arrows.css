@@ -42,6 +42,27 @@
   transform: skew(0deg, -30deg);
 }
 
+.captionTop {
+  position:absolute;
+  left:0;
+  right:0;
+  top:9%;
+  margin:0 auto;
+  font-family: Arial;
+  font-size: 12px;
+  color: gold;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 1s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes moveTop {
   25% {
     opacity: 1;
@@ -60,6 +81,16 @@
     transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 /* BOTTOM SIDE ARROW */
 
@@ -105,6 +136,27 @@
   transform: skew(0deg, 30deg);
 }
 
+.captionBottom {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:9%;
+  margin:0 auto;
+  font-family: Arial;
+  font-size: 12px;
+  color: gold;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 1s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes moveBottom {
   25% {
     opacity: 1;
@@ -124,7 +176,19 @@
   }
 }
 
+
+
+
+
+
+
+
+
+
+
 /* LEFT SIDE ARROW */
+
+
 .chevronLeft {
   position: absolute;
   margin:auto;
@@ -166,6 +230,26 @@
   transform: translateY(23.5px) translateX(-23.8px) rotate(90deg) skew(0deg, 30deg);
 }
 
+.captionLeft {
+  position: absolute;
+  margin:auto;
+  top:46.5%;
+  margin-left:15px;
+  font-family: Arial;
+  font-size: 12px;
+  color: gold;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 1s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes moveLeft {
   25% {
     opacity: 1;
@@ -185,7 +269,18 @@
   }
 }
 
+
+
+
+
+
+
+
+
+
+
 /* RIGHT SIDE ARROW */
+
 .chevronRight {
   position: absolute;
   margin:auto;
@@ -226,6 +321,30 @@
   right: 0;
   width: 50%;
   transform: translateY(23.5px) translateX(-23.8px) rotate(90deg) skew(0deg, -30deg);
+}
+
+.captionRight {
+
+
+
+  position: absolute;
+  margin:auto;
+  top:46.3%;
+  right:33.5%;
+
+  font-family: Arial;
+  font-size: 12px;
+  color: gold;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 1s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes moveRight {
