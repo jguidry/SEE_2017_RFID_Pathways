@@ -92,13 +92,13 @@ body {
       <!-- Bottom side arrow -->
       <div><a href="#secondPage/1">
         <div class="chevronBottom"></div>
-        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>f
         <div class="chevronBottom"></div>
       </div></a>
       <!-- Main pathway image gets pulled from firebase -->
       <img id="top" src="" style="height:100%;width:100%;">
       <!-- Video -->
-      <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls>
+      <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls controlsList="nodownload">
         <source src="" type="video/mp4">
       </video>
     </div>
@@ -116,8 +116,6 @@ body {
           </div></a>
           <!-- Main pathway image gets pulled from firebase -->
           <img id="left" src="" style="height:100%;width:100%;">
-          <!-- TODO delete placeholder text -->
-          <h1 style="position:absolute;top:10%;right:68%;left:0%;margin:0 auto">QUIZ</h1>
         </div>
 
         <!-- CENTER SLIDE -->
@@ -134,24 +132,28 @@ body {
               <div class="chevronTop"></div>
               <div class="chevronTop"></div>
               <div class="chevronTop"></div>
+              <h1 class="captionTop">Video</span>
             </div></a>
             <!-- Bottom side arrow -->
             <div><a href="#thirdPage">
               <div class="chevronBottom"></div>
               <div class="chevronBottom"></div>
               <div class="chevronBottom"></div>
+              <h1 class="captionBottom">Pictures</span>
             </div></a>
             <!-- Left side arrow -->
             <div><a href="#secondPage/0">
               <div class="chevronLeft"></div>
               <div class="chevronLeft"></div>
               <div class="chevronLeft"></div>
+              <h1 class="captionLeft">General Info</span>
             </div></a>
             <!-- Right side arrow -->
             <div><a href="#secondPage/2">
               <div class="chevronRight"></div>
               <div class="chevronRight"></div>
               <div class="chevronRight"></div>
+              <h1 class="captionRight">Learn More</span>
             </div></a>
             <!-- Button to allow user to change pathway -->
             <div class="dropdown">
@@ -184,8 +186,6 @@ body {
           </div></a>
           <!-- Main pathway image gets pulled from firebase -->
           <img id="right" src="" style="height:100%;width:100%;">
-          <!-- TODO delete placeholder text -->
-          <h1 style="position:absolute;top:10%;right:0%;left:68%;margin:0 auto">Gallery</h1>
         </div>
     </div>
 
@@ -198,7 +198,7 @@ body {
         <div class="chevronTop"></div>
       </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
+      <!-- <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;"> -->
       <!-- Rating system -->
       <div id="totalContainer">
         <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>

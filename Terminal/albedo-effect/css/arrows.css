@@ -46,15 +46,15 @@
   position:absolute;
   left:0;
   right:0;
-  top:9%;
+  top:6%;
   margin:0 auto;
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {
@@ -140,15 +140,15 @@
   position:absolute;
   left:0;
   right:0;
-  bottom:9%;
+  bottom:6%;
   margin:0 auto;
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {
@@ -236,12 +236,12 @@
   top:46.5%;
   margin-left:15px;
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {
@@ -333,12 +333,12 @@
   right:33.5%;
 
   font-family: Arial;
-  font-size: 12px;
+  font-size: 20px;
   color: gold;
   text-transform: uppercase;
   white-space: nowrap;
   opacity: .25;
-  animation: pulse 1s linear alternate infinite;
+  animation: pulse 0.5s linear alternate infinite;
 }
 
 @keyframes pulse {

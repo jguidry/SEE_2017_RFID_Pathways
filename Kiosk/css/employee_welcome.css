@@ -6,7 +6,10 @@ h1 {
 }
 
 body {
-    background-image: url("../img/whole-back.png");
+    /*background-image: url("../img/Birch_Information_Test.png");*/
+    background-image: url("../img/Birch Top Corners.png");
+    background-image: url("../img/Birch Four Corners.png");
+    /*background-image: url("../img/whole-back.png");*/
     background-repeat: no-repeat;
     background-size: 100%;
 }

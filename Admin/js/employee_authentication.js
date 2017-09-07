@@ -28,17 +28,18 @@
 //     });
 // }
 $(document).ready(()=>{
-  console.log("hiii")
+
   var signOut = false;
 
-  var user = firebase.auth().currentUser;
-
-  if (user) {
-    // User is signed in.
-
-  } else {
-    alert("You are not signed in")
-     window.location.href = "index.html";
-  }
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      // console.log("HII")
+    } else {
+      // No user is signed in.
+      alert("You are not signed in");
+      window.location.href = "index.html"
+    }
+  });
 
 });

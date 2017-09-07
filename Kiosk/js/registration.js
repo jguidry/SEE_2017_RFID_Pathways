@@ -107,39 +107,86 @@ window.addEventListener("keydown", function(e) {
   }
 }, false);
 $(document).ready(()=>{
+  var id;
 $(".error-box").hide();
-  $(".pathway-box").click((e)=>{
-    var id = e.target.id;
+  $("#Engineer").click(()=>{
+    id="Engineer";
     pathwayChoice = id;
-    // console.log(this);
-    // if ($("#Engineer").css("background-color", "#9C9C9C")){
-    //
-    // }
-    // if ( $('#myElem').hasClass('blue') ) {
-      //it has the .blue class!
-      $('.pathway-box').each(function(i){
-        if (this.id == id ) {
-            if($(this).hasClass('selected')){
-              $(this).removeClass('selected');
-              selected = false;
-            } else {
-              $(this).addClass('selected');
-              selected = true;
-            }
+
+    $('.pathway-box').each(function(i){
+      if (this.id == id ) {
+          if($(this).hasClass('selected')){
+            $(this).removeClass('selected');
+            selected = false;
+          } else {
+            $(this).addClass('selected');
+            selected = true;
+
+          }
+
+      }
+      else if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected')
+      }
 
 
-        }
-        else if ($(this).hasClass('selected')) {
-          $(this).removeClass('selected')
-        }
+    });
 
-
-      });
-
-    // $("#"+id).addClass('selected')
-
-    // window.location.href = "#firstPage/2";
   });
+
+  $("#Biologist").click(()=>{
+    id="Biologist";
+    pathwayChoice = id;
+
+    $('.pathway-box').each(function(i){
+      if (this.id == id ) {
+          if($(this).hasClass('selected')){
+            $(this).removeClass('selected');
+            selected = false;
+          } else {
+            $(this).addClass('selected');
+            selected = true;
+
+          }
+
+      }
+      else if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected')
+      }
+
+
+    });
+
+  });
+
+  $("#Climatologist").click(()=>{
+    id="Climatologist";
+    pathwayChoice = id;
+
+    $('.pathway-box').each(function(i){
+      if (this.id == id ) {
+          if($(this).hasClass('selected')){
+            $(this).removeClass('selected');
+            selected = false;
+          } else {
+            $(this).addClass('selected');
+            selected = true;
+
+          }
+
+      }
+      else if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected')
+      }
+
+
+    });
+
+  });
+  
+  /*
+  Display Error Modals if input is not supplied
+  */
   $("#first-button").click(()=>{
     if($("#nameInput").val()==""){
       console.log("hey");
