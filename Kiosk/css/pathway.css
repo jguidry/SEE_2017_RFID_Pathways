@@ -12,7 +12,7 @@ html {
   background-image: url("../img/Birch Four Corners.png");
 }
 #slide2 {
-  
+
   background-image: url("../img/Birch Top Corners.png");
 }
 
@@ -26,6 +26,8 @@ html {
 }
 .choose-highlight {
   background-color: #baf1ff;
+  padding: 5px;
+
 }
 .pathway-row {
 display: flex;
