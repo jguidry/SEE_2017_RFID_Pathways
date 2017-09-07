@@ -18,12 +18,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
+    <script type="text/javascript" src="../js/idleReset.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             $('#fullpage').fullpage({
               anchors: ['firstPage'],
               menu: '#menu',
             });
+            attachListeners();
         });
     </script>
 
@@ -65,7 +68,7 @@
                   <div class="col-sm-1"></div>
                   <label for="name" class="col-sm-4">What would you like to be called?</label>
                   <div class="col-sm-4">
-                      <input type="text" class="form-control" id="nameInput" placeholder="Cap'n Nautilus">
+                      <input type="text" class="form-control" id="nameInput" placeholder="Cap'n Nautilus" autocomplete="off">
                   </div>
                   <div class="col-sm-3"></div>
               </div>
@@ -104,7 +107,7 @@
                   <div class="col-sm-1"></div>
                   <label for="name" class="col-sm-4">Please enter your email:<br>(optional)</br></label>
                   <div class="col-sm-4">
-                      <input type="text" class="form-control" id="emailInput" placeholder="Cap'nNautilus@gmail.com">
+                      <input type="text" class="form-control" id="emailInput" placeholder="Cap'nNautilus@gmail.com" autocomplete="off">
                   </div>
                   <div class="col-sm-3"></div>
               </div>
@@ -181,7 +184,7 @@
           <div class="row">
             <!-- Submit button. To stop the whole page from refreshing after the button is pressed, move the button line outside of the </form> tag -->
             <a href="#firstPage/1" class="btn btn-lg redirect-button"> BACK </a>
-            <button type="submit" class="btn btn-lg" onclick="return update()" id="submit">FINISH</button>
+            <button type="button" class="btn btn-lg" onclick="update()" id="submit">FINISH</button>
           </div>
         </div>
 

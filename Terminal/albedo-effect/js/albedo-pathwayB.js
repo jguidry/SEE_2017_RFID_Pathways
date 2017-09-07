@@ -273,7 +273,13 @@ function populateContent(){
       })
 
     });
-
-
-
 }
+
+
+
+
+
+/*
+* Function Name:
+* Description: calculates the interaction time and send the user to
+*/

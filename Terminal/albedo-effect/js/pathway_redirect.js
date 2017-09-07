@@ -2,7 +2,8 @@
 * Filename: pathway_redirect.js
 * Author(s): James Guidry
 * Description: This file contains the source javascript that will take the user
-* to the correct Professional Pathway page based upon their preferences.
+* to the correct Professional Pathway page based upon their preferences. It also
+* contains the functionality for invalid tag handling.
 * Date: 2 August 2017
 */
 
@@ -37,7 +38,7 @@ function pathway_redirect() {
     var pathwayChar;
 
     var pathLink;     //html page to go to
-    var registered;   //If the user tag is registered in the DB
+    var registered;   //If the user tag is registered in the DB  //TODO TODO check if we actually need this variable
 
     //Get the pathway character
     pathwayRef.once( 'value' ).then( function( snapshot ){
@@ -58,22 +59,8 @@ function pathway_redirect() {
 
         registered = true;
 
-
+        //Record user statistics
         updateUses( database, pathLink, terminalNum, pathwayChar );
-
-        //Updating user statistics
-        /*setTerminalUses( database, terminalNum ).then( function(){
-          setPathwayUses( database, pathwayChar ).then( function(){
-           });
-        });*/
-/*
-        if( registered ){
-          //Take user to correct pathway page
-          window.location.href = pathLink;
-          console.log( "redirected" );
-          //Reset the text field for ID entry
-          document.getElementById('RFID_ID').value = '';
-        }*/
 
       }
 

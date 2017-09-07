@@ -54,7 +54,7 @@ function idleBegin( terminalNum ){
   var session_timeout = 40000;   //Amount for seconds idle timeout
 
   //Set the average interaction time and send back to index page
-  timeout = setTimeout(function(){calcTime( true, terminalNum);}, session_timeout);
+  timeout = setTimeout(function(){calcTime( true, terminalNum, 'index.html');}, session_timeout);
 }
 
 

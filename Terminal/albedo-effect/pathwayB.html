@@ -157,12 +157,14 @@ body {
             <div class="dropdown">
              <button onclick="myFunction()" name="finishButtonA" class="dropbtn">Change Pathway</button>
              <div id="myDropdown" class="dropdown-content">
-               <a href="./pathwayB.html">Biologist Pathway</a>
-               <a href="#">Climatologist Pathway</a>
+              <!-- <a href="./pathwayB.html">Biologist Pathway</a>
+               <a href="#">Climatologist Pathway</a> -->
+               <div onclick="calcTime( false, 'T_1', 'pathwayB.html')">Biologist Pathway</div><br>
+               <div onclick="calcTime( false, 'T_1', 'pathwayC.html' )">Climatologist Pathway</div>
              </div>
             </div>
             <!-- Button to allow user to end experience early and return to default -->
-            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_1')" class=pathbtn> Finished </button>
+            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_1', 'index.html')" class=pathbtn> Finished </button>
 
             <!-- Main pathway image gets pulled from firebase -->
             <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">

@@ -378,7 +378,6 @@
             var next = $(SECTION_ACTIVE_SEL).next(SECTION_SEL);
             var blah = $(SLIDE_ACTIVE_SEL).prev(SLIDE_SEL);
 
-
             // If center section, only allow scroll up for center slide
             // If right slide, can't scroll up
             if(!slide.length && prev.length){
@@ -388,6 +387,12 @@
             // If left slide, can't scroll up
             if(next.length && prev.length && !blah.length){
               return false;
+            }
+
+            //Autoplay the video if we slide to the top page
+            if( next.length && slide.length && next.length && blah.length ){
+              //Autoplay video
+              $( '#videoTop' ).get(0).play();
             }
 
 

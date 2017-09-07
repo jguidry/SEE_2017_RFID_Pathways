@@ -37,9 +37,10 @@ function startTimer(){
 * Parameters:
 *   idle: Bool flag for if the page ended due to inactivity or not.
 *   terminalNum: Which terminal is being used.
+*   link: What page to redirect to
 */
 
-function calcTime( idle, terminalNum ){
+function calcTime( idle, terminalNum, link ){
 
   var ROUND_FACTOR = 100;           //Used for rounding average time
   var MS_FACTOR = 1000;             //Milliseconds conversion factor
@@ -104,7 +105,7 @@ function calcTime( idle, terminalNum ){
       return avgTime;
 
     }).then( function(){  //Redirect back to default page
-      window.location.href = 'index.html';
+      window.location.href = link;
     });
 
   });
