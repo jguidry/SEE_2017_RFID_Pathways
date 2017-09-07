@@ -104,7 +104,7 @@ function calcTime( idle, terminalNum, link ){
 
       return avgTime;
 
-    }).then( function(){  //Redirect back to default page
+    }).then( function(){  //Redirect to specified page
       window.location.href = link;
     });
 

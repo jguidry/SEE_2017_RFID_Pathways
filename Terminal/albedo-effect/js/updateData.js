@@ -6,7 +6,16 @@
  * statistics recorded in the User_Data child of the database for later use.
  */
 
-
+/*
+* Function Name: updateUses
+* Description: Updates various statistics in the database.
+*
+* Parameters:
+*   database: Reference to the database
+*   pathLink: Where to redirect terminal
+*   terminalNum: The active terminalNum
+*   pathwayChar: Character that represents the pathway
+*/
 function updateUses( database, pathLink, terminalNum, pathwayChar ){
 
   //Reference to the Total_Uses child for the specific terminal
