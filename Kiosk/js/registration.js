@@ -74,10 +74,11 @@ function update() {
 
     //Get values from the text boxes. value of rfidText is already saved
     var languageText = document.getElementById("languageInput").value;
-    var nameText = document.getElementById("nameInput").value;
+    var nameText = document.getElementsByClassName("nameInput")[0].value;
+    console.log(nameText);
     var ageGroupText = document.getElementById("ageGroupInput").value;
     var pathwayText = pathwayChoice;
-    var emailText = document.getElementById("emailInput").value;
+    var emailText = document.getElementsByClassName("emailInput")[0].value;
 
 
     //TODO TODO TODO parse these inputs for malicious stuff TODO TODO TODO
@@ -125,8 +126,10 @@ window.addEventListener("keydown", function(e) {
       e.preventDefault();
   }
 }, false);
+
 $(document).ready(()=>{
   var id;
+
 $(".error-box").hide();
   $("#Engineer").click(()=>{
     id="Engineer";
@@ -202,12 +205,12 @@ $(".error-box").hide();
     });
 
   });
-  
+
   /*
   Display Error Modals if input is not supplied
   */
   $("#first-button").click(()=>{
-    if($("#nameInput").val()==""){
+    if($(".nameInput").val()==""){
       console.log("hey");
             $("#error-1").show()
       setTimeout(()=>{
