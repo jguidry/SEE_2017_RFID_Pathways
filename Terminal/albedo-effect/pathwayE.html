@@ -27,6 +27,7 @@ body {
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
     <link rel="stylesheet" type="text/css" href="css/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="css/errorPopUp.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
@@ -126,11 +127,35 @@ body {
 
         <!-- CENTER SLIDE -->
         <div class="slide active" id="slide2">
+
+          <!-- Rating system -->
+          <div id="totalContainer">
+            <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this Exhibit</button>
+              <div class=" box" id="mainSlideBox">
+                <div id="closeBox">
+                  <p onclick="rateMe()">X</p>
+                </div>
+                <p id="boxText">
+                  Rate your Experience
+                </p>
+                <div >
+                  <p id="Thankyou">Thank you!</p>
+                </div>
+                <div id="rating">
+                  <span onclick="rate( 1, 'T_1' )">★</span>
+                  <span onclick="rate( 2, 'T_1' )">★</span>
+                  <span onclick="rate( 3, 'T_1' )">★</span>
+                  <span onclick="rate( 4, 'T_1' )">★</span>
+                  <span onclick="rate( 5, 'T_1' )">★</span>
+                </div>
+              </div>
+          </div>
+
             <!-- Transparent instruction box that disappears -->
             <a>
             <div class="transbox" id="swipe-box">
               <img src="images/swipe.gif">
-              <h1 id="user_name"> </h1> 
+              <h1 id="user_name"> </h1>
               <h1>Swipe to navigate!</h1>
             </div>
             </a>
@@ -220,6 +245,24 @@ body {
 			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
 			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 
+            <div id="myPopup" class="popup">
+                <div class="popup-content">
+                    <button  style="background-color: black;
+                                    border: blue;
+                                    color: white;
+                                    padding: 5px 15px;
+                                    text-align: center;
+                                    display: inline-block;
+                                    font-size: 15px;
+                                    margin: 1px 1px;
+                                    cursor: pointer;"
+                                    id="closeButton" type="button" class="close" aria-label="Close" onclick="document.getElementById('myPopup').style.display='none'">
+                        <span aria-hidden="true">&#10006;</span>
+                    </button>
+                    <h1 id="popupTitle">Please Select Your Answer!</h1>
+                </div>
+            </div>
+
 		</div>
         <div id="result" class="container result" style="display:none;">
 		</div>
@@ -230,29 +273,7 @@ body {
 		<script src="js/quiz-script-engineer.js"></script>
         </div>
 
-      <!-- Rating system -->
-      <!--
-        <div id="totalContainer">
-        <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
-          <div class=" box" id="mainSlideBox">
-            <div id="closeBox">
-              <p onclick="rateMe()">X</p>
-            </div>
-            <div id="boxText">
-              <p>Rate your Experience</p>
-            </div>
-            <div >
-              <p id="Thankyou">Thank you!</p>
-            </div>
-            <div id="rating">
-              <span onclick="rate( 1, 'T_1' )">★</span>
-              <span onclick="rate( 2, 'T_1' )">★</span>
-              <span onclick="rate( 3, 'T_1' )">★</span>
-              <span onclick="rate( 4, 'T_1' )">★</span>
-              <span onclick="rate( 5, 'T_1' )">★</span>
-            </div>
-          </div>
-      </div> -->
+
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
       <script>populateContent()</script>

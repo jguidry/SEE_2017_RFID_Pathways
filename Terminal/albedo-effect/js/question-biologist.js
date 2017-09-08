@@ -1,22 +1,22 @@
 var questions = [{
-	"question": "What is Albedo a measure of?",
-	"option1": "How hot the Earth is",
-	"option2": "How fast ice is melting in the Arctic",
-	"option3": "The light reflected upon the Earth's surface",
-	"option4": "The speed of light",
-	"answer": "3"
+	"question": "How do micro-organisms like algue affect albedo?",
+	"option1": "They don't affect albedo at all.",
+	"option2": "They can manipulate how much light is reflected which causes the albedo value to change.",
+	"option3": "They make sure that the albedo value remains constant every year.",
+	"option4": "They increase the albedo effect on arctic environments.",
+	"answer": "2"
 }, {
-	"question": "Why are scientists trying to manipulate the natural process of the Albedo effect?",
-	"option1": "To find a way reduce global warming",
-	"option2": "To find a way to increase global warming",
-	"option3": "To find a way to add more water to the ocean",
-	"option4": "To find a way to obtain more water",
-	"answer": "1"
+	"question": "Which one of the following is NOT a forest disurbances that significantly impact surface albedo?",
+	"option1": "Wildfires.",
+	"option2": "Hurricanes.",
+	"option3": "Beetle outbreaks.",
+	"option4": "Change in temperature at night.",
+	"answer": "4"
 }, {
-	"question": "What does it mean when the Albedo value is decreasing every year.",
-	"option1": "The Earth is getting warmer every year",
-	"option2": "The Earth is getting colder every year",
-    "option3": "The Earth's temperature is staying the same",
-	"option4": "The Albedo number doesn't tell us anything about how warm the Earth is",
-	"answer": "1"
+	"question": "Which one of the following will produce great temperature reductions?.",
+	"option1": "Increasing the use of coal.",
+	"option2": "Genetic modification of plant leaf waxes or canopy structures.",
+    "option3": "Cut down more trees that absorb carbon dioxide.",
+	"option4": "Do nothing.",
+	"answer": "2"
 }];

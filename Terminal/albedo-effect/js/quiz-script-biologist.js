@@ -39,7 +39,17 @@ function loadQuestion (questionIndex) {
 function loadNextQuestion () {
 	var selectedOption = document.querySelector('input[type=radio]:checked');
 	if(!selectedOption){
-		alert('Please select your answer!');
+		var popup = document.getElementById( 'myPopup' );
+
+          //Make popup visable
+          popup.style.display = "flex";
+
+          //Close popup upon clicking outside the box
+          window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+          }
 		return;
 	}
 	var answer = selectedOption.value;
@@ -58,6 +68,7 @@ function loadNextQuestion () {
         var percentScore = (score/totQuestions)*100;
         percentScore = Math.round(percentScore * 100) / 100
 		resultCont.textContent = 'Your Score: ' + percentScore + '%';
+		return;
 
     //Show the rating option
     /*if( !displayed ){
