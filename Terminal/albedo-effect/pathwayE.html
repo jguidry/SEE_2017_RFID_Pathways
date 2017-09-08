@@ -27,12 +27,12 @@ body {
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
     <link rel="stylesheet" type="text/css" href="css/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="css/errorPopUp.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
     <script src="js/Timer.js"></script>
-    
     
     <script type="text/javascript">
         $(document).ready(function() {
@@ -216,7 +216,25 @@ body {
 			<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
 			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
 			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
-                
+                 
+            <div id="myPopup" class="popup">
+                <div class="popup-content">
+                    <button  style="background-color: black;
+                                    border: blue;
+                                    color: white;
+                                    padding: 5px 15px;
+                                    text-align: center;
+                                    display: inline-block;
+                                    font-size: 15px;
+                                    margin: 1px 1px;
+                                    cursor: pointer;"
+                                    id="closeButton" type="button" class="close" aria-label="Close" onclick="document.getElementById('myPopup').style.display='none'">
+                        <span aria-hidden="true">&#10006;</span>
+                    </button>
+                    <h1 id="popupTitle">Please Select Your Answer!</h1>
+                </div>
+            </div>    
+            
 		</div>
         <div id="result" class="container result" style="display:none;">
 		</div>
@@ -227,6 +245,7 @@ body {
 		<script src="js/quiz-script-engineer.js"></script>
         </div>
         
+       
       <!-- Rating system -->
       <!-- 
         <div id="totalContainer">

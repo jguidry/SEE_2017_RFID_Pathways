@@ -1,7 +1,7 @@
 
 
 .container{
-	height: 330px;
+	height: 370px;
 	width: 1000px;
 	position: absolute;
 	top:50%;
@@ -97,7 +97,7 @@
 .result{
 	height: 115px;
 	text-align: center;
-	font-size: 75px;
+	font-size: 65px;
 }
 
 .option input:checked .option{
