@@ -110,6 +110,7 @@ window.addEventListener("keydown", function(e) {
 
 $(document).ready(()=>{
   var id;
+  var selected;
 
 $(".error-box").hide();
   $("#Engineer").click(()=>{
@@ -193,10 +194,10 @@ $(".error-box").hide();
   $("#first-button").click(()=>{
     if($(".nameInput").val()==""){
       console.log("hey");
-            $("#error-1").show()
+            $("#error-1").show();
       setTimeout(()=>{
-        $("#error-1").hide()
-      }, 1200)
+        $("#error-1").hide();
+      }, 1200);
 
 
     }
@@ -205,10 +206,12 @@ $(".error-box").hide();
   $("#second-button").click(()=>{
     if(!selected){
 
-        $("#error-2").show()
+      $("#error-2").show();
+
       setTimeout(()=>{
-        $("#error-2").hide()
-      }, 1200)
+        $("#error-2").hide();
+        //$("#second-button").removeClass("selected");
+      }, 1200);
 
 
     }
