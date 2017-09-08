@@ -18,7 +18,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
-    <script type="text/javascript" src="../js/idleReset.js"></script>
+
+    <link href="../Keyboard-master/css/keyboard.css" rel="stylesheet">
+    <script src="../Keyboard-master/js/jquery.keyboard.js"></script>
+
+    <!-- css for the preview keyset extension -->
+    <link href="../Keyboard-master/css/keyboard-previewkeyset.css" rel="stylesheet">
+
+    <!-- keyboard optional extensions - include ALL (includes mousewheel) -->
+    <script src="../Keyboard-master/js/jquery.keyboard.extension-all.js"></script>
+
+    <script src="../Keyboard-master/js/jquery.keyboard.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+<script type="text/javascript" src="../js/idleReset.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -37,6 +50,7 @@
     <script src="../js/updateData.js"></script>
     <script src="../js/showBorder.js"></script>
     <script src="../js/registration.js"></script>
+    <script src="../js/keyboard.js"></script>
 </head>
 
 <body>
@@ -68,7 +82,7 @@
                   <div class="col-sm-1"></div>
                   <label for="name" class="col-sm-4">What would you like to be called?</label>
                   <div class="col-sm-4">
-                      <input type="text" class="form-control" id="nameInput" placeholder="Cap'n Nautilus" autocomplete="off">
+                      <input type="text" class="form-control nameInput" id="keyboard1" placeholder="Cap'n Nautilus" autocomplete="off">
                   </div>
                   <div class="col-sm-3"></div>
               </div>
@@ -78,6 +92,7 @@
                   <div class="col-sm-1"></div>
                   <label for="language" class="col-sm-4">Select your language:</label>
                   <div class="col-sm-4">
+
                       <select class="form-control" id="languageInput">
                       <option>English</option>
                       <option>Español</option>
@@ -97,6 +112,7 @@
                       <option>Middle School</option>
                       <option>High School</option>
                       <option>College</option>
+                      <option>Out of School!</option>
                   </select>
                   </div>
                   <div class="col-sm-3"></div>
@@ -107,7 +123,7 @@
                   <div class="col-sm-1"></div>
                   <label for="name" class="col-sm-4">Please enter your email:<br>(optional)</br></label>
                   <div class="col-sm-4">
-                      <input type="text" class="form-control" id="emailInput" placeholder="Cap'nNautilus@gmail.com" autocomplete="off">
+                      <input type="text" class="form-control emailInput" id="keyboard2" placeholder="Cap'nNautilus@gmail.com" autocomplete="off">
                   </div>
                   <div class="col-sm-3"></div>
               </div>
