@@ -214,14 +214,17 @@ body {
 			<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
 			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
 			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
+                
 		</div>
-		<div id="result" class="container result" style="display:none;">
+        <div id="result" class="container result" style="display:none;">
 		</div>
-		<script src="js/question.js"></script>
-		<script src="js/quiz-script.js"></script>
+        <div id="tryContainer" class="tryAgainContainer" style="display:none;">
+           <button id="nextButton" class="try-btn" onclick="reloadQuiz();">Try Again</button>
+        </div>
+        <script src="js/question-engineer.js"></script>
+		<script src="js/quiz-script-engineer.js"></script>
         </div>
         
-      <!-- <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;"> -->
       <!-- Rating system -->
       <!-- 
         <div id="totalContainer">
@@ -248,9 +251,7 @@ body {
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
       <script>populateContent()</script>
-   
     </div>
-
   </div> <!-- end full page scoller -->
 
 </body>

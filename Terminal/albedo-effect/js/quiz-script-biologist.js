@@ -1,3 +1,4 @@
+
 var currentQuestion = 0;
 var score = 0;
 var totQuestions = questions.length;
@@ -10,6 +11,18 @@ var opt3 = document.getElementById('opt3');
 var opt4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
+var tryAgain = document.getElementById('tryContainer');
+
+
+function reloadQuiz(){
+    resultCont.style.display = 'none';
+    container.style.display = '';
+    tryAgain.style.display = 'none';
+    currentQuestion = 0;
+    loadQuestion(currentQuestion);
+    nextButton.textContent = 'Next Question';
+    score = 0;
+}
 
 function loadQuestion (questionIndex) {
 	var q = questions[questionIndex];
@@ -38,10 +51,14 @@ function loadNextQuestion () {
 	if(currentQuestion == totQuestions){
 		container.style.display = 'none';
 		resultCont.style.display = '';
-		resultCont.textContent = 'Your Score: ' + score;
+        tryAgain.style.display ='';
+        var percentScore = (score/totQuestions)*100;
+        percentScore = Math.round(percentScore * 100) / 100
+		resultCont.textContent = 'Your Score: ' + percentScore + '%';
 		return;
 	}
 	loadQuestion(currentQuestion);
 }
 
 loadQuestion(currentQuestion);
+

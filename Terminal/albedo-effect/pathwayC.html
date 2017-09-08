@@ -25,6 +25,7 @@ body {
     <!-- Scroller -->
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
+     <link rel="stylesheet" type="text/css" href="css/quiz.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
@@ -196,9 +197,32 @@ body {
         <div class="chevronTop"></div>
       </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <!-- <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;"> -->
-      <!-- Rating system -->
-      <div id="totalContainer">
+      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;"> 
+         <!--Quiz Stuff -->
+        <div id="theQuizContainer">
+            <div id="quizContainer" class="container">
+			<div class="title">Albedo Quiz</div>
+			<div id="question" class="question"></div>
+			<label class="option"><input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
+			<label class="option"><input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
+			<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
+			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
+			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
+                
+		</div>
+        <div id="result" class="container result" style="display:none;">
+		</div>
+        <div id="tryContainer" class="tryAgainContainer" style="display:none;">
+           <button id="nextButton" class="try-btn" onclick="reloadQuiz();">Try Again</button>
+        </div>
+        <script src="js/question-climatologist.js"></script>
+		<script src="js/quiz-script-climatologist.js"></script>
+        </div>
+      
+        
+        
+    <!-- Rating system -->
+     <!-- <div id="totalContainer">
         <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
           <div class=" box" id="mainSlideBox">
             <div id="closeBox">
@@ -219,6 +243,8 @@ body {
             </div>
           </div>
       </div>
+      -->    
+        
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
       <script>populateContent()</script>
