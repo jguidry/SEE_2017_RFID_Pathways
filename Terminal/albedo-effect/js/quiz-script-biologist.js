@@ -2,6 +2,7 @@
 var currentQuestion = 0;
 var score = 0;
 var totQuestions = questions.length;
+//var displayed = false;
 
 var container = document.getElementById('quizContainer');
 var questionEl = document.getElementById('question');
@@ -13,6 +14,8 @@ var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
 var tryAgain = document.getElementById('tryContainer');
 
+
+//var ratingSys = document.getElementById('totalContainer');
 
 function reloadQuiz(){
     resultCont.style.display = 'none';
@@ -64,11 +67,18 @@ function loadNextQuestion () {
         tryAgain.style.display ='';
         var percentScore = (score/totQuestions)*100;
         percentScore = Math.round(percentScore * 100) / 100
-		resultCont.textContent = 'Your Score: ' + percentScore + '%' + " or " + score + "/" + totQuestions + " Correct";
+		resultCont.textContent = 'Your Score: ' + percentScore + '%';
 		return;
+
+    //Show the rating option
+    /*if( !displayed ){
+      ratingSys.style.display = 'flex';
+      displayed = true;
+    }*/
+
+    return;
 	}
 	loadQuestion(currentQuestion);
 }
 
 loadQuestion(currentQuestion);
-

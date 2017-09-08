@@ -1,17 +1,22 @@
+/*
+* File Name: stars.css
+* Author(s): James Guidry
+* Date: 7 September 2017
+* Description: Style file for the Rating System, specifically the stars, and the
+*   divs that make up the sliding box and button for Rating.
+*/
+
 #rating {
   /*background: radial-gradient(#333, #000);*/
 
   top: 10%;
-  /*width: 100%;
-  height: 100%;
 
-  left: -500px;*/
   margin-top: 10%;
 
   display: flex;
   justify-content: space-around;
   flex: 0.1;
-  /*z-index: 100;*/
+
 }
 
 #rating span {
@@ -74,15 +79,17 @@
 /** Container for the whole rating system **/
 #totalContainer{
 /*border: 2px solid red;*/
-  z-index: 100;
+  z-index: 10;
   position: absolute;
-  display: flex;
+
+  display: none;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 40%;
-  left: 37%;
-  width: 25%;
+  top: 25%;
+  left: 46.5%;
+  width: 7%;
   min-height: 5%;
 
 }

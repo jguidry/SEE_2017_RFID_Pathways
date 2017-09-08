@@ -37,17 +37,17 @@ function loadNextQuestion () {
 	var selectedOption = document.querySelector('input[type=radio]:checked');
 	if(!selectedOption){
          //Get the popup
-  var popup = document.getElementById( 'myPopup' );
+          var popup = document.getElementById( 'myPopup' );
 
-  //Make popup visable
-  popup.style.display = "flex";
+          //Make popup visable
+          popup.style.display = "flex";
 
-  //Close popup upon clicking outside the box
-  window.onclick = function(event) {
-    if (event.target == popup) {
-        popup.style.display = "none";
-    }
-  }
+          //Close popup upon clicking outside the box
+          window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+          }
 		//alert('Please select your answer!');
 		return;
 	}
@@ -66,7 +66,7 @@ function loadNextQuestion () {
         tryAgain.style.display ='';
         var percentScore = (score/totQuestions)*100;
         percentScore = Math.round(percentScore * 100) / 100
-		resultCont.textContent = 'Your Score: ' + percentScore + '%' + " or " + score + "/" + totQuestions + " Correct";
+		resultCont.textContent = 'Your Score: ' + percentScore + '%';
 		return;
 	}
 	loadQuestion(currentQuestion);

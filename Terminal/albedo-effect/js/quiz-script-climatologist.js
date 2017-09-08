@@ -64,7 +64,7 @@ function loadNextQuestion () {
         tryAgain.style.display ='';
         var percentScore = (score/totQuestions)*100;
         percentScore = Math.round(percentScore * 100) / 100
-		resultCont.textContent = 'Your Score: ' + percentScore + '%' + " or " + score + "/" + totQuestions + " Correct";
+		resultCont.textContent = 'Your Score: ' + percentScore + '%';
 		return;
 	}
 	loadQuestion(currentQuestion);

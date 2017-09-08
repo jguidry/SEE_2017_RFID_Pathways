@@ -30,13 +30,18 @@ var names={
 
 /*
 * Function Name: getMiddle
-* This function handles populating the background image
-* of the center page of the page. The content is pulled from firebase storage.
+* Description: This function handles populating the background image
+*   of the center page of the page. The content is pulled from firebase storage.
 */
+
 function getMiddle(){
 
     var theKey = firebaseKeys[4];
+
+    //Content reference
     var ref = firebase.database().ref("Terminals/T_1/Content");
+
+    //TODO
     ref.once("value").then(function(snapshot) {
         var ext = snapshot.child(theKey).val();
         var bool = extension.indexOf(ext);
@@ -65,12 +70,15 @@ function getMiddle(){
 
 /*
 * Function Name: getRight
-* This function handles populating the background image
-* of the right most page.  The content is pulled from firebase storage.
+* Description: This function handles populating the background image
+*   of the right most page.  The content is pulled from firebase storage.
 */
+
 function getRight(){
     var theKey = firebaseKeys[0];
     var ref = firebase.database().ref("Terminals/T_1/Content");
+
+
     ref.once("value").then(function(snapshot) {
         var ext = snapshot.child(theKey).val();
         var bool = extension.indexOf(ext);
@@ -249,23 +257,6 @@ function populateContent(){
      getLeft();
      getVideoTop();
 
-    /*
-    var name = "background";
-    var key=names[name];
-        var folderRef = firebase.storage().ref().child( "T_1/" );
-        var contentRef = folderRef.child("albedo-biologist-background.png");
-
-        contentRef.getDownloadURL().then(function( url ){
-        document.getElementById(name).src = url;
-
-          }).catch( function( error ){
-            //Hanlde errors TODO
-            console.log( "Content download error..." + JSON.stringify( error ) );
-          });
-<<<<<<< HEAD
-    });*/
-
-
     $(document).ready(function(){
       $(document.body).on("touchstart", ()=>{
         $("#swipe-box").hide();
@@ -273,7 +264,4 @@ function populateContent(){
       })
 
     });
-
-
-
 }

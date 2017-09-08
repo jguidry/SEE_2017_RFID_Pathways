@@ -40,6 +40,7 @@ body {
               menu: '#menu',
             });
             startTimer();
+
         });
     </script>
 
@@ -122,6 +123,30 @@ body {
 
         <!-- CENTER SLIDE -->
         <div class="slide active" id="slide2">
+
+          <!-- Rating system -->
+          <div class="ratingSystem" id="totalContainer">
+            <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
+              <div class=" box" id="mainSlideBox">
+                <div id="closeBox">
+                  <p onclick="rateMe()">X</p>
+                </div>
+                <div id="boxText">
+                  <p>Rate your Experience</p>
+                </div>
+                <div >
+                  <p id="Thankyou">Thank you!</p>
+                </div>
+                <div id="rating">
+                  <span onclick="rate( 1, 'T_1' )">★</span>
+                  <span onclick="rate( 2, 'T_1' )">★</span>
+                  <span onclick="rate( 3, 'T_1' )">★</span>
+                  <span onclick="rate( 4, 'T_1' )">★</span>
+                  <span onclick="rate( 5, 'T_1' )">★</span>
+                </div>
+              </div>
+          </div>
+
             <!-- Transparent instruction box that disappears -->
             <a>
             <div class="transbox" id="swipe-box">
@@ -157,16 +182,19 @@ body {
               <div class="chevronRight"></div>
               <h1 class="captionRight">Learn More</span>
             </div></a>
+
             <!-- Button to allow user to change pathway -->
             <div class="dropdown">
              <button onclick="myFunction()" name="finishButtonA" class="dropbtn">Change Pathway</button>
              <div id="myDropdown" class="dropdown-content">
-               <a href="./pathwayE.html">Engineer Pathway</a>
-               <a href="./pathwayC.html">Climatologist Pathway</a>
+              <!-- <a href="./pathwayB.html">Biologist Pathway</a>
+               <a href="#">Climatologist Pathway</a> -->
+               <div onclick="calcTime( false, 'T_1', 'pathwayB.html')">Biologist Pathway</div><br>
+               <div onclick="calcTime( false, 'T_1', 'pathwayC.html' )">Climatologist Pathway</div>
              </div>
             </div>
             <!-- Button to allow user to end experience early and return to default -->
-            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_1')" class=pathbtn> Finished </button>
+            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_1', 'index.html')" class=pathbtn> Finished </button>
 
             <!-- Main pathway image gets pulled from firebase -->
             <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
@@ -175,6 +203,9 @@ body {
             <script src="js/pathway_redirect.js"></script>
             <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
         </div>
+
+
+
 
         <!-- RIGHT SLIDE -->
         <div class="slide" id="slide3">
@@ -198,8 +229,8 @@ body {
         <div class="chevronTop"></div>
       </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;"> 
-     
+      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
+
          <!--Quiz Stuff -->
         <div id="theQuizContainer">
             <div id="quizContainer" class="container">
@@ -228,6 +259,7 @@ body {
                     <h1 id="popupTitle">Please Select Your Answer!</h1>
                 </div>
             </div>     
+
 		</div>
         <div id="result" class="container result" style="display:none;">
 		</div>
@@ -235,39 +267,17 @@ body {
            <button id="nextButton" class="try-btn" onclick="reloadQuiz();">Try Again</button>
         </div>
         <script src="js/question-biologist.js"></script>
-		<script src="js/quiz-script-biologist.js"></script>
+        <script src="js/quiz-script-biologist.js"></script>
         </div>
-        
-        
-        
-        <!-- Rating system --> 
-        <!-- 
-      <div id="totalContainer">
-        <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
-          <div class=" box" id="mainSlideBox">
-            <div id="closeBox">
-              <p onclick="rateMe()">X</p>
-            </div>
-            <div id="boxText">
-              <p>Rate your Experience</p>
-            </div>
-            <div >
-              <p id="Thankyou">Thank you!</p>
-            </div>
-            <div id="rating">
-              <span onclick="rate( 1, 'T_1' )">★</span>
-              <span onclick="rate( 2, 'T_1' )">★</span>
-              <span onclick="rate( 3, 'T_1' )">★</span>
-              <span onclick="rate( 4, 'T_1' )">★</span>
-              <span onclick="rate( 5, 'T_1' )">★</span>
-            </div>
-          </div>
-      </div>
-        -->
+
+
+
+
+
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
       <script>populateContent()</script>
-    </div> 
+    </div>
 
   </div> <!-- end full page scoller -->
 
