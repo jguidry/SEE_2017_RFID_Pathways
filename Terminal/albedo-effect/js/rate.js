@@ -20,6 +20,9 @@ function rate( rating, terminalNum ){
   var SLIDE_TIME = 300;     //Time before the rating box toggles
   var TEXT_TIME = 500;      //Time before the thankyou text hides
 
+  var thankyouText = document.getElementById('Thankyou');
+  var totalContainer = document.getElementById('totalContainer');
+
   //Get the current rating reference
   var ratingRef = firebase.database().ref().child( "Terminals" ).child(
     terminalNum ).child( "Rating_Sys" ).child( "rating" );
@@ -56,7 +59,7 @@ function rate( rating, terminalNum ){
   });
 
   //Show thankyou text
-  document.getElementById( 'Thankyou' ).style.display = "block";
+  thankyouText.style.display = "flex";
 
   //Slide the rating box back down
   setTimeout( function(){
@@ -65,8 +68,11 @@ function rate( rating, terminalNum ){
 
   //Hide the thankyou text
   setTimeout( function(){
-    document.getElementById( 'Thankyou' ).style.display = "none";
-  }, TEXT_TIME );
+    thankyouText.style.display = "none";
+    totalContainer.style.display = "none";
+  }, TEXT_TIME + SLIDE_TIME);
+
+
 
 }
 
@@ -82,3 +88,8 @@ function rateMe(){
 
   return false;
 }
+
+/* Load the Rating System after a certain amount of time */
+setTimeout( function(){
+  totalContainer.style.display = "flex";
+}, 12 * 1000 );
