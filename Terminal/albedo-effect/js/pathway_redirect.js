@@ -30,6 +30,9 @@ function pathway_redirect() {
   }
   else{  //Valid input by scanner
 
+    // RFID Val to local storage for use by pathway
+    localStorage.setItem("user_id", userID);
+
     //Get a reference to the user's pathway in the database
     var pathwayRef = database.ref().child( "RFID/" + userID + "/pathway" );
 

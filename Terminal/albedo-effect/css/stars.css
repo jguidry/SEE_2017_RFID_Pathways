@@ -106,7 +106,7 @@
   border-radius: 20px;
   /*min-height: 50%;*/
   /*min-width: 100%;*/
-  display: none;
+  /*display: none;*/
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -152,13 +152,16 @@
   margin-top: 5%;
   /*margin-bottom: 10%;*/
 
-  font-size: 20px;
+  font-size: 30px;
   font-family: cursive;
 
   color: gold;
-  min-width: 50%;
-  margin-left: 25%;
-  margin-top: 10%;
+  min-width: 100%;
+  /*margin-left: 25%;*/
+  /*margin-top: 10%;*/
+  display: flex;
+  justify-content: center;
+
 
 }
 

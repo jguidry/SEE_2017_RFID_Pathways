@@ -199,7 +199,7 @@ $(document).ready(()=>{
 
     // Set the max number of characters allowed in the input, setting it to
     // false disables this option
-    maxLength : false,
+    maxLength : 20,
 
     // allow inserting characters @ caret when maxLength is set
     maxInsert : true,
@@ -490,7 +490,7 @@ $(document).ready(()=>{
 
     // Set the max number of characters allowed in the input, setting it to
     // false disables this option
-    maxLength : false,
+    maxLength : 20,
 
     // allow inserting characters @ caret when maxLength is set
     maxInsert : true,

@@ -123,6 +123,7 @@ body {
             <!-- Transparent instruction box that disappears -->
             <a>
             <div class="transbox" id="swipe-box">
+              <h1 id="user_name"> </h1> 
               <img src="images/swipe.gif">
               <h1>Swipe to navigate!</h1>
             </div>
@@ -201,7 +202,7 @@ body {
         <div class="chevronTop"></div>
       </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;"> 
+      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
          <!--Quiz Stuff -->
         <div id="theQuizContainer">
             <div id="quizContainer" class="container">
@@ -212,7 +213,7 @@ body {
 			<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
 			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
 			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
-                
+
 		</div>
         <div id="result" class="container result" style="display:none;">
 		</div>
@@ -222,9 +223,9 @@ body {
         <script src="js/question-climatologist.js"></script>
 		<script src="js/quiz-script-climatologist.js"></script>
         </div>
-      
-        
-        
+
+
+
     <!-- Rating system -->
      <!-- <div id="totalContainer">
         <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
@@ -247,8 +248,8 @@ body {
             </div>
           </div>
       </div>
-      -->    
-        
+      -->
+
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
       <script>populateContent()</script>

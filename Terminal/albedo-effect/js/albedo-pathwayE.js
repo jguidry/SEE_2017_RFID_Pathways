@@ -255,13 +255,25 @@ function getBackground(){
         console.log(key);
         var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
-        
+
         //Dynamically set the content
         contentRef.getDownloadURL().then(function( url ){
             document.getElementById(name).src = url;
         })
-                
+
     })
+
+}
+
+function getName() {
+  var id = localStorage.getItem("user_id");
+  var ref = firebase.database().ref(`RFID/${id}`);
+  ref.once("value").then(function(snapshot) {
+    var name = snapshot.child("name").val();
+    name = (name === "") ? "No Name" : name;
+    document.getElementById("user_name").innerHTML =  `Hi ${name}!`;
+
+  });
 
 }
 
@@ -277,6 +289,7 @@ function populateContent(){
      getBottom();
      getLeft();
      getVideoTop();
+     getName();
      //getBackground();
 
     $(document).ready(function(){

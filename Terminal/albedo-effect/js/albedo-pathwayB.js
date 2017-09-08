@@ -244,6 +244,18 @@ function getVideoTop(){
 
 }
 
+  function getName() {
+    var id = localStorage.getItem("user_id");
+    var ref = firebase.database().ref(`RFID/${id}`);
+    ref.once("value").then(function(snapshot) {
+      var name = snapshot.child("name").val();
+      name = (name === "") ? "No Name" : name;
+      document.getElementById("user_name").innerHTML =  `Hi ${name}!`;
+
+    });
+
+  }
+
 /*
 * Function Name: populateContent
 * This function calls all other functions that handle the
@@ -256,6 +268,7 @@ function populateContent(){
      getBottom();
      getLeft();
      getVideoTop();
+     getName();
 
     $(document).ready(function(){
       $(document.body).on("touchstart", ()=>{
