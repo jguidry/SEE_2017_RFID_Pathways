@@ -100,6 +100,7 @@ button.ui-keyboard-accept.ui-keyboard-valid-input {
 	border-color: #0c0;
 	background: #080;
 	color: #fff;
+
 }
 button.ui-keyboard-accept.ui-keyboard-valid-input:not([disabled]):hover {
 	background: #0a0;

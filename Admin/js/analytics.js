@@ -6,7 +6,7 @@ var terminalMap = {
 var pathwayMap = {
   'Biologist': "PathwayB",
   'Engineer': "PathwayE",
-  'Climatologist': "pathwayC"
+  'Climatologist': "PathwayC"
 }
 function drop1(){
   $(".analytics-link1").toggle();

@@ -1,0 +1,90 @@
+<style>
+a { color:blue; text-decoration: none;} /* Globally */
+
+/* Each state */
+
+a:visited { text-decoration: none; color:blue; }
+a:hover { text-decoration: none; color:blue; }
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:yellow }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /*border: 2px solid red;*/
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /*height: 98vh;*/
+}
+.pic-container {
+  display: flex;
+  /*border: 2px solid gold;*/
+  justify-content: center;
+}
+.title {
+  width: 100%;
+}
+.content {
+ width: 25%;
+ /*flex:   1*/
+ margin: 2%;
+}
+.terminal-img {
+  height:40%;
+  width:100%;
+}
+.terminal-text {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 10px;
+}
+.terminal-text:visited {
+  text-decoration: none;
+  color: blue;
+}
+</style>
+
+<!doctype html>
+
+<html>
+<head>
+  <title>Terminals</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+				<div class="container">
+
+          <div class="title" >
+						<h1><center>Terminal/Kisok</center></h1>
+						<p><center>Select a terminal or kiosk to display</center></p>
+				</div>
+
+        <div class="pic-container">
+      <!-- ALBEDO EFFECT -->
+      <div class="content">
+      <a href="Terminal/albedo-effect/index.html"><img class="terminal-img" src="Terminal/images/albedo-thumbnail.jpg"></a>
+      <a href="Terminal/albedo-effect/index.html" class="terminal-text">Albedo Effect</a>
+      </div>
+
+      <!-- SALLY RIDE -->
+      <div class="content">
+      <a href="Terminal/sally-ride/index.html"><img class="terminal-img" src="Terminal/images/sally-thumbnail.jpg"></a>
+      <a href="Terminal/sally-ride/index.html" class="terminal-text">Sally Ride</a>
+      </div>
+      <!-- KISOK -->
+      <div class="content">
+      <a href="Kiosk/html/registrationSplash.html"><img class="terminal-img" src="Kiosk/img/newSplash.png"></a>
+      <a href="Kiosk/html/registrationSplash.html" class="terminal-text">Registration Kisok</a>
+      </div>
+    </div>
+
+    </div>
+
+	</body>
+</html>

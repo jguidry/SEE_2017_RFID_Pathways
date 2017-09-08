@@ -16,6 +16,9 @@ body {
   background-image:url("images/terminal-background.jpg");
   background-size:cover;
 }
+button {
+  outline: none!important;
+}
 </style>
 
 <html id="page1">
@@ -193,8 +196,8 @@ body {
              <div id="myDropdown" class="dropdown-content">
                <!--<a href="./pathwayB.html">Biologist Pathway</a>
                <a href="#">Climatologist Pathway</a>-->
-               <div onclick="calcTime( false, 'T_1', 'pathwayB.html')">Biologist Pathway</div><br>
-               <div onclick="calcTime( false, 'T_1', 'pathwayC.html' )">Climatologist Pathway</div>
+               <div onclick="calcTime( false, 'T_1', 'pathwayB.html')" class="pathway-dropdown">Biologist Pathway</div><br>
+               <div onclick="calcTime( false, 'T_1', 'pathwayC.html' )" class="pathway-dropdown">Climatologist Pathway</div>
              </div>
             </div>
             <!-- Button to allow user to end experience early and return to default -->

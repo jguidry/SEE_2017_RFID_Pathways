@@ -140,3 +140,24 @@ flex: 1;
 .fp-slidesNav ul {
   display: none;
 }
+
+.ui-keyboard-accept {
+  width: 4em!important;
+  /*width: 50%;*/
+}
+.ui-keyboard-cancel {
+  width: 4em!important;
+  /*width: 50%;*/
+}
+.ui-keyboard-space {
+  width: 20em!important;
+}
+.ui div {
+    /*width: 100%;*/
+}
+.ui-keyboard-button {
+    width: 3em;
+}
+.ui-keyboard-text {
+  font-size: 13px;
+}

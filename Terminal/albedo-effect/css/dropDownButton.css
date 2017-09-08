@@ -47,15 +47,22 @@
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    padding: 10px;
 }
-
+.pathway-dropdown {
+  padding: 0 10px;
+  cursor: pointer;
+}
+.pathway-dropdown:active {
+  background-color: #3cb0fd;;
+}
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    /*padding: 12px 16px;*/
     text-decoration: none;
     display: block;
 }
 
-.dropdown a:hover {background-color: rgb(200, 245, 255)}
+.dropdown a:active {background-color: rgb(200, 245, 255)}
 
 .show {display:block;}
