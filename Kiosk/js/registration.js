@@ -86,7 +86,7 @@ function update() {
     writeToFirebase(rfidText, languageText, avatarText, nameText,
         ageGroupText, pathwayChoice, emailText );
 
-
+  // window.location.replace = "registrationThanks.html";
 
     // For debugging: Set the paragraph element with the id "testTextDisplay" to contain the text that was inputted
     //document.getElementById("testTextDisplay").innerHTML = "RFID: " + rfidText + ", Name: " + nameText + ", Age group: " + ageGroupText;
@@ -95,7 +95,8 @@ function update() {
 function redirect(){
     //alert( "redirecting!" );
     console.log( "going" );
-    window.location.href = "../html/registrationThanks.html"
+
+    window.location.replace("./registrationThanks.html");
 }
 
 
@@ -110,6 +111,7 @@ window.addEventListener("keydown", function(e) {
 
 $(document).ready(()=>{
   var id;
+  var selected;
 
 $(".error-box").hide();
   $("#Engineer").click(()=>{

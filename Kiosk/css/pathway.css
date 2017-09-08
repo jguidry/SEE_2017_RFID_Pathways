@@ -93,7 +93,7 @@ flex: 1;
 }
 .btn:hover{
 
-  background-color: blue!important;
+  /*background-color: blue!important;*/
 }
 .button-container {
   display: flex;
@@ -112,10 +112,12 @@ flex: 1;
 }
 .redirect-button:active {
   text-decoration: none;
+  background-color: blue!important;
+
 }
 .redirect-button:hover {
   text-decoration: none;
-  background-color: blue!important;
+  background-color: none!important;
 
 }
 .selected{

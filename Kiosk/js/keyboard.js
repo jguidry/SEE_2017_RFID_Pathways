@@ -9,8 +9,11 @@ $(document).ready(()=>{
     rtl          : false, // language direction right-to-left
 
     // *** choose layout ***
-    layout       : 'qwerty',
-    customLayout : { 'normal': ['{cancel}'] },
+    layout       : 'custom',
+    customLayout : {
+      'normal' : ['` 1 2 3 4 5 6 7 8 9 0 - = {bksp}','{tab} q w e r t y u i o p [ ] \\', 'a s d f g h j k l ; \'', '{shift} z x c v b n m , . / @ ','{accept} {space} {cancel}'],
+      'shift'  : ['` 1 2 3 4 5 6 7 8 9 0 - = {bksp}','{tab} Q W E R T Y U I O P [ ] \\', 'A S D F G H J K L ; \'', '{shift} Z X C V B N M , . / @ ','{accept} {space} {cancel}']
+    },
 
     position : {
       // optional - null (attach to input/textarea) or a jQuery object
@@ -156,10 +159,10 @@ $(document).ready(()=>{
     cancelClose : true,
 
     // Use tab to navigate between input fields
-    tabNavigation : false,
+    tabNavigation : true,
 
     // press enter (shift-enter in textarea) to go to the next input field
-    enterNavigation : true,
+    enterNavigation : false,
     // mod key options: 'ctrlKey', 'shiftKey', 'altKey', 'metaKey' (MAC only)
     // alt-enter to go to previous; shift-alt-enter to accept & go to previous
     enterMod : 'altKey',
@@ -297,8 +300,11 @@ $(document).ready(()=>{
     rtl          : false, // language direction right-to-left
 
     // *** choose layout ***
-    layout       : 'qwerty',
-    customLayout : { 'normal': ['{cancel}'] },
+    layout       : 'custom',
+    customLayout : {
+      'normal' : ['` 1 2 3 4 5 6 7 8 9 0 - = {bksp}','{tab} q w e r t y u i o p [ ] \\', 'a s d f g h j k l ; \'', '{shift} z x c v b n m , . / @ ','{accept} {space} {cancel}'],
+      'shift'  : ['` 1 2 3 4 5 6 7 8 9 0 - = {bksp}','{tab} Q W E R T Y U I O P [ ] \\', 'A S D F G H J K L ; \'', '{shift} Z X C V B N M , . / @ ','{accept} {space} {cancel}']
+    },
 
     position : {
       // optional - null (attach to input/textarea) or a jQuery object
@@ -444,10 +450,10 @@ $(document).ready(()=>{
     cancelClose : true,
 
     // Use tab to navigate between input fields
-    tabNavigation : false,
+    tabNavigation : true,
 
     // press enter (shift-enter in textarea) to go to the next input field
-    enterNavigation : true,
+    enterNavigation : false,
     // mod key options: 'ctrlKey', 'shiftKey', 'altKey', 'metaKey' (MAC only)
     // alt-enter to go to previous; shift-alt-enter to accept & go to previous
     enterMod : 'altKey',
