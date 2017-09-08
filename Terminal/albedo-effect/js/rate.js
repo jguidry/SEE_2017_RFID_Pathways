@@ -8,7 +8,7 @@
 /*
 * Function Name: rate
 * Description: Calculates the new average rating of a terminal and stores it
-*              back into the database.
+*   back into the database.
 * Parameters:
 *   rating: The rating given by the user
 *   terminalNum: Which terminal was rated
@@ -31,7 +31,7 @@ function rate( rating, terminalNum ){
   var numRaters;  //Number of user who have rated the terminal
   var newRating;  //The new terminal rating
 
-  //Get the number of raters
+  //Get the number of raters and store new number
   ratersRef.transaction( function( raters ){
     numRaters = raters + 1;
     return raters + 1;        //Store new number of raters
@@ -48,41 +48,25 @@ function rate( rating, terminalNum ){
       newRating = (( oldRating * (numRaters-1)) + rating) / numRaters;
     }
 
-    //Round to 2? decimals
+    //Round rating
     newRating = Math.round( newRating  * ROUND_FACTOR ) / ROUND_FACTOR;
 
     return newRating; //Store
 
   });
 
-  //Show thankyou text --> Wyatt's stuff
+  //Show thankyou text
   document.getElementById( 'Thankyou' ).style.display = "block";
 
   //Slide the rating box back down
   setTimeout( function(){
     $("#mainSlideBox").slideToggle();
-  }, 300 );
+  }, SLIDE_TIME );
 
   //Hide the thankyou text
   setTimeout( function(){
     document.getElementById( 'Thankyou' ).style.display = "none";
   }, TEXT_TIME );
-
-
-/*
-    //Show thankyou text --> Matt's stuff
-    document.getElementById( 'Thankyou' ).style.visibility = "visible";
-
-  //  Slide the rating box back down
-    //Hide the thankyou text
-    setTimeout( function(){
-
-      $("#mainSlideBox").slideToggle();
-      document.getElementById( 'Thankyou' ).style.visibility = "hidden";
-
-    }, 500 );
-*/
-
 
 }
 
@@ -98,23 +82,3 @@ function rateMe(){
 
   return false;
 }
-
-
-/*
-
-$(document).ready(function(){
-  $("#mainSlideBox").hide();
-  $( "#toggle" ).click(function () {
-    if ( $( "#mainSlideBox:first" ).is( ":hidden" ) ) {
-      $( "#mainSlideBox" ).slideDown( "slow" );
-    } else {
-      $( "#mainSlideBox" ).slideUp( "slow" );
-    }
-  });
-  $( "#X" ).click(function () {
-      $( "#mainSlideBox" ).slideUp( "slow" );
-    });
-
-
-});
-*/

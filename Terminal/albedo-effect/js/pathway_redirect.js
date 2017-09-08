@@ -2,22 +2,23 @@
 * Filename: pathway_redirect.js
 * Author(s): James Guidry
 * Description: This file contains the source javascript that will take the user
-* to the correct Professional Pathway page based upon their preferences.
+* to the correct Professional Pathway page based upon their preferences. It also
+* contains the functionality for invalid user ID handling.
 * Date: 2 August 2017
 */
 
 /*
 * Function Name: pathway_redirect
 * Description: Obtains the user's userID value that was scanned, and based
-* upon the preferences associated with the unique userID in the database,
-* redirect to the correct "Professional Pathway" page.
+*   upon the preferences associated with the unique userID in the database,
+*   redirect to the correct "Professional Pathway" page.
 */
 
 function pathway_redirect() {
 
   var ID_LENGTH = 8;  //Length of proper ID
 
-  var database = firebase.database();  //Firebase reference
+  var database = firebase.database();                     //Firebase reference
   var userID = document.getElementById('RFID_ID').value;  //userID scanned
 
   //User validation checks
@@ -35,9 +36,7 @@ function pathway_redirect() {
     //Variables used for html redirection
     var terminalNum = "T_1";
     var pathwayChar;
-
     var pathLink;     //html page to go to
-    var registered;   //If the user tag is registered in the DB
 
     //Get the pathway character
     pathwayRef.once( 'value' ).then( function( snapshot ){
@@ -47,8 +46,6 @@ function pathway_redirect() {
         invalidPopup();   //Display popup error for invalid user
         refocusInput();   //Reset entry field for clean read and refocus
 
-        registered = false;
-
       }
       else{   //user tag is valid, get the pathway char
 
@@ -56,24 +53,8 @@ function pathway_redirect() {
         pathwayChar = JSON.stringify( snapshot.val() ).charAt( 1 );
         pathLink = "pathway" + pathwayChar + ".html";
 
-        registered = true;
-
-
+        //Record user statistics and redirect to pathLink
         updateUses( database, pathLink, terminalNum, pathwayChar );
-
-        //Updating user statistics
-        /*setTerminalUses( database, terminalNum ).then( function(){
-          setPathwayUses( database, pathwayChar ).then( function(){
-           });
-        });*/
-/*
-        if( registered ){
-          //Take user to correct pathway page
-          window.location.href = pathLink;
-          console.log( "redirected" );
-          //Reset the text field for ID entry
-          document.getElementById('RFID_ID').value = '';
-        }*/
 
       }
 

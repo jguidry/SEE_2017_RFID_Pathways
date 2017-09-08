@@ -5,11 +5,6 @@
 
     // Avatar choice
 var avatarText = "";
-
-//Pathway choice
-var pathwayChoice = ""
-var selected = false;
-
 // rfid input text
 var rfidText = window.localStorage.getItem('userID');
 
@@ -26,9 +21,12 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
+//Update number of registered users
+setRegistrations( database );
 
 //console logs
 console.log(rfidText);
+
 
 /********** avatar field **********/
 function setAvatar(avatarName) {
@@ -53,6 +51,7 @@ function writeToFirebase(rfidInput, languageInput, avatarInput, nameInput, ageGr
     // Database schema: RFID tree-->user object that contains links id with name and age group
     //database.ref("RFID/" + idInput).set({
     //bri's changes
+
     database.ref("RFID/" + rfidText).set({
         id: rfidInput,
         language: languageInput,
@@ -63,62 +62,44 @@ function writeToFirebase(rfidInput, languageInput, avatarInput, nameInput, ageGr
         email: emailInput,
     });
 
-    //Update number of registered users
-    updateData( database );
 }
 
 /********** upon pressing "submit" form gets saved and database gets updated **********/
 function update() {
-
-    //var valid = false;
 
     //Get values from the text boxes. value of rfidText is already saved
     var languageText = document.getElementById("languageInput").value;
     var nameText = document.getElementsByClassName("nameInput")[0].value;
     console.log(nameText);
     var ageGroupText = document.getElementById("ageGroupInput").value;
-    var pathwayText = pathwayChoice;
+    //var pathwayText = document.getElementById(pathwayChoice).value;
     var emailText = document.getElementsByClassName("emailInput")[0].value;
-
+    var pathwayChar = pathwayChoice.slice( 0,1 );
 
     //TODO TODO TODO parse these inputs for malicious stuff TODO TODO TODO
 
-    //Email verification
-    /*try{
-      //Email RegExp
-      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    //Update number of pathway registrations
+    //var pathwayChar = pathwayText.slice( 0,1 );
+    setPathwayReg( database, pathwayChar );
 
-      alert( mailformat );
-
-      if( !( emailText.value.match(mailformat)) ) {
-        alert("You have entered an invalid email address!");
-        valid = false;
-      }
-      else{
-        console.log( "valid email" );
-        valid = true;
-      }
-    }catch( err ){
-
-      alert( "Error..." + err );
-      valid = false;
-
-    } //End catch block*/
+    // Write user object to Firebase under the key rfidText
+    writeToFirebase(rfidText, languageText, avatarText, nameText,
+        ageGroupText, pathwayChoice, emailText );
 
 
-    //if( valid ){
-      // Write user object to Firebase under the key rfidText
-      writeToFirebase(rfidText, languageText, avatarText, nameText,
-        ageGroupText, pathwayText, emailText );
-    //}
+
     // For debugging: Set the paragraph element with the id "testTextDisplay" to contain the text that was inputted
     //document.getElementById("testTextDisplay").innerHTML = "RFID: " + rfidText + ", Name: " + nameText + ", Age group: " + ageGroupText;
 }
 
 function redirect(){
-    alert( "redirecting!" );
-    window.location.href = "../html/registrationSplash.html"
+    //alert( "redirecting!" );
+    console.log( "going" );
+    window.location.href = "../html/registrationThanks.html"
 }
+
+
+
 window.addEventListener("keydown", function(e) {
   // space and arrow keys
   if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {

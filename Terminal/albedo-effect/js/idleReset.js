@@ -1,11 +1,11 @@
 
 /*
 * File Name: idleReset.js
+* Author(s): James Guidry
+* Date: 4 August 2017
 * Description: This file contains the source code for the idle timed reset. If
 * the user is determined to be idle for a specified amount of time, the system
 * will automatically redirect to the deafult page.
-* Date: 4 August 2017
-* Author(s): James Guidry
 */
 
 //Global variable needed for the setTimeout and clearTimeout functions
@@ -51,10 +51,11 @@ function attachListeners( terminalNum ){
 
 function idleBegin( terminalNum ){
 
-  var session_timeout = 40000;   //Amount for seconds idle timeout
+  var session_timeout = 40 * 1000;   //Amount for idle timeout
 
   //Set the average interaction time and send back to index page
-  timeout = setTimeout(function(){calcTime( true, terminalNum);}, session_timeout);
+  timeout = setTimeout(function(){calcTime( true, terminalNum, 'index.html');},
+    session_timeout);
 }
 
 
@@ -70,7 +71,6 @@ function idleBegin( terminalNum ){
 function idleReset( terminalNum ){
 
   //Reset the timeout
-  console.log( "reset" );
   clearTimeout( timeout );
 
   idleBegin( terminalNum );
