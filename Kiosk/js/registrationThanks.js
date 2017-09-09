@@ -3,11 +3,10 @@
 // Redirect user to registration splash screen
 Pause();
 function Pause() {
-    window.setTimeout(Reset,5000);
+    window.setTimeout(Reset,7000);
 }
 
 function Reset() {
     console.log("resetting!");
     window.location.href = "../html/registrationSplash.html";
 }
-

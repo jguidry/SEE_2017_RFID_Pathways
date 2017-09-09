@@ -108,6 +108,7 @@ flex: 1;
   padding: 10px 50px;
   /*text-decoration: none;*/
   margin: 0 2% 0 2%!important;
+  outline: none!important;
 
 }
 .redirect-button:active {

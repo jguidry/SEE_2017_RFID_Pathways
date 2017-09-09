@@ -86,6 +86,7 @@ function update() {
     writeToFirebase(rfidText, languageText, avatarText, nameText,
         ageGroupText, pathwayChoice, emailText );
 
+        redirect()
   // window.location.replace = "registrationThanks.html";
 
     // For debugging: Set the paragraph element with the id "testTextDisplay" to contain the text that was inputted
