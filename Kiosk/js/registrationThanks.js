@@ -3,7 +3,7 @@
 // Redirect user to registration splash screen
 Pause();
 function Pause() {
-    window.setTimeout(Reset,7000);
+    window.setTimeout(Reset,6000);
 }
 
 function Reset() {
