@@ -31,7 +31,7 @@ directory then run
 ```
 ./SEE_2017_RFID_Pathways/runApp.sh
 ```
-This will launch the app in the browser (Note, this should automatically launch on the pi
+This will launch the app in the browser (Note: this should automatically launch on the pi
   when it has internet)
 
 ## Outside Libraries Used
