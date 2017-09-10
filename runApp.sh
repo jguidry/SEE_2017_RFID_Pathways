@@ -5,15 +5,13 @@
 while true;
 do
 
+# Pings google.com to test internet
 wget -q --tries=10 --timeout=20 --spider http://google.com
 
+# If there is internet, load web app index and continue running
 if [[ $? -eq 0 ]];
-#then chromium-browser --kiosk --incognito https://birchaquarium-fd036.firebaseapp.com
-then 
-#chromium-browser --kiosk --incognito file:///home/pi/SEE_2017_RFID_Pathways/Terminal/terminal-home.html &
+then
 chromium-browser --incognito file:///home/pi/SEE_2017_RFID_Pathways/Terminal/index.html &
 break
 fi
-done 
-
-
+done
