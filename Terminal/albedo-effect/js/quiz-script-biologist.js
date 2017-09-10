@@ -1,3 +1,10 @@
+/*
+* File Name: quiz-script-biologist.js
+* Author(s): Bryle Castro
+* Date: 7 September 2017
+* Description: TODO TODO TODO
+*/
+
 
 var currentQuestion = 0;
 var score = 0;

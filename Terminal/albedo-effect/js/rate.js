@@ -89,6 +89,7 @@ function rateMe(){
   return false;
 }
 
+
 /* Load the Rating System after a certain amount of time */
 setTimeout( function(){
   totalContainer.style.display = "flex";

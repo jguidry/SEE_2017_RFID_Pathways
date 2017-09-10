@@ -1,3 +1,11 @@
+/*
+* File Name: question-engineer.js
+* Author(s): Bryle Castro
+* Date: 7 September 2017
+* Description: Contains the questions and answer option to be used in the quiz
+*		for this pathway.
+*/
+
 var questions = [{
 	"question":"What is Albedo a measure of?",
 	"option1": "How hot the Earth is.",

@@ -61,13 +61,11 @@ function pathway_redirect() {
 
       }
 
-    }); //End pathway .then()
+    });
 
-  } //End else
+  }
 
 } //End function
-
-
 
 /*
 * Function Name: invalidPopup
