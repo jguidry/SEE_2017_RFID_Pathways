@@ -13,7 +13,7 @@ Or you can create your own firebase.
 
 ### Installing
 
-With our application, we are using HTML, CSS, and Vanilla JS. It doesn't need any
+With our application, we are using HTML, CSS, Vanilla JS, and jQuery. It doesn't need any
 special installing. Once cloned, it is ready for editing or deployment.
 
 ## Deployment
@@ -34,11 +34,8 @@ directory then run
 This will launch the app in the browser (Note, this should automatically launch on the pi
   when it has internet)
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+## Outside Libraries Used
+TODO Add Scroller, Bootstrap, and Keyboard js
 
 ## Authors
 
