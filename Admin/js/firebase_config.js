@@ -1,3 +1,9 @@
+/*
+* File Name: firebase_config.js
+* Author(s): Matt Rice
+* Description: Contains the firebase config key and initializes the db
+* Date: 30 August 2017
+*/
 
 /*
 * Description: Allows access to firebase database and firebase storage      

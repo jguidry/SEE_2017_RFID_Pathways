@@ -1,3 +1,11 @@
+
+/*
+* File Name: logout.js
+* Author(s): Matt Rice
+* Description: Handles logout functionality for the admin portal.
+* Date: 30 August 2017
+*/
+
 function handleLogout(){
 
   //TODO Check Blank Email/Password

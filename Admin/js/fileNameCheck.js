@@ -1,3 +1,4 @@
+/*Authors: Bryle Castro  9/10/2017*/
 
 /*
 * Function Name: checkFileName

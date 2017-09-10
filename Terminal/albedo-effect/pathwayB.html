@@ -11,6 +11,7 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
   background-image: url("");
   background-size: cover;
 }*/
+    
 body {
   background-image:url("images/terminal-background.jpg");
   background-size:cover;
@@ -246,6 +247,8 @@ button {
 			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
 			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 
+             <!-- The popup that shows up when user clicks "Next Quesion" button without selecting an answer
+                 for any quiz question --> 
             <div id="myPopup" class="popup">
                 <div class="popup-content">
                     <button  style="background-color: black;
@@ -265,11 +268,17 @@ button {
             </div>
 
 		</div>
+        <!-- The quiz result. Shows up when a user finishes the quiz -->    
         <div id="result" class="container result" style="display:none;">
 		</div>
+        
+         <!-- Contains the container that hold the  "Try Again" button; the button lets user
+             to retake the quiz -->      
         <div id="tryContainer" class="tryAgainContainer" style="display:none;">
            <button id="nextButton" class="try-btn" onclick="reloadQuiz();">Try Again</button>
         </div>
+            
+        <!-- Link js files needed for the quiz functionality and quiz questions -->    
         <script src="js/question-biologist.js"></script>
         <script src="js/quiz-script-biologist.js"></script>
         </div>

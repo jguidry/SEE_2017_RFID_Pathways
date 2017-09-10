@@ -1,3 +1,10 @@
+/*
+* File Name: analytics.js
+* Author(s): Matt Rice
+* Description: Handles all the functionality for the analytics page.
+* 
+*/
+
 var database = firebase.database();
 var terminalMap = {
   'Albedo': "T_1",

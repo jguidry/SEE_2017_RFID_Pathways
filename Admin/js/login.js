@@ -1,4 +1,9 @@
-
+/*
+* File Name: login.js
+* Author(s): Matt Rice
+* Description: Handles login functionality for the admin portal.
+* Date: 30 August 2017
+*/
 
 function handleLogin(){
   var email = document.getElementById("username").value;

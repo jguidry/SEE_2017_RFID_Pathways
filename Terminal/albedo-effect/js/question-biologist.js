@@ -7,7 +7,7 @@
 */
 
 var questions = [{
-	"question": "How do micro-organisms like algue affect albedo?",
+	"question": "How do micro-organisms like algae affect albedo?",
 	"option1": "They don't affect albedo at all.",
 	"option2": "They can manipulate how much light is reflected which causes the albedo value to change.",
 	"option3": "They make sure that the albedo value remains constant every year.",
