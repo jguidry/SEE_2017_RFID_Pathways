@@ -6,11 +6,6 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
 
 <!-- MAIN BACKGROUND IMAGE -->
 <style>
-/* TODO uncomment when firebase pull works */
-/*body id="background"{
-  background-image: url("");
-  background-size: cover;
-}*/
 
 body {
   background-image:url("images/terminal-background.jpg");
@@ -19,8 +14,10 @@ body {
 button {
   outline: none!important;
 }
+
 </style>
 
+<!DOCTYPE html>
 <html id="page1">
 
 <head>
@@ -66,7 +63,6 @@ button {
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="js/dropDownPathway.js"></script>
-    <script src="js/populateContent.js"></script>
 
     <!-- Script to pull images from firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
@@ -247,9 +243,9 @@ button {
 			<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
 			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
 			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
-                
+
              <!-- The popup that shows up when user clicks "Next Quesion" button without selecting an answer
-                 for any quiz question-->     
+                 for any quiz question-->
             <div id="myPopup" class="popup">
                 <div class="popup-content">
                     <button  style="background-color: black;
@@ -269,17 +265,17 @@ button {
             </div>
 
 		</div>
-            
+
         <!-- The quiz result. Shows up when a user finishes the quiz -->
         <div id="result" class="container result" style="display:none;">
 		</div>
          <!-- Contains the container that hold the  "Try Again" button; the button lets user
-             to retake the quiz -->      
+             to retake the quiz -->
         <div id="tryContainer" class="tryAgainContainer" style="display:none;">
            <button id="nextButton" class="try-btn" onclick="reloadQuiz();">Try Again</button>
         </div>
-            
-        <!-- Link js files needed for the quiz functionality and quiz questions -->    
+
+        <!-- Link js files needed for the quiz functionality and quiz questions -->
         <script src="js/question-engineer.js"></script>
 		<script src="js/quiz-script-engineer.js"></script>
         </div>

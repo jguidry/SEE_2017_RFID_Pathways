@@ -1,4 +1,3 @@
-
 /*
 * File Name: idleReset.js
 * Description: This file contains the source code for the idle timed reset. If
@@ -21,19 +20,39 @@ var timeout;
 *   terminalNum: The terminal that is active
 */
 
-function attachListeners(){
+function attachListeners() {
 
   //Events that will restart the idle timer
-  window.addEventListener( "click", function(){ idleReset(); });
-  window.addEventListener( "mousemove", function(){ idleReset(); });
-  window.addEventListener( "keypress", function(){ idleReset(); });
-  window.addEventListener( "scroll", function(){ idleReset(); });
-  window.addEventListener( "drag", function(){ idleReset(); });
-  window.addEventListener( "dragend", function(){ idleReset(); });
-  window.addEventListener( "play", function(){ idleReset(); });
-  window.addEventListener( "touchend", function(){ idleReset(); });
-  window.addEventListener( "touchmove", function(){ idleReset(); });
-  window.addEventListener( "touchstart", function(){ idleReset(); });
+  window.addEventListener("click", function() {
+    idleReset();
+  });
+  window.addEventListener("mousemove", function() {
+    idleReset();
+  });
+  window.addEventListener("keypress", function() {
+    idleReset();
+  });
+  window.addEventListener("scroll", function() {
+    idleReset();
+  });
+  window.addEventListener("drag", function() {
+    idleReset();
+  });
+  window.addEventListener("dragend", function() {
+    idleReset();
+  });
+  window.addEventListener("play", function() {
+    idleReset();
+  });
+  window.addEventListener("touchend", function() {
+    idleReset();
+  });
+  window.addEventListener("touchmove", function() {
+    idleReset();
+  });
+  window.addEventListener("touchstart", function() {
+    idleReset();
+  });
 
   //Begin the idle timer
   idleBegin();
@@ -47,14 +66,15 @@ function attachListeners(){
 *   the interaction time.
 */
 
-function idleBegin(){
+function idleBegin() {
 
-  var session_timeout = 40000;   //Amount for seconds idle timeout
+  var session_timeout = 40000; //Amount for seconds idle timeout
 
   //Set the average interaction time and send back to index page
-  timeout = setTimeout(function(){ window.location.href = "registrationSplash.html"; }, session_timeout);
+  timeout = setTimeout(function() {
+    window.location.href = "registrationSplash.html";
+  }, session_timeout);
 }
-
 
 /*
 * Function Name: idleReset
@@ -63,11 +83,11 @@ function idleBegin(){
 *   restarted.
 */
 
-function idleReset(){
+function idleReset() {
 
   //Reset the timeout
-  console.log( "reset" );
-  clearTimeout( timeout );
+  console.log("reset");
+  clearTimeout(timeout);
 
   idleBegin();
 

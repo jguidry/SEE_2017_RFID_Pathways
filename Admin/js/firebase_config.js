@@ -1,12 +1,12 @@
 /*
 * File Name: firebase_config.js
-* Author(s): Matt Rice
+* Author(s): Matthew Rice
 * Description: Contains the firebase config key and initializes the db
 * Date: 30 August 2017
 */
 
 /*
-* Description: Allows access to firebase database and firebase storage      
+* Description: Allows access to firebase database and firebase storage
 */
 var config = {
   apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
@@ -17,15 +17,3 @@ var config = {
   messagingSenderId: "33111057118"
 };
 firebase.initializeApp(config);
-
-// var email = "matthewrice11@yahoo.com";
-// var password = "matnap11"
-//
-// firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-//   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-//
-// console.log(errorMessage);
-//   // ...
-// });

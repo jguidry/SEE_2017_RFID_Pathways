@@ -204,13 +204,15 @@ section#body {
 section#content {
 	width:580px;
 	height:93vh;
-	padding: 20px;
+	padding: 20px 0px;
 	background-color: #fff;
 }
 .column-left {
 	float:left;
 }
 .column-right {
+	margin-right: -10px;
+
 	float:right;
 }
 aside#sidebar {

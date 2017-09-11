@@ -1,20 +1,18 @@
-
 /*
 * File Name: logout.js
-* Author(s): Matt Rice
-* Description: Handles logout functionality for the admin portal.
-* Date: 30 August 2017
+* Author(s): Matthew Rice
+* Date: 1 September 2017
+* Description: This file sign the user out of the admin portal using firebase's
+* signOut functino
 */
 
-function handleLogout(){
+function handleLogout() {
 
-  //TODO Check Blank Email/Password
-
-firebase.auth().signOut().then(function() {
-// Sign-out successful.
- window.location.href = "index.html";
-}).catch(function(error) {
-// An error happened.
-});
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    window.location.href = "index.html";
+  }).catch(function(error) {
+    // An error happened.
+  });
 
 }
