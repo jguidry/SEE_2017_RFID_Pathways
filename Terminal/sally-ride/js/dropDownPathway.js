@@ -1,5 +1,13 @@
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
+/*
+* File Name: dropDownPathway.js
+* Author(s):
+* Desctiption:
+*/
+
+/*
+* Function Name: myFunction TODO probably make this a real function name
+* Description: Toggles the dropdown's content
+*/
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }

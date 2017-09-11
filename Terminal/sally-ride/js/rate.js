@@ -8,7 +8,7 @@
 /*
 * Function Name: rate
 * Description: Calculates the new average rating of a terminal and stores it
-*              back into the database.
+*   back into the database.
 * Parameters:
 *   rating: The rating given by the user
 *   terminalNum: Which terminal was rated
@@ -16,65 +16,81 @@
 
 function rate( rating, terminalNum ){
 
-    //Get the current rating reference
-    var ratingRef = firebase.database().ref().child( "Terminals/" +
-      terminalNum + "/Rating_Sys/rating" );
+  var ROUND_FACTOR = 100;   //Factor used for rounding the rating
+  var SLIDE_TIME = 300;     //Time before the rating box toggles
+  var TEXT_TIME = 500;      //Time before the thankyou text hides
 
-    //Get the current number of raters reference
-    var ratersRef = firebase.database().ref().child( "Terminals/" +
-      terminalNum + "/Rating_Sys/raters" );
+  var thankyouText = document.getElementById('Thankyou');
+  var totalContainer = document.getElementById('totalContainer');
 
-    var numRaters;  //Current number of user who have rated the terminal
+  //Get the current rating reference
+  var ratingRef = firebase.database().ref().child( "Terminals" ).child(
+    terminalNum ).child( "Rating_Sys" ).child( "rating" );
 
-    //Get the number of raters
-    ratersRef.transaction( function( raters ){
-      numRaters = raters + 1;
-      return raters + 1;        //Store new number of raters
-    });
+  //Get the current number of raters reference
+  var ratersRef = firebase.database().ref().child( "Terminals" ).child(
+    terminalNum ).child( "Rating_Sys" ).child( "raters" );
 
-    //Calculate and store new average rating
-    ratingRef.transaction( function( oldRating ){
+  var numRaters;  //Number of user who have rated the terminal
+  var newRating;  //The new terminal rating
 
-      var newRating;
+  //Get the number of raters and store new number
+  ratersRef.transaction( function( raters ){
+    numRaters = raters + 1;
+    return raters + 1;        //Store new number of raters
+  });
 
-      //Calculate
-      if( numRaters < 1 ){
-          newRating = (( oldRating * numRaters) + rating) / numRaters;
-      }
-      else{
-        newRating = (( oldRating * (numRaters-1)) + rating) / numRaters;
-      }
+  //Calculate and store new average rating
+  ratingRef.transaction( function( oldRating ){
 
-      //Round to 2? decimals
-      newRating = Math.round( newRating  * 100 ) / 100;
+    //Calculate
+    if( numRaters < 1 ){
+        newRating = (( oldRating * numRaters) + rating) / numRaters;
+    }
+    else{
+      newRating = (( oldRating * (numRaters-1)) + rating) / numRaters;
+    }
 
-      return newRating; //Store
+    //Round rating
+    newRating = Math.round( newRating  * ROUND_FACTOR ) / ROUND_FACTOR;
 
-    });
+    return newRating; //Store
 
-    //Show thankyou text
-    document.getElementById( 'Thankyou' ).style.display = "block";
+  });
 
-    //Slide the rating box back down
-    setTimeout( function(){
-      $("#mainSlideBox").slideToggle();
-    }, 300 );
+  //Show thankyou text
+  thankyouText.style.display = "flex";
 
-    //Hide the thankyou text
-    setTimeout( function(){
-      document.getElementById( 'Thankyou' ).style.display = "none";
-    }, 500 );
+  //Slide the rating box back down
+  setTimeout( function(){
+    $("#mainSlideBox").slideToggle();
+  }, SLIDE_TIME );
+
+  //Hide the thankyou text
+  setTimeout( function(){
+    thankyouText.style.display = "none";
+    totalContainer.style.display = "none";
+  }, TEXT_TIME + SLIDE_TIME);
+
+
+
 }
 
 /*
 * Function Name: rateMe()
-* Description: Display the rating option for user input and ratings.
+* Description: Display the rating box to allow user input and rating.
 */
+
 function rateMe(){
 
   document.getElementById('mainSlideBox').stlye = "display: inline-block";
   $("#mainSlideBox").slideToggle();
 
   return false;
-
 }
+
+
+/* Load the Rating System after a certain amount of time */
+setTimeout( function(){
+  totalContainer.style.display = "flex";
+}, 12 * 1000 );

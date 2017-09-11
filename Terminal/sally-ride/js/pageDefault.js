@@ -10,12 +10,13 @@
 /*
 * Function Name: offlineDefault
 * Description: This function acts as the redundancy measure in the case of no
-* wifi/internet connection and will execute a task desired by the Staff that will
-* act as a default use of the terminal. TODO finsih when functional
+* wifi/internet connection and will redirect the terminal to the offline default
+* page.
 */
 
 function offlineDefault(){
 
+  //Log disconnect
   console.log( "System lost connection at: " + Date() );
 
   window.location.replace( "offlineDefault.html" );
@@ -25,7 +26,7 @@ function offlineDefault(){
 /*
 * Function Name: onlineDefault
 * Description: This function is called when there is a wifi/internet connection
-* and determines what the website will then do. TODO finish this when functional
+* and redirects the terminal back to the default display page.
 */
 
 function onlineDefault(){

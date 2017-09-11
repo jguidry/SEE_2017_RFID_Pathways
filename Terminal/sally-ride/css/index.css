@@ -1,26 +1,34 @@
 /*
 * File Name: index.css
-* Author(s): James Guidry
+* Author(s): James Guidry, Matthew Rice
 * Description: Style for index.html
 * Date: 1 August 2017
 */
 
 /* Text field that the RFID_Scanner reads into */
+
+
 #RFID_ID{
 
-  margin-left: -10000px;
-  /*visibility: hidden; Hide the text field */
+  /*margin-left: -10000px;*/
+  /*visibility: hidden;*/
 
+  /*width: 0%;
+  border: 0px;
+  outline: none;
+  cursor: default;*/
+  border: none;
+  cursor: default;
+  outline: none;
+  width: 0%;
+color: transparent;
+text-shadow: 0 0 0 gray;
+&:focus {
+    outline: none;
+}
 }
 
-/* For presentation, probably get rid of later */
-#defaultText{
 
-  margin-left: 30%;
-  margin-top: 20%;
-  font-size: 100px;
-
-}
 
 
 
@@ -47,6 +55,10 @@
     width: 22%; /* Could be more or less, depending on screen size */
 }
 
-body {
+html {
   cursor: none!important;
+  touch-action: pan-x pan-y;
+}
+button {
+  outline: none!important;
 }

@@ -1,16 +1,12 @@
 <!--
-Filename: pathwayE.html
+Filename: pathwayC.html
 Authors: Josh Duhay, Matthew Rice, Wyatt Guidry, Bryle Castro
-Description: Pathway page for engineer. Utilizes fullPage.js for scroller functionality.
+Description: Pathway page for climatologist. Utilizes fullPage.js for scroller functionality.
 -->
 
 <!-- MAIN BACKGROUND IMAGE -->
 <style>
-/* TODO uncomment when firebase pull works */
-body id="background"{
-  background-image: url("");
-  background-size: cover;
-}
+
 body {
   background-image:url("images/terminal-background.jpg");
   background-size:cover;
@@ -18,7 +14,9 @@ body {
 button {
   outline: none!important;
 }
+
 </style>
+
 <!DOCTYPE html>
 <html id="page1">
 
@@ -28,13 +26,15 @@ button {
     <!-- Scroller -->
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
-     <link rel="stylesheet" type="text/css" href="css/quiz.css" />
-    <link rel="stylesheet" type="text/css" href="css/errorPopUp.css"/>
+    <link rel="stylesheet" type="text/css" href="css/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="css/errorPopUp.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
-    <script type="text/javascript" src="js/Timer.js"></script>
+    <script src="js/Timer.js"></script>
+
+
     <script type="text/javascript">
         $(document).ready(function() {
             $('#fullpage').fullpage({
@@ -70,6 +70,8 @@ button {
     <script src="js/albedo-pathwayC.js"></script>
 
 
+
+
     <!-- Loader -->
     <script type="text/javascript">
     $(window).load(function() {
@@ -99,7 +101,8 @@ button {
         <div class="chevronBottom"></div>
       </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <!-- <img id="top" src="" style="height:100%;width:100%;"> -->
+      <!-- TODO uncomment when firebase pull is necessary  -->
+      <img id="top" src="" style="height:100%;width:100%;">
       <!-- Video -->
       <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls controlsList="nodownload">
         <source src="" type="video/mp4">
@@ -124,11 +127,34 @@ button {
         <!-- CENTER SLIDE -->
         <div class="slide active" id="slide2">
 
+          <!-- Rating system -->
+          <div id="totalContainer">
+            <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this Exhibit</button>
+              <div class=" box" id="mainSlideBox">
+                <div id="closeBox">
+                  <p onclick="rateMe()">X</p>
+                </div>
+                <p id="boxText">
+                  Rate your Experience
+                </p>
+                <div >
+                  <p id="Thankyou">Thank you!</p>
+                </div>
+                <div id="rating">
+                  <span onclick="rate( 1, 'T_1' )">★</span>
+                  <span onclick="rate( 2, 'T_1' )">★</span>
+                  <span onclick="rate( 3, 'T_1' )">★</span>
+                  <span onclick="rate( 4, 'T_1' )">★</span>
+                  <span onclick="rate( 5, 'T_1' )">★</span>
+                </div>
+              </div>
+          </div>
+
             <!-- Transparent instruction box that disappears -->
             <a>
             <div class="transbox" id="swipe-box">
-              <h1 id="user_name"> </h1>
               <img src="images/swipe.gif">
+							<h1 id="user_name"> </h1>
               <h1>Swipe to navigate!</h1>
             </div>
             </a>
@@ -167,13 +193,11 @@ button {
                <!--<a href="./pathwayB.html">Biologist Pathway</a>
                <a href="#">Climatologist Pathway</a>-->
                <div onclick="calcTime( false, 'T_1', 'pathwayB.html')" class="pathway-dropdown">Biologist Pathway</div><br>
-               <div onclick="calcTime( false, 'T_1', 'pathwayC.html' )" class="pathway-dropdown">Climatologist Pathway</div>
+               <div onclick="calcTime( false, 'T_1', 'pathwayE.html' )" class="pathway-dropdown">Engineer Pathway</div>
              </div>
             </div>
             <!-- Button to allow user to end experience early and return to default -->
             <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_1', 'index.html')" class=pathbtn> Finished </button>
-
-
 
 
             <!-- Main pathway image gets pulled from firebase -->
@@ -186,31 +210,6 @@ button {
 
         <!-- RIGHT SLIDE -->
         <div class="slide" id="slide3">
-
-          <!-- Rating system -->
-          <div class="ratingSystem" id="totalContainer">
-            <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this Exhibit</button>
-              <div class=" box" id="mainSlideBox">
-                <div id="closeBox">
-                  <p onclick="rateMe()">X</p>
-                </div>
-                <p id="boxText">
-                  Rate your Experience
-                </p>
-                <div >
-                  <p id="Thankyou">Thank you!</p>
-                </div>
-                <div id="rating">
-                  <span onclick="rate( 1, 'T_1' )">★</span>
-                  <span onclick="rate( 2, 'T_1' )">★</span>
-                  <span onclick="rate( 3, 'T_1' )">★</span>
-                  <span onclick="rate( 4, 'T_1' )">★</span>
-                  <span onclick="rate( 5, 'T_1' )">★</span>
-                </div>
-              </div>
-          </div>
-
-
           <!-- Left side arrow -->
           <div><a href="#secondPage/1">
             <div class="chevronLeft"></div>
@@ -218,7 +217,7 @@ button {
             <div class="chevronLeft"></div>
           </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <!-- <img id="right" src="" style="height:100%;width:100%;"> -->
+          <img id="right" src="" style="height:100%;width:100%;">
         </div>
     </div>
 
@@ -231,10 +230,10 @@ button {
         <div class="chevronTop"></div>
       </div></a>
 
-        <!-- Main pathway image gets pulled from firebase -->
+      <!-- Main pathway image gets pulled from firebase -->
       <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
 
-        <!--Quiz Stuff -->
+        <!-- Quiz Stuff -->
         <div id="theQuizContainer">
             <div id="quizContainer" class="container">
 			<div class="title">Albedo Quiz</div>
@@ -245,7 +244,7 @@ button {
 			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
 			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 
-            <!-- The popup that shows up when user clicks "Next Quesion" button without selecting an answer
+             <!-- The popup that shows up when user clicks "Next Quesion" button without selecting an answer
                  for any quiz question-->
             <div id="myPopup" class="popup">
                 <div class="popup-content">
@@ -268,9 +267,9 @@ button {
 		</div>
 
         <!-- The quiz result. Shows up when a user finishes the quiz -->
-        <div id="result" class="container result" style="display:none;"></div>
-
-        <!-- Contains the container that hold the  "Try Again" button; the button lets user
+        <div id="result" class="container result" style="display:none;">
+		</div>
+         <!-- Contains the container that hold the  "Try Again" button; the button lets user
              to retake the quiz -->
         <div id="tryContainer" class="tryAgainContainer" style="display:none;">
            <button id="nextButton" class="try-btn" onclick="reloadQuiz();">Try Again</button>
@@ -279,14 +278,13 @@ button {
         <!-- Link js files needed for the quiz functionality and quiz questions -->
         <script src="js/question-climatologist.js"></script>
 		<script src="js/quiz-script-climatologist.js"></script>
-
         </div>
+
 
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
       <script>populateContent()</script>
     </div>
-
   </div> <!-- end full page scoller -->
 
 </body>

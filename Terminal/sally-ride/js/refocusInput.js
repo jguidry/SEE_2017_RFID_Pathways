@@ -10,7 +10,7 @@
 * Description: refocuses the page back to the text entry field for the index.html
 * page. Implemented so that if a user touches the Default screen (index.html)
 * the terminal doesnt break because the RFID reader will no longer have a place
-* to read into
+* to read into. Also clears the input field, allowing for a clean read.
 */
 
 function refocusInput(){

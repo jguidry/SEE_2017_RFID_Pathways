@@ -1,0 +1,23 @@
+div.transbox {
+  position:absolute;
+  margin:auto;
+  top: 2vh;
+  right:34.5%;
+  min-height:5%;
+  background-color: #ffffff;
+  padding:15px;
+  opacity:0.6;
+}
+#close {
+    float:right;
+    display:inline-block;
+    padding:4px 10px;
+    background:#ccc;
+}
+#close:hover {
+    float:right;
+    display:inline-block;
+    padding:4px 10px;
+    background:#000;
+    color:#fff;
+}

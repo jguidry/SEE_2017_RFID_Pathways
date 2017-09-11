@@ -1,33 +1,58 @@
+<!--
+Filename: pathwayE.html
+Authors: Josh Duhay, Matthew Rice, Wyatt Guidry, Bryle Castro
+Description: Pathway page for engineer. Utilizes fullPage.js for scroller functionality.
+-->
+
+<!-- MAIN BACKGROUND IMAGE -->
+<style>
+
+body {
+  background-image:url("images/terminal-background.jpg");
+  background-size:cover;
+}
+button {
+  outline: none!important;
+}
+</style>
 <!DOCTYPE html>
-<html id="page2">
+<html id="page1">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <!-- Scroller functionality -->
+    <!-- Scroller -->
     <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
-    <link rel="stylesheet" type="text/css" href="css/stars.css" />
-    <link rel="stylesheet" type="text/css" href="css/rating.css" />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="css/quiz.css" />
+    <link rel="stylesheet" type="text/css" href="css/errorPopUp.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
     <script type="text/javascript" src="scroller/examples.js"></script>
     <script src="js/Timer.js"></script>
 
     <script type="text/javascript">
-
         $(document).ready(function() {
             $('#fullpage').fullpage({
-              sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
               anchors: ['firstPage', 'secondPage', 'thirdPage'],
               menu: '#menu',
             });
-
             startTimer();
+
         });
     </script>
+
+    <!-- Arrows -->
+    <link rel="stylesheet" type="text/css" href="css/arrows.css" />
+
+    <!-- Transparent instruction box -->
+    <link rel="stylesheet" type="text/css" href="css/transparentbox.css"/>
+    <script src="js/closebox.js"></script>
+
+    <!-- Rating system -->
+    <link rel="stylesheet" type="text/css" href="css/stars.css" />
+    <link rel="stylesheet" type="text/css" href="css/rating.css" />
 
     <!-- Pathway styles -->
     <link rel="stylesheet" href="css/terminalTemplate.css">
@@ -36,198 +61,229 @@
     <link rel="stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="js/dropDownPathway.js"></script>
-    <script src="js/populateContent.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+    <!-- Script to pull images from firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="js/firebase_config.js"></script>
+    <script src="js/albedo-pathwayB.js"></script>
+
+
 
     <!-- Loader -->
     <script type="text/javascript">
     $(window).load(function() {
-      // set delay 1 seconds
+      // set delay 1.5 seconds to give time for images to be pulled from firebase
       setTimeout(function() {
         $(".loader").fadeOut("slow");
-      }, 500);
+      }, 1500);
     });
     </script>
 
 </head>
 <body onload="attachListeners('T_2')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 
+
+
   <!-- Loader -->
   <div class="loader"></div>
 
-
-<ul id="menu">
-    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">TOP</a></li>
-    <li data-menuanchor="secondPage/0"><a href="#secondPage/0">LEFT</a></li>
-    <li data-menuanchor="secondPage/1"><a href="#secondPage/1">MIDDLE</a></li>
-    <li data-menuanchor="secondPage/2"><a href="#secondPage/2">RIGHT</a></li>
-    <li data-menuanchor="thirdPage"><a href="#thirdPage">BOTTOM</a></li>
-</ul>
-
-<div id="fullpage">
-
-
-
-
-
-
-
-
+  <div id="fullpage">
 
     <!-- TOP SECTION -->
     <div class="section " id="section0">
-
       <!-- Bottom side arrow -->
-      <img src="images/upArrow.gif" style="position:absolute;bottom:0;left:0;right:0;margin:0 auto;"></a>
-
+      <div><a href="#secondPage/1">
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+        <div class="chevronBottom"></div>
+      </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <!-- TODO delete when firebase pull works -->
-      <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
-
+      <img id="top" src="" style="height:100%;width:100%;">
       <!-- Video -->
-      <video width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls>
-        <source src="images/sally-ride.mp4" type="video/mp4">
+      <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls controlsList="nodownload">
+        <source src="" type="video/mp4">
       </video>
-
     </div>
-
-
-
-
-
-
-
-
 
     <!-- MIDDLE SECTION -->
     <div class="section active" id="section1">
 
-        <!-- LEFT PAGE -->
+        <!-- LEFT SLIDE -->
         <div class="slide" id="slide1">
-
           <!-- Right side arrow -->
-          <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;left:31.8%;"</a>
-
+          <div><a href="#secondPage/1">
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+            <div class="chevronRight" style="right:66%;"></div>
+          </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <!-- TODO delete when firebase pull works -->
-          <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
+          <img id="left" src="" style="height:100%;width:100%;">
         </div>
 
-
-
-
-
-
-
-
-
-        <!-- CENTER PAGE -->
+        <!-- CENTER SLIDE -->
         <div class="slide active" id="slide2">
 
+          <!-- Rating system -->
+          <div id="totalContainer">
+            <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this Exhibit</button>
+              <div class=" box" id="mainSlideBox">
+                <div id="closeBox">
+                  <p onclick="rateMe()">X</p>
+                </div>
+                <p id="boxText">
+                  Rate your Experience
+                </p>
+                <div >
+                  <p id="Thankyou">Thank you!</p>
+                </div>
+                <div id="rating">
+                  <span onclick="rate( 1, 'T_2' )">★</span>
+                  <span onclick="rate( 2, 'T_2' )">★</span>
+                  <span onclick="rate( 3, 'T_2' )">★</span>
+                  <span onclick="rate( 4, 'T_2' )">★</span>
+                  <span onclick="rate( 5, 'T_2' )">★</span>
+                </div>
+              </div>
+          </div>
+
+            <!-- Transparent instruction box that disappears -->
+            <a>
+            <div class="transbox" id="swipe-box">
+              <h1 id="user_name"> </h1>
+              <img src="images/swipe.gif">
+              <h1>Swipe to navigate!</h1>
+            </div>
+            </a>
             <!-- Top side arrow -->
-            <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
+            <div><a href="#firstPage">
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+              <div class="chevronTop"></div>
+              <h1 class="captionTop">Video</span>
+            </div></a>
             <!-- Bottom side arrow -->
-            <img src="images/upArrow.gif" style="position:absolute;bottom:0;left:0;right:0;margin:0 auto;"></a>
+            <div><a href="#thirdPage">
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+              <div class="chevronBottom"></div>
+              <h1 class="captionBottom">Quiz</span>
+            </div></a>
             <!-- Left side arrow -->
-            <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;"</a>
+            <div><a href="#secondPage/0">
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+              <div class="chevronLeft"></div>
+              <h1 class="captionLeft">General Info</span>
+            </div></a>
             <!-- Right side arrow -->
-            <img src="images/leftArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:33.5%;"</a>
+            <div><a href="#secondPage/2">
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+              <div class="chevronRight"></div>
+              <h1 class="captionRight">Pathway Info</span>
+            </div></a>
 
             <!-- Button to allow user to change pathway -->
-            <form action="pathwayE.html">
-              <button id="pathwaybtn" type="submit" name="finishButtonA" onclick="" class=btn> Change Pathway </button>
-            </form>
+            <div class="dropdown">
+             <button onclick="myFunction()" name="finishButtonA" class="dropbtn">Change Pathway</button>
+             <div id="myDropdown" class="dropdown-content">
+              <!-- <a href="./pathwayB.html">Biologist Pathway</a>
+               <a href="#">Climatologist Pathway</a> -->
+               <div onclick="calcTime( false, 'T_2', 'pathwayB.html')" class="pathway-dropdown">Biologist Pathway</div><br>
+               <div onclick="calcTime( false, 'T_2', 'pathwayC.html' )" class="pathway-dropdown">Climatologist Pathway</div>
+             </div>
+            </div>
             <!-- Button to allow user to end experience early and return to default -->
-            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_2')" class=btn> Finished </button>
-
+            <button id="finishbtn" type="button" name="finishButtonB" onclick="calcTime(false, 'T_2', 'index.html')" class=pathbtn> Finished </button>
 
             <!-- Main pathway image gets pulled from firebase -->
-            <!-- TODO delete when firebase pull works -->
-            <img src="images/sally-ride-biologist.jpg" style="height:100%;width:100%;">
-
+            <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
             <!-- Link JavaScript files -->
-
-            <script src="js/idleReset.js"></script>-->  <!-- Idle reset -->
-            <script src = "js/pathwayB.js"></script>
+            <script src="js/idleReset.js"></script>
             <script src="js/pathway_redirect.js"></script>
             <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
-
         </div>
 
 
 
 
-
-
-
-        <!-- RIGHT PAGE -->
+        <!-- RIGHT SLIDE -->
         <div class="slide" id="slide3">
-
           <!-- Left side arrow -->
-          <img src="images/rightArrow.gif" style="position:absolute;margin:auto;top:0;bottom:0;right:31.8%;"</a>
-
+          <div><a href="#secondPage/1">
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+            <div class="chevronLeft"></div>
+          </div></a>
           <!-- Main pathway image gets pulled from firebase -->
-          <!-- TODO delete when firebase pull works -->
-          <!--<img src="images/terminal-background.jpg" style="height:100%;width:100%;">-->
-
-          <p>This page will feature a picture gallery.</p>
+          <img id="right" src="" style="height:100%;width:100%;">
         </div>
     </div>
-
-
-
-
-
-
-
-
 
     <!-- BOTTOM SECTION -->
     <div class="section" id="section2">
-
-      <!-- Rating system -->
-      <div id="totalContainer">
-        <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this terminal</button>
-
-          <div class=" box" id="mainSlideBox">
-
-            <div id="closeBox">
-              <p onclick="rateMe()">X</p>
-            </div>
-            <div id="boxText">
-              <p>Rate your Experience</p>
-            </div>
-
-            <div >
-              <p id="Thankyou">Thank you!</p>
-            </div>
-
-            <div id="rating">
-              <span onclick="rate( 1, 'T_2' )">★</span>
-              <span onclick="rate( 2, 'T_2' )">★</span>
-              <span onclick="rate( 3, 'T_2' )">★</span>
-              <span onclick="rate( 4, 'T_2' )">★</span>
-              <span onclick="rate( 5, 'T_2' )">★</span>
-            </div>
-          </div>
-      </div>
-
-
       <!-- Top side arrow -->
-      <img src="images/downArrow.gif" style="position:absolute;top:0;left:0;right:0;margin:0 auto;"></a>
-
+      <div><a href="#secondPage/1">
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+        <div class="chevronTop"></div>
+      </div></a>
       <!-- Main pathway image gets pulled from firebase -->
-      <!-- TODO delete when firebase pull works -->
-      <img src="images/terminal-background.jpg" style="height:100%;width:100%;">
+      <img id="bottom" src="" style="height:100%;width:100%;z-index:-100;">
 
-      <!-- delete -->
-      <img src="images/test.jpg" style="position:absolute;top:20%;right:0;left:0;margin:0 auto;">
+         <!--Quiz Stuff -->
+        <div id="theQuizContainer">
+            <div id="quizContainer" class="container">
+			<div class="title">Albedo Quiz</div>
+			<div id="question" class="question"></div>
+			<label class="option"><input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
+			<label class="option"><input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
+			<label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
+			<label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
+			<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
+
+             <!-- The popup that shows up when user clicks "Next Quesion" button without selecting an answer
+                 for any quiz question -->
+            <div id="myPopup" class="popup">
+                <div class="popup-content">
+                    <button  style="background-color: black;
+                                    border: blue;
+                                    color: white;
+                                    padding: 5px 15px;
+                                    text-align: center;
+                                    display: inline-block;
+                                    font-size: 15px;
+                                    margin: 1px 1px;
+                                    cursor: pointer;"
+                                    id="closeButton" type="button" class="close" aria-label="Close" onclick="document.getElementById('myPopup').style.display='none'">
+                        <span aria-hidden="true">&#10006;</span>
+                    </button>
+                    <h1 id="popupTitle">Please Select Your Answer!</h1>
+                </div>
+            </div>
+
+		</div>
+        <!-- The quiz result. Shows up when a user finishes the quiz -->
+        <div id="result" class="container result" style="display:none;">
+		</div>
+
+         <!-- Contains the container that hold the  "Try Again" button; the button lets user
+             to retake the quiz -->
+        <div id="tryContainer" class="tryAgainContainer" style="display:none;">
+           <button id="nextButton" class="try-btn" onclick="reloadQuiz();">Try Again</button>
+        </div>
+
+        <!-- Link js files needed for the quiz functionality and quiz questions -->
+        <script src="js/question-biologist.js"></script>
+        <script src="js/quiz-script-biologist.js"></script>
+        </div>
+
+      <script src="js/rate.js"></script>
+      <script src="js/stars.js"></script>
+      <script>populateContent()</script>
     </div>
-</div>
 
-<script src="js/rate.js"></script>
-<script src="js/stars.js"></script>
+  </div> <!-- end full page scoller -->
 
 </body>
 </html>
