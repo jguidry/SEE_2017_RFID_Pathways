@@ -59,4 +59,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Daniel Yang
 * Adam Johnson
 * Nan Renner
+* Dale Stokes
 (TODO put others here)
