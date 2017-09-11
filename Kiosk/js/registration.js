@@ -77,7 +77,7 @@ function update() {
     writeToFirebase(rfidText, languageText, avatarText, nameText,
         ageGroupText, pathwayChoice, emailText );
 
-        redirect()
+        redirect();
   // window.location.replace = "registrationThanks.html";
 
     // For debugging: Set the paragraph element with the id "testTextDisplay" to contain the text that was inputted
@@ -123,7 +123,7 @@ $(".error-box").hide();
 
       }
       else if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected')
+        $(this).removeClass('selected');
       }
 
 
@@ -148,7 +148,7 @@ $(".error-box").hide();
 
       }
       else if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected')
+        $(this).removeClass('selected');
       }
 
 
@@ -173,7 +173,7 @@ $(".error-box").hide();
 
       }
       else if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected')
+        $(this).removeClass('selected');
       }
 
 
@@ -208,7 +208,7 @@ $(".error-box").hide();
 
 
     }
-    else window.location.href="#firstPage/2"
+    else window.location.href="#firstPage/2";
   });
 
 

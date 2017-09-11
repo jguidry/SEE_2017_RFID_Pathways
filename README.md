@@ -42,7 +42,7 @@ TODO Add Scroller, Bootstrap, and Keyboard js
 * **Bryle Castro** - [b2castro](https://github.com/b2castro)
 * **Josh Duhay** - [jeduhay](https://github.com/jeduhay)
 * **Wyatt Guidry** - [jguidry](https://github.com/jguidry)
-* **Samm Iwamasa** - [TODO](https://github.com/PurpleBooth)
+* **Samm Iwamasa** - [Sammifer](https://github.com/Sammifer)
 * **Matthew Rice** - [mhrice](https://github.com/mhrice)
 
 

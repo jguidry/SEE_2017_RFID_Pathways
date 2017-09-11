@@ -166,14 +166,14 @@ function handleFileUpload(files, obj) {
             var database = firebase.database();
           database.ref("Terminals/" + newStr + "/" + "Content/Video/"+ fileName).set(fileExt).catch((err)=>{
             alert("Permission Denied");
-            window.location.href = "index.html"
+            window.location.href = "index.html";
                 });
         }
         else{
             var database = firebase.database();
           database.ref("Terminals/" + newStr + "/" + "Content/"+ fileName).set(fileExt).catch((err)=>{
             alert("Permission Denied");
-            window.location.href = "index.html"
+            window.location.href = "index.html";
                 });
 
         }

@@ -12,24 +12,24 @@ var database = firebase.database();
 var terminalMap = {
   'Albedo': "T_1",
   'Sally Ride': "T_2"
-}
+};
 
 var pathwayMap = {
   'Biologist': "PathwayB",
   'Engineer': "PathwayE",
   'Climatologist': "PathwayC"
-}
+};
 
 /* Toggles the dropdown box on click */
 function drop1() {
   $(".analytics-link1").toggle();
   $(".analytics-link2").hide();
-}
+};
 
 function drop2() {
   $(".analytics-link2").toggle();
   $(".analytics-link1").hide();
-}
+};
 
 $(document).ready(() => {
   $(".analytics-link1").hide();
@@ -82,7 +82,7 @@ $(document).ready(() => {
   /* Grabs Registrations and Uses info from database on pathway selection */
   $(".analytics-link2").click((e) => {
     var id = e.target.id;
-    var texts = document.getElementById(id).innerHTML
+    var texts = document.getElementById(id).innerHTML;
     var pathway = pathwayMap[texts];
     var registrationsRef = database.ref('User_Data/' + pathway + '/Registers');
     registrationsRef.on('value', function(snapshot) {
