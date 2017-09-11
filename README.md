@@ -1,6 +1,7 @@
 # See_2017_RFID_Pathways
 
-An RFID kiosk, terminal, and admin update system to be used by the [Birch Aquarium](https://aquarium.ucsd.edu). TODO Finish this
+An RFID kiosk, terminal, and admin update system to be used by the [Birch Aquarium](https://aquarium.ucsd.edu). The RFID kiosk allows users to
+register their RFID tags using their name, highest education completed, email, and "professional pathway"; a "professional pathway" is the concept in which the content a user sees is based on the viewpoint of a chosen profession in regard to the theme of the exhibit that is displayed on a terminal. The terminal will be used to display personalized content based on a user's chosen "professional pathway" and theme of the exhibit. The admin update system allows Birch employees to update the media content(images and videos) that is displayed on any terminal.    
 
 ## Getting Started
 
@@ -35,7 +36,10 @@ This will launch the app in the browser (Note: this should automatically launch 
   when it has internet)
 
 ## Outside Libraries Used
-TODO Add Scroller, Bootstrap, and Keyboard js
+* Scroller
+* Bootstrap
+* Keyboard js
+
 
 ## Authors
 
@@ -60,4 +64,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Adam Johnson
 * Nan Renner
 * Dale Stokes
+
 (TODO put others here)
