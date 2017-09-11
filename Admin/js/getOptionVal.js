@@ -1,9 +1,16 @@
-/*Author: Bryle Castro*/
+/*Author: Bryle Castro 9/10/2017
+*
+* Filename: getOptionVal.js
+* Description: Handles the functionality for obtaining
+* the option and text of a selection option when choosing
+* which terminal should media be sent to.
+*/
+
 
 /*
 * Function Name: getOptVal
 * Parameters: sel - the select tag id
-* Description: Gets the value of the selected option
+* Description: Gets the value of the selected option.
 *
 */
 function getOptVal(sel) {

@@ -51,7 +51,7 @@ function attachListeners( terminalNum ){
 
 function idleBegin( terminalNum ){
 
-  var session_timeout = 40 * 1000;   //Amount for idle timeout
+  var session_timeout = 40 * 1000;   //Amount for idle timeout (seconds)
 
   //Set the average interaction time and send back to index page
   timeout = setTimeout(function(){calcTime( true, terminalNum, 'index.html');},

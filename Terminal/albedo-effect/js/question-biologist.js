@@ -1,5 +1,13 @@
+/*
+* File Name: question-biologist.js
+* Author(s): Bryle Castro
+* Date: 7 September 2017
+* Description: Contains the questions and answer option to be used in the quiz
+*		for this pathway.
+*/
+
 var questions = [{
-	"question": "How do micro-organisms like algue affect albedo?",
+	"question": "How do micro-organisms like algae affect albedo?",
 	"option1": "They don't affect albedo at all.",
 	"option2": "They can manipulate how much light is reflected which causes the albedo value to change.",
 	"option3": "They make sure that the albedo value remains constant every year.",

@@ -1,4 +1,11 @@
-function invalidPopup() {
+/*
+* Author: Bryle Castro, Matthew Rice
+* Function Name: invalidPopup
+* Description: Displays a popup for a specified amount of time that asks
+* the user to register their RFID tag.
+*/
+
+function invalidPopup(){
 
   //Get the popup
   var popup = document.getElementById('myPopup');
