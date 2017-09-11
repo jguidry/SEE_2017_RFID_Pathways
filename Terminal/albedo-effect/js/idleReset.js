@@ -5,7 +5,7 @@
 * Date: 4 August 2017
 * Description: This file contains the source code for the idle timed reset. If
 * the user is determined to be idle for a specified amount of time, the system
-* will automatically redirect to the deafult page.
+* will automatically redirect to the default page.
 */
 
 //Global variable needed for the setTimeout and clearTimeout functions

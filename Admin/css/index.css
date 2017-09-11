@@ -1,195 +1,70 @@
-/* Text field that the RFID_Scanner reads into */
-#RFID_ID{
 
-  /*margin-left: -10000px; */
-  /*visibility: hidden; Hide the text field */
-
-}
-
-/* For presentation, probably get rid of later */
-#defaultText{
-
-  margin-left: 30%;
-  margin-top: 20%;
-  font-size: 100px;
-
-}
-
-
-/* The popup (background) */
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 80%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* popup (Content/Box) */
-.popup-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%; /* Could be more or less, depending on screen size */
-}
-
-section#content{
-    padding-right: 0!important;
-    padding-left: 0!important;
-}
-.column-right {
-    /*border: 2px solid gold;*/
-    margin-right: -10px;
-    display: flex;
-    justify-content: flex-start;
-
-
-}
-
-.analytics-main-container {
-  display: flex;
-  flex-direction: column;
-  /*border: 2px solid red;*/
-  align-items: center;
-  height: 65vh;
-  width: 100%;
-
-
-}
-.analytics-main-title {
-
-}
-.analytics-title-row {
-  display: flex;
-  /*justify-content: space-around;*/
-  /*min-width: 100%;*/
-  flex: 2;
-  align-items: stretch;
-  /*align-self: center;*/
-}
-.analytics-title-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.analytics-row {
-
-  /*align-self: flex-start;*/
-  display: flex;
-  /*justify-content: space-around;*/
-  min-width: 100%;
-  flex: 2;
-  align-items: stretch;
-  align-self: stretch;
-  /*border: 2px solid gold;*/
-  /*padding-bottom: 30px;*/
-
-}
-.analytics-col {
-  /*flex: 1;*/
-  padding-left: 12%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /*margin-bottom: 20%;*/
-}
-
-.analytics-dropdown {
-  margin-top: 2%;
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  /*justify-content: center;*/
-
-}
-
-.analytics-info {
-  /*visibility: hidden;*/
-  display: none;
-
-  /*margin-top: -10%;*/
-}
-.analytics-link1 {
-display: flex;
-justify-content: center;
-cursor: default;
-
-}
-.analytics-link2 {
-display: flex;
-justify-content: center;
-cursor: default;
-
-}
-.analytics-text {
-  font-size: 15px;
-  border: 2px;
-}
-
-.dropbtn {
-    min-height: 25px;
-    background-color: #e1e8f4;
-    color: black;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-
-
-
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #e1e8f4;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  /*visibility: hidden;*/
-  /*display: none;*/
-    /*position: absolute;*/
-    /*background-color: #566172;*/
-    background-color: #f9f9f9;
-    /*min-width: 160px;*/
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 5;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    /*display: block;*/
-}
-#info1 {
-  /*margin-bottom: 7%;*/
-  margin-top: 1%;
-}
-#info2 {
-  /*margin-bottom: 10%;*/
-}
-
-/*#dropbtn2 {
-  margin-top: 10%;
-}*/
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #929ba8}
-
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-/*.show {visibility: visible;}*/
+    html, body{
+        text-align: center;
+        font-family: Avenir;
+        color: white;
+        background-color: rgb(61, 79, 93);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: table
+    }
+    #container{
+        width: 100%;
+        height: 60%;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle
+    }
+    input{
+        width: 15em;
+        color: black;
+        padding: .5em .6em;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px #ddd;
+        border-radius: 4px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        margin: .25em 0;
+        outline: none;
+        transition: ease-in-out, width .35s ease-in-out;
+    }
+    input:focus{
+        width: 17em;
+        border: 2px solid rgba(81, 203, 238, 1);
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    }
+    fieldset *{
+        padding: 5px;
+    }
+    h1{
+        color:white;
+    }
+    button{
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+    .errorPop{
+        position: relative;
+        margin: 0;
+        padding: 0;
+        color: red;
+        visibility: hidden;
+        display: none;
+        font-size: 12px;
+        font-style: italic;
+    }
+    #signUpLink{
+        color: lightblue;
+        text-decoration: none;
+    }
+    #signUpLink:hover{
+        color: #0078e7;
+        text-decoration: none;
+    }
+    #message {
+        margin-left: 10%;
+        margin-right: 10%;
+    }

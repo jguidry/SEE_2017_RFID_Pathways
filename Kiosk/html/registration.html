@@ -3,164 +3,136 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
-    <link rel="stylesheet" href="../css/employee_welcome.css">
-    <link rel="stylesheet" href="../css/helpTip.css">
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+  <link rel="stylesheet" href="../css/employee_welcome.css">
+  <link rel="stylesheet" href="../css/helpTip.css">
 
-    <!-- Scroller -->
-    <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
-    <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
-    <link rel ="stylesheet" type="text/css" href="../css/pathway.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
-    <script type="text/javascript" src="scroller/examples.js"></script>
+  <!-- Scroller -->
+  <link rel="stylesheet" type="text/css" href="scroller/jquery.fullPage.css" />
+  <link rel="stylesheet" type="text/css" href="scroller/examples.css" />
+  <link rel="stylesheet" type="text/css" href="../css/registration.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="scroller/jquery.fullPage.js"></script>
+  <script type="text/javascript" src="scroller/examples.js"></script>
 
-    <link href="../Keyboard-master/css/keyboard.css" rel="stylesheet">
-    <script src="../Keyboard-master/js/jquery.keyboard.js"></script>
+  <link href="../Keyboard-master/css/keyboard.css" rel="stylesheet">
+  <script src="../Keyboard-master/js/jquery.keyboard.js"></script>
 
-    <!-- css for the preview keyset extension -->
-    <link href="../Keyboard-master/css/keyboard-previewkeyset.css" rel="stylesheet">
+  <!-- css for the preview keyset extension -->
+  <link href="../Keyboard-master/css/keyboard-previewkeyset.css" rel="stylesheet">
+  <!-- keyboard optional extensions - include ALL (includes mousewheel) -->
+  <script src="../Keyboard-master/js/jquery.keyboard.extension-all.js"></script>
+  <script src="../Keyboard-master/js/jquery.keyboard.js"></script>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
-    <!-- keyboard optional extensions - include ALL (includes mousewheel) -->
-    <script src="../Keyboard-master/js/jquery.keyboard.extension-all.js"></script>
+  <script type="text/javascript" src="../js/idleReset.js"></script>
 
-    <script src="../Keyboard-master/js/jquery.keyboard.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        anchors: ['firstPage'],
+        menu: '#menu',
+      });
+      attachListeners();
+    });
+  </script>
 
-<script type="text/javascript" src="../js/idleReset.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#fullpage').fullpage({
-              anchors: ['firstPage'],
-              menu: '#menu',
-            });
-            attachListeners();
-        });
-    </script>
-
-    <!-- Registration scripts -->
-    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-
-    <script src="../js/updateData.js"></script>
-    <script src="../js/showBorder.js"></script>
-    <script src="../js/registration.js"></script>
-    <script src="../js/keyboard.js"></script>
+  <!-- Registration scripts -->
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script src="../js/updateData.js"></script>
+  <script src="../js/showBorder.js"></script>
+  <script src="../js/firebase_config.js"></script>
+  <script src="../js/registration.js"></script>
+  <script src="../js/keyboard.js"></script>
 </head>
 
 <body>
 
-    <div id="fullpage">
+  <div id="fullpage">
 
-      <!-- MAIN SCROLLER -->
-      <div class="section active" id="section0">
+    <!-- MAIN SCROLLER -->
+    <div class="section active" id="section0">
 
-        <!-- NEED TO CHANGE THIS TO A PAGE THAT WE WANT IT TO GO TO-->
-        <form class="form-horizontal" action="registrationThanks.html">
-
-
-
-
+      <form class="form-horizontal" action="registrationThanks.html">
 
         <!-- First slide: General info -->
         <div class="slide active" id="slide1">
           <h1><small><bold>GENERAL INFORMATION</bold></small></h1>
 
-              <!-- RFID number label and textbox -->
-              <!-- <div class="form-group">
-                  <div class="col-sm-1"></div>
-                  <div class="col-sm-3"></div>
-              </div> -->
+          <!-- Name label and textbox -->
+          <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="name" class="col-sm-4">What would you like to be called?</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control nameInput" id="keyboard1" placeholder="Cap'n Nautilus" autocomplete="off">
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
 
-              <!-- Name label and textbox -->
-              <div class="form-group">
-                  <div class="col-sm-1"></div>
-                  <label for="name" class="col-sm-4">What would you like to be called?</label>
-                  <div class="col-sm-4">
-                      <input type="text" class="form-control nameInput" id="keyboard1" placeholder="Cap'n Nautilus" autocomplete="off">
-                  </div>
-                  <div class="col-sm-3"></div>
-              </div>
+          <!-- Language label and menu -->
+          <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="language" class="col-sm-4">Select your language:</label>
+            <div class="col-sm-4">
 
-              <!-- Language label and menu -->
-              <div class="form-group">
-                  <div class="col-sm-1"></div>
-                  <label for="language" class="col-sm-4">Select your language:</label>
-                  <div class="col-sm-4">
-
-                      <select class="form-control" id="languageInput">
+              <select class="form-control" id="languageInput">
                       <option>English</option>
                       <option>Español</option>
                       <option>中文</option>
                   </select>
-                  </div>
-                  <div class="col-sm-3"></div>
-              </div>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
 
-              <!-- Age group label and menu -->
-              <div class="form-group">
-                  <div class="col-sm-1"></div>
-                  <label for="ageGroup" class="col-sm-4">Select your age group:</label>
-                  <div class="col-sm-4">
-                      <select class="form-control" id="ageGroupInput">
+          <!-- Age group label and menu -->
+          <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="ageGroup" class="col-sm-4">Select your age group:</label>
+            <div class="col-sm-4">
+              <select class="form-control" id="ageGroupInput">
                       <option>Elementary School</option>
                       <option>Middle School</option>
                       <option>High School</option>
                       <option>College</option>
                       <option>Out of School!</option>
                   </select>
-                  </div>
-                  <div class="col-sm-3"></div>
-              </div>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
 
-              <!-- Email label and textbox -->
-              <div class="form-group">
-                  <div class="col-sm-1"></div>
-                  <label for="name" class="col-sm-4">Please enter your email:<br>(optional)</br></label>
-                  <div class="col-sm-4">
-                      <input type="text" class="form-control emailInput" id="keyboard2" placeholder="Cap'nNautilus@gmail.com" autocomplete="off">
-                  </div>
-                  <div class="col-sm-3"></div>
-              </div>
+          <!-- Email label and textbox -->
+          <div class="form-group">
+            <div class="col-sm-1"></div>
+            <label for="name" class="col-sm-4">Please enter your email:<br>(optional)</br></label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control emailInput" id="keyboard2" placeholder="Cap'nNautilus@gmail.com" autocomplete="off">
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+          <br>
+          <a class="btn btn-lg redirect-button" id="first-button">NEXT</a>
 
-              <br>
-              <a class="btn btn-lg redirect-button" id="first-button">NEXT</a>
-
-              <div class="error-box" id="error-1">
-              Please Enter Your Name!
-              </div>
+          <div class="error-box" id="error-1">
+            Please Enter Your Name!
+          </div>
         </div>
-
-
-
-
-
-
-
-
 
         <!-- Second slide: Pathway preferences -->
         <div class="slide" id="slide2">
-          <div class = "pathway-container">
-          <!-- <div class="row"> -->
-            <!-- <div class="col-md-2"></div> -->
-            <!-- <div class="col-md-8"> -->
-              <h1><small><bold>PROFESSIONAL PATHWAYS</bold></small></h1>
-              <p class="pathway-paragraph">Choose a pathway! As you journey throughout
-              <i>Expedition</i>, you will identify as one of the roles below.
-              The pathway you select will determine what you see at each exhibit
-              whenever you scan your card, <span class="choose-highlight">so choose wisely!</span></p>
-              <div class="pathway-row">
-
-                <div class="pathway-col">
-                  <div class="pathway-box" id="Engineer">
+          <div class="pathway-container">
+            <h1><small><bold>PROFESSIONAL PATHWAYS</bold></small></h1>
+            <p class="pathway-paragraph">Choose a pathway! As you journey throughout
+              <i>Expedition</i>, you will identify as one of the roles below. The pathway you select will determine what you see at each exhibit whenever you scan your card, <span class="choose-highlight">so choose wisely!</span></p>
+            <div class="pathway-row">
+              <!--  Pathway choices -->
+              <div class="pathway-col">
+                <div class="pathway-box" id="Engineer">
                   <h2 class="pathway-title"> Engineer </h2>
-                  <img src ="../img/engineer-avatar.png" class="pathway-img"/>
+                  <img src="../img/engineer-avatar.png" class="pathway-img" />
                   <h4 class="pathway-description">Engineers focus on designing
                   tools for the experiments. As an engineer you
                   will learn how professional engineers construct and apply these
@@ -168,78 +140,70 @@
                   <h4 class="pathway-recommendation"> Recommended for: Designers,
                   Problem Solvers </h4>
                 </div>
-                </div>
-                  <div class="pathway-col">
-                    <div class="pathway-box" id="Biologist">
-                    <h2 class="pathway-title"> Biologist </h2>
-                    <img src ="../img/biologist-avatar.png" class="pathway-img" />
-                    <h4 class="pathway-description">Biologists study living organism
+              </div>
+              <div class="pathway-col">
+                <div class="pathway-box" id="Biologist">
+                  <h2 class="pathway-title"> Biologist </h2>
+                  <img src="../img/biologist-avatar.png" class="pathway-img" />
+                  <h4 class="pathway-description">Biologists study living organism
                     and their influences on their enviroment. As a biologist you
                     will learn how professional biologists use scientific method
                     to learn about how living organisms function. </h4>
-                    <h4 class="pathway-recommendation"> Recommended for: Scientists,
+                  <h4 class="pathway-recommendation"> Recommended for: Scientists,
                     Animal Lovers </h4>
 
-                  </div>
-                  </div>
-                  <div class="pathway-col">
-                    <div class="pathway-box" id="Climatologist" >
-                    <h2 class="pathway-title" > Climatologist </h2>
-                    <img src ="../img/climatologist-avatar.png" class="pathway-img"/>
-                    <h4 class="pathway-description">Climatologists hate people
+                </div>
+              </div>
+              <div class="pathway-col">
+                <div class="pathway-box" id="Climatologist">
+                  <h2 class="pathway-title"> Climatologist </h2>
+                  <img src="../img/climatologist-avatar.png" class="pathway-img" />
+                  <h4 class="pathway-description">Climatologists hate people
                     like Josh because he thinks they don't matter. As a climatologist,
                     you will learn how to care for the planet unlike Josh. </h4>
-                    <h4 class="pathway-recommendation"> Recommended for: Enviromentalists,
+                  <h4 class="pathway-recommendation"> Recommended for: Enviromentalists,
                     Polar Bear Lovers </h4>
-                  </div>
-                  </div>
-
+                </div>
               </div>
-              <div class="button-container" >
+
+            </div>
+            <div class="button-container">
               <a href="#firstPage/0" class="btn btn-lg redirect-button"> BACK </a>
               <a class="btn btn-lg redirect-button" id="second-button"> NEXT </a>
             </div>
             <div class="error-box" id="error-2">
-            Please Select a Pathway!
-            </div>
-            <!-- </div> -->
-          </div>
-
-          <!-- Professional pathway selection -->
-          <!-- TODO -->
-
-
-
-        <!-- Third slide: Instructions -->
-        <div class="slide" id="slide3">
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-              <h1><small><bold>INSTRUCTIONS</bold></small></h1>
-              <br>
-              <p><small><small>When you <span class="choose-highlight">click finish</span>, your card will be registered to you with the preferences you provided. Each exhibit will have a touch-screen display where you can scan your card to see personalized information and navigate through fun activities.</small></small></p>
-              <!-- <br><p><small><small><small>(insert gif of someone scanning and swiping)</small></small></small></p> -->
-              <br><br>
-              <p><i>Expedition awaits!</i></p>
+              Please Select a Pathway!
             </div>
           </div>
-          <br><br>
-          <div class="row">
-            <!-- Submit button. To stop the whole page from refreshing after the button is pressed, move the button line outside of the </form> tag -->
-            <a href="#firstPage/1" class="btn btn-lg redirect-button"> BACK </a>
-            <button type="button" class="btn btn-lg redirect-button" onclick="update()" id="submit-button">FINISH</button>
+
+          <!-- Third slide: Instructions -->
+          <div class="slide" id="slide3">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <h1><small><bold>INSTRUCTIONS</bold></small></h1>
+                <br>
+                <p><small><small>When you <span class="choose-highlight">click finish</span>, your card will be registered to you with the preferences you provided. Each exhibit will have a touch-screen display where you can scan your card to see personalized information and navigate through fun activities.</small></small>
+                </p>
+                <!-- <br><p><small><small><small>(insert gif of someone scanning and swiping)</small></small></small></p> -->
+                <br><br>
+                <p><i>Expedition awaits!</i></p>
+              </div>
+            </div>
+            <br><br>
+            <div class="row">
+              <!-- Submit button. To stop the whole page from refreshing after the button is pressed, move the button line outside of the </form> tag -->
+              <a href="#firstPage/1" class="btn btn-lg redirect-button"> BACK </a>
+              <button type="button" class="btn btn-lg redirect-button" onclick="update()" id="submit-button">FINISH</button>
+            </div>
           </div>
-        </div>
 
-
-
-
-
-
-
-        </form>
-      </div> <!-- end section -->
-    </div> <!-- end full page scroller -->
+      </form>
+      </div>
+      <!-- end section -->
+    </div>
+    <!-- end full page scroller -->
 
 </body>
+
 </html>

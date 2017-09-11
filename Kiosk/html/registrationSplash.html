@@ -1,47 +1,37 @@
-<!-- Authors: Proud -->
+<!-- Authors: Proud, Josh -->
 <!DOCTYPE html>
-
-<style>
-footer {
-    position:absolute;
-    bottom:0;
-    width:99%;
-    text-align:center;
-    font-size: 20px;
-}
-</style>
 
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Registration Splash Screen</title>
-    <link rel="stylesheet" href="../css/registrationSplash.css">
+  <meta charset="UTF-8">
+  <title>Registration Splash Screen</title>
+  <link rel="stylesheet" href="../css/registrationSplash.css">
 
-    <!-- Blinking text footer -->
-    <script> function blinker() {
-        $('.blinking').fadeOut(500);
-        $('.blinking').fadeIn(500);
+  <!-- Blinking text footer -->
+  <script>
+    function blinker() {
+      $('.blinking').fadeOut(500);
+      $('.blinking').fadeIn(500);
     }
     setInterval(blinker, 1500);
-    </script>
-    <style>
+  </script>
+  <style>
     .blinking {
-      color:gold;
-      font-family:Arial;
+      color: gold;
+      font-family: Arial;
     }
-    </style>
+  </style>
 </head>
 
 <body>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script src="../js/registrationSplash.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src="../js/registrationSplash.js"></script>
 
-    <!-- Bottom blinking text -->
-    <footer>
-        <h1 class="blinking">Please scan your card to begin</h1>
-    </footer>
+  <!-- Bottom blinking text -->
+  <footer>
+    <h1 class="blinking">Please scan your card to begin</h1>
+  </footer>
 
 </body>
 

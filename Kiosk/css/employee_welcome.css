@@ -1,77 +1,75 @@
 h1 {
-    text-align: center;
-    color: #3298d8;
-    padding: 2em;
-    font-family: 'Hind', sans-serif;
+  text-align: center;
+  color: #3298d8;
+  padding: 2em;
+  font-family: 'Hind', sans-serif;
 }
 
 body {
-    /*background-image: url("../img/Birch_Information_Test.png");*/
-    background-image: url("../img/Birch Top Corners.png");
-    background-image: url("../img/Birch Four Corners.png");
-    /*background-image: url("../img/whole-back.png");*/
-    background-repeat: no-repeat;
-    background-size: 100%;
+  background-image: url("../img/Birch Top Corners.png");
+  background-image: url("../img/Birch Four Corners.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 #submit {
-    background-color: white;
-    font-size: 1em;
-    font-weight: 800;
-    border-width: 3px;
-    border-color: #5f709b;
-    color: #3298d8;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: 50px;
-    margin-bottom:50px;
-    font-family: 'Hind', sans-serif;
+  background-color: white;
+  font-size: 1em;
+  font-weight: 800;
+  border-width: 3px;
+  border-color: #5f709b;
+  color: #3298d8;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: 'Hind', sans-serif;
 }
 
 label {
-    text-align: right;
-    padding: 5px;
-    color: grey;
-    font-family: 'Hind', sans-serif;
+  text-align: right;
+  padding: 5px;
+  color: grey;
+  font-family: 'Hind', sans-serif;
 }
 
 .avatar {
-    text-align: center;
-    vertical-align: middle;
-    font-family: 'Hind', sans-serif;
-    color: dimgray;
-}
-#welcome_message{
-    margin-top: 20%;
-    margin-left: 25%;
-    margin-right: 15%;
-    font-size: 30px;
-    font-size: 6vw;
-    color: #3298d8;
-    font-family: Didot;
-    text-align: center;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Hind', sans-serif;
+  color: dimgray;
 }
 
-#navbar li{
+#welcome_message {
+  margin-top: 20%;
+  margin-left: 25%;
+  margin-right: 15%;
+  font-size: 30px;
+  font-size: 6vw;
+  color: #3298d8;
+  font-family: Didot;
+  text-align: center;
 }
 
-#navbar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: lightskyblue;
-    position: fixed;
-    top: 0;
-    width: 100%;
+#navbar li {}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightskyblue;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
+
 #navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 5px 20px;
-    text-decoration: none;
-    font-size: small;
-    float: left;
-
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 20px;
+  text-decoration: none;
+  font-size: small;
+  float: left;
 }
