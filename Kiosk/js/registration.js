@@ -19,6 +19,13 @@ setRegistrations( database );
 console.log(rfidText);
 
 
+function checkEmail() {
+  var emailText = document.getElementsByClassName("emailInput")[0].value;
+  var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  var result = reg.test(emailText);
+  return result;
+}
+
 /********** avatar field **********/
 function setAvatar(avatarName) {
     avatarText = avatarName;
@@ -186,29 +193,32 @@ $(".error-box").hide();
   */
   $("#first-button").click(()=>{
     if($(".nameInput").val()==""){
-      console.log("hey");
-            $("#error-1").show();
+        $("#error-1").show();
       setTimeout(()=>{
         $("#error-1").hide();
       }, 1200);
-
-
+    } else if(!checkEmail()){
+        $("#error-2").show();
+      setTimeout(()=>{
+        $("#error-2").hide();
+      }, 1200);
+      } else {
+      window.location.href="#firstPage/1";
     }
-    else window.location.href="#firstPage/1"
   });
   $("#second-button").click(()=>{
     if(!selected){
 
-      $("#error-2").show();
+      $("#error-3").show();
 
       setTimeout(()=>{
-        $("#error-2").hide();
+        $("#error-3").hide();
         //$("#second-button").removeClass("selected");
       }, 1200);
 
-
+    } else {
+      window.location.href="#firstPage/2";
     }
-    else window.location.href="#firstPage/2";
   });
 
 
