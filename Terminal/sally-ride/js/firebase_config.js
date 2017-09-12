@@ -1,3 +1,10 @@
+/*
+* File Name: firebase_config.js
+* Author(s): Matthew Rice
+* Description: Contains the firebase config key and initializes the db
+* Date: 30 August 2017
+*/
+
 var config = {
   apiKey: "AIzaSyAJi4sI7b5M9IkhEfLvn9OJ7TbRkNv-RE8",
   authDomain: "birchaquarium-fd036.firebaseapp.com",

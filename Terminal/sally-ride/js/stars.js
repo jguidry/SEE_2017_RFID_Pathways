@@ -2,6 +2,7 @@
 * File Name: stars.js
 * Description: Adds functionality for the rating stars
 * Source: https://gielberkers.com/how-to-create-a-neat-star-rating-with-css-and-javascript/
+* Functionality discovered online at the link above ^
 */
 
 
@@ -31,12 +32,14 @@ StarRating.prototype.init = function() {
  */
 StarRating.prototype.enterStarListener = function(e) {
   this.fillStarsUpToElement(e.target);
+
 };
 
 /**
  * This method is fired when the user leaves the #rating element, effectively removing all hover states.
  */
 StarRating.prototype.leaveStarListener = function() {
+
   this.fillStarsUpToElement(null);
 };
 
@@ -53,6 +56,11 @@ StarRating.prototype.fillStarsUpToElement = function(el) {
       this.stars[i].classList.add('hover');
     }
   }
+  $("#totalContainer").bind("touchstart", ()=>{
+    console.log("HI");
+    return false;
+  });
+
 };
 
 // Run:
