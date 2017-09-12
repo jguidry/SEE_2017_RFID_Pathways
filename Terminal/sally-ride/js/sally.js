@@ -1,30 +1,40 @@
+ //Used to check the image file extensions.
+var extension = ['png','jpeg','jpg','bmp','PNG','JPEG','JPG','BMP'];
+
+//Used to check and compare of the video file extensions that should be pulled
+var videoExtension = ['mp4','gif','mov','avi','amv','wmv','MP4','MOV','AVI','AMV','WMV','GIF'];
+
+var defaultName={
+};
+
 function populateContent(){
+    
+    var theKey = "sallyride-default-middle";
+    var ref = firebase.database().ref("Terminals/T_2/Content");
+    ref.once("value").then(function(snapshot) {
+        var ext = snapshot.child(theKey).val();
+        var bool = extension.indexOf(ext);
+        if(bool != -1){
+            if(theKey.search("middle") != -1){
+                var str = theKey.concat(".")
+                str = str.concat(ext);
+                console.log("default extension is:"+str);
+                defaultName.pic = str;
+            }
+        }
+    }).then((error) =>{
+        var name = "pic";
+        var key = defaultName[name];
+        var folderRef = firebase.storage().ref().child( "T_2/" );
+        var contentRef = folderRef.child(key);
 
-  //Get content name from local storage
+        //Dynamically set the content
+        contentRef.getDownloadURL().then(function( url ){
+            document.getElementById(name).src = url;
+        })
 
-  //var content = localStorage.getItem( "contentName" );
+    });
 
-  //Get reference to correct content in FB Storage
-
-  var folderRef = firebase.storage().ref().child( "T_2/" );
-  var contentRef = folderRef.child( "sally-ride-default.jpg" );
-
-  //alert( "Content: " + content );
-  //alert( "ContenetRef:: " + contentRef );
-
-  //Dynamically set the content
-  contentRef.getDownloadURL().then( function( url ){
-
-    //Store this url into local store for the html page to pick up and set src
-    //localStorage.setItem( "downloadURL", url );
-    //alert( "WOOHOO" );
-    //alert( "Placed into localStorage: " + localStorage.getItem("downloadURL") );
-    document.getElementById("pic").src = url;
-
-  }).catch( function( error ){
-    //Hanlde errors TODO
-    console.log( "Content download error..." + JSON.stringify( error ) );
-  });
 
 }
 
