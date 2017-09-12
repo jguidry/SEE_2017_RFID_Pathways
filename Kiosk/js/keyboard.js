@@ -490,7 +490,7 @@ $(document).ready(()=>{
 
     // Set the max number of characters allowed in the input, setting it to
     // false disables this option
-    maxLength : 20,
+    maxLength : 50,
 
     // allow inserting characters @ caret when maxLength is set
     maxInsert : true,
