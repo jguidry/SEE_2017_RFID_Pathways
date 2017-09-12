@@ -229,36 +229,32 @@ function getVideoTop(){
 }
 
 /*
-* Function Name: getVideoTop
-* This function handles populating the top most page with
-* a video that is pulled from firebase storage.
+* Function Name: getBackground
+* This function handles populating the background image.
 */
 function getBackground(){
     var theKey = firebaseKeys[5];
-    var ref = firebase.database().ref("Terminals/T_2/Content");
+    var ref = firebase.database().ref("Terminals/T_1/Content");
     ref.once("value").then(function(snapshot) {
         var ext = snapshot.child(theKey).val();
-        console.log("extension is:" + ext);
-        var bool = videoExtension.indexOf(ext);
+        var bool = extension.indexOf(ext);
         if(bool != -1){
-            if(theKey.search("top") != -1){
-                console.log(theKey)
+            if(theKey.search("background") != -1){
                 var str = theKey.concat(".")
                 str = str.concat(ext);
-                videoTop.top = str;
-                console.log("stf is:" + str);
+                names.background = str;
             }
         }
     }).then((error) =>{
         var name = "background";
         var key = names[name];
-        console.log(key);
-        var folderRef = firebase.storage().ref().child( "T_2/" );
+        var folderRef = firebase.storage().ref().child( "T_1/" );
         var contentRef = folderRef.child(key);
 
         //Dynamically set the content
+        console.log("It Works")
         contentRef.getDownloadURL().then(function( url ){
-            document.getElementById(name).src = url;
+            document.getElementById(name).background = url;
         })
 
     })
@@ -290,7 +286,7 @@ function populateContent(){
      getLeft();
      getVideoTop();
      getName();
-     //getBackground();
+     getBackground();
 
     $(document).ready(function(){
       $(document.body).on("touchstart", ()=>{
