@@ -7,24 +7,24 @@
 */
 
 var questions = [{
-	"question":"What is Albedo a measure of?",
-	"option1": "How hot the Earth is.",
-	"option2": "How fast ice is melting in the Arctic.",
-	"option3": "The light reflected upon the Earth's surface.",
-	"option4": "The speed of light.",
+	"question":"What is the purpose of the Sally Ride's anti-fouling paint?",
+	"option1": "So the ship doesn't smell.",
+	"option2": "In order to keep organisms from attaching to the ship.",
+	"option3": "In order to make the ship look visually appealing.",
+	"option4": "In order to prevent the ship from leaking.",
+	"answer": "2"
+}, {
+	"question": "Who was Sally Ride?",
+	"option1": "A marine biologist.",
+	"option2": "The person who designed Sally Ride.",
+	"option3": "A famous astronaut.",
+	"option4": "A world renowned climatologist.",
 	"answer": "3"
 }, {
-	"question": "Why are climate engineers proposing to release aerosols into the atmosphere.?",
-	"option1": "To find a way reduce global warming.",
-	"option2": "To find a way to increase global warming.",
-	"option3": "To find a way to add more water to the ocean.",
-	"option4": "To find a way to obtain more water.",
-	"answer": "1"
-}, {
-	"question": "How can a sunshield help with reducing global warming?",
-	"option1": "It can cancel out the warming effect of the sun.",
-	"option2": "It can increase the warming effect of the sun.",
-    "option3": "It can be used to harness solar power.",
-	"option4": "It can be used to reduce incoming light so it isn't too bright when the sun is out.",
+	"question": "What color is the ship?",
+	"option1": "Red, white, and blue.",
+	"option2": "White and black.",
+    "option3": "Grey and Blue.",
+	"option4": "Yellow and White.",
 	"answer": "1"
 }];
