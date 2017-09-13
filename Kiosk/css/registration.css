@@ -135,17 +135,28 @@ flex: 1;
 
 .ui-keyboard-accept {
   width: 4em!important;
+  height: 50%!important;
+
 }
 .ui-keyboard-cancel {
   width: 4em!important;
+  height: 50%!important;
+
 }
 .ui-keyboard-space {
   width: 20em!important;
+  height: 50%!important;
+
 }
 
 .ui-keyboard-button {
     width: 3em;
+    height: 50%!important;
+    
 }
 .ui-keyboard-text {
   font-size: 13px;
+}
+.ui-keyboard  {
+  height: 50%!important;
 }
