@@ -3,22 +3,6 @@ Filename: pathwayE.html
 Authors: Josh Duhay, Matthew Rice, Wyatt Guidry, Bryle Castro
 Description: Pathway page for engineer. Utilizes fullPage.js for scroller functionality.
 -->
-
-<!-- MAIN BACKGROUND IMAGE -->
-<style>
-/* TODO uncomment when firebase pull works */
-body id="background"{
-  background-image: url("");
-  background-size: cover;
-}
-body {
-  background-image:url("images/terminal-background.jpg");
-  background-size:cover;
-}
-button {
-  outline: none!important;
-}
-</style>
 <!DOCTYPE html>
 <html id="page1">
 
@@ -81,7 +65,7 @@ button {
     </script>
 
 </head>
-<body onload="attachListeners('T_2')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
+<body id="background"onload="attachListeners('T_2')" id="container" onoffline="offlineDefault();" ononline="onlineDefault();">
 
 
 
@@ -167,7 +151,7 @@ button {
                <!--<a href="./pathwayB.html">Biologist Pathway</a>
                <a href="#">Climatologist Pathway</a>-->
                <div onclick="calcTime( false, 'T_2', 'pathwayB.html')" class="pathway-dropdown">Biologist Pathway</div><br>
-               <div onclick="calcTime( false, 'T_2', 'pathwayC.html' )" class="pathway-dropdown">Climatologist Pathway</div>
+               <div onclick="calcTime( false, 'T_2', 'pathwayE.html' )" class="pathway-dropdown">Engineer Pathway</div>
              </div>
             </div>
             <!-- Button to allow user to end experience early and return to default -->

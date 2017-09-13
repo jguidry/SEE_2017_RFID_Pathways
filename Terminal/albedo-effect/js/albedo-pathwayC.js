@@ -18,12 +18,13 @@ var firebaseKeys = [
      "albedo-climatologist-left",
      "albedo-climatologist-top",
      "albedo-climatologist-bottom",
-     "albedo-climatologist-middle"
+     "albedo-climatologist-middle",
+     "albedo-climatologist-background"
 ];
 
 //The different image names that we will look for in firebase storage.
 var names={
-    background: "albedo-climatologist-background.png"
+    
 };
 
 
@@ -249,6 +250,39 @@ function getName() {
 }
 
 /*
+* Function Name: getBackground
+* This function handles populating the background image.
+*/
+function getBackground(){
+    var theKey = firebaseKeys[5];
+    var ref = firebase.database().ref("Terminals/T_1/Content");
+    ref.once("value").then(function(snapshot) {
+        var ext = snapshot.child(theKey).val();
+        var bool = extension.indexOf(ext);
+        if(bool != -1){
+            if(theKey.search("background") != -1){
+                var str = theKey.concat(".")
+                str = str.concat(ext);
+                names.background = str;
+            }
+        }
+    }).then((error) =>{
+        var name = "background";
+        var key = names[name];
+        var folderRef = firebase.storage().ref().child( "T_1/" );
+        var contentRef = folderRef.child(key);
+
+        //Dynamically set the content
+        console.log("It Works")
+        contentRef.getDownloadURL().then(function( url ){
+            document.getElementById(name).background = url;
+        })
+
+    })
+
+}
+
+/*
 * Function Name: populateContent
 * This function calls all other functions that handle the
 * population of content.
@@ -261,25 +295,7 @@ function populateContent(){
      getLeft();
      getVideoTop();
      getName();
-
-    /*
-    var name = "background";
-    var key=names[name];
-        var folderRef = firebase.storage().ref().child( "T_1/" );
-        var contentRef = folderRef.child("albedo-climatologist-background.png");
-
-        contentRef.getDownloadURL().then(function( url ){
-        document.getElementById(name).src = url;
-
-          }).catch( function( error ){
-            //Hanlde errors TODO
-            console.log( "Content download error..." + JSON.stringify( error ) );
-          });
-<<<<<<< HEAD
-    });*/
-
-
-
+     getBackground();
 
     $(document).ready(function(){
       $(document.body).on("touchstart", ()=>{

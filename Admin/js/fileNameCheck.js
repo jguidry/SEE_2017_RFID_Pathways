@@ -9,8 +9,8 @@ function checkFileName(fileName, extensionName) {
 
   //File name elements to check against
   var exhibitName = ['albedo', 'sallyride'];
-  var pathways = ['engineer', 'biologist', 'climatologist'];
-  var location = ['top', 'right', 'left', 'bottom', 'middle'];
+  var pathways = ['engineer', 'biologist', 'climatologist','default'];
+  var location = ['top', 'right', 'left', 'bottom', 'middle','background'];
   var extension = [
     'png',
     'svg',

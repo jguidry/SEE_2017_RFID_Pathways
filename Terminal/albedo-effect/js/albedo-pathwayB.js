@@ -18,12 +18,13 @@ var firebaseKeys = [
      "albedo-biologist-left",
      "albedo-biologist-top",
      "albedo-biologist-bottom",
-     "albedo-biologist-middle"
+     "albedo-biologist-middle",
+     "albedo-biologist-background"
 ];
 
 //The different image names that we will look for in firebase storage.
 var names={
-    background: "albedo-biologist-background.png"
+   
 };
 
 
@@ -256,6 +257,40 @@ function getVideoTop(){
 
   }
 
+
+/*
+* Function Name: getBackground
+* This function handles populating the background image.
+*/
+function getBackground(){
+    var theKey = firebaseKeys[5];
+    var ref = firebase.database().ref("Terminals/T_1/Content");
+    ref.once("value").then(function(snapshot) {
+        var ext = snapshot.child(theKey).val();
+        var bool = extension.indexOf(ext);
+        if(bool != -1){
+            if(theKey.search("background") != -1){
+                var str = theKey.concat(".")
+                str = str.concat(ext);
+                names.background = str;
+            }
+        }
+    }).then((error) =>{
+        var name = "background";
+        var key = names[name];
+        var folderRef = firebase.storage().ref().child( "T_1/" );
+        var contentRef = folderRef.child(key);
+
+        //Dynamically set the content
+        console.log("It Works")
+        contentRef.getDownloadURL().then(function( url ){
+            document.getElementById(name).background = url;
+        })
+
+    })
+
+}
+
 /*
 * Function Name: populateContent
 * This function calls all other functions that handle the
@@ -269,7 +304,8 @@ function populateContent(){
      getLeft();
      getVideoTop();
      getName();
-
+     getBackground();        
+    
     $(document).ready(function(){
       $(document.body).on("touchstart", ()=>{
         $("#swipe-box").hide();
