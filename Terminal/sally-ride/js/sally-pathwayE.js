@@ -234,7 +234,7 @@ function getVideoTop(){
 */
 function getBackground(){
     var theKey = firebaseKeys[5];
-    var ref = firebase.database().ref("Terminals/T_1/Content");
+    var ref = firebase.database().ref("Terminals/T_2/Content");
     ref.once("value").then(function(snapshot) {
         var ext = snapshot.child(theKey).val();
         var bool = extension.indexOf(ext);
@@ -248,7 +248,7 @@ function getBackground(){
     }).then((error) =>{
         var name = "background";
         var key = names[name];
-        var folderRef = firebase.storage().ref().child( "T_1/" );
+        var folderRef = firebase.storage().ref().child( "T_2/" );
         var contentRef = folderRef.child(key);
 
         //Dynamically set the content
