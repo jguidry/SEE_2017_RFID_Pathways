@@ -20,10 +20,11 @@ console.log(rfidText);
 
 
 function checkEmail() {
-  var emailText = document.getElementsByClassName("emailInput")[0].value;
-  var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  var result = reg.test(emailText);
-  return result;
+  // var emailText = document.getElementsByClassName("emailInput")[0].value;
+  // var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  // var result = reg.test(emailText);
+  // return result;
+  return true;
 }
 
 /********** avatar field **********/
