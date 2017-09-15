@@ -1,4 +1,9 @@
-/* Authors: Proud, Joyce, Bryon, Brianna */
+/*
+* File Name: registration.js
+* Author(s): James Guidry, Matt Rice
+* Date: 1 September 2017
+* Description: Has the source functions used during the registration process
+*/
 
 
 /********** variables used throughout entire file **********/
@@ -12,12 +17,14 @@ var rfidText = window.localStorage.getItem('userID');
 // Get a reference to the database service
 var database = firebase.database();
 
-//Update number of registered users
-setRegistrations( database );
-
 //console logs
 console.log(rfidText);
 
+/*
+* Function Name: checkEmail
+* Description: Uses a regular expression to vheck that an email entered is of
+*   valid format
+*/
 
 function checkEmail() {
   var emailText = document.getElementsByClassName("emailInput")[0].value;
@@ -84,7 +91,7 @@ function update() {
     writeToFirebase(rfidText, languageText, avatarText, nameText,
         ageGroupText, pathwayChoice, emailText );
 
-        redirect();
+
   // window.location.replace = "registrationThanks.html";
 
     // For debugging: Set the paragraph element with the id "testTextDisplay" to contain the text that was inputted

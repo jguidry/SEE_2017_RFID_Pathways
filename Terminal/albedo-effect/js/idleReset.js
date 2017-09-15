@@ -30,7 +30,6 @@ function attachListeners( terminalNum ){
   window.addEventListener( "scroll", function(){ idleReset( terminalNum ); });
   window.addEventListener( "drag", function(){ idleReset( terminalNum ); });
   window.addEventListener( "dragend", function(){ idleReset( terminalNum ); });
-  window.addEventListener( "play", function(){ idleReset( terminalNum ); });
   window.addEventListener( "touchend", function(){ idleReset( terminalNum ); });
   window.addEventListener( "touchmove", function(){ idleReset( terminalNum ); });
   window.addEventListener( "touchstart", function(){ idleReset( terminalNum ); });
@@ -39,6 +38,20 @@ function attachListeners( terminalNum ){
   idleBegin( terminalNum );
 
 }
+
+function videoListeners( terminalNum ) {
+
+  console.log("video listeners attached...");
+  var video = document.getElementById('videoTop');
+
+  //Video listeners
+  video.addEventListener( "pause", function(){ idleReset( terminalNum ); });
+  video.addEventListener( "playing", function(){ checkVideo( terminalNum, video ); });
+
+
+
+}
+
 
 /*
 * Function Name: idleBegin
@@ -71,8 +84,34 @@ function idleBegin( terminalNum ){
 function idleReset( terminalNum ){
 
   //Reset the timeout
+  console.log('reset');
   clearTimeout( timeout );
 
   idleBegin( terminalNum );
+
+}
+
+/*
+* Function Name: checkVideo
+* Description: Stops / starts the idle timer based on the status of the video so
+*   that the user won't be reset while watching.
+* Parameters:
+*   terminalNum: The active terminal
+*   video: Video element to check
+*/
+
+function checkVideo( terminalNum, video ){
+
+  console.log( "checking videos...");
+
+  //The video is playing --> stop the timer
+  if( (video.currentTime != 0) || !(video.paused) || !(video.ended) ){
+    console.log( 'playing' );
+    clearTimeout( timeout );
+  }
+  else{ //The video is not playing --> start the timer
+    console.log('video stopped');
+    idleBegin(terminalNum);
+  }
 
 }

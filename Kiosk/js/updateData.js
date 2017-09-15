@@ -39,6 +39,9 @@ function setRegistrations( database ){
 
 function setPathwayReg( database, pathwayChar ){
 
+  //Update total registrations
+  setRegistrations( database );
+
   //Refernece to the correct pathway chosen
   var pathwayRef = database.ref().child( 'User_Data' ).child( 'Pathway' +
     pathwayChar).child( "Registers" );

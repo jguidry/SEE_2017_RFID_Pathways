@@ -89,7 +89,7 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
       <!-- Main pathway image gets pulled from firebase -->
       <img id="top" src="" style="height:90%;width:100%;">
       <!-- Video -->
-      <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls controlsList="nodownload">
+      <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls controlsList="nodownload" oncanplay="videoListeners('T_1')">
         <source src="" type="video/mp4">
       </video>
     </div>
@@ -188,9 +188,7 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
             <!-- Main pathway image gets pulled from firebase -->
             <img id="middle" src="" style="height:100%;width:35%; z-index: -999;">
             <!-- Link JavaScript files -->
-            <script src="js/idleReset.js"></script>
-            <script src="js/pathway_redirect.js"></script>
-            <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
+
         </div>
 
 
@@ -269,6 +267,10 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
 
       <script src="js/rate.js"></script>
       <script src="js/stars.js"></script>
+      <script src="js/idleReset.js"></script>
+      <script src="js/pathway_redirect.js"></script>
+      <script src="js/pageDefault.js"></script>   <!-- offline redundancy -->
+
       <script>populateContent()</script>
     </div>
 

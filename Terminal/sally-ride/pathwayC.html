@@ -86,7 +86,7 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
       <!-- Main pathway image gets pulled from firebase -->
       <!-- <img id="top" src="" style="height:100%;width:100%;"> -->
       <!-- Video -->
-      <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls controlsList="nodownload">
+      <video id="videoTop" width="75%" height="75%" style="position:absolute;top:10%;;right:0;left:0;margin:0 auto;" controls controlsList="nodownload" oncanplay="videoListeners('T_2')">
         <source src="" type="video/mp4">
       </video>
     </div>
@@ -108,6 +108,30 @@ Description: Pathway page for engineer. Utilizes fullPage.js for scroller functi
 
         <!-- CENTER SLIDE -->
         <div class="slide active" id="slide2">
+
+          <!-- Rating system -->
+          <div id="totalContainer">
+            <button type="button" id="toggle" href="#" onclick="rateMe()">Rate this Exhibit</button>
+              <div class=" box" id="mainSlideBox">
+                <div id="closeBox">
+                  <p onclick="rateMe()">X</p>
+                </div>
+                <p id="boxText">
+                  Rate your Experience
+                </p>
+                <div >
+                  <p id="Thankyou">Thank you!</p>
+                </div>
+                <div id="rating">
+                  <span onclick="rate( 1, 'T_2' )">★</span>
+                  <span onclick="rate( 2, 'T_2' )">★</span>
+                  <span onclick="rate( 3, 'T_2' )">★</span>
+                  <span onclick="rate( 4, 'T_2' )">★</span>
+                  <span onclick="rate( 5, 'T_2' )">★</span>
+                </div>
+              </div>
+          </div>
+
 
             <!-- Transparent instruction box that disappears -->
             <a>
